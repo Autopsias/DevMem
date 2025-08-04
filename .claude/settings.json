@@ -1,0 +1,39 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/ricardocarvalho/DeveloperFolder/DevMem/scripts/hooks/bash_security.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/ricardocarvalho/DeveloperFolder/DevMem/scripts/hooks/code_quality_enforcer.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/ricardocarvalho/DeveloperFolder/DevMem/scripts/hooks/notification.sh"
+          },
+          {
+            "type": "command",
+            "command": "/Users/ricardocarvalho/DeveloperFolder/DevMem/scripts/hooks/code_quality_enforcer.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
