@@ -83,14 +83,79 @@ if "security" in root_cause and "architecture" in root_cause: domains_detected.e
 if len(domains_detected) >= 2: spawn_parallel_agents(domains_detected)
 ```
 
-**Step 2: Parallel Domain Analysis Execution**
+**Step 2: True Parallel Task Execution**
 
-When Five Whys analysis reveals multi-domain root causes, immediately trigger Claude Code's parallel execution:
+When Five Whys analysis reveals multi-domain root causes, execute actual Task() calls for Claude Code's native parallel execution:
 
 **Multi-Domain Root Cause Detection Language**:
 ```
 "Root cause analysis reveals [X] interconnected domains requiring parallel investigation. 
 I'll coordinate comprehensive analysis using [N] tasks in parallel: [domain1], [domain2], [domain3]."
+```
+
+**True Parallel Execution Patterns**:
+
+*Testing + Async + Performance Root Cause*:
+```
+Task(
+    subagent_type="test-specialist",
+    description="Testing architecture analysis",
+    prompt="Analyze testing architecture problems, fix async pattern issues, resolve mock configuration problems, and optimize testing strategy for the identified root cause."
+)
+
+Task(
+    subagent_type="async-pattern-fixer", 
+    description="Async pattern resolution",
+    prompt="Fix async/await pattern issues, resolve AsyncMock configurations, optimize async architecture patterns, and eliminate async-related root causes."
+)
+
+Task(
+    subagent_type="performance-optimizer",
+    description="Performance optimization analysis", 
+    prompt="Identify performance bottlenecks contributing to root cause, optimize system performance, analyze resource utilization, and eliminate performance-related systemic issues."
+)
+```
+
+*Security + Architecture + Configuration Root Cause*:
+```
+Task(
+    subagent_type="security-auditor",
+    description="Security vulnerability analysis",
+    prompt="Analyze security vulnerabilities contributing to root cause, assess threat vectors, validate security architecture, and eliminate security-related systemic issues."
+)
+
+Task(
+    subagent_type="pattern-analyzer",
+    description="Architectural pattern review",
+    prompt="Review architectural patterns contributing to root cause, identify design inconsistencies, validate architectural compliance, and resolve architectural systemic issues."
+)
+
+Task(
+    subagent_type="configuration-validator",
+    description="Configuration validation",
+    prompt="Validate configuration issues contributing to root cause, identify configuration drift, resolve environment inconsistencies, and eliminate configuration-related systemic problems."
+)
+```
+
+*Infrastructure + Performance + Environment Root Cause*:
+```
+Task(
+    subagent_type="infrastructure-engineer",
+    description="Infrastructure optimization",
+    prompt="Analyze infrastructure issues contributing to root cause, optimize container orchestration, resolve service networking problems, and eliminate infrastructure-related systemic issues."
+)
+
+Task(
+    subagent_type="performance-optimizer",
+    description="Performance tuning analysis",
+    prompt="Identify performance issues in infrastructure contributing to root cause, optimize resource allocation, analyze scaling bottlenecks, and resolve performance systemic problems."
+)
+
+Task(
+    subagent_type="environment-synchronizer", 
+    description="Environment coordination",
+    prompt="Resolve environment synchronization issues contributing to root cause, validate cross-environment consistency, fix deployment problems, and eliminate environment-related systemic issues."
+)
 ```
 
 **Proven Parallel Execution Patterns**:

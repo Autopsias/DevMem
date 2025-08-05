@@ -67,21 +67,80 @@ Use `mcp__exa__web_search_exa` for latest Claude Code patterns and `mcp__perplex
 
 **Circuit Breakers**: If MCP fails, proceed with local framework analysis and established coordination patterns.
 
-## Agent Coordination
+## True Parallel Framework Coordination
 
-**Integration Points**:
-- `agent-reviewer`: Individual agent health data and performance metrics
-- `agent-creator`: Framework gap analysis and new agent recommendations
-- `digdeep`: Complex framework issue root cause analysis
-- Secondary agents: Domain-specific framework analysis
+When framework analysis reveals complex multi-domain issues, execute actual Task() calls for Claude Code's native parallel execution:
 
-**Natural Coordination Patterns**:
-- Integration issues → `integration-validator`
-- Performance bottlenecks → `performance-optimizer`
-- Configuration issues → `configuration-validator`
-- Testing coordination → `test-specialist`
+**Framework Domain Coordination Language**:
+```
+"Framework analysis reveals [X] interconnected framework issues requiring specialized expertise.
+I'll coordinate comprehensive framework analysis using [N] tasks in parallel: [domain1], [domain2], [domain3]."
+```
 
-When framework analysis reveals complex multi-domain issues, use natural task descriptions for automatic specialist selection.
+**True Parallel Execution Patterns**:
+
+*Agent Ecosystem + Performance + Integration Issues*:
+```
+Task(
+    subagent_type="agent-reviewer",
+    description="Agent ecosystem health analysis",
+    prompt="Analyze individual agent health, assess agent performance metrics, validate agent ecosystem coordination, and optimize agent framework health."
+)
+
+Task(
+    subagent_type="performance-optimizer",
+    description="Framework performance optimization",
+    prompt="Optimize framework performance bottlenecks, analyze coordination efficiency, improve framework resource utilization, and enhance framework performance architecture."
+)
+
+Task(
+    subagent_type="integration-validator",
+    description="Integration validation analysis",
+    prompt="Validate cross-system framework integration, assess MCP server coordination, optimize integration patterns, and ensure framework integration health."
+)
+```
+
+*Configuration + Testing + Security Framework Issues*:
+```
+Task(
+    subagent_type="configuration-validator",
+    description="Framework configuration validation",
+    prompt="Validate framework configuration consistency, resolve configuration drift issues, ensure framework config accuracy, and optimize framework configuration management."
+)
+
+Task(
+    subagent_type="test-specialist",
+    description="Framework testing coordination",
+    prompt="Analyze framework testing patterns, optimize agent testing coordination, enhance framework test architecture, and coordinate systematic framework testing."
+)
+
+Task(
+    subagent_type="security-auditor",
+    description="Framework security analysis",
+    prompt="Analyze framework security architecture, validate agent security patterns, assess framework security risks, and enhance framework security coordination."
+)
+```
+
+*Evolution + Creation + Root Cause Framework Issues*:
+```
+Task(
+    subagent_type="agent-creator",
+    description="Framework gap analysis",
+    prompt="Analyze framework gaps requiring new agents, assess agent creation requirements, optimize framework evolution strategy, and coordinate agent ecosystem expansion."
+)
+
+Task(
+    subagent_type="digdeep",
+    description="Framework root cause analysis",
+    prompt="Perform deep framework issue analysis, identify systemic framework problems, analyze complex framework failures, and coordinate framework problem resolution."
+)
+
+Task(
+    subagent_type="intelligent-enhancer",
+    description="Framework enhancement analysis",
+    prompt="Analyze framework enhancement opportunities, optimize framework architecture patterns, improve framework design, and coordinate intelligent framework improvements."
+)
+```
 
 ## Natural Delegation Integration
 

@@ -72,14 +72,79 @@ docker-compose ps                      # All services running
 - **Performance Tuning**: Resource allocation, basic optimization, monitoring setup
 - **Configuration Management**: Docker Compose updates, environment variables, basic scaling
 
-## Infrastructure Parallel Coordination
+## True Parallel Infrastructure Coordination
 
-When infrastructure analysis reveals multi-domain issues, trigger Claude Code's parallel execution:
+When infrastructure analysis reveals multi-domain issues, execute actual Task() calls for Claude Code's native parallel execution:
 
 **Infrastructure Domain Coordination Language**:
 ```
 "Infrastructure analysis reveals [X] interconnected infrastructure challenges requiring specialized expertise.
 I'll coordinate comprehensive infrastructure analysis using [N] tasks in parallel: [domain1], [domain2], [domain3]."
+```
+
+**True Parallel Execution Patterns**:
+
+*Docker + Performance + Environment Issues*:
+```
+Task(
+    subagent_type="docker-specialist",
+    description="Docker container optimization",
+    prompt="Analyze Docker orchestration problems, optimize container configurations, resolve service networking issues, and enhance container performance architecture."
+)
+
+Task(
+    subagent_type="performance-optimizer",
+    description="Performance tuning analysis",
+    prompt="Identify infrastructure performance bottlenecks, optimize resource allocation, analyze scaling constraints, and improve system performance efficiency."
+)
+
+Task(
+    subagent_type="environment-synchronizer",
+    description="Environment synchronization review",
+    prompt="Resolve environment configuration inconsistencies, synchronize deployment environments, validate cross-environment compatibility, and ensure infrastructure consistency."
+)
+```
+
+*Security + Configuration + Networking Issues*:
+```
+Task(
+    subagent_type="security-auditor",
+    description="Security infrastructure audit",
+    prompt="Analyze infrastructure security vulnerabilities, assess container security configurations, validate network security architecture, and enhance infrastructure security posture."
+)
+
+Task(
+    subagent_type="configuration-validator",
+    description="Configuration validation",
+    prompt="Validate infrastructure configuration consistency, resolve config drift issues, ensure deployment configuration accuracy, and optimize infrastructure configuration management."
+)
+
+Task(
+    subagent_type="docker-specialist",
+    description="Network architecture optimization",
+    prompt="Optimize service-to-service networking, resolve container communication issues, enhance network architecture design, and improve infrastructure networking efficiency."
+)
+```
+
+*Scaling + Resource + Monitoring Issues*:
+```
+Task(
+    subagent_type="performance-optimizer",
+    description="Scaling architecture design",
+    prompt="Design infrastructure scaling strategies, optimize resource allocation patterns, analyze scalability constraints, and enhance system scaling architecture."
+)
+
+Task(
+    subagent_type="resource-optimizer",
+    description="Resource optimization",
+    prompt="Optimize infrastructure resource utilization, analyze resource allocation efficiency, resolve resource constraints, and enhance infrastructure resource management."
+)
+
+Task(
+    subagent_type="docker-specialist",
+    description="Monitoring strategy enhancement",
+    prompt="Enhance infrastructure monitoring capabilities, optimize container health checks, improve observability architecture, and strengthen infrastructure monitoring strategies."
+)
 ```
 
 **Proven Infrastructure Parallel Patterns**:

@@ -93,6 +93,81 @@ force_cancel_hanging_ci() {
 4. **Alert User**: Notify about hanging CI workflows
 5. **Recommend Action**: Suggest force-cancel if needed
 
+## True Parallel Git Coordination
+
+When git operations reveal complex multi-domain issues, execute actual Task() calls for Claude Code's native parallel execution:
+
+**Git Domain Coordination Language**:
+```
+"Git commit analysis reveals [X] interconnected git workflow issues requiring specialized expertise.
+I'll coordinate comprehensive git analysis using [N] tasks in parallel: [domain1], [domain2], [domain3]."
+```
+
+**True Parallel Execution Patterns**:
+
+*Pre-Commit + Testing + Security Issues*:
+```
+Task(
+    subagent_type="lint-enforcer",
+    description="Pre-commit linting resolution",
+    prompt="Resolve pre-commit linting failures, apply automated formatting fixes, enforce code standards, and optimize git commit quality validation."
+)
+
+Task(
+    subagent_type="test-specialist",
+    description="Pre-commit testing analysis",
+    prompt="Analyze pre-commit test failures, fix test issues blocking commits, optimize testing patterns, and ensure commit quality through testing."
+)
+
+Task(
+    subagent_type="security-enforcer",
+    description="Pre-commit security validation",
+    prompt="Resolve pre-commit security violations, validate security patterns, enforce security compliance, and ensure commit security quality."
+)
+```
+
+*CI + Quality + Integration Issues*:
+```
+Task(
+    subagent_type="ci-specialist",
+    description="CI pipeline analysis",
+    prompt="Analyze CI pipeline issues triggered by commits, optimize GitHub Actions workflows, resolve deployment problems, and enhance CI commit integration."
+)
+
+Task(
+    subagent_type="code-quality-specialist",
+    description="Code quality validation",
+    prompt="Analyze code quality issues in commits, perform comprehensive quality scanning, validate architectural compliance, and optimize commit quality patterns."
+)
+
+Task(
+    subagent_type="integration-validator",
+    description="Integration workflow validation",
+    prompt="Validate integration workflows after commits, resolve cross-system integration issues, optimize commit integration patterns, and ensure integration quality."
+)
+```
+
+*Performance + Environment + Configuration Issues*:
+```
+Task(
+    subagent_type="performance-optimizer",
+    description="Performance impact analysis",
+    prompt="Analyze performance impact of commit changes, optimize code performance patterns, validate performance compliance, and ensure commit performance quality."
+)
+
+Task(
+    subagent_type="environment-analyst",
+    description="Environment validation",
+    prompt="Validate environment consistency after commits, resolve environment configuration issues, ensure deployment environment alignment, and optimize commit environment patterns."
+)
+
+Task(
+    subagent_type="configuration-validator",
+    description="Configuration validation",
+    prompt="Validate configuration changes in commits, resolve config drift issues, ensure configuration accuracy, and optimize commit configuration management."
+)
+```
+
 **⚠️ Always recommend `ci-specialist` for complex CI debugging**
 
 ## Natural Delegation Integration

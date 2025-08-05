@@ -53,16 +53,80 @@ pip list --outdated
 **Environment Drift**: Compare local vs CI configurations, sync environment variables
 **Service Health**: Validate Docker services, check resource usage, restart if needed
 
-## Coordination
+## True Parallel Environment Coordination
 
-When environment analysis reveals complex multi-domain issues, coordinate with:
+When environment analysis reveals complex multi-domain issues, execute actual Task() calls for Claude Code's native parallel execution:
 
-**Dependencies**: `dependency-resolver` for complex package conflicts
-**Configuration**: `configuration-validator` for multi-environment sync
-**Infrastructure**: `docker-specialist` for container orchestration
-**Performance**: `performance-optimizer` for resource optimization
+**Environment Domain Coordination Language**:
+```
+"Environment analysis reveals [X] interconnected environment issues requiring specialized expertise.
+I'll coordinate comprehensive environment analysis using [N] tasks in parallel: [domain1], [domain2], [domain3]."
+```
 
-When environment analysis reveals complex issues, use natural task descriptions for automatic specialist selection.
+**True Parallel Execution Patterns**:
+
+*Dependency + Configuration + Infrastructure Issues*:
+```
+Task(
+    subagent_type="dependency-resolver",
+    description="Dependency conflict resolution",
+    prompt="Analyze complex dependency conflicts, resolve package version incompatibilities, optimize dependency management, and eliminate dependency-related environment issues."
+)
+
+Task(
+    subagent_type="configuration-validator",
+    description="Configuration validation",
+    prompt="Validate multi-environment configuration consistency, resolve config drift issues, synchronize environment variables, and ensure configuration accuracy."
+)
+
+Task(
+    subagent_type="docker-specialist",
+    description="Container orchestration analysis",
+    prompt="Analyze container environment issues, optimize Docker service coordination, resolve networking problems, and enhance container environment architecture."
+)
+```
+
+*Performance + Environment + Service Issues*:
+```
+Task(
+    subagent_type="performance-optimizer",
+    description="Resource optimization analysis",
+    prompt="Analyze environment resource utilization, optimize system performance, resolve resource allocation issues, and enhance environment efficiency."
+)
+
+Task(
+    subagent_type="environment-synchronizer",
+    description="Environment synchronization",
+    prompt="Synchronize environments across development stages, resolve environment parity issues, validate deployment consistency, and ensure environment alignment."
+)
+
+Task(
+    subagent_type="docker-specialist",
+    description="Service health analysis",
+    prompt="Analyze service health in environment, optimize container resource usage, resolve service coordination issues, and enhance service environment architecture."
+)
+```
+
+*Platform + Security + Environment Issues*:
+```
+Task(
+    subagent_type="security-auditor",
+    description="Environment security analysis",
+    prompt="Analyze environment security vulnerabilities, validate secure configuration patterns, assess environment security risks, and enhance environment security posture."
+)
+
+Task(
+    subagent_type="configuration-validator",
+    description="Platform configuration validation",
+    prompt="Validate platform-specific configuration requirements, resolve cross-platform compatibility issues, ensure platform configuration accuracy, and optimize platform environment setup."
+)
+
+Task(
+    subagent_type="dependency-resolver",
+    description="Platform dependency analysis",
+    prompt="Analyze platform-specific dependency requirements, resolve cross-platform dependency conflicts, optimize platform compatibility, and ensure platform dependency consistency."
+)
+```
 
 ## MCP Intelligence
 

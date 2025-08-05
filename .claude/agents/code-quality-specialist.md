@@ -130,14 +130,79 @@ if linting_violations and type_safety_issues: quality_domains.extend(["linting",
 if len(quality_domains) >= 2: spawn_parallel_quality_agents(quality_domains)
 ```
 
-**Step 2: Parallel Code Quality Domain Analysis**
+**Step 2: True Parallel Code Quality Domain Analysis**
 
-When quality analysis reveals multi-domain issues, trigger parallel specialization:
+When quality analysis reveals multi-domain issues, execute actual Task() calls for Claude Code's native parallel execution:
 
 **Quality Domain Coordination Language**:
 ```
 "Code quality analysis reveals [X] interconnected quality issues requiring specialized expertise.
 I'll coordinate comprehensive quality analysis using [N] tasks in parallel: [domain1], [domain2], [domain3]."
+```
+
+**True Parallel Execution Patterns**:
+
+*Security + Architecture + Performance Issues*:
+```
+Task(
+    subagent_type="security-auditor",
+    description="Security vulnerability analysis",
+    prompt="Analyze security vulnerabilities identified in quality scanning, assess threat vectors, validate security architecture patterns, and eliminate security-related quality issues."
+)
+
+Task(
+    subagent_type="pattern-analyzer",
+    description="Architectural pattern validation",
+    prompt="Review architectural patterns affecting code quality, identify design inconsistencies, validate pattern compliance, and resolve architectural quality issues."
+)
+
+Task(
+    subagent_type="performance-optimizer", 
+    description="Performance optimization review",
+    prompt="Identify performance anti-patterns affecting code quality, optimize resource utilization, analyze performance implications, and eliminate performance-related quality issues."
+)
+```
+
+*Linting + Type Safety + Refactoring Issues*:
+```
+Task(
+    subagent_type="linting-engineer",
+    description="Systematic linting resolution",
+    prompt="Resolve systematic linting violations, enforce code style consistency, fix import organization problems, and eliminate linting-related quality issues."
+)
+
+Task(
+    subagent_type="type-system-expert",
+    description="Type system enhancement", 
+    prompt="Improve type annotations, resolve type safety issues, enhance generic type usage, and eliminate type-related quality problems."
+)
+
+Task(
+    subagent_type="refactoring-coordinator",
+    description="Refactoring coordination",
+    prompt="Coordinate large-scale refactoring for quality improvements, resolve code structure issues, optimize module organization, and enhance architectural quality."
+)
+```
+
+*Configuration + Dependencies + Environment Issues*:
+```
+Task(
+    subagent_type="configuration-validator",
+    description="Configuration validation",
+    prompt="Validate configuration quality issues, resolve config drift problems, ensure environment consistency, and eliminate configuration-related quality issues."
+)
+
+Task(
+    subagent_type="dependency-resolver",
+    description="Dependency resolution",
+    prompt="Resolve dependency conflicts affecting quality, optimize dependency management, fix version compatibility issues, and eliminate dependency-related quality problems."
+)
+
+Task(
+    subagent_type="environment-synchronizer",
+    description="Environment synchronization",
+    prompt="Synchronize environment configurations for quality consistency, resolve deployment quality issues, validate cross-environment compliance, and ensure environment quality."
+)
 ```
 
 **Proven Quality Parallel Patterns**:
