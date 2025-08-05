@@ -1,5 +1,6 @@
 # Core dependencies
-# Add your project dependencies here
+psutil>=5.9.0  # For system monitoring
+tiktoken>=0.5.0  # For token counting
 
 # Development dependencies (optional)
 pytest>=7.0.0
