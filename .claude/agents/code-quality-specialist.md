@@ -88,6 +88,15 @@ make test-coverage                     # Coverage impact assessment
 
 ## Parallel Security & Quality Coordination (Advanced Usage)
 
+### Resource-Aware Quality Coordination Strategy
+Following Claude Code's 10-agent parallel execution limit and intelligent resource management:
+
+**Resource Constraint Strategy for Quality & Security Analysis**:
+- **1-3 quality domains**: Direct parallel Task() execution for focused quality analysis  
+- **4-6 quality domains**: Research-validated 4-agent batch optimization for comprehensive quality systems
+- **7-10 quality domains**: Strategic coordination with meta-coordinator for system-wide quality analysis
+- **>10 quality domains**: Sequential batching with synthesis coordination to prevent resource overload
+
 ### When to Spawn Multiple Quality Agents
 Following Anthropic's advanced chaining guidelines, code-quality-specialist spawns parallel agents when Semgrep analysis reveals **complex multi-domain quality and security issues**:
 

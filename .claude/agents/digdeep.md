@@ -41,6 +41,15 @@ For each technical problem, systematically apply:
 
 ## Parallel Agent Coordination (Advanced Usage)
 
+### Resource-Aware Root Cause Analysis Strategy
+Following Claude Code's 10-agent parallel execution limit and intelligent resource management:
+
+**Resource Constraint Strategy for Multi-Domain Root Causes**:
+- **1-3 domains**: Direct parallel Task() execution for focused root cause analysis
+- **4-6 domains**: Research-validated 4-agent batch optimization for complex system failures
+- **7-10 domains**: Strategic coordination with meta-coordinator for comprehensive system analysis
+- **>10 domains**: Sequential batching with synthesis coordination to prevent resource overload
+
 ### When to Spawn Multiple Agents
 Following Anthropic's advanced chaining guidelines, digdeep spawns parallel agents when Five Whys analysis reveals **multi-domain root causes**:
 

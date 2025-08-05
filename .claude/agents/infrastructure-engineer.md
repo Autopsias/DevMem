@@ -74,6 +74,15 @@ docker-compose ps                      # All services running
 
 ## True Parallel Infrastructure Coordination
 
+### Resource-Aware Infrastructure Coordination Strategy
+Following Claude Code's 10-agent parallel execution limit and intelligent resource management:
+
+**Resource Constraint Strategy**:
+- **1-3 agents**: Direct parallel Task() execution for focused infrastructure issues
+- **4-6 agents**: Research-validated 4-agent batch optimization for complex infrastructure systems
+- **7-10 agents**: Strategic coordination with meta-coordinator for comprehensive infrastructure analysis
+- **>10 agents**: Sequential batching with synthesis coordination to prevent system overload
+
 When infrastructure analysis reveals multi-domain issues, execute actual Task() calls for Claude Code's native parallel execution:
 
 **Infrastructure Domain Coordination Language**:

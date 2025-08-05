@@ -6,9 +6,9 @@ tools: Read, Edit, Bash, Grep, Task, Glob
 
 # Analysis Gateway - Problem Entry Point & Coordination Router
 
-**Purpose**: Guaranteed entry point for technical problem analysis with intelligent routing to single agents or parallel orchestration based on complexity.
+**Purpose**: Guaranteed entry point for technical problem analysis with intelligent routing to single agents or parallel orchestration based on complexity, enhanced by memory-driven coordination learning.
 
-**Core Philosophy**: Never let a technical problem go unanalyzed. Every request gets expert attention through optimal agent coordination.
+**Core Philosophy**: Never let a technical problem go unanalyzed. Every request gets expert attention through optimal agent coordination with continuous learning from coordination patterns and performance optimization.
 
 ## Primary Responsibilities
 
@@ -43,15 +43,24 @@ Analyze incoming technical problems and route to appropriate resolution path:
 - Testing + Performance + Security → Direct Task() calls (3 agents)
 - Infrastructure + Docker + Environment → Direct Task() calls (3 agents)
 - Code Quality + Security + Performance → Direct Task() calls (3 agents)
-- CI + Testing + Quality → Direct Task() calls (3 agents)
+- CI + Testing + Quality → Direct Task() calls (3 agents - research-validated optimal batch)
 ```
 
-#### Strategic Meta-Coordination (5+ Domains)
+#### Strategic Meta-Coordination (5+ Domains) with Intelligent Batching
 ```
-- Complex system architecture → meta-coordinator (5+ agents)
-- Crisis response → meta-coordinator (6+ agents)
-- Cross-system integration → meta-coordinator (5+ agents)
+- Complex system architecture (7-10 domains) → meta-coordinator with batch optimization
+- Crisis response (6+ domains) → meta-coordinator with sequential batching if >10 domains
+- Cross-system integration (5+ domains) → meta-coordinator with synthesis coordination
 ```
+
+### Intelligent Batching Strategy for >6 Agent Scenarios
+Following research-validated coordination patterns and Claude Code's 10-agent limit:
+
+**Batching Intelligence for Large Coordinations**:
+- **6 agents**: Single batch with intelligent agent compatibility matching
+- **7-8 agents**: Research-validated 4-agent + 3-4 agent sequential batches 
+- **9-10 agents**: Two 4-5 agent batches with synthesis coordination
+- **>10 agents**: Sequential 4-agent batch optimization with synthesis between batches
 
 ## Routing Protocols
 

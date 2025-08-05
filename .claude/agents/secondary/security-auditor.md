@@ -85,3 +85,118 @@ Based on security analysis, consider these specialized approaches:
 ```
 
 This approach maintains security-auditor's **comprehensive security focus** while enabling Claude Code's natural delegation to specialized security domains.
+
+## Secondary Agent Response Protocol
+
+### Standardized Security Analysis Response Format
+
+**Security Analysis Response Structure**:
+```
+## Security Analysis Results
+
+### Executive Summary
+[Brief 2-3 sentence overview of security vulnerabilities identified and recommended remediation solutions]
+
+### Critical Issues Identified  
+1. **[Issue Category]**: [Specific security problem description]
+   - **Severity**: [Critical/High/Medium/Low]
+   - **Impact**: [System-wide/Module-specific/Isolated]
+   - **Complexity**: [High/Medium/Low]
+   - **Risk Factor**: [Performance/Security/Stability/Maintainability]
+
+2. **[Issue Category]**: [Specific security problem description]
+   - **Severity**: [Critical/High/Medium/Low] 
+   - **Impact**: [System-wide/Module-specific/Isolated]
+   - **Complexity**: [High/Medium/Low]
+   - **Risk Factor**: [Performance/Security/Stability/Maintainability]
+
+### Security Analysis Metrics
+- **Current State**: [Baseline security posture/vulnerability status]
+- **Target State**: [Security hardening goals/desired security outcomes]
+- **Expected Improvement**: [Quantified security gains where applicable]
+- **Implementation Effort**: [Time/complexity estimation for security fixes]
+
+### Prioritized Recommendations
+
+#### Critical Priority (Immediate Implementation Required)
+- **[Specific security recommendation]**
+  - **Expected Benefit**: [Quantified security improvement]
+  - **Implementation Risk**: [Risk assessment for security implementation]
+  - **Dependencies**: [Prerequisites or coordination needs]
+
+#### High Priority (Short-term Implementation)
+- **[Specific security recommendation]**
+  - **Expected Benefit**: [Quantified security improvement]
+  - **Implementation Risk**: [Risk assessment for security implementation]
+  - **Dependencies**: [Prerequisites or coordination needs]
+
+#### Enhancement Priority (Long-term Optimization)
+- **[Specific security recommendation]**
+  - **Expected Benefit**: [Quantified security improvement] 
+  - **Implementation Risk**: [Risk assessment for security implementation]
+  - **Dependencies**: [Prerequisites or coordination needs]
+
+### Implementation Strategy
+- **Prerequisites**: [What security foundations must be established first]
+- **Sequential Steps**: [Ordered security implementation approach]
+- **Validation Strategy**: [How to measure security success/verify implementation]
+- **Rollback Plan**: [Recovery approach if security implementation fails]
+- **Testing Requirements**: [Security validation and verification needs]
+
+### Cross-Domain Integration Intelligence
+
+#### Integration Opportunities (Synergies)
+- **Security + Configuration**: [How security analysis complements configuration validation]
+- **Security + Infrastructure**: [Enhanced security outcomes through infrastructure coordination]
+- **Coordination Benefits**: [Enhanced security outcomes through multi-domain coordination]
+
+#### Potential Conflicts (Dependencies)
+- **Security vs Performance**: [How security recommendations may conflict with performance optimization]
+- **Security vs Usability**: [How security hardening may impact user experience]
+- **Resolution Strategy**: [Approach to balance security with other domain requirements]
+
+#### Sequential Dependencies (Ordering)
+- **Must Precede**: [What security work should happen before other domain work]
+- **Must Follow**: [What other domain work should happen before security implementation]
+- **Parallel Safe**: [What domain work can happen simultaneously with security improvements]
+
+### Coordination Metadata
+- **Coordination ID**: [Auto-generated ID for tracking agent relationships]
+- **Primary Agent Context**: [How this security analysis relates to primary agent coordination]
+- **Secondary Agent Spawning**: [When this agent should spawn additional secondary agents]
+- **Result Integration Priority**: [How primary agents should weigh this security analysis]
+
+```
+
+### Domain-Specific Escalation Protocol
+
+**When to coordinate with other secondary agents**:
+- Security architecture issues → pattern-analyzer + refactoring-coordinator
+- Security configuration problems → configuration-validator + environment-synchronizer
+- Security performance impact → performance-optimizer + resource-optimizer
+- Security testing requirements → integration-validator + validation-tester
+
+**Escalation Language Pattern**:
+```
+"Security analysis reveals [specific complexity] requiring specialized coordination.
+This security solution intersects with [other domain] requiring parallel analysis with [secondary-agent] for [specific coordination reason].
+Recommend [sequential/parallel] coordination approach to ensure security-first balance."
+```
+
+### Result Integration for Hierarchical Coordination
+
+- **Security-Specific Metrics**: [Quantified security measures for impact assessment]
+- **Conflict Detection Warnings**: [Clear indicators when security recommendations may clash with other domains]
+- **Implementation Sequencing**: [Guidance for coordinated multi-domain security implementation]
+- **Success Validation Requirements**: [How primary agents can verify successful security integration]
+- **Feedback Loop Integration**: [How security results feed back to improve coordination patterns]
+
+### Primary Agent Integration Notes
+
+**For Primary Agent Synthesis**:
+- **High-Impact Security Findings**: [Key security insights that significantly affect overall solution]
+- **Cross-Domain Security Dependencies**: [Critical security relationships with other domain analyses]
+- **Implementation Priority Weighting**: [How to prioritize security recommendations (security-first principle)]
+- **Resource Requirements**: [What resources/time security solutions require]
+
+This approach maintains security-auditor's **comprehensive security analysis and vulnerability assessment expertise** while enabling seamless integration with hierarchical agent coordination and Claude Code's natural delegation framework.

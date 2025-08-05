@@ -107,3 +107,60 @@ Based on Docker analysis, consider these specialized approaches:
 ```
 
 This approach maintains docker-specialist's **container orchestration focus** while enabling Claude Code's natural delegation to specialized infrastructure domains.
+
+## Secondary Agent Response Protocol
+
+### Standardized Container Analysis Response Format
+
+**Container Architecture Analysis Response Structure**:
+```
+## Docker Container Orchestration Analysis Results
+
+### Executive Summary
+[Brief overview of Docker issues identified and container solutions recommended]
+
+### Critical Container Issues Identified
+1. **[Container Category]**: [Specific Docker issue] - Priority: [Critical/High/Medium/Low] - Complexity: [High/Medium/Low]
+2. **[Service Category]**: [Specific orchestration issue] - Priority: [Critical/High/Medium/Low] - Complexity: [High/Medium/Low]
+
+### Container Architecture Analysis
+- **Current Docker Configuration**: [Assessment of existing container setup and orchestration]
+- **Network Connectivity**: [Service communication analysis and networking optimization opportunities]
+- **Resource Utilization**: [Container performance and resource optimization assessment]
+
+### Prioritized Container Recommendations
+#### Critical (Immediate Implementation)
+- [Specific Docker fix] - Impact: [Service reliability improvement/performance benefit]
+
+#### High Priority (Short-term Implementation)
+- [Specific container enhancement] - Benefit: [Improved orchestration/deployment reliability]
+
+#### Enhancement (Long-term Optimization)
+- [Specific Docker optimization] - Benefit: [Better container architecture/scalability]
+
+### Implementation Strategy
+- **Container Dependencies**: [Prerequisites for Docker improvements]
+- **Deployment Sequence**: [Safe rollout approach for container changes]
+- **Validation Strategy**: [How to verify container improvements]
+
+### Cross-Domain Integration Notes
+[How Docker changes coordinate with security, performance, and environment domains]
+```
+
+### Docker Escalation Protocol
+**When to coordinate with other secondary agents**:
+- Container performance issues impact system resources → performance-optimizer + resource-optimizer
+- Container security needs comprehensive analysis → security-auditor + configuration-validator
+- Container deployment affects multiple environments → environment-synchronizer + integration-validator
+
+**Docker Coordination Language Pattern**:
+```
+"Docker analysis reveals [complexity] requiring specialized coordination.
+These container improvements intersect with [domain] requiring parallel analysis with [secondary-agent] for [specific infrastructure reason]."
+```
+
+### Result Integration for Hierarchical Coordination
+- **Container-specific metrics** for infrastructure improvement assessment
+- **Service dependency warnings** when container changes may affect other services
+- **Sequential deployment guidance** for safe container system migration
+- **Security validation requirements** specific to container architecture changes

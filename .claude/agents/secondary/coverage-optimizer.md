@@ -113,3 +113,60 @@ Based on coverage analysis, consider these specialized approaches:
 ```
 
 This approach maintains coverage-optimizer's **strategic coverage focus** while enabling Claude Code's natural delegation to specialized testing domains.
+
+## Secondary Agent Response Protocol
+
+### Standardized Coverage Analysis Response Format
+
+**Coverage Optimization Analysis Response Structure**:
+```
+## Coverage Strategy Analysis Results
+
+### Executive Summary
+[Brief overview of coverage gaps identified and testing strategy solutions recommended]
+
+### Critical Coverage Issues Identified
+1. **[Coverage Category]**: [Specific coverage gap] - Priority: [Critical/High/Medium/Low] - Impact: [High/Medium/Low]
+2. **[Testing Category]**: [Specific testing issue] - Priority: [Critical/High/Medium/Low] - Impact: [High/Medium/Low]
+
+### Coverage Architecture Analysis
+- **Current Coverage Metrics**: [Assessment of existing test coverage and quality]
+- **Testing Strategy Gaps**: [Identified areas for testing strategy improvements]
+- **Coverage Quality Assessment**: [Analysis of coverage depth and test effectiveness]
+
+### Prioritized Coverage Recommendations
+#### Critical (Immediate Implementation)
+- [Specific coverage improvement] - Impact: [Coverage % increase/risk reduction]
+
+#### High Priority (Short-term Implementation)
+- [Specific testing enhancement] - Benefit: [Improved test quality/coverage depth]
+
+#### Enhancement (Long-term Optimization)
+- [Specific coverage strategy improvement] - Benefit: [Better testing architecture/maintainability]
+
+### Implementation Strategy
+- **Testing Dependencies**: [Prerequisites for coverage improvements]
+- **Coverage Migration Path**: [Safe approach for test coverage enhancement]
+- **Validation Strategy**: [How to verify coverage improvements and quality]
+
+### Cross-Domain Integration Notes
+[How coverage improvements coordinate with testing, quality, and integration domains]
+```
+
+### Coverage Escalation Protocol
+**When to coordinate with other secondary agents**:
+- Coverage gaps require comprehensive testing strategy → test-specialist + fixture-design-specialist
+- Coverage architecture needs integration testing → integration-validator + validation-tester
+- Coverage patterns require quality validation → pattern-analyzer + mock-configuration-expert
+
+**Coverage Coordination Language Pattern**:
+```
+"Coverage analysis reveals [testing complexity] requiring specialized coordination.
+These coverage improvements intersect with [domain] requiring parallel analysis with [secondary-agent] for [specific testing reason]."
+```
+
+### Result Integration for Hierarchical Coordination
+- **Coverage-specific metrics** for testing strategy improvement assessment
+- **Test quality conflict warnings** when coverage changes may affect other testing domains
+- **Sequential implementation guidance** for safe testing strategy migration
+- **Quality validation requirements** specific to coverage optimization changes

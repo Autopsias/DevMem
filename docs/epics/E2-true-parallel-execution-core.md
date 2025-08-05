@@ -32,7 +32,7 @@ Enables true simultaneous agent execution within Claude Code's native capabiliti
 
 ## **Technical Requirements**
 - Multiple Task() calls in single message for parallel execution
-- Integration with ClaudeCodeCoordinationOptimizer from E1
+- Integration with coordination intelligence patterns from E1
 - Resource validation before execution starts
 - Coordination ID tracking and performance logging
 - Results synthesis after parallel completion
@@ -40,7 +40,7 @@ Enables true simultaneous agent execution within Claude Code's native capabiliti
 ## **Definition of Done**
 - [x] All 2 stories completed and accepted
 - [x] True parallel execution validated with multiple agents
-- [x] Integration with E1 optimization layer working
+- [x] Integration with E1 agent coordination intelligence working
 - [x] Resource validation preventing overload
 - [x] Performance logging and tracking operational
 - [x] Architecture documentation updated

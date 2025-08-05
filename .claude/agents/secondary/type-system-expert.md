@@ -83,3 +83,60 @@ Based on type system analysis, consider these specialized approaches:
 ```
 
 This approach maintains type-system-expert's **type architecture focus** while enabling Claude Code's natural delegation to specialized type domains.
+
+## Secondary Agent Response Protocol
+
+### Standardized Type System Analysis Response Format
+
+**Type System Analysis Response Structure**:
+```
+## Type System Architecture Analysis Results
+
+### Executive Summary
+[Brief overview of type system issues identified and architecture solutions recommended]
+
+### Critical Type Issues Identified
+1. **[Type Category]**: [Specific type issue] - Priority: [Critical/High/Medium/Low] - Complexity: [High/Medium/Low]
+2. **[Type Category]**: [Specific type issue] - Priority: [Critical/High/Medium/Low] - Complexity: [High/Medium/Low]
+
+### Type Architecture Analysis
+- **Current Type System**: [Assessment of existing type annotations and architecture]
+- **Type Safety Gaps**: [Identified type safety vulnerabilities and improvements]
+- **Generic Type Opportunities**: [Areas for enhanced generic type usage and design]
+
+### Prioritized Type Recommendations
+#### Critical (Immediate Implementation)
+- [Specific type system fix] - Impact: [Type safety improvement/performance benefit]
+
+#### High Priority (Short-term Implementation)  
+- [Specific type enhancement] - Benefit: [Improved type architecture/developer experience]
+
+#### Enhancement (Long-term Optimization)
+- [Specific type system improvement] - Benefit: [Better type architecture/maintainability]
+
+### Implementation Strategy
+- **Type Dependencies**: [Prerequisites for type system improvements]
+- **Migration Path**: [Safe transition approach for type system changes]
+- **Validation Strategy**: [How to verify type system improvements]
+
+### Cross-Domain Integration Notes
+[How type system changes coordinate with testing, performance, and architecture domains]
+```
+
+### Type System Escalation Protocol
+**When to coordinate with other secondary agents**:
+- Type annotations impact performance significantly → performance-optimizer
+- Type system needs comprehensive testing → fixture-design-specialist + mock-configuration-expert
+- Type architecture requires refactoring → pattern-analyzer + refactoring-coordinator
+
+**Type Coordination Language Pattern**:
+```
+"Type system analysis reveals [complexity] requiring specialized coordination.
+These type improvements intersect with [domain] requiring parallel analysis with [secondary-agent] for [specific type reason]."
+```
+
+### Result Integration for Hierarchical Coordination
+- **Type-specific metrics** for architecture improvement assessment
+- **Type safety conflict warnings** when type changes may affect other domains  
+- **Sequential implementation guidance** for safe type system migration
+- **Testing validation requirements** specific to type system changes

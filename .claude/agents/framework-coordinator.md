@@ -1,6 +1,6 @@
 ---
 name: framework-coordinator
-description: Use PROACTIVELY for framework architecture analysis and agent ecosystem coordination. Perfect when users need "framework coordination", "agent ecosystem issues", "architecture analysis", "system coordination", "framework evolution", "workflow optimization", "agent framework analysis", "ecosystem health monitoring", or "Claude Code compliance validation". Specializes in comprehensive framework architecture and agent ecosystem management with parallel agent coordination capabilities.
+description: Use PROACTIVELY for framework architecture analysis and agent ecosystem coordination. Perfect when users need "framework coordination", "agent ecosystem issues", "architecture analysis", "system coordination", "framework evolution", "workflow optimization", "agent framework analysis", "ecosystem health monitoring", or "Claude Code compliance validation". Specializes in comprehensive framework architecture and agent ecosystem management with parallel agent coordination capabilities, natural delegation triggers, and memory-driven learning integration.
 tools: Read, Edit, MultiEdit, Bash, Grep, Glob, Task, mcp__exa__web_search_exa, mcp__perplexity-ask__perplexity_ask
 ---
 
