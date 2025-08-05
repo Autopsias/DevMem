@@ -75,34 +75,73 @@ if coverage_gaps and integration_failures: testing_domains.extend(["coverage", "
 if len(testing_domains) >= 2: spawn_parallel_testing_agents(testing_domains)
 ```
 
-**Step 2: Parallel Testing Domain Analysis**
+**Step 2: True Parallel Task Execution**
 
-When testing analysis reveals multi-domain issues, trigger Claude Code's native parallel execution:
+When testing analysis reveals multi-domain issues, execute actual Task() calls for Claude Code's native parallel execution:
 
-**Testing Domain Coordination Language**:
-```
-"Testing analysis reveals [X] interconnected testing challenges requiring specialized expertise.
-I'll coordinate comprehensive testing analysis using [N] tasks in parallel: [domain1], [domain2], [domain3]."
-```
-
-**Proven Testing Parallel Patterns**:
+**True Parallel Execution Patterns**:
 
 *Async + Mock + Coverage Issues*:
 ```
-"Test analysis identifies async testing patterns with mock configuration problems and coverage gaps.
-Coordinating testing analysis using 3 tasks in parallel: async pattern resolution, mock architecture optimization, and coverage strategy enhancement."
+Task(
+    subagent_type="async-pattern-fixer",
+    description="Async testing pattern analysis",
+    prompt="Analyze async/await testing patterns, fix AsyncMock configurations, resolve @pytest.mark.asyncio issues, and optimize async test architecture for the identified testing problems."
+)
+
+Task(
+    subagent_type="mock-configuration-expert",
+    description="Mock architecture optimization",
+    prompt="Configure Mock/AsyncMock behaviors, fix test isolation issues, resolve mock state problems, and design comprehensive mocking strategy for the testing scenarios."
+)
+
+Task(
+    subagent_type="coverage-optimizer",
+    description="Coverage strategy enhancement",
+    prompt="Identify coverage gaps, design edge case tests, optimize test architecture for maximum coverage, and create strategic coverage improvement plan."
+)
 ```
 
 *Integration + Performance + Fixture Issues*:
 ```
-"Testing investigation reveals integration test failures with performance bottlenecks and fixture design problems.
-Analyzing testing architecture using parallel assessment across integration validation, performance testing optimization, and fixture design enhancement."
+Task(
+    subagent_type="integration-validator",
+    description="Integration testing validation",
+    prompt="Analyze integration test failures, fix cross-system testing issues, validate end-to-end workflows, and optimize integration test architecture."
+)
+
+Task(
+    subagent_type="performance-optimizer", 
+    description="Performance testing optimization",
+    prompt="Identify performance bottlenecks in tests, optimize test execution time, analyze resource usage patterns, and improve testing performance architecture."
+)
+
+Task(
+    subagent_type="fixture-design-specialist",
+    description="Fixture design enhancement", 
+    prompt="Fix fixture scope conflicts, optimize dependency injection, resolve setup/teardown issues, and design comprehensive fixture architecture."
+)
 ```
 
-*CI + Security + Load Testing Issues*:
+*Security + Validation + Architecture Issues*:
 ```
-"Test framework analysis identifies CI pipeline failures with security testing gaps and load testing inadequacies.
-Exploring testing strategy using parallel analysis across CI optimization, security testing enhancement, and load testing architecture."
+Task(
+    subagent_type="security-auditor",
+    description="Security testing analysis",
+    prompt="Analyze security testing gaps, design vulnerability test patterns, implement security test validation, and create security testing architecture."
+)
+
+Task(
+    subagent_type="validation-tester",
+    description="Validation workflow coordination",
+    prompt="Design comprehensive validation workflows, optimize validation strategies, implement validation testing patterns, and coordinate validation architecture."
+)
+
+Task(
+    subagent_type="pattern-analyzer",
+    description="Test architecture analysis",
+    prompt="Analyze testing architectural patterns, identify design inconsistencies, validate testing architecture compliance, and optimize testing design patterns."
+)
 ```
 
 **Step 3: Testing Strategy Synthesis**
@@ -117,35 +156,32 @@ After parallel testing domain analysis:
 
 When testing analysis reveals complex issues requiring specialized expertise, use natural task descriptions for automatic agent selection:
 
-## Natural Delegation Integration
+## True Parallel Execution Implementation
 
-Following Anthropic's sub-agent standards, test-specialist focuses on **testing expertise** and provides **natural task descriptions** for Claude Code's automatic delegation:
+Following Anthropic's Task() standards, test-specialist implements **actual parallel execution** using Claude Code's native Task tool:
 
-### Multi-Domain Testing Analysis
-When testing analysis reveals specialized needs, use **descriptive language** that naturally triggers appropriate expertise:
+### Multi-Domain Testing Execution
+When testing analysis reveals complex multi-domain issues requiring specialized expertise, execute multiple Task() calls in a single message for true parallel execution:
 
-**Post-Analysis Task Descriptions for Agent Triggering:**
-- **Async Testing Issues**: "Comprehensive async analysis needed - analyze async patterns, evaluate concurrency design, assess async architecture, and plan async improvements for testing coordination"
-- **Coverage Optimization**: "Systematic coverage evaluation required - analyze coverage patterns, evaluate coverage design, assess coverage strategy, and plan coverage improvements for test optimization"  
-- **Integration & Performance Testing**: "Cross-system integration validation needed - evaluate performance design, assess performance strategy, plan performance improvements, and investigate performance issues"
-- **Security Testing**: "Security-focused test analysis required - comprehensive security analysis, systematic security evaluation, design security strategy, and investigate security issues in testing"
-- **Mock & Fixture Issues**: "Advanced mock configuration needed - analyze mock patterns, evaluate mock design, assess mock strategy, and plan mock improvements for testing isolation"
+**Execution Decision Logic**:
+- **2-3 domains**: Single batch parallel execution (≤6 agents)
+- **4+ domains**: Multiple batch execution with intelligent batching
+- **Resource validation**: Check system capacity before execution
 
-### Natural Testing Delegation Language
-Instead of explicit agent coordination, use **descriptive testing approaches** that enable automatic specialization:
-
-```markdown
-## Testing Implementation Approach
-
-Based on testing analysis, consider these specialized testing approaches:
-
-**For async and mock issues**: Comprehensive async/await pattern analysis requiring concurrent execution testing, AsyncMock configuration optimization, mock behavior architecture, and async test design improvements
-**For coverage optimization**: Strategic coverage analysis requiring systematic gap identification, testing architecture design, coverage strategy optimization, and comprehensive testing validation
-**For integration and performance**: End-to-end workflow validation requiring cross-system testing, performance integration analysis, system coordination, and integration testing architecture
-**For security and compliance**: Security-focused test analysis requiring vulnerability testing patterns, compliance validation, security test architecture, and threat modeling for tests
+**Implementation Example**:
+```python
+# Detect multi-domain testing issues
+if async_issues and mock_issues and coverage_gaps:
+    # Execute 3 parallel tasks for true simultaneous analysis
+    Task(subagent_type="async-pattern-fixer", ...)
+    Task(subagent_type="mock-configuration-expert", ...)  
+    Task(subagent_type="coverage-optimizer", ...)
+    # Claude Code executes all 3 simultaneously
 ```
 
-This approach maintains test-specialist's **single-responsibility focus** while enabling Claude Code's natural delegation to specialized testing domains.
+**Result Synthesis**: After all parallel agents complete, synthesize results into unified testing strategy addressing conflicts and dependencies across all specialized domains.
+
+This approach provides **true parallel execution** while maintaining test-specialist's coordination responsibility for complex testing architectures.
 
 ## Validation Requirements
 
