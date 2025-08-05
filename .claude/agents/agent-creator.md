@@ -310,7 +310,7 @@ For each existing agent, extract:
 **Primary Agents (16 total):**
 - **Analysis & Problem-Solving**: digdeep, test-specialist, code-quality-specialist
 - **Infrastructure & Systems**: infrastructure-engineer, ci-specialist, environment-analyst
-- **Intelligence & Enhancement**: intelligent-enhancer, orchestration-coordinator, framework-coordinator
+- **Intelligence & Enhancement**: intelligent-enhancer, meta-coordinator, framework-coordinator
 - **Development Support**: git-commit-assistant, agent-reviewer, agent-creator, lint-enforcer
 - **Specialized Coordination**: security-enforcer, token-monitor, user-feedback-coordinator
 

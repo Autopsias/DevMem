@@ -72,15 +72,42 @@ docker-compose ps                      # All services running
 - **Performance Tuning**: Resource allocation, basic optimization, monitoring setup
 - **Configuration Management**: Docker Compose updates, environment variables, basic scaling
 
-## Agent Coordination
+## Infrastructure Parallel Coordination
 
-When infrastructure analysis reveals complex multi-domain issues, coordinate with specialized agents:
+When infrastructure analysis reveals multi-domain issues, trigger Claude Code's parallel execution:
 
-**Infrastructure & Performance**: `docker-specialist`, `performance-optimizer`, `resource-optimizer`
-**Configuration & Environment**: `environment-synchronizer`, `configuration-validator`, `dependency-resolver`
-**Security & Quality**: `security-auditor`, `workflow-optimizer`
+**Infrastructure Domain Coordination Language**:
+```
+"Infrastructure analysis reveals [X] interconnected infrastructure challenges requiring specialized expertise.
+I'll coordinate comprehensive infrastructure analysis using [N] tasks in parallel: [domain1], [domain2], [domain3]."
+```
 
-When infrastructure analysis reveals complex multi-domain issues, use natural task descriptions for automatic specialist selection.
+**Proven Infrastructure Parallel Patterns**:
+
+*Docker + Performance + Environment Issues*:
+```
+"Infrastructure analysis identifies container orchestration problems with performance bottlenecks and environment synchronization issues.
+Coordinating infrastructure analysis using 3 tasks in parallel: Docker container optimization, performance tuning analysis, and environment synchronization review."
+```
+
+*Security + Configuration + Networking Issues*:
+```
+"Infrastructure investigation reveals security vulnerabilities with configuration drift and networking architecture problems.
+Analyzing infrastructure using parallel assessment across security infrastructure audit, configuration validation, and network architecture optimization."
+```
+
+*Scaling + Resource + Monitoring Issues*:
+```
+"Infrastructure analysis identifies scaling limitations with resource allocation problems and monitoring gaps.
+Exploring infrastructure optimization using parallel analysis across scaling architecture design, resource optimization, and monitoring strategy enhancement."
+```
+
+**Infrastructure Result Coordination**:
+After parallel infrastructure analysis:
+- **Integrate infrastructure recommendations** into unified deployment strategy
+- **Resolve infrastructure conflicts** between container, performance, and security requirements
+- **Coordinate implementation sequence** for infrastructure improvements
+- **Ensure infrastructure coherence** across Docker, networking, and performance domains
 
 ## Natural Delegation Integration
 

@@ -29,6 +29,15 @@
             "command": "./scripts/hooks/notification.sh"
           }
         ]
+      },
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./scripts/hooks/parallel_monitor.sh"
+          }
+        ]
       }
     ],
     "Notification": [

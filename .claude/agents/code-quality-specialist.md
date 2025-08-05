@@ -130,23 +130,42 @@ if linting_violations and type_safety_issues: quality_domains.extend(["linting",
 if len(quality_domains) >= 2: spawn_parallel_quality_agents(quality_domains)
 ```
 
-**Step 2: Parallel Quality Agent Spawning**
-```bash
-# Example: Security + Architecture + Performance issues
-Task(subagent_type="security-auditor",
-     description="Conduct comprehensive security analysis",
-     prompt="Semgrep scan revealed security vulnerabilities. Analyze: [specific security issues from scan]")
+**Step 2: Parallel Code Quality Domain Analysis**
 
-Task(subagent_type="pattern-analyzer", 
-     description="Validate architectural patterns",
-     prompt="Quality analysis found architectural violations. Address: [specific pattern issues]")
+When quality analysis reveals multi-domain issues, trigger parallel specialization:
 
-Task(subagent_type="performance-optimizer",
-     description="Optimize performance implications",
-     prompt="Quality issues have performance implications. Optimize: [specific performance concerns]")
+**Quality Domain Coordination Language**:
+```
+"Code quality analysis reveals [X] interconnected quality issues requiring specialized expertise.
+I'll coordinate comprehensive quality analysis using [N] tasks in parallel: [domain1], [domain2], [domain3]."
 ```
 
-**Step 3: Quality Solution Integration**
+**Proven Quality Parallel Patterns**:
+
+*Security + Architecture + Performance Issues*:
+```
+"Quality scanning identifies security vulnerabilities with architectural pattern violations and performance implications.
+Coordinating quality analysis using 3 tasks in parallel: comprehensive security audit, architectural pattern validation, and performance optimization review."
+```
+
+*Linting + Type Safety + Refactoring Issues*:
+```
+"Code quality analysis reveals systematic linting violations with type safety issues requiring architectural refactoring.
+Analyzing code quality using parallel assessment across systematic linting resolution, type system enhancement, and refactoring coordination."
+```
+
+*Compliance + Security + Architecture Issues*:
+```
+"Quality audit identifies compliance violations with security vulnerabilities and architectural inconsistencies.
+Exploring quality improvement using parallel analysis across compliance validation, security vulnerability assessment, and architectural pattern review."
+```
+
+**Step 3: Quality Strategy Integration**
+After parallel quality domain analysis:
+- **Integrate quality recommendations** into unified improvement strategy
+- **Resolve quality approach conflicts** between different quality domains
+- **Prioritize quality fixes** based on security, performance, and maintainability impact
+- **Coordinate implementation sequence** to avoid quality regression during fixes
 - Coordinate security fixes with architectural pattern compliance
 - Ensure performance optimizations don't introduce security risks
 - Validate that all quality improvements maintain system stability

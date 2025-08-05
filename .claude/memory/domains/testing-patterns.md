@@ -53,7 +53,7 @@ User Context: "End-to-end testing failures across multiple services"
 3. **Integration + Service Testing**: integration-validator → docker-specialist (90% success)
 
 #### **Meta-Orchestration Triggers**
-- **Testing + Security + CI + Performance**: 4+ domains → orchestration-coordinator
+- **Testing + Security + CI + Performance**: 4+ domains → meta-coordinator
 - **Architecture + Testing + Integration + Environment**: Complex cross-system issues
 - **Performance + Testing + Infrastructure + Configuration**: Multi-layer testing problems
 

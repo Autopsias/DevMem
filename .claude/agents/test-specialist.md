@@ -75,27 +75,43 @@ if coverage_gaps and integration_failures: testing_domains.extend(["coverage", "
 if len(testing_domains) >= 2: spawn_parallel_testing_agents(testing_domains)
 ```
 
-**Step 2: Parallel Testing Agent Spawning**
-```bash
-# Example: Async + Mock + Coverage issues
-Task(subagent_type="async-pattern-fixer",
-     description="Fix async testing patterns",
-     prompt="Test analysis reveals async pattern issues in testing. Focus on: [specific async test problems]")
+**Step 2: Parallel Testing Domain Analysis**
 
-Task(subagent_type="mock-configuration-expert", 
-     description="Configure mock architecture",
-     prompt="Test failures indicate mock configuration problems. Address: [specific mock issues]")
+When testing analysis reveals multi-domain issues, trigger Claude Code's native parallel execution:
 
-Task(subagent_type="coverage-optimizer",
-     description="Optimize test coverage",
-     prompt="Coverage gaps identified in test analysis. Improve: [specific coverage issues]")
+**Testing Domain Coordination Language**:
+```
+"Testing analysis reveals [X] interconnected testing challenges requiring specialized expertise.
+I'll coordinate comprehensive testing analysis using [N] tasks in parallel: [domain1], [domain2], [domain3]."
 ```
 
-**Step 3: Testing Solution Integration**
-- Coordinate async testing patterns with mock configurations
-- Ensure coverage optimization aligns with async and mock strategies
-- Resolve conflicts between different testing approaches
-- Validate comprehensive testing solution effectiveness
+**Proven Testing Parallel Patterns**:
+
+*Async + Mock + Coverage Issues*:
+```
+"Test analysis identifies async testing patterns with mock configuration problems and coverage gaps.
+Coordinating testing analysis using 3 tasks in parallel: async pattern resolution, mock architecture optimization, and coverage strategy enhancement."
+```
+
+*Integration + Performance + Fixture Issues*:
+```
+"Testing investigation reveals integration test failures with performance bottlenecks and fixture design problems.
+Analyzing testing architecture using parallel assessment across integration validation, performance testing optimization, and fixture design enhancement."
+```
+
+*CI + Security + Load Testing Issues*:
+```
+"Test framework analysis identifies CI pipeline failures with security testing gaps and load testing inadequacies.
+Exploring testing strategy using parallel analysis across CI optimization, security testing enhancement, and load testing architecture."
+```
+
+**Step 3: Testing Strategy Synthesis**
+After parallel testing domain analysis:
+- **Integrate specialist recommendations** into unified testing strategy
+- **Resolve testing approach conflicts** between different testing domains
+- **Prioritize testing improvements** based on impact on overall test quality
+- **Create coordinated implementation plan** addressing all testing domains
+- **Ensure testing coherence** across async, mocking, coverage, and integration patterns
 
 ## Post-Analysis Testing Coordination
 

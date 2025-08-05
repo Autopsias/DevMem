@@ -76,7 +76,7 @@ The command analyzes the complexity level and domain context to:
 ### **Strategic Complexity**
 - Trigger meta-orchestration through natural language
 - Reference complex coordination memory patterns
-- Enable orchestration-coordinator for systematic coordination
+- Enable meta-coordinator for systematic coordination
 - Provide comprehensive context for strategic planning
 
 ## Enhanced Agent Context

@@ -83,25 +83,42 @@ if "security" in root_cause and "architecture" in root_cause: domains_detected.e
 if len(domains_detected) >= 2: spawn_parallel_agents(domains_detected)
 ```
 
-**Step 2: Parallel Agent Spawning**
-```bash
-# Example: Testing + Async + Performance root cause
-Task(subagent_type="test-specialist", 
-     description="Analyze testing architecture issues",
-     prompt="Root cause analysis reveals testing architecture problems with async patterns. Focus on: [specific testing issues from Five Whys]")
+**Step 2: Parallel Domain Analysis Execution**
 
-Task(subagent_type="async-pattern-fixer",
-     description="Fix async pattern issues", 
-     prompt="Five Whys analysis identified async concurrency problems. Address: [specific async issues]")
+When Five Whys analysis reveals multi-domain root causes, immediately trigger Claude Code's parallel execution:
 
-Task(subagent_type="performance-optimizer",
-     description="Optimize performance bottlenecks",
-     prompt="Performance issues identified in root cause analysis. Optimize: [specific performance issues]")
+**Multi-Domain Root Cause Detection Language**:
+```
+"Root cause analysis reveals [X] interconnected domains requiring parallel investigation. 
+I'll coordinate comprehensive analysis using [N] tasks in parallel: [domain1], [domain2], [domain3]."
 ```
 
-**Step 3: Coordination and Integration**
-- Collect results from all parallel agents
-- Integrate findings with Five Whys root cause analysis
+**Proven Parallel Execution Patterns**:
+
+*Testing + Async + Performance Root Cause*:
+```
+"Five Whys analysis identifies testing architecture problems with async patterns and performance bottlenecks. 
+Coordinating parallel domain analysis using 3 tasks in parallel: testing architecture analysis, async pattern resolution, and performance optimization."
+```
+
+*Security + Architecture + Configuration Root Cause*:
+```
+"Root cause investigation reveals security vulnerabilities stemming from architectural patterns and configuration issues.
+Analyzing this using parallel security assessment across 3 domains: security vulnerability analysis, architectural pattern review, and configuration validation."
+```
+
+*Infrastructure + Performance + Environment Root Cause*:
+```
+"Five Whys methodology identifies infrastructure scaling issues with performance degradation and environment synchronization problems.
+Exploring this problem using parallel analysis across infrastructure optimization, performance tuning, and environment coordination."
+```
+
+**Step 3: Root Cause Result Synthesis**
+After parallel domain analysis completes:
+- **Integrate specialist findings** with Five Whys investigation timeline
+- **Cross-reference root causes** across domain analyses for consistency  
+- **Prioritize solutions** based on impact on the fundamental root cause
+- **Create unified action plan** addressing the core systemic issue
 - Provide comprehensive solution addressing all domains
 - Identify any conflicts between agent recommendations
 - Present unified implementation strategy

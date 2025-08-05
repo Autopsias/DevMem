@@ -78,15 +78,61 @@ When async pattern analysis reveals specialized needs, use **descriptive languag
 ### Natural Async Delegation Language
 Instead of explicit agent coordination, use **descriptive async approaches** that enable automatic specialization:
 
-```markdown
-## Async Implementation Approach
+## Secondary Agent Response Protocol
 
-Based on async pattern analysis, consider these specialized approaches:
+### Standardized Async Analysis Response Format
 
-**For performance and concurrency**: Async performance optimization requiring resource allocation analysis, concurrent execution efficiency, and scalability improvements
-**For testing coordination**: Async testing patterns requiring mock configuration optimization, fixture design improvements, and comprehensive async testing validation
-**For type safety**: Async type system design requiring annotation optimization, protocol validation, and generic type architecture for concurrent patterns
-**For architectural migration**: Async pattern refactoring requiring design pattern analysis, architectural consistency, and systematic async code restructuring
+**Async Pattern Analysis Response Structure**:
+```
+## Async Pattern Resolution Analysis Results
+
+### Executive Summary
+[Brief overview of async issues identified and concurrency solutions recommended]
+
+### Async Issues Identified
+1. **[Pattern Category]**: [Specific async problem] - Severity: [Critical/High/Medium/Low] - Complexity: [High/Medium/Low]
+2. **[Pattern Category]**: [Specific async problem] - Severity: [Critical/High/Medium/Low] - Complexity: [High/Medium/Low]
+
+### Concurrency Analysis
+- **Current Async Architecture**: [Assessment of existing patterns]
+- **Race Condition Risks**: [Identified potential concurrency issues]
+- **Performance Impact**: [How async patterns affect system performance]
+
+### Prioritized Async Fixes
+#### Critical (Immediate Fix Required)
+- [Specific async pattern fix] - Risk: [Race conditions/deadlocks/performance]
+
+#### High Priority (Short-term Implementation)
+- [Specific async pattern fix] - Benefit: [Improved concurrency/performance]
+
+#### Enhancement (Long-term Optimization)
+- [Specific async pattern improvement] - Benefit: [Better async architecture]
+
+### Implementation Strategy
+- **Async Dependencies**: [What async patterns must be established first]
+- **Testing Requirements**: [How to validate async pattern fixes]
+- **Migration Path**: [Safe transition from current to improved async patterns]
+
+### Cross-Domain Integration Notes
+[How async fixes coordinate with testing, performance, and architecture domains]
 ```
 
-This approach maintains async-pattern-fixer's **concurrency focus** while enabling Claude Code's natural delegation to specialized domains.
+### Async Escalation Protocol
+**When to coordinate with other secondary agents**:
+- Async patterns impact performance significantly → performance-optimizer
+- Async testing patterns need validation → mock-configuration-expert + coverage-optimizer  
+- Async architecture needs refactoring → pattern-analyzer + type-system-expert
+
+**Async Coordination Language Pattern**:
+```
+"Async pattern analysis reveals [concurrency complexity] requiring specialized coordination.
+These async improvements intersect with [domain] requiring parallel analysis with [secondary-agent] for [specific concurrency reason]."
+```
+
+### Result Integration for Hierarchical Coordination
+- **Async-specific metrics** for performance impact assessment
+- **Concurrency conflict warnings** when async changes may affect other domains
+- **Sequential implementation guidance** for safe async pattern migration
+- **Testing validation requirements** specific to async pattern changes
+
+This approach maintains async-pattern-fixer's **concurrency expertise** while enabling seamless integration with hierarchical agent coordination.
