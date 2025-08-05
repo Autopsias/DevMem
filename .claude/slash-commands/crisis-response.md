@@ -1,11 +1,11 @@
 ---
 name: crisis-response
-description: Run comprehensive 8-agent crisis response coordination
+description: Run comprehensive 8-agent crisis response coordination via strategic meta-coordination
 ---
 
 # Crisis Response Coordination
 
-This command spawns 8 agents simultaneously for comprehensive system crisis response:
+This command spawns 8 agents simultaneously for comprehensive system crisis response via strategic meta-coordinator orchestration:
 
 **Usage:** `/crisis-response "crisis description"`
 
@@ -26,7 +26,7 @@ This command spawns 8 agents simultaneously for comprehensive system crisis resp
 This command will execute the following parallel agent coordination:
 
 ```
-meta-coordinator: "Maximum 8-agent crisis response for [crisis] requiring systematic investigation across all domains. Execute crisis response pattern with parallel root cause analysis, security assessment, performance impact, testing validation, infrastructure health, CI/CD analysis, environment diagnostics, and quality impact assessment."
+meta-coordinator: "Strategic 8-domain crisis response for [crisis] requiring comprehensive multi-domain orchestration. Execute crisis response pattern with parallel root cause analysis, security assessment, performance impact, testing validation, infrastructure health, CI/CD analysis, environment diagnostics, and quality impact assessment."
 ```
 
-The meta-coordinator will handle the parallel execution and synthesis-coordinator will integrate the comprehensive crisis response plan.
+The meta-coordinator will handle the strategic parallel execution and synthesis-coordinator will integrate the comprehensive crisis response plan.

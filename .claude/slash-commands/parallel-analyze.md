@@ -1,15 +1,15 @@
 ---
 name: parallel-analyze
-description: Run comprehensive 4-agent system analysis (security, performance, testing, infrastructure)
+description: Run comprehensive 4-agent system analysis (security, performance, testing, infrastructure) via direct coordination
 ---
 
 # Parallel System Analysis
 
-This command spawns 4 agents simultaneously to analyze a system comprehensively:
+This command spawns 4 agents simultaneously to analyze a system comprehensively via analysis-gateway direct coordination:
 
 **Usage:** `/parallel-analyze "system or component name"`
 
-**Agents spawned in parallel:**
+**Agents spawned in parallel via direct Task() calls:**
 - security-enforcer: Security vulnerability analysis
 - performance-optimizer: Performance bottleneck identification  
 - test-specialist: Test coverage and quality assessment
@@ -19,10 +19,10 @@ This command spawns 4 agents simultaneously to analyze a system comprehensively:
 
 ## Implementation
 
-This command will execute the following parallel agent coordination:
+This command will execute the following direct parallel coordination:
 
 ```
-meta-coordinator: "Comprehensive 4-agent analysis of [system] spanning security, performance, testing, and infrastructure domains. Execute parallel analysis pattern with security-enforcer, performance-optimizer, test-specialist, and infrastructure-engineer."
+analysis-gateway: "Comprehensive 4-domain analysis of [system] spanning security, performance, testing, and infrastructure domains. I'll coordinate analysis using 4 tasks in parallel: security vulnerability assessment, performance optimization analysis, testing strategy evaluation, and infrastructure review."
 ```
 
-The meta-coordinator will handle the parallel execution and provide integrated results.
+The analysis-gateway will handle the direct parallel execution with Task() calls for optimal efficiency.

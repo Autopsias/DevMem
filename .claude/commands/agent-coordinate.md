@@ -24,19 +24,20 @@ For single-domain issues requiring direct agent execution:
 ```
 
 ### **multi**
-For 2-3 domain issues requiring coordinated agent approach:
+For 2-4 domain issues requiring direct Task() coordination:
 ```bash
 /agent-coordinate multi "test failures with security vulnerabilities"
 /agent-coordinate multi "Docker performance issues affecting CI"
 /agent-coordinate multi "code quality problems with architectural patterns"
+/agent-coordinate multi "testing, performance, and security analysis needed"
 ```
 
 ### **strategic**
-For 4+ domain complexity requiring meta-orchestration:
+For 5+ domain complexity requiring meta-coordinator orchestration:
 ```bash
-/agent-coordinate strategic "system architecture failure with testing, security, CI, and performance issues"
-/agent-coordinate strategic "large-scale refactoring affecting multiple domains and systems"
-/agent-coordinate strategic "infrastructure migration requiring comprehensive coordination"
+/agent-coordinate strategic "system architecture failure with testing, security, CI, performance, and infrastructure issues"
+/agent-coordinate strategic "crisis response requiring security, performance, testing, infrastructure, configuration, and CI coordination"
+/agent-coordinate strategic "large-scale architectural migration affecting 6+ domains"
 ```
 
 ## Memory-Enhanced Coordination
@@ -67,15 +68,15 @@ The command analyzes the complexity level and domain context to:
 - Reference domain-specific memory patterns
 - Minimize coordination overhead
 
-### **Multi Complexity**
-- Identify primary agent based on domain analysis
-- Suggest natural coordination patterns
-- Reference successful historical coordination
-- Enable parallel agent execution when beneficial
+### **Multi Complexity (2-4 domains)**
+- Enable direct Task() call coordination
+- Identify optimal agents for parallel execution
+- Reference successful multi-domain coordination patterns
+- Bypass meta-coordinator overhead for efficiency
 
-### **Strategic Complexity**
-- Trigger meta-orchestration through natural language
-- Reference complex coordination memory patterns
+### **Strategic Complexity (5+ domains)**
+- Trigger meta-coordinator orchestration through natural language
+- Reference complex strategic coordination memory patterns
 - Enable meta-coordinator for systematic coordination
 - Provide comprehensive context for strategic planning
 

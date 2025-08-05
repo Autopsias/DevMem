@@ -95,15 +95,16 @@ Based on proven Claude Code parallel execution patterns and industry best practi
 
 ### CRITICAL IMPLEMENTATION REQUIREMENT
 
-**META-COORDINATION FOR COMPLEX MULTI-DOMAIN PROBLEMS (5+ domains)**
+**META-COORDINATION FOR STRATEGIC MULTI-DOMAIN PROBLEMS (5+ domains)**
 
-**Strategic Coordination Role**: Handle complex problems that exceed individual primary agent capabilities requiring cross-domain conflict resolution and strategic integration.
+**Strategic Coordination Role**: Handle complex problems that exceed individual primary agent capabilities requiring cross-domain conflict resolution and strategic integration. Analysis-gateway routes 2-4 domain problems directly via Task() calls, reserving meta-coordinator for truly strategic coordination scenarios.
 
 **When to Use meta-coordinator**:
-- 5+ interconnected domains requiring coordination
-- Cross-primary-agent result integration needed
+- 5+ interconnected domains requiring strategic coordination
+- Cross-primary-agent result integration with conflict resolution needed
 - Strategic conflict resolution between domain recommendations
-- Crisis response requiring system-wide coordination
+- Crisis response requiring comprehensive system-wide coordination
+- Architectural decisions affecting multiple system boundaries
 
 **Meta-Coordination Execution Protocol**:
 
@@ -230,19 +231,19 @@ Aggregate results from parallel agents, identify interdependencies, resolve conf
 
 ## Coordination Strategy
 
-**Direct Coordination** (2-3 domains): Clear agent separation, standard patterns, minimal conflicts
-**Strategic Orchestration** (4+ domains): Complex dependencies, resource contention, cross-domain integration
+**Direct Coordination** (2-4 domains): Handled by analysis-gateway with direct Task() calls
+**Strategic Orchestration** (5+ domains): Complex dependencies, resource contention, cross-domain integration
 
 ## Orchestration Triggers
 
 **Use Meta-Coordinator When**:
-- 4+ domains requiring coordination
-- 6+ agents needed
-- Complex agent dependencies
-- Resource contention
-- Novel coordination patterns
+- 5+ domains requiring strategic coordination
+- Complex cross-domain dependencies requiring conflict resolution
+- Resource contention across multiple domains
+- Strategic planning and architectural decisions
+- Crisis response requiring comprehensive system-wide coordination
 
-**Communication Pattern**: "Analysis reveals multi-domain requirements spanning [domains]. Recommend `meta-coordinator` for strategic coordination."
+**Communication Pattern**: "Analysis reveals complex multi-domain requirements spanning 5+ domains. Recommend `meta-coordinator` for strategic coordination."
 
 ## Natural Delegation Integration
 
