@@ -1,7 +1,9 @@
 # Story 1.4: Essential Hook System Preservation
 
+**Parent Epic**: [EPIC-1-Infrastructure-Foundation-Excellence.md](../epics/EPIC-1-Infrastructure-Foundation-Excellence.md)
+
 ## Status
-Draft
+Approved
 
 ## Story
 
@@ -85,39 +87,42 @@ Draft
 ## Dev Notes
 
 ### Architecture Context
-The current hook system is part of the over-engineered infrastructure that needs streamlining. However, unlike other infrastructure components, essential security and quality hooks must be preserved to maintain framework integrity and compliance.
+The current hook system consists of 6 shell scripts in scripts/hooks/ (~1,867 lines total) that need streamlining. Per Epic-1, this over-engineered infrastructure must be simplified while preserving essential security and quality enforcement. The goal is to migrate from custom shell scripts to Claude Code native hooks configuration via .claude/settings.json.
 
-### Essential Hook Categories
-**Critical Security Hooks**:
-- Code security scanning (Semgrep integration for vulnerability detection)
-- Secure coding pattern enforcement (prevent security anti-patterns)
+### Essential Hook Categories ✅ **VERIFIED FROM CURRENT SYSTEM**
+
+**Critical Security Hooks** (From bash_security.sh):
+- Bash command security validation (prevent dangerous operations)
+- Code security scanning (Semgrep integration for vulnerability detection)  
 - Access control validation (ensure appropriate permissions)
 - Credential security enforcement (prevent secrets in code)
 
-**Critical Quality Hooks**:  
+**Critical Quality Hooks** (From code_quality_enforcer.sh):
 - Code formatting enforcement (ruff, black, mypy integration)
 - Test coverage validation (≥80% coverage requirement enforcement)
 - Linting and type checking enforcement (maintain code standards)
 - Code quality gates (prevent quality regressions)
 
-### Hook System Simplification Strategy
-**Remove Complex Infrastructure**:
+### Hook System Simplification Strategy ✅ **CLAUDE CODE NATIVE MIGRATION**
+
+**Remove Custom Shell Scripts** (scripts/hooks/ - 1,867 lines):
+- environment_bridge.sh, subagent_dispatcher.sh, notification.sh, lightweight_validator.sh
 - Complex hook orchestration and dependency management
 - Over-engineered logging and monitoring hooks
 - Redundant validation with overlapping functionality
-- Performance monitoring hooks (replaced by native monitoring)
 
-**Preserve Essential Functionality**:
+**Preserve Essential Functionality via Native Hooks**:
+- Migrate bash_security.sh functionality to native PreToolUse hooks
+- Migrate code_quality_enforcer.sh functionality to native PostToolUse hooks
 - Security vulnerability detection and prevention
-- Code quality standards enforcement
-- Test coverage requirement validation
-- Critical quality gates for merge/deploy processes
+- Code quality standards enforcement and coverage validation
 
-**Streamline Configuration**:
-- Migrate hook configuration to native .claude/settings.json where possible
-- Simplify hook triggering to essential patterns only
-- Remove complex hook customization and orchestration options
-- Focus on core security and quality enforcement only
+**Native Configuration Migration** (Per Claude Code Documentation):
+- Migrate to .claude/settings.json "hooks" section with official hook events:
+  - **PreToolUse**: Security validation before tool execution (bash_security.sh → native)
+  - **PostToolUse**: Quality enforcement after successful tool completion (code_quality_enforcer.sh → native)
+  - **UserPromptSubmit**: Optional prompt validation if needed
+- Remove complex hook customization and use native Claude Code hook patterns
 
 ### Integration with Native Patterns
 - Hooks should complement, not conflict with, Claude Code native agent coordination
@@ -125,18 +130,32 @@ The current hook system is part of the over-engineered infrastructure that needs
 - Hook execution should be transparent to Claude Code platform features
 - Hook system should be forward-compatible with Claude Code platform evolution
 
-### Testing Standards
-- **Security Testing**: Validate all essential security hooks catch vulnerabilities appropriately
-- **Quality Testing**: Verify quality hooks enforce standards without regression
-- **Performance Testing**: Ensure hooks don't impact framework responsiveness
-- **Integration Testing**: Verify hooks work correctly with Claude Code native patterns
-- **Regression Testing**: Confirm no loss of essential security or quality enforcement
+## Testing
+
+### Testing Standards ✅ **NATIVE HOOKS VALIDATION**
+- **Security Hook Testing**: Validate native PreToolUse hooks provide equivalent bash_security.sh functionality
+- **Quality Hook Testing**: Verify native PostToolUse hooks provide equivalent code_quality_enforcer.sh functionality  
+- **Performance Testing**: Ensure native hooks don't impact framework responsiveness (≤1s agent selection time per Epic-1)
+- **Native Integration Testing**: Verify hooks work correctly with Claude Code platform features
+- **Configuration Testing**: Validate .claude/settings.json hooks configuration works correctly
+- **Regression Testing**: Confirm no loss of essential security or quality enforcement after migration
+
+### Testing Framework & Approach ✅ **VERIFIED NATIVE PATTERNS**
+- **Native Hook Events Testing**: Validate PreToolUse, PostToolUse, UserPromptSubmit hooks function correctly
+- **Security Validation Testing**: Test native hooks catch dangerous bash commands and security vulnerabilities
+- **Quality Enforcement Testing**: Test native hooks enforce ruff, black, mypy, and coverage requirements
+- **Hook Configuration Testing**: Validate .claude/settings.json hooks section configuration works as documented
+- **Performance Baseline Testing**: Measure hook execution time impact vs. current shell script performance
+- **Platform Compatibility Testing**: Ensure native hooks work across Claude Code platform updates
+- **Agent Coordination Testing**: Verify hooks don't interfere with .claude/agents/ system functionality
+- **Rollback Testing**: Validate ability to rollback to shell script hooks if native migration issues discovered
 
 ## Change Log
 
 | Date | Version | Description | Author |
 |------|---------|-------------|--------|
 | 2025-08-06 | 1.0 | Initial story creation for essential hook system preservation | Product Owner |
+| 2025-08-06 | 1.1 | Added parent epic reference, verified current hook system (6 scripts, 1,867 lines), clarified migration to Claude Code native hooks via .claude/settings.json, added structured Testing section with native hook validation approach | Product Owner |
 
 ## Dev Agent Record
 

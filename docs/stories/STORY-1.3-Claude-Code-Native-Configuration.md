@@ -1,7 +1,9 @@
 # Story 1.3: Claude Code Native Configuration
 
+**Parent Epic**: [EPIC-1-Infrastructure-Foundation-Excellence.md](../epics/EPIC-1-Infrastructure-Foundation-Excellence.md)
+
 ## Status
-Draft
+Approved
 
 ## Story
 
@@ -82,63 +84,98 @@ Draft
 ## Dev Notes
 
 ### Architecture Context
-This story implements the replacement configuration system after removing the complex 3,709-line configuration/ directory. The goal is to achieve equivalent functionality using Claude Code native patterns with significantly reduced complexity.
+This story implements the replacement configuration system after removing the complex Python src/configuration/ directory (3,709 lines). The goal is to achieve equivalent functionality using Claude Code native patterns with significantly reduced complexity while preserving the .claude/agents/ sub-agent system functionality.
 
-### Claude Code Native Configuration Approach
-**Single Configuration File**: .claude/settings.json
-- Replaces multi-file configuration hierarchy with single authoritative source
-- Uses Claude Code native JSON schema and validation
-- Leverages Claude Code platform configuration loading and caching
-- Enables Claude Code native hot-reload and configuration management
+### Claude Code Native Configuration Approach ✅ **VERIFIED**
+Per official Anthropic documentation, Claude Code supports native configuration via hierarchical settings.json files:
 
-**Native Pattern Integration**:
-- Agent coordination settings aligned with Anthropic agent architecture standards
-- Memory hierarchy configuration using Claude Code native memory patterns  
-- Hook configuration streamlined to essential security and quality enforcement
-- Performance settings optimized for Claude Code platform capabilities
+**Native Configuration Structure**:
+- **User settings**: `~/.claude/settings.json` (applies to all projects)
+- **Project settings**: `.claude/settings.json` (shared/checked into source control)  
+- **Local settings**: `.claude/settings.local.json` (personal, not checked in)
+- **Enterprise policies**: System-level managed settings (highest priority)
 
-### Configuration Migration Strategy
-**From Complex Hierarchy → To Native Single File**:
-- configuration/agents/ → .claude/settings.json "agents" section
-- configuration/memory/ → .claude/settings.json "memory" section  
-- configuration/performance/ → .claude/settings.json "performance" section
-- configuration/hooks/ → .claude/settings.json "hooks" section
+**✅ VERIFIED Native Features**:
+- **Hierarchical configuration**: Multiple configuration layers with proper precedence
+- **Environment variables**: Native `env` configuration support
+- **Tool permissions**: Native `permissions` allow/deny configuration
+- **Hooks integration**: Native `hooks` configuration for pre/post tool execution
+- **Model configuration**: Native `model` override support
+- **Configuration commands**: `claude config` command-line management tools
 
-**Simplification Principles**:
-- Eliminate configuration redundancy and over-engineering
-- Use Claude Code platform defaults where possible
-- Focus on essential configuration only
-- Leverage Claude Code native validation and error handling
+**Native Pattern Integration** (Per Official Documentation):
+- **Environment variables**: Migrate Python configuration to native `env` settings
+- **Tool permissions**: Replace custom validation with native `permissions` allow/deny rules
+- **Hooks configuration**: Streamline to essential security/quality hooks using native `hooks` settings  
+- **Model configuration**: Use native `model` override for performance optimization
+- **Integration with existing**: Coordinate with .claude/agents/ and .claude/memory/ systems
 
-### Critical Configuration Areas
-**Agent Coordination**:
-- Natural selection patterns and preferences
-- Parallel execution configuration and limits
-- Sequential intelligence and context preservation settings
-- Meta-orchestration and escalation triggers
+### Configuration Migration Strategy ✅ **VERIFIED APPROACH**
+**From Complex Python Hierarchy → To Native Hierarchical Settings**:
+- **src/configuration/environment/** → `.claude/settings.json` `"env"` section
+- **src/configuration/permissions/** → `.claude/settings.json` `"permissions"` section  
+- **src/configuration/hooks/** → `.claude/settings.json` `"hooks"` section
+- **src/configuration/performance/** → `.claude/settings.json` `"model"` and performance-related env vars
+- **Coordination with existing systems**: Ensure settings work with .claude/agents/ and .claude/memory/
 
-**Memory Management**:
-- Simplified 2-file memory hierarchy (from 5-hop)
-- Memory pattern preferences and learning integration
-- Context accumulation and preservation settings
+**Simplification Principles** (Using Native Features):
+- **Hierarchical precedence**: Use Claude Code's native settings hierarchy instead of custom logic
+- **Native validation**: Leverage Claude Code's native JSON validation instead of custom validators
+- **Platform defaults**: Use Claude Code platform defaults where possible
+- **Essential configuration only**: Focus on configuration that adds value beyond defaults
+- **Command-line management**: Use `claude config` commands for settings management
 
-**Performance & Quality**:
-- Essential performance monitoring configuration
-- Streamlined hook configuration for security and quality
-- Quality gate thresholds and enforcement settings
+### Critical Configuration Areas ✅ **MAPPED TO NATIVE FEATURES**
 
-### Testing Standards
-- **Configuration Testing**: Validate all configuration elements load and apply correctly
-- **Performance Testing**: Verify configuration loading meets performance requirements
-- **Compatibility Testing**: Ensure compatibility with Claude Code platform features
-- **Validation Testing**: Test configuration validation catches errors appropriately
-- **Migration Testing**: Verify migration from old to new configuration works correctly
+**Environment & Performance** (Using native `"env"` section):
+- Essential environment variables for agent performance
+- Configuration that supports ≤1s agent selection time requirement
+- Performance-related environment variables
+
+**Tool Permissions & Security** (Using native `"permissions"` section):
+- Replace custom validation logic with native allow/deny rules
+- Security-focused tool permission configuration
+- Quality gate enforcement through permission controls
+
+**Hooks Integration** (Using native `"hooks"` section):
+- Essential pre/post tool execution hooks for security and quality
+- Streamlined hook configuration (vs. current complex system)
+- Integration with quality enforcement workflows
+
+**Model & Platform** (Using native `"model"` and related sections):
+- Model configuration for optimal performance
+- Platform integration settings
+- Configuration that works seamlessly with .claude/agents/ and .claude/memory/ systems
+
+## Testing
+
+### Testing Standards ✅ **BASED ON VERIFIED CAPABILITIES**
+- **Native Configuration Testing**: Validate .claude/settings.json using official Claude Code hierarchical settings
+- **Configuration Hierarchy Testing**: Test user/project/local settings precedence works correctly per official documentation
+- **Agent System Integration Testing**: Verify native configuration doesn't interfere with .claude/agents/ functionality
+- **Performance Testing**: Verify configuration loading meets ≤1s agent selection time requirement (Per Epic-1)  
+- **Platform Integration Testing**: Test `claude config` command-line tools for settings management
+- **Migration Testing**: Verify migration from Python src/configuration/ to native settings.json approach works correctly
+
+### Testing Framework & Approach ✅ **VERIFIED NATIVE PATTERNS**
+- **Hierarchical Settings Testing**: Validate user → project → local settings precedence per official documentation
+- **Native JSON Validation Testing**: Test Claude Code's native configuration validation and error handling
+- **Command-Line Integration Testing**: Validate `claude config` commands work correctly for settings management
+- **Agent Coordination Testing**: Verify native configuration works seamlessly with .claude/agents/ functionality
+- **Memory System Integration Testing**: Verify configuration coordinates properly with .claude/memory/ hierarchy  
+- **Environment Variables Testing**: Test native `env` configuration section functionality
+- **Permissions Testing**: Validate native `permissions` allow/deny rules work correctly
+- **Hooks Integration Testing**: Test native `hooks` configuration for pre/post tool execution
+- **Performance Baseline Testing**: Measure configuration loading time vs. previous Python system performance
+- **Rollback Testing**: Validate ability to rollback to backup Python configuration if issues discovered
 
 ## Change Log
 
 | Date | Version | Description | Author |
 |------|---------|-------------|--------|
 | 2025-08-06 | 1.0 | Initial story creation for Claude Code native configuration | Product Owner |
+| 2025-08-06 | 1.1 | Added parent epic reference, clarified Python infrastructure context vs Claude Code agent system coordination, added structured Testing section, noted need for Claude Code capability verification | Product Owner |
+| 2025-08-06 | 1.2 | **VERIFIED** Claude Code native configuration capabilities via official documentation, updated all sections to reflect actual supported features (settings.json hierarchy, env, permissions, hooks, model config), removed speculation and added concrete implementation approach | Product Owner |
 
 ## Dev Agent Record
 

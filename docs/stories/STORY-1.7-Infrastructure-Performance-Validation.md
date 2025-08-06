@@ -1,7 +1,9 @@
 # Story 1.7: Infrastructure Performance Validation
 
+**Parent Epic**: [EPIC-1-Infrastructure-Foundation-Excellence.md](../epics/EPIC-1-Infrastructure-Foundation-Excellence.md)
+
 ## Status
-Draft
+Approved
 
 ## Story
 
@@ -89,7 +91,7 @@ Draft
 ## Dev Notes
 
 ### Architecture Context
-This story provides the final validation that Epic 1's infrastructure simplification has achieved its goals without performance regression. It serves as the quality gate for Epic 1 completion and transition to Epic 2.
+This story provides the final validation that Epic-1's infrastructure simplification has achieved its goals without performance regression. It validates the complete infrastructure transformation: Python infrastructure removal (~7,058 lines), hook consolidation (~1,867 lines → essential hooks), memory system consolidation (7 files → 2 files), and native configuration migration. It serves as the quality gate for Epic-1 completion and transition to Epic-2.
 
 ### Performance Validation Strategy
 **Comprehensive Performance Testing**:
@@ -112,11 +114,14 @@ This story provides the final validation that Epic 1's infrastructure simplifica
 - Sequential coordination context preservation must maintain >91%
 - Essential security and quality enforcement must have minimal performance impact
 
-**Infrastructure Simplification Performance Targets**:
-- Performance maintained or improved despite 90% infrastructure code reduction
-- Memory system performance maintained or improved with 2-file consolidation
-- Hook system performance improved through streamlining to essentials only
-- Configuration performance improved through native Claude Code patterns
+**Infrastructure Simplification Performance Targets** (Per Epic-1):
+- Performance maintained or improved despite massive infrastructure reduction:
+  - Python infrastructure: ~7,058 lines removed
+  - Hook scripts: ~1,867 lines → essential hooks only  
+  - Memory system: 7 files → 2 files consolidated
+  - Native configuration: .claude/settings.json migration
+- Claude Code sub-agent system (39 agents) functionality completely preserved
+- All performance targets achieved while maintaining Anthropic standards compliance
 
 ### Performance Monitoring Approach
 **Lightweight Monitoring**: Use simplified infrastructure for ongoing performance tracking
@@ -125,25 +130,43 @@ This story provides the final validation that Epic 1's infrastructure simplifica
 - Focus on critical performance indicators only
 - Avoid recreating complex performance monitoring infrastructure
 
-### Epic 1 Success Validation
-This story serves as the final gate for Epic 1 completion:
-- **90% Infrastructure Reduction**: Validate code reduction from 7,000+ lines to <500 lines
-- **Zero Functionality Regression**: Confirm all essential functionality preserved
-- **Performance Maintained**: Validate ≤1s agent selection and framework responsiveness
-- **Anthropic Compliance**: Confirm complete Claude Code standards compliance
+### Epic-1 Success Validation ✅ **VERIFIED TARGETS**
+This story serves as the final gate for Epic-1 completion:
+- **Massive Infrastructure Reduction**: Validate reduction achieved:
+  - Python infrastructure: ~7,058 lines removed (Stories 1.2-1.3)
+  - Hook scripts: ~1,867 lines → essential hooks (Story 1.4) 
+  - Memory system: 7 files → 2 files (Story 1.5)
+  - Total simplification while preserving Claude Code sub-agent system (39 agents)
+- **Zero Functionality Regression**: Confirm all essential functionality preserved (especially .claude/agents/)
+- **Performance Maintained**: Validate ≤1s agent selection and framework responsiveness (Epic-1 requirement)
+- **Anthropic Compliance**: Confirm complete Claude Code standards compliance with native patterns
 
-### Testing Standards
-- **Performance Testing**: Comprehensive performance measurement and validation
-- **Regression Testing**: Ensure no performance degradation from infrastructure changes
-- **Load Testing**: Validate performance under various usage scenarios
-- **Comparative Analysis**: Before/after performance comparison and analysis
-- **Epic Validation**: Confirm Epic 1 success criteria achieved
+## Testing
+
+### Testing Standards ✅ **COMPREHENSIVE PERFORMANCE VALIDATION**
+- **Performance Baseline Testing**: Establish comprehensive baseline before infrastructure simplification
+- **Performance Regression Testing**: Ensure no performance degradation from Stories 1.2-1.5 infrastructure changes
+- **Agent Selection Performance Testing**: Validate ≤1s agent selection time requirement consistently met (Per Epic-1)
+- **Load Testing**: Validate performance under various usage scenarios and framework loads
+- **Comparative Analysis Testing**: Before/after performance comparison across all infrastructure components
+- **Epic-1 Success Validation Testing**: Confirm all Epic-1 success criteria achieved
+
+### Testing Framework & Approach ✅ **EPIC-1 QUALITY GATE VALIDATION**
+- **Baseline Measurement Testing**: Comprehensive performance measurement before any Stories 1.2-1.5 changes
+- **Python Infrastructure Impact Testing**: Validate removal of src/configuration/ and src/performance/ doesn't degrade performance
+- **Native Configuration Performance Testing**: Test .claude/settings.json performance vs previous Python configuration system
+- **Hook System Performance Testing**: Validate streamlined essential hooks perform better than complex hook system
+- **Memory System Performance Testing**: Test 2-file consolidated memory vs 7-file system performance and accuracy
+- **Claude Code Sub-Agent Performance Testing**: Ensure 39-agent system performance completely unaffected by infrastructure changes
+- **End-to-End Performance Testing**: Validate complete framework responsiveness after all infrastructure simplification
+- **Epic-1 Completion Validation**: Final validation that all Epic-1 targets achieved without performance regression
 
 ## Change Log
 
 | Date | Version | Description | Author |
 |------|---------|-------------|--------|
 | 2025-08-06 | 1.0 | Initial story creation for infrastructure performance validation | Product Owner |
+| 2025-08-06 | 1.1 | Added parent epic reference, updated architecture context with verified infrastructure changes from Stories 1.2-1.5, added comprehensive Testing section for Epic-1 quality gate validation | Product Owner |
 
 ## Dev Agent Record
 

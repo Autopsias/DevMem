@@ -1,7 +1,9 @@
 # Story 1.6: Infrastructure Validation & Documentation
 
+**Parent Epic**: [EPIC-1-Infrastructure-Foundation-Excellence.md](../epics/EPIC-1-Infrastructure-Foundation-Excellence.md)
+
 ## Status
-Draft
+Approved
 
 ## Story
 
@@ -89,19 +91,20 @@ Draft
 ## Dev Notes
 
 ### Architecture Context
-After completing major infrastructure simplification (removing 7,000+ lines to <500 lines), this story ensures the simplified infrastructure works correctly and is properly documented for ongoing maintenance and troubleshooting.
+After completing major infrastructure simplification per Stories 1.2-1.5 (Python infrastructure removal ~7,058 lines, hook script consolidation ~1,867 lines, memory system consolidation from 7 files to 2 files), this story ensures the simplified infrastructure works correctly and is properly documented for ongoing maintenance and troubleshooting.
 
 ### Infrastructure Validation Scope
-**Complete System Integration Testing**:
-- Validate all infrastructure components work together correctly after simplification
-- Test infrastructure under various load and usage scenarios
-- Validate no functionality regression from infrastructure changes
-- Ensure performance targets achieved (≤1s agent selection, maintained reliability)
+**Complete System Integration Testing** (After Stories 1.2-1.5):
+- Validate Python infrastructure removal doesn't affect Claude Code sub-agent functionality
+- Test native .claude/settings.json configuration integration (Story 1.3)
+- Test streamlined hook system with essential security/quality enforcement (Story 1.4)
+- Test consolidated 2-file memory system functionality (Story 1.5)
+- Ensure performance targets achieved (≤1s agent selection per Epic-1, maintained reliability)
 
 **Claude Code Native Pattern Validation**:
-- Verify .claude/settings.json works correctly with Claude Code platform
-- Test memory system integration with Claude Code native features
-- Validate hook system doesn't interfere with Claude Code platform updates
+- Verify .claude/settings.json works correctly with Claude Code platform (per verified native capabilities)
+- Test consolidated memory system integration with .claude/agents/ system
+- Validate streamlined hooks don't interfere with Claude Code platform updates
 - Ensure forward compatibility with Claude Code platform evolution
 
 ### Documentation Strategy: Essential Only
@@ -132,18 +135,32 @@ After completing major infrastructure simplification (removing 7,000+ lines to <
 3. **Emergency Procedures**: Rollback and recovery procedures for critical issues
 4. **Best Practices**: Guidance for maintaining simplified infrastructure optimally
 
-### Testing Standards
-- **Integration Testing**: Comprehensive testing of simplified infrastructure integration
-- **Performance Testing**: Validate infrastructure meets performance requirements
-- **Compliance Testing**: Verify Anthropic standards compliance maintained
-- **Documentation Testing**: Verify documentation accuracy and usability
-- **Rollback Testing**: Validate rollback procedures work correctly
+## Testing
+
+### Testing Standards ✅ **COMPREHENSIVE INFRASTRUCTURE VALIDATION**
+- **End-to-End Integration Testing**: Validate all simplified infrastructure components work together correctly after Stories 1.2-1.5
+- **Performance Testing**: Validate infrastructure meets ≤1s agent selection time requirement (Per Epic-1)
+- **Compliance Testing**: Verify Anthropic Claude Code standards compliance maintained throughout simplification
+- **Documentation Testing**: Verify documentation accuracy and usability for simplified infrastructure maintenance
+- **Rollback Testing**: Validate rollback procedures work correctly for each simplification phase
+- **Regression Testing**: Ensure no functionality loss from infrastructure simplification
+
+### Testing Framework & Approach ✅ **COMPREHENSIVE VALIDATION STRATEGY**
+- **Python Infrastructure Removal Testing**: Validate removal of src/configuration/ and src/performance/ doesn't affect essential functionality
+- **Native Configuration Testing**: Test .claude/settings.json integration with Claude Code platform (Story 1.3 validation)
+- **Streamlined Hooks Testing**: Validate essential security/quality hooks work correctly with native Claude Code hooks (Story 1.4 validation)
+- **Memory System Testing**: Test consolidated 2-file memory system provides same intelligence as previous 7-file system (Story 1.5 validation)
+- **Claude Code Sub-Agent Testing**: Verify .claude/agents/ system completely unaffected by infrastructure changes
+- **Cross-Story Integration Testing**: Validate all infrastructure changes from Stories 1.2-1.5 work together seamlessly
+- **Documentation Validation Testing**: Test all updated documentation against actual implemented infrastructure
+- **Emergency Recovery Testing**: Validate rollback and recovery procedures work correctly if issues discovered
 
 ## Change Log
 
 | Date | Version | Description | Author |
 |------|---------|-------------|--------|
 | 2025-08-06 | 1.0 | Initial story creation for infrastructure validation & documentation | Product Owner |
+| 2025-08-06 | 1.1 | Added parent epic reference, updated architecture context with verified infrastructure changes from Stories 1.2-1.5, added structured Testing section with comprehensive validation approach | Product Owner |
 
 ## Dev Agent Record
 

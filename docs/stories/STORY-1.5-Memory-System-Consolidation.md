@@ -1,17 +1,19 @@
 # Story 1.5: Memory System Consolidation
 
+**Parent Epic**: [EPIC-1-Infrastructure-Foundation-Excellence.md](../epics/EPIC-1-Infrastructure-Foundation-Excellence.md)
+
 ## Status
-Draft
+Approved
 
 ## Story
 
 **As a** framework maintainer,
-**I want** simplified memory hierarchy consolidation from 5-hop complexity to streamlined 2-file system,
+**I want** simplified memory hierarchy consolidation from current 7-file system with recursive imports to streamlined 2-file system,
 **so that** I can maintain agent coordination intelligence while reducing memory system complexity and improving maintainability.
 
 ## Acceptance Criteria
 
-1. Consolidate complex 5-hop memory hierarchy into simplified 2-file system
+1. Consolidate current 7-file memory system (~1,230 lines) with 19 recursive imports into simplified 2-file system
 2. Preserve all essential agent coordination memory patterns and intelligence
 3. Maintain memory-driven agent selection accuracy and performance
 4. Simplify memory maintenance and updates while preserving learning capabilities
@@ -23,10 +25,10 @@ Draft
 ## Tasks / Subtasks
 
 - [ ] Memory Hierarchy Analysis (AC: 1)
-  - [ ] Analyze current 5-hop memory hierarchy structure and complexity
-  - [ ] Identify essential memory patterns and intelligence for preservation
-  - [ ] Map memory dependencies and recursion patterns
-  - [ ] Design simplified 2-file memory architecture
+  - [ ] Analyze current 7-file memory system structure and 19 recursive import patterns
+  - [ ] Identify essential memory patterns and intelligence for preservation  
+  - [ ] Map memory dependencies and recursion patterns across all files
+  - [ ] Design simplified 2-file memory architecture with specific file consolidation mapping
   - [ ] Plan consolidation strategy to preserve critical coordination patterns
 
 - [ ] Essential Memory Pattern Preservation (AC: 2)
@@ -81,26 +83,34 @@ Draft
 ## Dev Notes
 
 ### Architecture Context
-The current memory system uses complex 5-hop recursive memory hierarchy that creates maintenance overhead while providing agent coordination intelligence. The goal is to consolidate to 2-file system while preserving all essential coordination patterns and learning.
+The current memory system uses 7-file structure (~1,230 lines total) with 19 recursive imports that creates maintenance overhead while providing agent coordination intelligence. Per Epic-1, the goal is to consolidate to 2-file system while preserving all essential coordination patterns and learning.
 
-### Current Memory Hierarchy (5-Hop Complexity)
-**Current Structure**:
+### Current Memory Hierarchy ✅ **VERIFIED STRUCTURE**
+**Current 7-File System**:
 - `.claude/memory/agent-coordination-patterns.md` (primary coordination patterns)
+- `.claude/memory/agent-memory-integration.md` (integration patterns)
+- `.claude/memory/sequential-intelligence-patterns.md` (sequential coordination)
 - `.claude/memory/domains/testing-patterns.md` (domain-specific testing intelligence)  
 - `.claude/memory/domains/infrastructure-patterns.md` (domain-specific infrastructure intelligence)
 - `.claude/memory/domains/security-patterns.md` (domain-specific security intelligence)
-- Additional recursive imports and cross-references creating 5-hop depth
+- `.claude/memory/project-specific/rag-memorybank-patterns.md` (project-specific patterns)
 
-### Simplified Memory Architecture (2-File System)
+**Recursive Import Complexity**: 19 @.claude/memory references creating cross-file dependencies
+
+### Simplified Memory Architecture (2-File System) ✅ **SPECIFIC CONSOLIDATION MAPPING**
 **Proposed Structure**:
-- **File 1**: `.claude/memory/coordination-intelligence.md` (consolidated agent coordination patterns, selection intelligence, success patterns)
-- **File 2**: `.claude/memory/domain-expertise.md` (consolidated domain-specific patterns: testing, infrastructure, security, quality)
+- **File 1**: `.claude/memory/coordination-intelligence.md` 
+  - **Consolidates**: agent-coordination-patterns.md + agent-memory-integration.md + sequential-intelligence-patterns.md
+  - **Content**: Consolidated agent coordination patterns, selection intelligence, success patterns, sequential coordination
+- **File 2**: `.claude/memory/domain-expertise.md`
+  - **Consolidates**: domains/testing-patterns.md + domains/infrastructure-patterns.md + domains/security-patterns.md + project-specific/rag-memorybank-patterns.md  
+  - **Content**: Consolidated domain-specific patterns (testing, infrastructure, security) + project-specific patterns
 
 **Consolidation Strategy**:
-- Merge agent coordination patterns into single comprehensive intelligence file
-- Merge domain-specific expertise into single domain knowledge file
-- Preserve all essential intelligence while eliminating complexity
-- Maintain Anthropic recursive memory standards (@path syntax)
+- **7 files → 2 files**: Reduce from ~1,230 lines across 7 files to 2 comprehensive files
+- **19 recursive imports → simplified references**: Eliminate cross-file @.claude/memory dependencies
+- Preserve all essential intelligence while eliminating maintenance complexity
+- Maintain Anthropic recursive memory standards (@path syntax where needed)
 
 ### Critical Memory Intelligence to Preserve
 **Agent Coordination Intelligence**:
@@ -126,18 +136,32 @@ The current memory system uses complex 5-hop recursive memory hierarchy that cre
 - Sequential coordination must preserve >91% context accumulation success
 - Memory-driven learning must continue to improve patterns over time
 
-### Testing Standards
-- **Memory Performance Testing**: Validate memory lookup speed meets requirements
-- **Coordination Testing**: Verify agent selection accuracy preserved after consolidation
-- **Intelligence Testing**: Confirm learning patterns and success intelligence preserved
-- **Integration Testing**: Ensure memory system works with Claude Code native features
-- **Migration Testing**: Validate successful migration from 5-hop to 2-file system
+## Testing
+
+### Testing Standards ✅ **MEMORY CONSOLIDATION VALIDATION**
+- **Memory Performance Testing**: Validate memory lookup speed meets ≤1s agent selection requirement (Per Epic-1)
+- **Coordination Testing**: Verify agent selection accuracy preserved after consolidation from 7-file to 2-file system
+- **Intelligence Testing**: Confirm learning patterns and success intelligence preserved during consolidation
+- **Integration Testing**: Ensure consolidated memory system works with Claude Code native features and .claude/agents/ system
+- **Migration Testing**: Validate successful migration from 7-file system to 2-file system without intelligence loss
+- **Import Testing**: Verify 19 recursive imports properly consolidated and functionality preserved
+
+### Testing Framework & Approach ✅ **COMPREHENSIVE MEMORY VALIDATION**
+- **File Consolidation Testing**: Validate all 7 files properly merge into 2 files without content loss
+- **Agent Selection Testing**: Test agent selection accuracy before/during/after memory consolidation
+- **Coordination Pattern Testing**: Verify agent coordination patterns work correctly with consolidated memory
+- **Recursive Import Testing**: Validate elimination of 19 @.claude/memory references doesn't break functionality
+- **Memory Lookup Performance Testing**: Measure memory access time with 2-file system vs current 7-file system
+- **Learning Preservation Testing**: Confirm agent learning and success patterns preserved in consolidated system
+- **CLAUDE.md Integration Testing**: Verify consolidated memory imports work correctly from CLAUDE.md
+- **Rollback Testing**: Validate ability to rollback to 7-file system if consolidation issues discovered
 
 ## Change Log
 
 | Date | Version | Description | Author |
 |------|---------|-------------|--------|
 | 2025-08-06 | 1.0 | Initial story creation for memory system consolidation | Product Owner |
+| 2025-08-06 | 1.1 | Added parent epic reference, verified current memory system (7 files, 1,230 lines, 19 recursive imports), corrected complexity claims, added specific file consolidation mapping, added structured Testing section | Product Owner |
 
 ## Dev Agent Record
 
