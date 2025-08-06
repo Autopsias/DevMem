@@ -1,176 +1,150 @@
-# STORY 1.2: Over-Engineered System Removal
+# Story 1.2: Over-Engineered System Removal
 
-## Story Information
-- **Story ID**: STORY-1.2
-- **Epic**: EPIC-1 - Infrastructure Foundation Excellence
-- **Story Title**: Over-Engineered System Removal
-- **Story Owner**: Product Owner
-- **Assignee**: Development Team
-- **Story Points**: 8
-- **Priority**: Critical
-- **Status**: Not Started
-- **Sprint**: Sprint 1 (Week 1)
+## Status
+Draft
 
-## User Story
+## Story
 
-**As a** framework maintainer  
-**I want** to remove configuration/, performance/, and validation/ directories  
-**So that** I eliminate maintenance overhead and focus on core functionality
-
-## Story Description
-
-This story removes the over-engineered infrastructure components that create maintenance complexity without providing essential functionality. The removal focuses on the three primary sources of infrastructure complexity: configuration system (3,709 lines), performance monitoring (3,349 lines), and validation scripts.
-
-## Business Value
-
-- **Maintenance Reduction**: Eliminate 6,500+ lines of complex infrastructure code
-- **Complexity Reduction**: Remove non-essential systems that complicate framework
-- **Focus Enhancement**: Enable team focus on agent content excellence
-- **Anthropic Alignment**: Move toward Claude Code native patterns
+**As a** framework maintainer,
+**I want** systematic removal of over-engineered infrastructure components (configuration/, performance/, validation scripts),
+**so that** I can achieve 90% maintenance reduction while preserving essential functionality and Anthropic compliance.
 
 ## Acceptance Criteria
 
-### Must Have
-- [ ] configuration/ directory removed completely (3,709 lines eliminated)
-- [ ] performance/ directory removed completely (3,349 lines eliminated)  
-- [ ] validation scripts removed (validate_agent_configs.py, check_task_patterns.py)
-- [ ] src/ directory removed entirely (contains removed infrastructure)
-- [ ] Framework functionality preserved after removal
-- [ ] All tests passing after infrastructure removal
+1. Remove configuration/ directory (3,709 lines) while preserving functionality
+2. Remove performance/ directory (3,349 lines) while maintaining monitoring capability  
+3. Remove validation scripts while preserving quality assurance
+4. Verify zero functionality regression after removals
+5. Achieve target 90% infrastructure code reduction (from 7,000+ lines to <500 lines)
+6. Maintain Claude Code native pattern compliance throughout removal process
+7. Preserve all essential security and quality enforcement mechanisms
+8. Complete incremental removal with rollback points at each major step
 
-### Should Have
-- [ ] Incremental removal with testing at each step
-- [ ] Documentation of removed functionality for reference
-- [ ] Verification that no essential functionality was removed
-- [ ] Performance baseline maintained or improved after removal
+## Tasks / Subtasks
 
-### Could Have
-- [ ] Analysis of code complexity reduction metrics
-- [ ] Before/after comparison documentation
-- [ ] Lessons learned documentation for future infrastructure decisions
+- [ ] Phase 1: Configuration Directory Removal (AC: 1)
+  - [ ] Analyze configuration/ directory functionality requirements
+  - [ ] Identify essential configuration elements to preserve in Claude Code native format
+  - [ ] Create migration scripts for essential configurations to .claude/settings.json
+  - [ ] Test functionality preservation before removal
+  - [ ] Remove configuration/ directory (3,709 lines)
+  - [ ] Validate essential configuration functionality works via native Claude Code patterns
 
-## Definition of Done
+- [ ] Phase 2: Performance Directory Removal (AC: 2)
+  - [ ] Analyze performance/ directory monitoring capabilities
+  - [ ] Identify essential performance monitoring requirements
+  - [ ] Implement lightweight performance monitoring via Claude Code native features
+  - [ ] Test performance monitoring functionality preservation
+  - [ ] Remove performance/ directory (3,349 lines)
+  - [ ] Validate performance monitoring capability maintained
 
-- [ ] All specified directories and files removed
-- [ ] Framework still functional after removal
-- [ ] All existing tests passing
-- [ ] No essential functionality lost
-- [ ] Code review completed for removal changes
-- [ ] Team verification that removal is complete and appropriate
-- [ ] Documentation updated to reflect infrastructure changes
+- [ ] Phase 3: Validation Scripts Removal (AC: 3)
+  - [ ] Catalog current validation script functionality
+  - [ ] Identify critical quality assurance requirements  
+  - [ ] Implement essential quality assurance via streamlined hooks
+  - [ ] Test quality assurance preservation
+  - [ ] Remove redundant validation scripts
+  - [ ] Validate quality enforcement maintained
 
-## Tasks Breakdown
+- [ ] Functionality Regression Testing (AC: 4)
+  - [ ] Run full test suite after each removal phase
+  - [ ] Verify agent selection functionality preserved
+  - [ ] Verify memory system functionality preserved  
+  - [ ] Verify hook system functionality preserved
+  - [ ] Verify Claude Code native pattern compliance
+  - [ ] Document any issues discovered and remediation
 
-### Task 1.2.1: Configuration System Removal (3 hours)
-- Remove src/configuration/ directory (3,709 lines)
-- Identify any dependencies on configuration system
-- Update imports and references
-- Test framework functionality without configuration system
+- [ ] Infrastructure Metrics Validation (AC: 5)
+  - [ ] Measure final infrastructure codebase size
+  - [ ] Calculate reduction percentage achieved
+  - [ ] Validate <500 lines target met
+  - [ ] Document remaining infrastructure components and justification
 
-### Task 1.2.2: Performance Monitoring Removal (3 hours)
-- Remove src/performance/ directory (3,349 lines)
-- Identify any dependencies on performance monitoring
-- Update references and imports
-- Verify no essential monitoring is lost
+- [ ] Anthropic Compliance Validation (AC: 6)
+  - [ ] Verify Claude Code native pattern usage throughout
+  - [ ] Validate memory hierarchy compliance
+  - [ ] Verify agent coordination pattern compliance
+  - [ ] Test with Claude Code platform features
 
-### Task 1.2.3: Validation Scripts Removal (1.5 hours)
-- Remove scripts/validate_agent_configs.py
-- Remove scripts/check_task_patterns.py
-- Remove any other validation scripts identified in analysis
-- Update any documentation referencing these scripts
+- [ ] Security & Quality Preservation (AC: 7)
+  - [ ] Verify essential security enforcement maintained
+  - [ ] Verify code quality enforcement maintained
+  - [ ] Test security hook functionality  
+  - [ ] Test quality gate functionality
+  - [ ] Validate no security or quality regression
 
-### Task 1.2.4: src/ Directory Cleanup (0.5 hours)
-- Remove entire src/ directory if no essential components remain
-- Verify no essential code exists in src/ directory
-- Update project structure documentation
+- [ ] Incremental Rollback Point Management (AC: 8)
+  - [ ] Create rollback point after configuration/ removal
+  - [ ] Create rollback point after performance/ removal  
+  - [ ] Create rollback point after validation scripts removal
+  - [ ] Document rollback procedures for each phase
+  - [ ] Test rollback procedures work correctly
 
-## Technical Requirements
+## Dev Notes
 
-### Removal Scope
-**Primary Targets**:
-- `/Users/ricardocarvalho/DeveloperFolder/DevMem/src/configuration/` (3,709 lines)
-- `/Users/ricardocarvalho/DeveloperFolder/DevMem/src/performance/` (3,349 lines)
-- `/Users/ricardocarvalho/DeveloperFolder/DevMem/scripts/validate_agent_configs.py`
-- `/Users/ricardocarvalho/DeveloperFolder/DevMem/scripts/check_task_patterns.py`
-- Entire `/Users/ricardocarvalho/DeveloperFolder/DevMem/src/` directory
+### Architecture Context
+This is the core story of Epic 1, removing over-engineered infrastructure that creates maintenance overhead and deviates from Anthropic Claude Code best practices. The goal is aggressive simplification while maintaining all essential functionality.
 
-### Safety Procedures
-- **Incremental Removal**: Remove one directory at a time
-- **Testing Between Steps**: Run framework tests after each removal
-- **Dependency Checking**: Verify no code depends on removed components
-- **Rollback Ready**: Maintain ability to restore from backup if needed
+### Removal Strategy: Incremental Phases
+**Phase 1: Configuration System (3,709 lines)**
+- Complex configuration management → Claude Code native .claude/settings.json
+- Multi-file configuration hierarchy → Single native configuration approach
+- Custom configuration loading → Claude Code platform configuration features
 
-## Dependencies
+**Phase 2: Performance Monitoring (3,349 lines)**  
+- Complex performance monitoring infrastructure → Lightweight native monitoring
+- Custom performance metrics collection → Claude Code platform performance insights
+- Performance dashboard systems → Simple monitoring via native platform features
 
-### Internal Dependencies
-- **STORY-1.1**: Infrastructure Assessment & Backup must be completed first
-- **Backup System**: Verified backup must be available for rollback
+**Phase 3: Validation Scripts (Variable lines)**
+- Complex validation script ecosystem → Essential quality hooks only
+- Multi-layer validation systems → Streamlined security and quality enforcement
+- Custom validation frameworks → Claude Code native validation patterns
 
-### External Dependencies
-- Git repository access for making changes
-- Testing environment for validation
-- Development team availability for testing
+### Preservation Requirements
+- **Agent Selection Performance**: Must maintain ≤1s agent selection time
+- **Memory System Functionality**: All memory hierarchy features preserved in simplified form
+- **Security Enforcement**: All essential security checks preserved in streamlined hooks
+- **Quality Gates**: Code quality enforcement maintained with minimal infrastructure
 
-## Risks & Mitigation
+### Risk Mitigation Strategy
+- **Incremental Approach**: Remove systems in phases with rollback points
+- **Functionality First**: Verify preservation before proceeding to next phase
+- **Performance Monitoring**: Continuous performance validation during removal
+- **Rollback Readiness**: Tested rollback procedures at each phase
 
-### High Risk
-- **Essential Functionality Risk**: Accidentally remove essential framework functionality
-  - *Mitigation*: Comprehensive testing after each removal step, backup available for rollback
+### Critical Success Metrics
+- 90% infrastructure code reduction achieved (7,000+ → <500 lines)
+- Zero functionality regression
+- Performance maintained or improved
+- Complete Anthropic standards compliance
 
-### Medium Risk
-- **Hidden Dependencies Risk**: Code in other locations depends on removed infrastructure
-  - *Mitigation*: Dependency analysis, incremental testing, systematic search for references
+### Testing Standards
+- **Regression Testing**: Full test suite after each removal phase
+- **Performance Testing**: Continuous performance monitoring during removal
+- **Integration Testing**: Verify Claude Code platform integration works correctly
+- **Security Testing**: Validate security enforcement preserved
+- **Quality Testing**: Verify code quality gates maintained
 
-### Low Risk
-- **Testing Gap Risk**: Tests don't adequately validate functionality after removal
-  - *Mitigation*: Enhanced test coverage before removal, manual testing validation
+## Change Log
 
-## Testing Strategy
+| Date | Version | Description | Author |
+|------|---------|-------------|--------|
+| 2025-08-06 | 1.0 | Initial story creation for over-engineered system removal | Product Owner |
 
-### Incremental Testing
-- **After Configuration Removal**: Run all framework tests, verify agent functionality
-- **After Performance Removal**: Validate framework performance, check monitoring capability
-- **After Validation Removal**: Verify quality enforcement still works
-- **Final Testing**: Complete framework functionality validation
+## Dev Agent Record
 
-### Functionality Testing
-- **Agent Operation**: All 39 agents still function correctly
-- **Coordination**: Agent coordination patterns still work
-- **Quality Enforcement**: Essential quality gates still function
-- **User Experience**: Natural delegation and coordination unchanged
+### Agent Model Used
+_To be populated during implementation_
 
-## Success Metrics
+### Debug Log References
+_To be populated during implementation_  
 
-- [ ] Lines of code reduced: >6,500 lines eliminated
-- [ ] Framework functionality: 100% functionality preserved
-- [ ] Test coverage: All tests passing after removal
-- [ ] Performance: No performance degradation after removal
-- [ ] Complexity reduction: Measurable reduction in codebase complexity
+### Completion Notes List
+_To be populated during implementation_
 
-## Pre-Removal Checklist
+### File List
+_To be populated during implementation_
 
-- [ ] Story 1.1 completed with verified backup
-- [ ] Dependency analysis completed
-- [ ] Team briefed on removal procedure
-- [ ] Rollback procedures ready and tested
-- [ ] Testing strategy validated
-
-## Post-Removal Validation
-
-- [ ] All framework tests passing
-- [ ] Agent functionality validated
-- [ ] Coordination patterns working
-- [ ] Quality enforcement preserved
-- [ ] No broken imports or references
-- [ ] Performance baseline maintained
-
-## Notes & Comments
-
-**Technical Notes**: This is the most critical story in Epic 1. The removal must be done carefully and systematically to avoid breaking framework functionality.
-
-**Safety Notes**: Maintain constant testing and be ready to rollback if any issues arise. The goal is complexity reduction, not functionality reduction.
-
-**Change Log**:
-- 2025-01-XX: Story created with systematic removal approach
-- 2025-01-XX: Safety procedures and testing strategy defined
-- 2025-01-XX: Success metrics and validation criteria established
+## QA Results
+_To be populated by QA Agent after implementation_

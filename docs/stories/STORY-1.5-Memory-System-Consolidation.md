@@ -1,210 +1,157 @@
-# STORY 1.5: Memory System Consolidation
+# Story 1.5: Memory System Consolidation
 
-## Story Information
-- **Story ID**: STORY-1.5
-- **Epic**: EPIC-1 - Infrastructure Foundation Excellence
-- **Story Title**: Memory System Consolidation
-- **Story Owner**: Product Owner
-- **Assignee**: Development Team
-- **Story Points**: 5
-- **Priority**: Medium
-- **Status**: Not Started
-- **Sprint**: Sprint 3 (Week 3)
+## Status
+Draft
 
-## User Story
+## Story
 
-**As a** framework user  
-**I want** simplified 2-file memory hierarchy instead of 5-hop complexity  
-**So that** I get faster lookups and easier maintenance
-
-## Story Description
-
-This story consolidates the complex 5-hop memory hierarchy into a streamlined 2-file system that preserves domain expertise while dramatically simplifying memory management and lookup performance. The consolidation maintains all essential coordination patterns and project context.
-
-## Business Value
-
-- **Performance Improvement**: Faster memory lookup and processing
-- **Maintenance Simplification**: Easier memory system maintenance and updates
-- **Complexity Reduction**: Eliminate complex recursive import patterns
-- **Preserved Intelligence**: Maintain domain expertise in consolidated format
+**As a** framework maintainer,
+**I want** simplified memory hierarchy consolidation from 5-hop complexity to streamlined 2-file system,
+**so that** I can maintain agent coordination intelligence while reducing memory system complexity and improving maintainability.
 
 ## Acceptance Criteria
 
-### Must Have
-- [ ] coordination-patterns.md file created with consolidated coordination intelligence
-- [ ] project-context.md file created with essential project information
-- [ ] Complex memory hierarchy removed (domains/, project-specific/, sequential patterns, etc.)
-- [ ] All essential coordination patterns preserved in consolidated format
-- [ ] Memory lookup performance improved or maintained
+1. Consolidate complex 5-hop memory hierarchy into simplified 2-file system
+2. Preserve all essential agent coordination memory patterns and intelligence
+3. Maintain memory-driven agent selection accuracy and performance
+4. Simplify memory maintenance and updates while preserving learning capabilities
+5. Ensure consolidated memory system integrates with Claude Code native patterns  
+6. Validate memory system performance meets or exceeds current coordination effectiveness
+7. Implement streamlined memory lookup patterns using Anthropic's recursive memory standards
+8. Document simplified memory architecture and maintenance procedures
 
-### Should Have
-- [ ] Memory access performance benchmarked and optimized
-- [ ] Documentation updated to reflect simplified memory structure
-- [ ] Team training on new memory system completed
-- [ ] Memory content validation to ensure no information loss
+## Tasks / Subtasks
 
-### Could Have
-- [ ] Automated memory consolidation utilities for future updates
-- [ ] Memory backup and restore procedures
-- [ ] Memory analytics and usage patterns
-- [ ] Memory optimization recommendations
+- [ ] Memory Hierarchy Analysis (AC: 1)
+  - [ ] Analyze current 5-hop memory hierarchy structure and complexity
+  - [ ] Identify essential memory patterns and intelligence for preservation
+  - [ ] Map memory dependencies and recursion patterns
+  - [ ] Design simplified 2-file memory architecture
+  - [ ] Plan consolidation strategy to preserve critical coordination patterns
 
-## Definition of Done
+- [ ] Essential Memory Pattern Preservation (AC: 2)
+  - [ ] Identify critical agent coordination memory patterns for preservation
+  - [ ] Identify essential agent selection intelligence and success patterns
+  - [ ] Identify important sequential coordination patterns and context accumulation
+  - [ ] Identify meta-orchestration triggers and escalation patterns
+  - [ ] Document memory intelligence that must be preserved in consolidated system
 
-- [ ] 2-file memory system implemented and functional
-- [ ] Complex memory hierarchy removed completely
-- [ ] All essential coordination patterns preserved
-- [ ] Memory lookup performance validated
-- [ ] Documentation updated for new memory structure
-- [ ] Team trained on consolidated memory system
+- [ ] Agent Selection Performance Preservation (AC: 3)
+  - [ ] Analyze current memory-driven agent selection accuracy (target: >95%)
+  - [ ] Analyze current memory-based coordination effectiveness
+  - [ ] Design consolidated memory structure to maintain selection intelligence
+  - [ ] Test agent selection accuracy with consolidated memory system
+  - [ ] Validate memory-driven coordination patterns work correctly
 
-## Tasks Breakdown
+- [ ] Memory System Simplification (AC: 4)
+  - [ ] Design streamlined memory update procedures (reduce from 5-hop complexity)
+  - [ ] Implement simplified memory maintenance workflows
+  - [ ] Create consolidated memory editing and validation procedures
+  - [ ] Reduce memory system complexity while preserving learning capabilities
+  - [ ] Test simplified memory maintenance procedures work correctly
 
-### Task 1.5.1: Coordination Patterns Consolidation (2.5 hours)
-- Create .claude/memory/coordination-patterns.md
-- Consolidate natural delegation intelligence from existing patterns
-- Include coordination strategies and language triggers
-- Preserve cross-domain coordination expertise
+- [ ] Claude Code Native Integration (AC: 5)
+  - [ ] Ensure consolidated memory follows Anthropic recursive memory standards
+  - [ ] Implement memory lookup patterns using @path/to/memory syntax
+  - [ ] Validate memory system integrates with Claude Code native features
+  - [ ] Test memory portability and compatibility with Claude Code platform
+  - [ ] Ensure memory system supports Claude Code native agent coordination
 
-### Task 1.5.2: Project Context Consolidation (1.5 hours)
-- Create .claude/memory/project-context.md
-- Include development standards and essential commands
-- Document agent framework evolution context
-- Preserve project-specific guidelines and requirements
+- [ ] Performance Validation (AC: 6)
+  - [ ] Benchmark memory lookup performance in consolidated system
+  - [ ] Measure agent selection time with simplified memory (target: ≤1s)
+  - [ ] Test memory-driven coordination effectiveness after consolidation
+  - [ ] Validate context preservation through memory system simplification
+  - [ ] Compare coordination success rates before/after memory consolidation
 
-### Task 1.5.3: Complex Memory Removal (1 hour)
-- Remove .claude/memory/domains/ directory
-- Remove .claude/memory/project-specific/ directory
-- Remove sequential-intelligence-patterns.md
-- Remove agent-memory-integration.md and agent-coordination-patterns.md
-- Clean up any references to removed memory files
+- [ ] Memory Lookup Implementation (AC: 7)  
+  - [ ] Implement Anthropic recursive memory lookup patterns (@path syntax)
+  - [ ] Create streamlined memory import hierarchy (max 2-file depth)
+  - [ ] Test recursive memory lookup functionality works correctly
+  - [ ] Validate memory lookup performance meets responsiveness requirements
+  - [ ] Document memory lookup patterns and best practices
 
-## Technical Requirements
+- [ ] Documentation and Procedures (AC: 8)
+  - [ ] Document simplified 2-file memory architecture and rationale
+  - [ ] Create memory maintenance procedures for simplified system
+  - [ ] Document memory pattern preservation and learning integration
+  - [ ] Create troubleshooting guide for memory system issues
+  - [ ] Document migration from complex to simplified memory system
 
-### Consolidated Memory Structure
+## Dev Notes
 
-#### coordination-patterns.md Content
-```markdown
-# Agent Coordination Patterns
+### Architecture Context
+The current memory system uses complex 5-hop recursive memory hierarchy that creates maintenance overhead while providing agent coordination intelligence. The goal is to consolidate to 2-file system while preserving all essential coordination patterns and learning.
 
-## Natural Delegation Intelligence
-- Testing Issues: "test failures" → test-specialist → coordination patterns
-- Infrastructure Problems: "Docker issues" → infrastructure-engineer → coordination patterns
-- Security Concerns: "security check" → security-enforcer → coordination patterns
+### Current Memory Hierarchy (5-Hop Complexity)
+**Current Structure**:
+- `.claude/memory/agent-coordination-patterns.md` (primary coordination patterns)
+- `.claude/memory/domains/testing-patterns.md` (domain-specific testing intelligence)  
+- `.claude/memory/domains/infrastructure-patterns.md` (domain-specific infrastructure intelligence)
+- `.claude/memory/domains/security-patterns.md` (domain-specific security intelligence)
+- Additional recursive imports and cross-references creating 5-hop depth
 
-## Coordination Strategies  
-- Simple Issues: Natural delegation to single agents
-- 2-4 Domains: Direct parallel Task() execution
-- 5+ Domains: Meta-coordinator strategic orchestration
+### Simplified Memory Architecture (2-File System)
+**Proposed Structure**:
+- **File 1**: `.claude/memory/coordination-intelligence.md` (consolidated agent coordination patterns, selection intelligence, success patterns)
+- **File 2**: `.claude/memory/domain-expertise.md` (consolidated domain-specific patterns: testing, infrastructure, security, quality)
 
-## Natural Language Triggers
-- Testing, Infrastructure, Security, Performance domain triggers
-```
+**Consolidation Strategy**:
+- Merge agent coordination patterns into single comprehensive intelligence file
+- Merge domain-specific expertise into single domain knowledge file
+- Preserve all essential intelligence while eliminating complexity
+- Maintain Anthropic recursive memory standards (@path syntax)
 
-#### project-context.md Content
-```markdown
-# DevMem Project Context
+### Critical Memory Intelligence to Preserve
+**Agent Coordination Intelligence**:
+- Memory-driven agent selection patterns and success rates
+- Sequential coordination patterns and context accumulation
+- Parallel execution triggers and orchestration patterns
+- Meta-orchestration triggers and escalation thresholds
 
-## Development Standards
-- Minimum 80% test coverage required
-- Type hints required for all functions
-- Essential commands and agent framework evolution context
+**Domain-Specific Intelligence**:
+- Testing domain coordination patterns and specialist combinations
+- Infrastructure domain orchestration patterns and performance metrics
+- Security domain escalation patterns and comprehensive analysis triggers
+- Quality domain enforcement patterns and compliance validation
 
-## Agent Framework Evolution
-- 39 specialized agents coordination
-- Natural language coordination with Task() escalation
-- Focus on agent content excellence
-```
+**Learning Integration**:
+- Success pattern recognition and improvement over time
+- Performance optimization learning and selection enhancement
+- Context preservation patterns and intelligence accumulation
 
-### Memory System Requirements
-- **Fast Access**: Single-file lookups instead of recursive imports
-- **Complete Coverage**: All essential patterns and context preserved
-- **Maintainable**: Easy to update and modify
-- **Performance**: Faster than current 5-hop system
+### Memory Performance Requirements
+- Memory lookup time must not impact ≤1s agent selection requirement
+- Agent selection accuracy must maintain >95% appropriate selection rate  
+- Sequential coordination must preserve >91% context accumulation success
+- Memory-driven learning must continue to improve patterns over time
 
-## Dependencies
+### Testing Standards
+- **Memory Performance Testing**: Validate memory lookup speed meets requirements
+- **Coordination Testing**: Verify agent selection accuracy preserved after consolidation
+- **Intelligence Testing**: Confirm learning patterns and success intelligence preserved
+- **Integration Testing**: Ensure memory system works with Claude Code native features
+- **Migration Testing**: Validate successful migration from 5-hop to 2-file system
 
-### Internal Dependencies
-- **Previous Stories**: Infrastructure removal and configuration must be completed
-- **Memory Analysis**: Understanding of current memory content and usage
+## Change Log
 
-### External Dependencies
-- File system access for memory file operations
-- Claude Code memory system compatibility
+| Date | Version | Description | Author |
+|------|---------|-------------|--------|
+| 2025-08-06 | 1.0 | Initial story creation for memory system consolidation | Product Owner |
 
-## Risks & Mitigation
+## Dev Agent Record
 
-### Medium Risk
-- **Information Loss Risk**: Important coordination patterns or context lost during consolidation
-  - *Mitigation*: Systematic analysis of existing memory, validation of consolidated content
+### Agent Model Used
+_To be populated during implementation_
 
-### Low Risk
-- **Performance Regression Risk**: Consolidated memory performs worse than complex system
-  - *Mitigation*: Performance benchmarking, optimization of consolidated structure
+### Debug Log References
+_To be populated during implementation_  
 
-## Testing Strategy
+### Completion Notes List
+_To be populated during implementation_
 
-### Content Validation Testing
-- **Completeness Testing**: Verify all essential coordination patterns preserved
-- **Accuracy Testing**: Validate consolidated content matches original patterns
-- **Functionality Testing**: Test coordination patterns work with consolidated memory
-- **Coverage Testing**: Ensure all domains and scenarios covered in consolidated memory
+### File List
+_To be populated during implementation_
 
-### Performance Testing
-- **Lookup Performance**: Measure memory access speed vs previous system
-- **Processing Performance**: Test coordination pattern processing efficiency
-- **Memory Usage**: Validate memory consumption optimized
-- **Scalability Testing**: Ensure consolidated memory scales appropriately
-
-## Success Metrics
-
-- [ ] File count reduction: 5+ memory files → 2 consolidated files
-- [ ] Lookup performance: Improved or maintained performance vs 5-hop system
-- [ ] Content preservation: 100% of essential coordination patterns preserved
-- [ ] Maintainability: Team can easily update consolidated memory
-- [ ] Functionality: All coordination patterns work with consolidated memory
-
-## Memory Consolidation Strategy
-
-### Content Analysis Phase
-1. **Existing Memory Audit**: Catalog all existing memory files and content
-2. **Essential Pattern Identification**: Identify critical coordination patterns to preserve
-3. **Redundancy Analysis**: Find and eliminate duplicate or redundant information
-4. **Priority Classification**: Classify content by importance and usage frequency
-
-### Consolidation Phase
-1. **Coordination Patterns File**: Consolidate all coordination intelligence
-2. **Project Context File**: Consolidate project-specific information
-3. **Content Validation**: Verify consolidated content is complete and accurate
-4. **Reference Updates**: Update any code referencing old memory structure
-
-### Validation Phase
-1. **Functionality Testing**: Verify all coordination patterns work correctly
-2. **Performance Testing**: Measure and optimize consolidated memory performance
-3. **Team Validation**: Ensure team can effectively use consolidated memory
-4. **Documentation**: Update documentation to reflect new memory structure
-
-## Consolidated Memory Benefits
-
-### Performance Benefits
-- **Faster Lookups**: Direct file access instead of recursive imports
-- **Reduced Processing**: Less complex import resolution
-- **Better Caching**: Simpler structure enables better caching
-- **Improved Scalability**: Easier to scale consolidated structure
-
-### Maintenance Benefits
-- **Easier Updates**: Single files to modify instead of multiple interconnected files
-- **Clearer Structure**: Obvious organization with 2-file system
-- **Reduced Complexity**: No more 5-hop import resolution
-- **Better Debugging**: Easier to troubleshoot memory issues
-
-## Notes & Comments
-
-**Consolidation Notes**: Focus on preserving all essential intelligence while dramatically simplifying structure. Quality over quantity in consolidated content.
-
-**Performance Notes**: Measure performance before and after consolidation to ensure improvement or at least maintenance of current performance.
-
-**Change Log**:
-- 2025-01-XX: Story created with consolidation strategy
-- 2025-01-XX: Content structure and requirements defined
-- 2025-01-XX: Testing strategy and success metrics established
+## QA Results
+_To be populated by QA Agent after implementation_
