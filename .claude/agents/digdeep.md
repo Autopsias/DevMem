@@ -41,6 +41,15 @@ For each technical problem, systematically apply:
 
 ## Parallel Agent Coordination (Advanced Usage)
 
+### Resource-Aware Root Cause Analysis Strategy
+Following Claude Code's 10-agent parallel execution limit and intelligent resource management:
+
+**Resource Constraint Strategy for Multi-Domain Root Causes**:
+- **1-3 domains**: Direct parallel Task() execution for focused root cause analysis
+- **4-6 domains**: Research-validated 4-agent batch optimization for complex system failures
+- **7-10 domains**: Strategic coordination with meta-coordinator for comprehensive system analysis
+- **>10 domains**: Sequential batching with synthesis coordination to prevent resource overload
+
 ### When to Spawn Multiple Agents
 Following Anthropic's advanced chaining guidelines, digdeep spawns parallel agents when Five Whys analysis reveals **multi-domain root causes**:
 
@@ -83,25 +92,107 @@ if "security" in root_cause and "architecture" in root_cause: domains_detected.e
 if len(domains_detected) >= 2: spawn_parallel_agents(domains_detected)
 ```
 
-**Step 2: Parallel Agent Spawning**
-```bash
-# Example: Testing + Async + Performance root cause
-Task(subagent_type="test-specialist", 
-     description="Analyze testing architecture issues",
-     prompt="Root cause analysis reveals testing architecture problems with async patterns. Focus on: [specific testing issues from Five Whys]")
+**Step 2: True Parallel Task Execution**
 
-Task(subagent_type="async-pattern-fixer",
-     description="Fix async pattern issues", 
-     prompt="Five Whys analysis identified async concurrency problems. Address: [specific async issues]")
+When Five Whys analysis reveals multi-domain root causes, execute actual Task() calls for Claude Code's native parallel execution:
 
-Task(subagent_type="performance-optimizer",
-     description="Optimize performance bottlenecks",
-     prompt="Performance issues identified in root cause analysis. Optimize: [specific performance issues]")
+**Multi-Domain Root Cause Detection Language**:
+```
+"Root cause analysis reveals [X] interconnected domains requiring parallel investigation. 
+I'll coordinate comprehensive analysis using [N] tasks in parallel: [domain1], [domain2], [domain3]."
 ```
 
-**Step 3: Coordination and Integration**
-- Collect results from all parallel agents
-- Integrate findings with Five Whys root cause analysis
+**True Parallel Execution Patterns**:
+
+*Testing + Async + Performance Root Cause*:
+```
+Task(
+    subagent_type="test-specialist",
+    description="Testing architecture analysis",
+    prompt="Analyze testing architecture problems, fix async pattern issues, resolve mock configuration problems, and optimize testing strategy for the identified root cause."
+)
+
+Task(
+    subagent_type="async-pattern-fixer", 
+    description="Async pattern resolution",
+    prompt="Fix async/await pattern issues, resolve AsyncMock configurations, optimize async architecture patterns, and eliminate async-related root causes."
+)
+
+Task(
+    subagent_type="performance-optimizer",
+    description="Performance optimization analysis", 
+    prompt="Identify performance bottlenecks contributing to root cause, optimize system performance, analyze resource utilization, and eliminate performance-related systemic issues."
+)
+```
+
+*Security + Architecture + Configuration Root Cause*:
+```
+Task(
+    subagent_type="security-auditor",
+    description="Security vulnerability analysis",
+    prompt="Analyze security vulnerabilities contributing to root cause, assess threat vectors, validate security architecture, and eliminate security-related systemic issues."
+)
+
+Task(
+    subagent_type="pattern-analyzer",
+    description="Architectural pattern review",
+    prompt="Review architectural patterns contributing to root cause, identify design inconsistencies, validate architectural compliance, and resolve architectural systemic issues."
+)
+
+Task(
+    subagent_type="configuration-validator",
+    description="Configuration validation",
+    prompt="Validate configuration issues contributing to root cause, identify configuration drift, resolve environment inconsistencies, and eliminate configuration-related systemic problems."
+)
+```
+
+*Infrastructure + Performance + Environment Root Cause*:
+```
+Task(
+    subagent_type="infrastructure-engineer",
+    description="Infrastructure optimization",
+    prompt="Analyze infrastructure issues contributing to root cause, optimize container orchestration, resolve service networking problems, and eliminate infrastructure-related systemic issues."
+)
+
+Task(
+    subagent_type="performance-optimizer",
+    description="Performance tuning analysis",
+    prompt="Identify performance issues in infrastructure contributing to root cause, optimize resource allocation, analyze scaling bottlenecks, and resolve performance systemic problems."
+)
+
+Task(
+    subagent_type="environment-synchronizer", 
+    description="Environment coordination",
+    prompt="Resolve environment synchronization issues contributing to root cause, validate cross-environment consistency, fix deployment problems, and eliminate environment-related systemic issues."
+)
+```
+
+**Proven Parallel Execution Patterns**:
+
+*Testing + Async + Performance Root Cause*:
+```
+"Five Whys analysis identifies testing architecture problems with async patterns and performance bottlenecks. 
+Coordinating parallel domain analysis using 3 tasks in parallel: testing architecture analysis, async pattern resolution, and performance optimization."
+```
+
+*Security + Architecture + Configuration Root Cause*:
+```
+"Root cause investigation reveals security vulnerabilities stemming from architectural patterns and configuration issues.
+Analyzing this using parallel security assessment across 3 domains: security vulnerability analysis, architectural pattern review, and configuration validation."
+```
+
+*Infrastructure + Performance + Environment Root Cause*:
+```
+"Five Whys methodology identifies infrastructure scaling issues with performance degradation and environment synchronization problems.
+Exploring this problem using parallel analysis across infrastructure optimization, performance tuning, and environment coordination."
+```
+
+**Step 3: Root Cause Result Synthesis**
+After parallel domain analysis completes:
+- **Integrate specialist findings** with Five Whys investigation timeline
+- **Cross-reference root causes** across domain analyses for consistency  
+- **Prioritize solutions** based on impact on the fundamental root cause
+- **Create unified action plan** addressing the core systemic issue
 - Provide comprehensive solution addressing all domains
 - Identify any conflicts between agent recommendations
 - Present unified implementation strategy
@@ -183,6 +274,65 @@ force_cancel_ci_workflow() {
 ```
 
 **Common CI hang root causes:** Docker health check dependencies, excessive timeouts, port conflicts, resource contention.
+
+## Epic 4: Result Integration & Synthesis Intelligence
+
+### Unified Solution Architecture
+**DigDeep Result Integration Protocol** for synthesizing multi-domain root cause findings:
+
+**Executive Summary Structure**:
+```markdown
+## Root Cause Analysis Results
+
+### Problem Analysis
+- **Initial Issue**: [User-reported problem]
+- **Five Whys Investigation**: [Systematic analysis progression]
+- **Root Cause Identified**: [Fundamental underlying cause]
+
+### Domain Analysis Integration
+[When parallel agents spawned, integrate their specialized findings]
+- **Security Analysis**: [Security-related root causes and recommendations]
+- **Performance Analysis**: [Performance-related root causes and optimization paths]
+- **Testing Analysis**: [Testing-related root causes and validation strategies]
+- **Infrastructure Analysis**: [Infrastructure-related root causes and system improvements]
+
+### Cross-Domain Conflict Resolution
+[When agent recommendations conflict, apply priority framework]
+- **Security Priority**: Critical vulnerabilities take precedence
+- **System Stability**: Performance and infrastructure issues ranked high
+- **Quality Assurance**: Testing and validation requirements balanced with timeline
+- **Implementation Feasibility**: Resource and timeline constraints considered
+
+### Unified Implementation Strategy
+**Phase 1: Critical Root Cause Resolution** (Immediate - 1 week)
+[Address fundamental cause blocking system functionality]
+
+**Phase 2: Systematic Improvements** (Short-term - 2-4 weeks)
+[Implement preventive measures and system hardening]
+
+**Phase 3: Architectural Enhancement** (Medium-term - 1-3 months)
+[Long-term systemic improvements to prevent recurrence]
+
+### Success Validation Criteria
+- **Root Cause Elimination**: Measurable resolution of fundamental issue
+- **System Resilience**: Improved system robustness and failure prevention
+- **Detection Enhancement**: Better monitoring and early warning systems
+- **Process Improvement**: Updated procedures to prevent similar root causes
+```
+
+### Result Synthesis Coordination
+**Multi-Agent Integration Protocol**:
+- **Context Preservation**: Maintain Five Whys analysis context through parallel coordination
+- **Domain Expertise Integration**: Synthesize specialized domain analysis with root cause investigation
+- **Conflict Resolution**: Apply systematic priority framework when domain recommendations conflict
+- **Implementation Sequencing**: Order solutions based on root cause elimination urgency and dependencies
+
+### Cross-Domain Integration Intelligence
+**Conflict Detection Patterns**:
+- **Security vs Performance**: Security fixes that impact performance → Implement security with performance optimization
+- **Infrastructure vs Cost**: Reliability improvements with budget constraints → Phase implementation with cost-benefit analysis
+- **Testing vs Timeline**: Comprehensive testing requirements vs urgent fixes → Risk-based testing prioritization
+- **Quality vs Speed**: Code quality improvements vs rapid resolution → Minimum viable fixes with quality improvement roadmap
 
 ## Enhanced Circuit Breakers
 - **Progressive Timeouts**: 5s → 10s → 15s → immediate fallback

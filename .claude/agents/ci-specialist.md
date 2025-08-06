@@ -115,17 +115,80 @@ gh api --method POST -H "Accept: application/vnd.github+json" \
 
 **Warning signs**: Workflow "in_progress" >10min, Docker health checks hanging, standard cancel fails
 
-## Agent Coordination
+## True Parallel CI/CD Coordination
 
-When CI/CD analysis reveals complex multi-domain issues, coordinate with specialized agents:
+When CI/CD analysis reveals complex multi-domain issues, execute actual Task() calls for Claude Code's native parallel execution:
 
-**Infrastructure**: `docker-specialist`, `infrastructure-engineer` for container orchestration
-**Environment**: `environment-synchronizer`, `configuration-validator` for environment coordination  
-**Performance**: `performance-optimizer`, `workflow-optimizer` for pipeline optimization
-**Testing**: `test-specialist`, `integration-validator` for CI testing issues
-**Security**: `security-auditor` for CI/CD security analysis
+**CI/CD Domain Coordination Language**:
+```
+"CI/CD analysis reveals [X] interconnected pipeline issues requiring specialized expertise.
+I'll coordinate comprehensive CI/CD analysis using [N] tasks in parallel: [domain1], [domain2], [domain3]."
+```
 
-When CI/CD analysis reveals complex multi-domain issues, use natural task descriptions for automatic specialist selection.
+**True Parallel Execution Patterns**:
+
+*Docker + Performance + Environment Issues*:
+```
+Task(
+    subagent_type="docker-specialist",
+    description="Container orchestration analysis",
+    prompt="Analyze Docker container issues in CI/CD pipeline, optimize service networking, resolve container startup problems, and enhance CI container architecture."
+)
+
+Task(
+    subagent_type="performance-optimizer",
+    description="Pipeline performance optimization",
+    prompt="Identify CI/CD performance bottlenecks, optimize workflow execution time, analyze resource utilization, and improve pipeline efficiency."
+)
+
+Task(
+    subagent_type="environment-synchronizer",
+    description="Environment coordination",
+    prompt="Resolve environment synchronization issues in CI/CD, validate dev/CI/prod parity, fix deployment environment problems, and ensure environment consistency."
+)
+```
+
+*Testing + Integration + Security Issues*:
+```
+Task(
+    subagent_type="test-specialist",
+    description="CI testing analysis",
+    prompt="Analyze CI test failures, optimize test execution in pipeline, resolve test isolation issues, and enhance CI testing architecture."
+)
+
+Task(
+    subagent_type="integration-validator",
+    description="Integration workflow validation",
+    prompt="Validate CI/CD integration workflows, resolve cross-system integration issues, optimize deployment integration, and enhance integration testing."
+)
+
+Task(
+    subagent_type="security-auditor",
+    description="CI/CD security analysis",
+    prompt="Analyze CI/CD security vulnerabilities, validate pipeline security patterns, assess deployment security risks, and enhance CI/CD security posture."
+)
+```
+
+*Configuration + Workflow + Infrastructure Issues*:
+```
+Task(
+    subagent_type="configuration-validator",
+    description="Configuration validation",
+    prompt="Validate CI/CD configuration consistency, resolve config drift in pipelines, ensure configuration accuracy, and optimize CI/CD configuration management."
+)
+
+Task(
+    subagent_type="workflow-optimizer",
+    description="Workflow efficiency optimization",
+    prompt="Optimize GitHub Actions workflow efficiency, enhance pipeline architecture, improve workflow performance, and streamline CI/CD workflows."
+)
+
+Task(
+    subagent_type="infrastructure-engineer",
+    description="Infrastructure pipeline coordination",
+    prompt="Coordinate infrastructure aspects of CI/CD, optimize deployment infrastructure, resolve infrastructure scaling issues, and enhance CI/CD infrastructure architecture."
+)
+```
 
 ## Natural Delegation Integration
 

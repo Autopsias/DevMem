@@ -91,19 +91,80 @@ make pre-commit-staged                 # Pre-commit validation
 
 **Enhancement Strategy**: Direct analysis first, MCP enhancement when available (5s→10s→skip).
 
-## Agent Coordination
+## True Parallel Enhancement Coordination
 
-When enhancement analysis reveals complex multi-domain issues, coordinate with specialized agents:
+When enhancement analysis reveals complex multi-domain improvements, execute actual Task() calls for Claude Code's native parallel execution:
 
-**Architecture**: `pattern-analyzer`, `refactoring-coordinator`, `type-system-expert`
+**Enhancement Domain Coordination Language**:
+```
+"Enhancement analysis reveals [X] interconnected improvement opportunities requiring specialized expertise.
+I'll coordinate comprehensive enhancement analysis using [N] tasks in parallel: [domain1], [domain2], [domain3]."
+```
 
-**Security**: `security-auditor` for security pattern improvements
+**True Parallel Execution Patterns**:
 
-**Performance**: `performance-optimizer`, `async-pattern-fixer`
+*Architecture + Refactoring + Type System Improvements*:
+```
+Task(
+    subagent_type="pattern-analyzer",
+    description="Architectural pattern analysis",
+    prompt="Analyze architectural patterns for intelligent enhancement, identify design improvement opportunities, validate pattern compliance, and optimize architectural structure."
+)
 
-**Testing**: `test-specialist`, `validation-tester`
+Task(
+    subagent_type="refactoring-coordinator", 
+    description="Refactoring coordination",
+    prompt="Coordinate large-scale refactoring for intelligent improvements, optimize code structure, enhance modularity, and implement systematic refactoring strategies."
+)
 
-When intelligent enhancement analysis reveals complex multi-domain improvements, use natural task descriptions for automatic specialist selection.
+Task(
+    subagent_type="type-system-expert",
+    description="Type system enhancement",
+    prompt="Enhance type system design through intelligent analysis, improve type annotations, optimize generic usage, and strengthen type safety architecture."
+)
+```
+
+*Security + Performance + Testing Improvements*:
+```
+Task(
+    subagent_type="security-auditor",
+    description="Security enhancement analysis",
+    prompt="Analyze security enhancement opportunities, validate security pattern improvements, assess security architecture changes, and optimize security design patterns."
+)
+
+Task(
+    subagent_type="performance-optimizer",
+    description="Performance enhancement optimization",
+    prompt="Optimize performance through intelligent code improvements, identify performance enhancement opportunities, analyze resource optimization, and enhance performance architecture."
+)
+
+Task(
+    subagent_type="test-specialist",
+    description="Testing enhancement coordination",
+    prompt="Enhance testing architecture through intelligent improvements, optimize test design patterns, improve test coverage strategies, and coordinate testing enhancements."
+)
+```
+
+*Async + Validation + Quality Improvements*:
+```
+Task(
+    subagent_type="async-pattern-fixer",
+    description="Async pattern enhancement",
+    prompt="Enhance async/await patterns through intelligent analysis, optimize asynchronous architecture, improve async design patterns, and coordinate async enhancements."
+)
+
+Task(
+    subagent_type="validation-tester",
+    description="Validation enhancement coordination",
+    prompt="Enhance validation patterns through intelligent analysis, optimize validation architecture, improve validation strategies, and coordinate validation enhancements."
+)
+
+Task(
+    subagent_type="code-quality-specialist",
+    description="Quality enhancement analysis",
+    prompt="Analyze code quality enhancement opportunities, optimize quality patterns, improve code standards compliance, and coordinate quality improvements."
+)
+```
 
 ## Natural Delegation Integration
 
