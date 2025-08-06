@@ -137,9 +137,10 @@ class AgentConfigurationSchema:
             )
         
         # Add meta-coordinator with special settings
-        config.agents["meta-coordinator"].type = AgentType.META
-        config.agents["meta-coordinator"].performance.parallel_execution_limit = 8
-        config.agents["meta-coordinator"].performance.max_context_tokens = 15000
+        if "meta-coordinator" in config.agents:
+            config.agents["meta-coordinator"].type = AgentType.META
+            config.agents["meta-coordinator"].performance.parallel_execution_limit = 8
+            config.agents["meta-coordinator"].performance.max_context_tokens = 15000
         
         return config
 

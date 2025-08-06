@@ -149,6 +149,18 @@ class TokenEstimator:
             PromptType.META_ORCHESTRATION: 1.8,
         }
     
+    def estimate_tokens(self, text: str) -> int:
+        """
+        Estimate token count for text (alias for count_tokens).
+        
+        Args:
+            text: Text to count tokens for
+            
+        Returns:
+            Number of tokens
+        """
+        return self.count_tokens(text)
+    
     def count_tokens(self, text: str) -> int:
         """
         Count tokens in text.
