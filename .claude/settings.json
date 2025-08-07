@@ -42,7 +42,7 @@
       "Write(**/secrets/**)"
     ],
     "additionalDirectories": [
-      "../docs/"
+      "docs/"
     ],
     "defaultMode": "acceptEdits"
   },
