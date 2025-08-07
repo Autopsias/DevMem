@@ -1,0 +1,11 @@
+/Users/ricardocarvalho/DeveloperFolder/DevMem/.claude/memory/domains/project-specific-patterns.md
+/Users/ricardocarvalho/DeveloperFolder/DevMem/.claude/memory/domains/security-patterns.md
+/Users/ricardocarvalho/DeveloperFolder/DevMem/.claude/memory/domains/testing-patterns.md
+/Users/ricardocarvalho/DeveloperFolder/DevMem/.claude/memory/domains/infrastructure-patterns.md
+/Users/ricardocarvalho/DeveloperFolder/DevMem/.claude/memory/memory-lookup-guide.md
+/Users/ricardocarvalho/DeveloperFolder/DevMem/.claude/memory/domain-intelligence.md
+/Users/ricardocarvalho/DeveloperFolder/DevMem/.claude/memory/agent-coordination-patterns.md
+/Users/ricardocarvalho/DeveloperFolder/DevMem/.claude/memory/memory-validation-suite.md
+/Users/ricardocarvalho/DeveloperFolder/DevMem/.claude/memory/coordination-hub.md
+/Users/ricardocarvalho/DeveloperFolder/DevMem/.claude/memory/agent-coordination-core.md
+/Users/ricardocarvalho/DeveloperFolder/DevMem/.claude/memory/recursive-memory-engine.md

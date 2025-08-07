@@ -1,0 +1,9 @@
+=== Recent Security Events ===
+[2025-08-06 23:09:05] SECURITY: VALIDATED: echo hello
+[2025-08-06 23:09:56] SECURITY: VALIDATED: sudo rm -rf /
+[2025-08-06 23:10:23] SECURITY: BLOCKED: Dangerous command: sudo rm -rf /
+[2025-08-06 23:11:36] SECURITY: VALIDATED: echo test
+[2025-08-06 23:15:37] SECURITY: VALIDATED: echo 'testing safe command'
+[2025-08-07 08:14:47] SECURITY: VALIDATED: echo hello
+[2025-08-07 08:14:56] SECURITY: VALIDATED: python --version
+[2025-08-07 08:15:04] SECURITY: BLOCKED: Dangerous command: rm -rf /

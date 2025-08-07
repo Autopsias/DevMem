@@ -1,0 +1,21 @@
+=== Claude Code Framework Diagnostics ===
+Generated: Thu Aug  7 19:02:33 WEST 2025
+
+=== System Health ===
+
+=== Memory Status ===
+Memory directory: /Users/ricardocarvalho/DeveloperFolder/DevMem/.claude/memory
+Memory files:       12
+Memory size: 180K	/Users/ricardocarvalho/DeveloperFolder/DevMem/.claude/memory
+
+=== Recent Quality Log ===
+[2025-08-06 23:10:36] QUALITY: Checking: test_file.py
+[2025-08-06 23:10:37] QUALITY: ISSUES: test_file.py (1 violations)
+[2025-08-06 23:11:43] QUALITY: Checking: test_perf.py
+[2025-08-06 23:11:43] QUALITY: ISSUES: test_perf.py (1 violations)
+[2025-08-06 23:15:51] QUALITY: Checking: test_hook.py
+[2025-08-06 23:15:52] QUALITY: ISSUES: test_hook.py (1 violations)
+[2025-08-07 08:14:47] QUALITY: File does not exist: src/test_file.py
+
+=== Configuration Status ===
+Configuration exists: /Users/ricardocarvalho/DeveloperFolder/DevMem/.claude/settings.json

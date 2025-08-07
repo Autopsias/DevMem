@@ -1,0 +1,7 @@
+[1mMemory System Quick Status[0m
+==========================
+[0;34mFiles:[0m       11
+[0;34mSize:[0m 134384 bytes (131KB)
+[0;32m Memory system healthy[0m
+
+For detailed analysis, run: ./memory_manager.sh dashboard

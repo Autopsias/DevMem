@@ -1,0 +1,5 @@
+=== Critical File Permissions ===
+.claude directory: drwxr-xr-x@ 37 ricardocarvalho  staff  1184 Aug  7 18:27 /Users/ricardocarvalho/DeveloperFolder/DevMem/.claude
+settings.json: -rw-r--r--@ 1 ricardocarvalho  staff  5295 Aug  6 23:08 /Users/ricardocarvalho/DeveloperFolder/DevMem/.claude/settings.json
+essential_security.sh: -rwxr-xr-x@ 1 ricardocarvalho  staff  1864 Aug  6 23:16 /Users/ricardocarvalho/DeveloperFolder/DevMem/scripts/hooks/essential_security.sh
+essential_quality.sh: -rwxr-xr-x@ 1 ricardocarvalho  staff  3794 Aug  7 06:28 /Users/ricardocarvalho/DeveloperFolder/DevMem/scripts/hooks/essential_quality.sh

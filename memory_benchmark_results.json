@@ -1,0 +1,12 @@
+{
+  "total_lookups": 512,
+  "avg_lookup_time_ms": 0.03662231586076814,
+  "median_lookup_time_ms": 0.004999979864805937,
+  "p95_lookup_time_ms": 0.08995801908895373,
+  "p99_lookup_time_ms": 0.6855839747004211,
+  "cache_hit_ratio": 97.65625,
+  "pattern_resolution_accuracy": 80.0,
+  "cross_reference_validation": 21.428571428571427,
+  "concurrent_performance_ms": 6.462958001065999,
+  "memory_hierarchy_depth": 1
+}

@@ -1,0 +1,90 @@
+{
+  "timestamp": "2025-08-07T08:27:11.125948",
+  "platform": "Darwin",
+  "memory_analysis": {
+    "agent-coordination-patterns.md": {
+      "size_bytes": 2783,
+      "lines": 58,
+      "has_imports": true,
+      "has_coordination": true,
+      "has_anthropic": true
+    },
+    "agent-coordination-core.md": {
+      "size_bytes": 12880,
+      "lines": 217,
+      "has_imports": true,
+      "has_coordination": true,
+      "has_anthropic": true
+    },
+    "project-specific-patterns.md": {
+      "size_bytes": 9758,
+      "lines": 202,
+      "has_imports": true,
+      "has_coordination": true,
+      "has_anthropic": true
+    },
+    "security-patterns.md": {
+      "size_bytes": 7534,
+      "lines": 149,
+      "has_imports": true,
+      "has_coordination": true,
+      "has_anthropic": false
+    },
+    "testing-patterns.md": {
+      "size_bytes": 6421,
+      "lines": 136,
+      "has_imports": true,
+      "has_coordination": true,
+      "has_anthropic": false
+    },
+    "infrastructure-patterns.md": {
+      "size_bytes": 9018,
+      "lines": 169,
+      "has_imports": true,
+      "has_coordination": true,
+      "has_anthropic": false
+    }
+  },
+  "agent_analysis": {
+    "agent-creator.md": {
+      "type": "primary",
+      "has_ultrathink": true,
+      "has_epic4": false,
+      "has_task_calls": true,
+      "coordination_ready": true
+    },
+    "synthesis-coordinator.md": {
+      "type": "primary",
+      "has_ultrathink": false,
+      "has_epic4": true,
+      "has_task_calls": true,
+      "coordination_ready": true
+    },
+    "digdeep.md": {
+      "type": "primary",
+      "has_ultrathink": true,
+      "has_epic4": true,
+      "has_task_calls": true,
+      "coordination_ready": true
+    },
+    "analysis-gateway.md": {
+      "type": "primary",
+      "has_ultrathink": false,
+      "has_epic4": true,
+      "has_task_calls": true,
+      "coordination_ready": true
+    },
+    "token-monitor.md": {
+      "type": "primary",
+      "has_ultrathink": true,
+      "has_epic4": false,
+      "has_task_calls": true,
+      "coordination_ready": true
+    }
+  },
+  "performance_metrics": {
+    "avg_access_time_ms": 0.2968667889945209,
+    "max_access_time_ms": 2.7919160202145576,
+    "total_memory_size_bytes": 48394
+  }
+}
