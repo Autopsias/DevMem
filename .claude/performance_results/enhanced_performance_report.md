@@ -1,5 +1,5 @@
 # Enhanced Agent Selection Performance Report
-Generated: 2025-08-07 17:04:52
+Generated: 2025-08-08 00:46:49
 
 ## Executive Summary
 Comprehensive performance measurement of the simplified memory system for Claude Code agent selection.
@@ -8,7 +8,7 @@ Comprehensive performance measurement of the simplified memory system for Claude
 - **Total Test Scenarios**: 19
 - **Selection Accuracy**: 68% (13/19 correct)
 - **Average Selection Time**: 3ms
-- **Selection Time Range**: 3ms - 4ms
+- **Selection Time Range**: 2ms - 4ms
 - **Performance Target Compliance**:
   - Time Target (≤1000ms): ✅ PASSED
   - Accuracy Target (≥95%): ❌ FAILED
@@ -32,16 +32,16 @@ Comprehensive performance measurement of the simplified memory system for Claude
 | Security | 2 | 2 | 100% | 3ms |
 
 ### Memory System Analysis
-- **Peak Memory Usage**: 2480 KB RSS
-- **Average Memory Free**: 389760425%
+- **Peak Memory Usage**: 2256 KB RSS
+- **Average Memory Free**: 389732521%
 - **Average CPU Usage**: 0%
-- **Average Load**: 9.14333
+- **Average Load**: 4.42333
 
 ### Detailed Test Results
 | Test Scenario | Expected Agent | Selected Agent | Time (ms) | Status |
 |---------------|----------------|----------------|-----------|--------|
-| testing_async_mock | test-specialist | async-pattern-fixer | 3 | ❌ |
-| performance_bottleneck | performance-optimizer | performance-optimizer | 3 | ✅ |
+| testing_async_mock | test-specialist | async-pattern-fixer | 4 | ❌ |
+| performance_bottleneck | performance-optimizer | performance-optimizer | 2 | ✅ |
 | docker_orchestration | infrastructure-engineer | infrastructure-engineer | 3 | ✅ |
 | security_vulnerability | security-enforcer | security-enforcer | 3 | ✅ |
 | coverage_gaps | coverage-optimizer | coverage-optimizer | 3 | ✅ |
@@ -50,11 +50,11 @@ Comprehensive performance measurement of the simplified memory system for Claude
 | integration_testing | integration-validator | integration-validator | 3 | ✅ |
 | code_quality_issues | code-quality-specialist | code-quality-specialist | 3 | ✅ |
 | environment_config | environment-analyst | infrastructure-engineer | 3 | ❌ |
-| memory_optimization | resource-optimizer | resource-optimizer | 3 | ✅ |
+| memory_optimization | resource-optimizer | resource-optimizer | 4 | ✅ |
 | async_pattern_fixes | async-pattern-fixer | analysis-gateway | 3 | ❌ |
 | fixture_architecture | fixture-design-specialist | fixture-design-specialist | 3 | ✅ |
 | security_compliance | security-auditor | security-auditor | 3 | ✅ |
-| dependency_conflicts | dependency-resolver | dependency-resolver | 4 | ✅ |
+| dependency_conflicts | dependency-resolver | dependency-resolver | 3 | ✅ |
 | type_system_errors | type-system-expert | type-system-expert | 3 | ✅ |
 | refactoring_coordination | refactoring-coordinator | refactoring-coordinator | 3 | ✅ |
 | validation_workflow | validation-tester | ci-specialist | 3 | ❌ |

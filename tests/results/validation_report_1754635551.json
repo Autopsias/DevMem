@@ -1,0 +1,62 @@
+{
+  "validation_timestamp": 1754635551.3198211,
+  "execution_time_seconds": 0.0035011768341064453,
+  "accuracy_results": {
+    "domain_accuracy": {
+      "testing": {
+        "accuracy": 1.0,
+        "correct_count": 8,
+        "total_count": 8
+      },
+      "infrastructure": {
+        "accuracy": 0.625,
+        "correct_count": 5,
+        "total_count": 8
+      },
+      "security": {
+        "accuracy": 0.875,
+        "correct_count": 7,
+        "total_count": 8
+      },
+      "performance": {
+        "accuracy": 0.625,
+        "correct_count": 5,
+        "total_count": 8
+      },
+      "code_quality": {
+        "accuracy": 1.0,
+        "correct_count": 8,
+        "total_count": 8
+      }
+    },
+    "overall_metrics": {
+      "overall_accuracy": 0.825,
+      "total_tests": 40,
+      "correct_predictions": 33,
+      "meets_target": false
+    }
+  },
+  "performance_results": {
+    "single_query_performance": {
+      "avg_response_time_ms": 0.013025000225752592,
+      "min_response_time_ms": 0.010957999620586634,
+      "max_response_time_ms": 0.017167010810226202,
+      "samples": 5
+    },
+    "batch_performance": {
+      "total_time_ms": 0.974041991867125,
+      "avg_time_per_query_ms": 0.00974041991867125,
+      "queries_per_second": 102664.9783427834
+    }
+  },
+  "recommendations": [
+    "CRITICAL: Overall accuracy (82.50%) is 2.50% below 85% target.",
+    "Domain 'infrastructure' accuracy (62.50%) needs improvement.",
+    "Domain 'performance' accuracy (62.50%) needs improvement."
+  ],
+  "final_assessment": {
+    "meets_85_percent_target": false,
+    "overall_accuracy_achieved": 0.825,
+    "accuracy_gap": 0.025000000000000022
+  }
+}

@@ -1,6 +1,6 @@
 scenario,expected_agent,selected_agent,time_ms,status
-testing_async_mock,test-specialist,async-pattern-fixer,3,incorrect
-performance_bottleneck,performance-optimizer,performance-optimizer,3,correct
+testing_async_mock,test-specialist,async-pattern-fixer,4,incorrect
+performance_bottleneck,performance-optimizer,performance-optimizer,2,correct
 docker_orchestration,infrastructure-engineer,infrastructure-engineer,3,correct
 security_vulnerability,security-enforcer,security-enforcer,3,correct
 coverage_gaps,coverage-optimizer,coverage-optimizer,3,correct
@@ -9,11 +9,11 @@ ci_pipeline_failure,ci-specialist,ci-specialist,3,correct
 integration_testing,integration-validator,integration-validator,3,correct
 code_quality_issues,code-quality-specialist,code-quality-specialist,3,correct
 environment_config,environment-analyst,infrastructure-engineer,3,incorrect
-memory_optimization,resource-optimizer,resource-optimizer,3,correct
+memory_optimization,resource-optimizer,resource-optimizer,4,correct
 async_pattern_fixes,async-pattern-fixer,analysis-gateway,3,incorrect
 fixture_architecture,fixture-design-specialist,fixture-design-specialist,3,correct
 security_compliance,security-auditor,security-auditor,3,correct
-dependency_conflicts,dependency-resolver,dependency-resolver,4,correct
+dependency_conflicts,dependency-resolver,dependency-resolver,3,correct
 type_system_errors,type-system-expert,type-system-expert,3,correct
 refactoring_coordination,refactoring-coordinator,refactoring-coordinator,3,correct
 validation_workflow,validation-tester,ci-specialist,3,incorrect

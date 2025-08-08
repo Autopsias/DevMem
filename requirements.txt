@@ -5,6 +5,7 @@ tiktoken>=0.5.0  # For token counting
 # Development dependencies (optional)
 pytest>=7.0.0
 pytest-asyncio>=0.21.0
+pytest-cov>=4.0.0  # For test coverage analysis
 black>=22.0.0
 ruff>=0.1.0
 isort>=5.0.0

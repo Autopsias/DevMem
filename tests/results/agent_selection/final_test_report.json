@@ -1,0 +1,98 @@
+{
+  "total_patterns_tested": 5,
+  "overall_accuracy": 0.76,
+  "domain_coverage_score": 0.8235294117647058,
+  "pattern_type_performance": {
+    "implicit": {
+      "count": 3,
+      "accuracy_mean": 0.7,
+      "response_time_mean": 0.0017484029134114583,
+      "confidence_mean": 0.861517619855242,
+      "pass_rate": 0.0
+    },
+    "ambiguous": {
+      "count": 2,
+      "accuracy_mean": 0.85,
+      "response_time_mean": 0.00095367431640625,
+      "confidence_mean": 0.7010171677980978,
+      "pass_rate": 0.5
+    }
+  },
+  "complexity_level_performance": {
+    "advanced": {
+      "count": 1,
+      "accuracy_mean": 0.7,
+      "pass_rate": 0.0,
+      "fail_rate": 0.0
+    },
+    "edge_case": {
+      "count": 3,
+      "accuracy_mean": 0.7999999999999999,
+      "pass_rate": 0.3333333333333333,
+      "fail_rate": 0.0
+    },
+    "basic": {
+      "count": 1,
+      "accuracy_mean": 0.7,
+      "pass_rate": 0.0,
+      "fail_rate": 0.0
+    }
+  },
+  "cross_validation_metrics": {},
+  "edge_case_handling": {
+    "edge_case_count": 3,
+    "edge_case_accuracy": 0.7999999999999999,
+    "edge_case_pass_rate": 0.3333333333333333,
+    "edge_case_confidence_mean": 0.7653312605807276,
+    "edge_case_response_time": 0.00095367431640625
+  },
+  "performance_benchmarks": {
+    "avg_response_time_ms": 0.001430511474609375,
+    "min_response_time_ms": 0.00095367431640625,
+    "max_response_time_ms": 0.0030994415283203125,
+    "avg_confidence": 0.7973174390323843,
+    "low_confidence_rate": 0.2
+  },
+  "statistical_significance": {
+    "sample_size": 5,
+    "mean_accuracy": 0.76,
+    "accuracy_std": 0.1341640786499874,
+    "confidence_interval_lower": 0.6424,
+    "confidence_interval_upper": 0.8776,
+    "margin_of_error": 0.1176,
+    "statistical_power": 0.05
+  },
+  "improvement_recommendations": [
+    "Overall accuracy (76.00%) is below 90% target. Focus on improving pattern matching algorithms.",
+    "Domain coverage score (0.82) indicates uneven performance across domains.",
+    "Pattern type 'implicit' shows low accuracy (70.00%).",
+    "Edge case handling needs significant improvement."
+  ],
+  "detailed_breakdowns": {
+    "validation_results_summary": {
+      "total_results": 5,
+      "pass_count": 1,
+      "partial_count": 4,
+      "fail_count": 0,
+      "pass_rate": 0.2,
+      "partial_rate": 0.8,
+      "fail_rate": 0.0
+    },
+    "domain_distribution": {
+      "testing": 4,
+      "none": 1
+    },
+    "failure_analysis": {
+      "no_failures": true
+    },
+    "confidence_distribution": {
+      "mean_confidence": 0.7973174390323843,
+      "min_confidence": 0.6,
+      "max_confidence": 0.8939594461459873,
+      "low_confidence_count": 1,
+      "high_confidence_count": 0
+    },
+    "total_execution_time": 0.000225067138671875
+  },
+  "validation_timestamp": 1754633655.356138
+}

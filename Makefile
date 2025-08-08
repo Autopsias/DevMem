@@ -5,6 +5,8 @@
 .PHONY: memory-status memory-validate memory-maintenance memory-dashboard memory-setup
 .PHONY: system-health system-maintenance validate-system emergency-diagnostics
 .PHONY: log-summary security-check
+# Testing targets  
+.PHONY: test test-agent-matching test-coverage lint-ci pre-commit-staged
 
 # === MEMORY MAINTENANCE ===
 
@@ -84,11 +86,44 @@ security-check:
 	@echo "Recent security events:"
 	@grep -c "BLOCKED\|DANGEROUS" .claude/security.log 2>/dev/null | sed 's/^/  /' || echo "  No security events logged"
 
+# === TESTING & VALIDATION ===
+
+# Run all tests
+test:
+	pytest tests/ -v
+
+# Run agent matching tests specifically
+test-agent-matching:
+	pytest tests/test_agent_pattern_matching.py tests/test_agent_selection_edge_cases.py tests/test_agent_integration.py -v
+
+# Run tests with coverage
+test-coverage:
+	pytest tests/ --cov=src --cov-report=term-missing --cov-report=html
+
+# Code linting and formatting
+lint-ci:
+	ruff check . && black --check . && mypy .
+
+# Pre-commit validation for staged changes
+pre-commit-staged:
+	pre-commit run --files $(shell git diff --cached --name-only)
+
+# Benchmark agent selection performance
+benchmark-agents:
+	python scripts/benchmark_agent_selection.py
+
 # === HELP & DOCUMENTATION ===
 
 # Default target shows help
 help:
 	@echo "DevMem Project Commands:"
+	@echo ""
+	@echo "Testing & Validation:"
+	@echo "  make test                 - Run all tests"
+	@echo "  make test-agent-matching  - Run agent pattern matching tests"
+	@echo "  make test-coverage        - Run tests with coverage analysis"
+	@echo "  make lint-ci              - Code linting and formatting check"
+	@echo "  make benchmark-agents     - Benchmark agent selection performance"
 	@echo ""
 	@echo "System Health & Maintenance:"
 	@echo "  make system-health        - Comprehensive system health check"
