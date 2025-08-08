@@ -1,0 +1,409 @@
+{
+  "infrastructure_coordination_improvement": {
+    "initial_accuracy": 75.0,
+    "final_accuracy": 90.0,
+    "accuracy_improvement": 15.0,
+    "target_accuracy": 75.0,
+    "target_met": true,
+    "high_priority_accuracy": 63.63636363636363
+  },
+  "performance_metrics": {
+    "avg_response_time_ms": 0.42264784569852054,
+    "response_time_range": [
+      0.07141695823520422,
+      5.491750023793429
+    ],
+    "target_response_time_ms": 200.0,
+    "performance_target_met": true
+  },
+  "learning_effectiveness": {
+    "scenarios_improved": 3,
+    "total_failed_scenarios": 5,
+    "improvement_rate": 60.0,
+    "learning_cycles_used": 5
+  },
+  "failure_analysis": {
+    "failure_count": 5,
+    "patterns": {
+      "infrastructure_to_other": [
+        {
+          "query": "DevOps pipeline optimization for microservices",
+          "expected": "infrastructure-engineer",
+          "selected": "ci-specialist",
+          "confidence": 0.6257777777777779,
+          "response_time_ms": 0.09433302329853177,
+          "correct": false,
+          "priority": "medium",
+          "priority_score": 2,
+          "reasoning": "DevOps pipeline is infrastructure orchestration"
+        }
+      ],
+      "other_to_infrastructure": [
+        {
+          "query": "Docker container testing framework",
+          "expected": "test-specialist",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.9,
+          "response_time_ms": 5.491750023793429,
+          "correct": false,
+          "priority": "high",
+          "priority_score": 3,
+          "reasoning": "Testing framework should prioritize testing domain"
+        },
+        {
+          "query": "Kubernetes performance optimization analysis",
+          "expected": "performance-optimizer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.3463749890215695,
+          "correct": false,
+          "priority": "high",
+          "priority_score": 3,
+          "reasoning": "Performance optimization should prioritize performance domain"
+        },
+        {
+          "query": "Container security scanning automation",
+          "expected": "security-enforcer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.35870802821591496,
+          "correct": false,
+          "priority": "high",
+          "priority_score": 3,
+          "reasoning": "Security scanning should prioritize security domain"
+        },
+        {
+          "query": "Kubernetes security policy enforcement",
+          "expected": "security-enforcer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.08079200051724911,
+          "correct": false,
+          "priority": "high",
+          "priority_score": 3,
+          "reasoning": "Primary focus is security policy"
+        }
+      ],
+      "cross_domain_confusion": [],
+      "confidence_issues": []
+    },
+    "analysis": {
+      "most_common_pattern": "other_to_infrastructure",
+      "avg_failed_confidence": 0.9051555555555556
+    }
+  },
+  "detailed_results": {
+    "test_results": {
+      "overall_accuracy": 75.0,
+      "high_priority_accuracy": 63.63636363636363,
+      "correct_overall": 15,
+      "total_scenarios": 20,
+      "correct_high_priority": 7,
+      "total_high_priority": 11,
+      "avg_response_time_ms": 0.42264784569852054,
+      "response_time_range": [
+        0.07141695823520422,
+        5.491750023793429
+      ],
+      "detailed_results": [
+        {
+          "query": "Docker container testing framework",
+          "expected": "test-specialist",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.9,
+          "response_time_ms": 5.491750023793429,
+          "correct": false,
+          "priority": "high",
+          "priority_score": 3,
+          "reasoning": "Testing framework should prioritize testing domain"
+        },
+        {
+          "query": "Kubernetes performance optimization analysis",
+          "expected": "performance-optimizer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.3463749890215695,
+          "correct": false,
+          "priority": "high",
+          "priority_score": 3,
+          "reasoning": "Performance optimization should prioritize performance domain"
+        },
+        {
+          "query": "Container orchestration performance monitoring",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.10804098565131426,
+          "correct": true,
+          "priority": "medium",
+          "priority_score": 2,
+          "reasoning": "Primary focus is infrastructure orchestration"
+        },
+        {
+          "query": "Docker deployment with CI/CD pipeline integration",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.8,
+          "response_time_ms": 0.3014579997397959,
+          "correct": true,
+          "priority": "medium",
+          "priority_score": 2,
+          "reasoning": "Docker deployment is primarily infrastructure"
+        },
+        {
+          "query": "Kubernetes cluster autoscaling configuration",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.7200000000000001,
+          "response_time_ms": 0.10237505193799734,
+          "correct": true,
+          "priority": "high",
+          "priority_score": 3,
+          "reasoning": "K8s autoscaling is core infrastructure management"
+        },
+        {
+          "query": "Infrastructure monitoring dashboard setup",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.08020800305530429,
+          "correct": true,
+          "priority": "high",
+          "priority_score": 3,
+          "reasoning": "Infrastructure monitoring setup requires infrastructure expertise"
+        },
+        {
+          "query": "Container security scanning automation",
+          "expected": "security-enforcer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.35870802821591496,
+          "correct": false,
+          "priority": "high",
+          "priority_score": 3,
+          "reasoning": "Security scanning should prioritize security domain"
+        },
+        {
+          "query": "DevOps pipeline optimization for microservices",
+          "expected": "infrastructure-engineer",
+          "selected": "ci-specialist",
+          "confidence": 0.6257777777777779,
+          "response_time_ms": 0.09433302329853177,
+          "correct": false,
+          "priority": "medium",
+          "priority_score": 2,
+          "reasoning": "DevOps pipeline is infrastructure orchestration"
+        },
+        {
+          "query": "Service mesh traffic routing configuration",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.7200000000000001,
+          "response_time_ms": 0.07512501906603575,
+          "correct": true,
+          "priority": "high",
+          "priority_score": 3,
+          "reasoning": "Service mesh configuration is infrastructure networking"
+        },
+        {
+          "query": "Docker image build optimization",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.8,
+          "response_time_ms": 0.17579097766429186,
+          "correct": true,
+          "priority": "medium",
+          "priority_score": 2,
+          "reasoning": "Docker operations are infrastructure domain"
+        },
+        {
+          "query": "Terraform infrastructure testing automation",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.9,
+          "response_time_ms": 0.11883297702297568,
+          "correct": true,
+          "priority": "high",
+          "priority_score": 3,
+          "reasoning": "Primary domain is infrastructure (Terraform)"
+        },
+        {
+          "query": "Container performance profiling and optimization",
+          "expected": "performance-optimizer",
+          "selected": "performance-optimizer",
+          "confidence": 1.0,
+          "response_time_ms": 0.08845800766721368,
+          "correct": true,
+          "priority": "medium",
+          "priority_score": 2,
+          "reasoning": "Primary focus is performance optimization"
+        },
+        {
+          "query": "Kubernetes security policy enforcement",
+          "expected": "security-enforcer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.08079200051724911,
+          "correct": false,
+          "priority": "high",
+          "priority_score": 3,
+          "reasoning": "Primary focus is security policy"
+        },
+        {
+          "query": "Infrastructure deployment pipeline testing",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.10854197898879647,
+          "correct": true,
+          "priority": "medium",
+          "priority_score": 2,
+          "reasoning": "Primary domain is infrastructure deployment"
+        },
+        {
+          "query": "Docker container log aggregation system",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.9499999999574076,
+          "response_time_ms": 0.20683399634435773,
+          "correct": true,
+          "priority": "medium",
+          "priority_score": 2,
+          "reasoning": "Container logging is infrastructure concern"
+        },
+        {
+          "query": "Multi-cloud Kubernetes cluster deployment",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.7200000000000001,
+          "response_time_ms": 0.07141695823520422,
+          "correct": true,
+          "priority": "high",
+          "priority_score": 3,
+          "reasoning": "Multi-cloud K8s is advanced infrastructure orchestration"
+        },
+        {
+          "query": "Container orchestration with service discovery",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.0837089610286057,
+          "correct": true,
+          "priority": "high",
+          "priority_score": 3,
+          "reasoning": "Container orchestration is core infrastructure"
+        },
+        {
+          "query": "Infrastructure as code validation and testing",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.7200000000000001,
+          "response_time_ms": 0.3694999613799155,
+          "correct": true,
+          "priority": "medium",
+          "priority_score": 2,
+          "reasoning": "IaC is primarily infrastructure domain"
+        },
+        {
+          "query": "Microservices architecture deployment automation",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.11812499724328518,
+          "correct": true,
+          "priority": "high",
+          "priority_score": 3,
+          "reasoning": "Microservices deployment is infrastructure orchestration"
+        },
+        {
+          "query": "Container registry management and automation",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.0725829740986228,
+          "correct": true,
+          "priority": "medium",
+          "priority_score": 2,
+          "reasoning": "Container registry is infrastructure management"
+        }
+      ]
+    },
+    "learning_results": {
+      "original_accuracy": 75.0,
+      "new_accuracy": 90.0,
+      "improvement": 15.0,
+      "scenarios_improved": 3,
+      "total_failed_scenarios": 5,
+      "improvement_rate": 60.0,
+      "learning_cycles": 5,
+      "detailed_improvements": [
+        {
+          "query": "Docker container testing framework",
+          "expected": "test-specialist",
+          "original_selected": "infrastructure-engineer",
+          "new_selected": "test-specialist",
+          "original_confidence": 0.9,
+          "new_confidence": 1.0,
+          "originally_correct": false,
+          "now_correct": true,
+          "improved": true
+        },
+        {
+          "query": "Kubernetes performance optimization analysis",
+          "expected": "performance-optimizer",
+          "original_selected": "infrastructure-engineer",
+          "new_selected": "infrastructure-engineer",
+          "original_confidence": 1.0,
+          "new_confidence": 1.0,
+          "originally_correct": false,
+          "now_correct": false,
+          "improved": false
+        },
+        {
+          "query": "Container security scanning automation",
+          "expected": "security-enforcer",
+          "original_selected": "infrastructure-engineer",
+          "new_selected": "infrastructure-engineer",
+          "original_confidence": 1.0,
+          "new_confidence": 1.0,
+          "originally_correct": false,
+          "now_correct": false,
+          "improved": false
+        },
+        {
+          "query": "DevOps pipeline optimization for microservices",
+          "expected": "infrastructure-engineer",
+          "original_selected": "ci-specialist",
+          "new_selected": "infrastructure-engineer",
+          "original_confidence": 0.6257777777777779,
+          "new_confidence": 1.0,
+          "originally_correct": false,
+          "now_correct": true,
+          "improved": true
+        },
+        {
+          "query": "Kubernetes security policy enforcement",
+          "expected": "security-enforcer",
+          "original_selected": "infrastructure-engineer",
+          "new_selected": "security-enforcer",
+          "original_confidence": 1.0,
+          "new_confidence": 1.0,
+          "originally_correct": false,
+          "now_correct": true,
+          "improved": true
+        }
+      ]
+    }
+  },
+  "success_criteria": {
+    "accuracy_target_75_percent": true,
+    "response_time_under_200ms": true,
+    "learning_system_effective": true,
+    "high_priority_scenarios_accurate": false,
+    "overall_success": true
+  },
+  "recommendations": [
+    "Learning system effective (60.0% improvement) - continue training cycles",
+    "Pattern matching needs enhancement for edge cases"
+  ]
+}

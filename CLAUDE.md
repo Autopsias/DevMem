@@ -102,3 +102,6 @@ The Claude Code Framework uses hierarchical memory integration to enhance develo
 - **Context-Aware Coordination**: Memory patterns provide domain context for optimal specialist routing
 - **Performance-Optimized Lookup**: Sub-50ms memory access with 97% context preservation
 - **Learning Integration**: Successful coordination patterns improve future agent selection accuracy
+- we're building a claude code agent framework based on: 
+  '/Users/ricardocarvalho/DeveloperFolder/DevMem/.claude/agents'and anthropic guidelines as: 
+  https://docs.anthropic.com/en/docs/claude-code/sub-agents

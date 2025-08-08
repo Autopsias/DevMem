@@ -5,7 +5,6 @@ Validates that all story requirements are met and documents the impact.
 """
 
 import sys
-import time
 from pathlib import Path
 
 # Add project root to path
@@ -160,8 +159,8 @@ def main():
         validate_agent_ecosystem()
         validate_acceptance_criteria()
         
-        # Generate impact report
-        impact_report = generate_optimization_impact_report()
+        # Generate and print impact report
+        generate_optimization_impact_report()
         
         print("\n" + "="*60)
         print("✅ STORY S6.1 SUCCESSFULLY COMPLETED!")

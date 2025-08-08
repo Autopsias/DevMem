@@ -18,7 +18,7 @@ Consolidated domain expertise combining testing, infrastructure, security, and p
 ### Hybrid Search Architecture
 **Pipeline Flow:**
 ```
-User Query ’ BM25S Keyword Search + Qdrant Vector Search ’ Hybrid Result Fusion ’ Response Generation
+User Query ï¿½ BM25S Keyword Search + Qdrant Vector Search ï¿½ Hybrid Result Fusion ï¿½ Response Generation
 ```
 
 **Performance Targets:**
@@ -59,17 +59,17 @@ User Query ’ BM25S Keyword Search + Qdrant Vector Search ’ Hybrid Result Fusion 
 
 **Async Testing Coordination (94% Success):**
 - Context: "Test failures with async patterns and mock configuration"
-- Pattern: test-specialist ’ async-pattern-fixer + mock-configuration-expert
+- Pattern: test-specialist ï¿½ async-pattern-fixer + mock-configuration-expert
 - Optimal For: AsyncMock issues, concurrent testing, async/await patterns
 
 **Coverage Architecture Issues (91% Success):**
 - Context: "Test coverage gaps requiring architectural improvements"
-- Pattern: coverage-optimizer ’ fixture-design-specialist + integration-validator
+- Pattern: coverage-optimizer ï¿½ fixture-design-specialist + integration-validator
 - Optimal For: Strategic coverage analysis, testing architecture design
 
 **Integration Testing Complexity (88% Success):**
 - Context: "End-to-end testing failures across multiple services"
-- Pattern: integration-validator ’ test-specialist + docker-specialist
+- Pattern: integration-validator ï¿½ test-specialist + docker-specialist
 - Optimal For: Cross-service testing, infrastructure integration
 
 ### RAG Pipeline Testing
@@ -92,21 +92,43 @@ User Query ’ BM25S Keyword Search + Qdrant Vector Search ’ Hybrid Result Fusion 
 - **docker-specialist**: Advanced container troubleshooting and orchestration
 - **environment-analyst**: System environment analysis and resource constraints
 
+## 5. Documentation Domain Coordination
+
+### Primary Documentation Agent
+- **documentation-enhancer**: Comprehensive documentation creation, enhancement, and technical writing expertise
+
+### Documentation Integration Patterns
+
+**Technical Writing Excellence (95%+ Success):**
+- Context: "API documentation, user guides, technical specifications"
+- Pattern: documentation-enhancer â†’ Comprehensive documentation analysis and creation
+- Optimal For: README generation, API documentation, user manuals, technical writing
+
+**Documentation Automation Coordination (90%+ Success):**
+- Context: "Documentation automation, CI/CD integration, automated docs generation"
+- Pattern: documentation-enhancer + ci-specialist â†’ Documentation pipeline coordination
+- Optimal For: Automated documentation workflows, documentation build pipelines
+
+**Cross-Domain Documentation (88%+ Success):**
+- Context: "Infrastructure documentation, security documentation, testing documentation"
+- Pattern: documentation-enhancer + domain-specific-agent â†’ Coordinated documentation creation
+- Optimal For: Technical domain documentation, specialized guides, comprehensive documentation
+
 ### Infrastructure Integration Patterns
 
 **Docker Orchestration Complexity (93% Success):**
 - Context: "Docker orchestration issues with service networking and scaling"
-- Pattern: infrastructure-engineer ’ docker-specialist + performance-optimizer
+- Pattern: infrastructure-engineer ï¿½ docker-specialist + performance-optimizer
 - Optimal For: Container orchestration, service mesh, scaling analysis
 
 **Environment + Configuration Issues (89% Success):**
 - Context: "Environment configuration problems affecting deployment"
-- Pattern: environment-analyst ’ configuration-validator + environment-synchronizer
+- Pattern: environment-analyst ï¿½ configuration-validator + environment-synchronizer
 - Optimal For: Environment consistency, deployment configuration
 
 **Infrastructure Performance Problems (91% Success):**
 - Context: "Infrastructure performance bottlenecks in container deployment"
-- Pattern: infrastructure-engineer ’ performance-optimizer + resource-optimizer + docker-specialist
+- Pattern: infrastructure-engineer ï¿½ performance-optimizer + resource-optimizer + docker-specialist
 - Optimal For: System-wide performance optimization
 
 ### Container Services Integration
@@ -134,22 +156,22 @@ User Query ’ BM25S Keyword Search + Qdrant Vector Search ’ Hybrid Result Fusion 
 
 **Rapid Security Detection Flow (95% Escalation Accuracy):**
 ```
-security-enforcer ’ Fast pattern detection (<2s)
-“
-code-quality-specialist ’ Semgrep scanning (<30s)
-“
-security-auditor (complex) ’ Threat modeling (<3min)
+security-enforcer ï¿½ Fast pattern detection (<2s)
+ï¿½
+code-quality-specialist ï¿½ Semgrep scanning (<30s)
+ï¿½
+security-auditor (complex) ï¿½ Threat modeling (<3min)
 ```
 
 **Compliance Validation:**
-- Multi-standard compliance ’ security-auditor analysis ’ Systematic validation
-- Cross-system security ’ pattern-analyzer ’ Architectural security consistency
-- Infrastructure security ’ docker-specialist + environment-synchronizer ’ Secure deployment
+- Multi-standard compliance ï¿½ security-auditor analysis ï¿½ Systematic validation
+- Cross-system security ï¿½ pattern-analyzer ï¿½ Architectural security consistency
+- Infrastructure security ï¿½ docker-specialist + environment-synchronizer ï¿½ Secure deployment
 
 **Security Architecture Review:**
-- Complex security patterns ’ security-auditor + pattern-analyzer coordination
-- Performance security ’ security-auditor + performance-optimizer alignment
-- Configuration security ’ security-auditor + configuration-validator integration
+- Complex security patterns ï¿½ security-auditor + pattern-analyzer coordination
+- Performance security ï¿½ security-auditor + performance-optimizer alignment
+- Configuration security ï¿½ security-auditor + configuration-validator integration
 
 ## 5. Domain-Specific Agent Performance
 

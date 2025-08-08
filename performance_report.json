@@ -1,0 +1,94 @@
+{
+  "total_tests": 63,
+  "accuracy_rate": 0.3833333333333333,
+  "avg_response_time": 5.778433784605965e-05,
+  "avg_confidence": 0.2,
+  "context_preservation_rate": 0.8896825396825396,
+  "difficulty_breakdown": {
+    "easy": {
+      "count": 15,
+      "accuracy": 0.6,
+      "avg_response_time": 9.845097859700521e-05,
+      "context_preservation": 0.96
+    },
+    "medium": {
+      "count": 21,
+      "accuracy": 0.34285714285714286,
+      "avg_response_time": 4.526547023228237e-05,
+      "context_preservation": 0.9285714285714285
+    },
+    "hard": {
+      "count": 15,
+      "accuracy": 0.27999999999999997,
+      "avg_response_time": 4.897117614746094e-05,
+      "context_preservation": 0.8566666666666667
+    },
+    "edge_case": {
+      "count": 12,
+      "accuracy": 0.3125,
+      "avg_response_time": 3.987550735473633e-05,
+      "context_preservation": 0.775
+    }
+  },
+  "agent_performance": {
+    "code-quality-specialist": {
+      "selections": 3,
+      "accuracy": 0.5,
+      "avg_response_time": 0.00031638145446777344,
+      "avg_confidence": 0.0
+    },
+    "test-specialist": {
+      "selections": 3,
+      "accuracy": 0.8,
+      "avg_response_time": 5.157788594563802e-05,
+      "avg_confidence": 0.6400000000000001
+    },
+    "meta-coordinator": {
+      "selections": 6,
+      "accuracy": 0.5249999999999999,
+      "avg_response_time": 4.760424296061198e-05,
+      "avg_confidence": 0.9
+    },
+    "security-enforcer": {
+      "selections": 3,
+      "accuracy": 0.8,
+      "avg_response_time": 4.402796427408854e-05,
+      "avg_confidence": 0.6400000000000001
+    },
+    "digdeep": {
+      "selections": 30,
+      "accuracy": 0.27999999999999997,
+      "avg_response_time": 4.2827924092610675e-05,
+      "avg_confidence": 0.0
+    },
+    "analysis-gateway": {
+      "selections": 6,
+      "accuracy": 0.3,
+      "avg_response_time": 5.547205607096354e-05,
+      "avg_confidence": 0.5599999999999999
+    },
+    "docker-specialist": {
+      "selections": 12,
+      "accuracy": 0.375,
+      "avg_response_time": 4.1762987772623696e-05,
+      "avg_confidence": 0.0
+    }
+  },
+  "pattern_effectiveness": {
+    "explicit_patterns": 0.5,
+    "context_analysis": 0.0,
+    "fallback_decisions": 0.3684210526315789
+  },
+  "edge_case_handling": 0.3125,
+  "recommendations": [
+    "Overall accuracy (38.33%) below target (90%). Consider enhancing pattern matching.",
+    "Excellent response time (0.000s) meets enhanced target. Performance optimized.",
+    "Low accuracy for easy cases (60.00%). Enhance easy-specific patterns.",
+    "Low accuracy for medium cases (34.29%). Enhance medium-specific patterns.",
+    "Low accuracy for hard cases (28.00%). Enhance hard-specific patterns.",
+    "Low accuracy for edge_case cases (31.25%). Enhance edge_case-specific patterns.",
+    "Explicit pattern matching needs improvement. Review and expand pattern libraries.",
+    "Fallback decision tree needs enhancement. Improve edge case handling logic.",
+    "Edge case handling (31.25%) needs significant improvement."
+  ]
+}

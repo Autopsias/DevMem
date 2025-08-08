@@ -7,6 +7,18 @@ from dataclasses import dataclass, field
 from collections import defaultdict, Counter
 import logging
 
+# Import enhanced cross-domain coordinator
+try:
+    from .enhanced_cross_domain_coordinator import (
+        get_cross_domain_coordinator,
+        CrossDomainAnalysis,
+        DomainType,
+        ConflictType
+    )
+    CROSS_DOMAIN_AVAILABLE = True
+except ImportError:
+    CROSS_DOMAIN_AVAILABLE = False
+
 logger = logging.getLogger(__name__)
 
 
@@ -42,6 +54,7 @@ class EnhancedAgentSelector:
         self.keyword_index = self._build_keyword_index()
         self.pattern_cache = {}
         self.selection_history = []
+        self.cross_domain_coordinator = get_cross_domain_coordinator() if CROSS_DOMAIN_AVAILABLE else None
         
     def _initialize_agents(self) -> Dict[str, AgentConfig]:
         """Initialize agent configurations with enhanced patterns."""
@@ -67,20 +80,82 @@ class EnhancedAgentSelector:
             
             'infrastructure-engineer': AgentConfig(
                 name='infrastructure-engineer',
-                primary_keywords=['docker', 'container', 'service', 'infrastructure', 'deployment', 'orchestration'],
+                primary_keywords=['docker', 'container', 'service', 'infrastructure', 'deployment', 'orchestration', 'kubernetes', 'k8s', 'helm', 'terraform', 'ansible', 'monitoring', 'scaling', 'networking', 'cluster', 'automation', 'provision', 'microservices', 'rollout', 'canary', 'istio', 'prometheus', 'grafana', 'metrics', 'dashboarding', 'alerting', 'ingress', 'nginx', 'progressive', 'blue', 'green'],
                 context_patterns=[
-                    r'docker.{0,20}(orchestration|compose|network|swarm)',
-                    r'container.{0,15}(scaling|network|resource|runtime)',
-                    r'service.{0,15}(mesh|discovery|communication|registry)',
-                    r'infrastructure.{0,20}(performance|scaling|architecture|automation)',
-                    r'deployment.{0,15}(pipeline|strategy|automation|rollout)',
-                    r'kubernetes.{0,15}(cluster|pod|service|ingress)',
-                    r'orchestration.{0,15}(container|service|microservice)'
+                    # Core Container & Orchestration Patterns
+                    r'docker.{0,20}(orchestration|compose|network|swarm|registry|build)',
+                    r'container.{0,15}(scaling|network|resource|runtime|registry|security)',
+                    r'kubernetes.{0,15}(cluster|pod|service|ingress|deployment|configmap|secret)',
+                    r'k8s.{0,15}(cluster|pod|service|ingress|deployment|namespace)',
+                    r'orchestration.{0,15}(container|service|microservice|cluster|workload)',
+                    
+                    # Service Mesh & Networking
+                    r'service.{0,15}(mesh|discovery|communication|registry|gateway|proxy)',
+                    r'networking.{0,15}(container|kubernetes|service|mesh|ingress|egress)',
+                    r'load.?balancing.{0,15}(kubernetes|container|service|nginx|haproxy)',
+                    r'ingress.{0,15}(controller|nginx|traefik|gateway|routing)',
+                    
+                    # Infrastructure as Code & Automation
+                    r'infrastructure.{0,20}(code|automation|provisioning|scaling|architecture|deployment)',
+                    r'terraform.{0,15}(plan|apply|infrastructure|provisioning|modules)',
+                    r'ansible.{0,15}(playbook|automation|provisioning|configuration)',
+                    r'helm.{0,15}(chart|deployment|kubernetes|package|release)',
+                    
+                    # Deployment & CI/CD Integration
+                    r'deployment.{0,15}(pipeline|strategy|automation|rollout|canary|blue.?green)',
+                    r'pipeline.{0,15}(deployment|infrastructure|container|kubernetes)',
+                    r'rollout.{0,15}(strategy|deployment|canary|blue.?green|progressive)',
+                    
+                    # Monitoring & Observability
+                    r'monitoring.{0,15}(infrastructure|container|kubernetes|prometheus|grafana)',
+                    r'observability.{0,15}(infrastructure|distributed|microservice|tracing)',
+                    r'logging.{0,15}(infrastructure|container|kubernetes|centralized)',
+                    r'metrics.{0,15}(collection|infrastructure|monitoring|prometheus)',
+                    r'dashboarding.{0,15}(infrastructure|monitoring|grafana|metrics)',
+                    r'alerting.{0,15}(infrastructure|monitoring|prometheus|notification)',
+                    
+                    # Scaling & Performance
+                    r'scaling.{0,15}(horizontal|vertical|auto|kubernetes|container)',
+                    r'autoscaling.{0,15}(horizontal|vertical|kubernetes|cluster)',
+                    r'performance.{0,15}(infrastructure|container|kubernetes|optimization)',
+                    
+                    # Cloud & Multi-Cloud
+                    r'cloud.{0,15}(infrastructure|deployment|multi.?cloud|hybrid|migration)',
+                    r'aws.{0,15}(infrastructure|eks|ecs|deployment|container)',
+                    r'gcp.{0,15}(infrastructure|gke|deployment|container)',
+                    r'azure.{0,15}(infrastructure|aks|deployment|container)',
+                    
+                    # Security & Compliance
+                    r'container.{0,15}(security|scanning|hardening|compliance)',
+                    r'infrastructure.{0,15}(security|hardening|compliance|governance)',
+                    r'cluster.{0,15}(security|rbac|network.?policy|pod.?security)',
+                    
+                    # Storage & Persistence
+                    r'storage.{0,15}(persistent|volume|infrastructure|container)',
+                    r'volume.{0,15}(persistent|storage|mounting|kubernetes)',
+                    r'database.{0,15}(infrastructure|deployment|scaling|container)',
+                    
+                    # Troubleshooting & Maintenance
+                    r'troubleshoot.{0,15}(infrastructure|deployment|container|kubernetes)',
+                    r'debugging.{0,15}(infrastructure|container|kubernetes|networking)',
+                    r'maintenance.{0,15}(infrastructure|cluster|container|scheduled)',
+                    
+                    # Additional Infrastructure Patterns
+                    r'rollout.{0,15}(canary|blue.?green|progressive|deployment)',
+                    r'progressive.{0,15}(delivery|rollout|deployment)',
+                    r'canary.{0,15}(deployment|rollout|release)',
+                    r'blue.?green.{0,15}(deployment|strategy|rollout)',
+                    r'istio.{0,15}(service.?mesh|ingress|configuration)',
+                    r'prometheus.{0,15}(monitoring|metrics|alerting)',
+                    r'grafana.{0,15}(dashboard|monitoring|visualization)',
+                    r'nginx.{0,15}(ingress|load.?balancer|proxy)',
+                    r'traefik.{0,15}(ingress|routing|load.?balancer)',
+                    r'haproxy.{0,15}(load.?balancer|proxy|routing)'
                 ],
-                intent_indicators=['deploy', 'scale', 'orchestrate', 'optimize', 'architect', 'provision'],
-                weight_multiplier=1.1,
-                description="Docker orchestration with systematic infrastructure coordination",
-                specialization_areas=['docker', 'kubernetes', 'container_orchestration', 'service_mesh']
+                intent_indicators=['deploy', 'scale', 'orchestrate', 'optimize', 'architect', 'provision', 'automate', 'monitor', 'troubleshoot', 'configure', 'migrate', 'upgrade'],
+                weight_multiplier=1.2,
+                description="Comprehensive infrastructure orchestration with cloud-native expertise and systematic coordination",
+                specialization_areas=['docker', 'kubernetes', 'container_orchestration', 'service_mesh', 'infrastructure_as_code', 'cloud_native', 'deployment_automation', 'monitoring', 'scaling']
             ),
             
             'security-enforcer': AgentConfig(
@@ -167,6 +242,87 @@ class EnhancedAgentSelector:
                 weight_multiplier=1.1,
                 description="CI/CD pipeline optimization and GitHub Actions expertise",
                 specialization_areas=['github_actions', 'pipeline_automation', 'ci_cd']
+            ),
+            
+            'documentation-enhancer': AgentConfig(
+                name='documentation-enhancer',
+                primary_keywords=['documentation', 'docs', 'readme', 'markdown', 'md', 'api', 'guide', 'tutorial', 'manual', 'specification', 'wiki', 'handbook', 'knowledge', 'reference', 'howto', 'faq', 'write', 'create', 'generate', 'develop', 'content', 'explain', 'describe', 'document'],
+                context_patterns=[
+                    # Core Documentation Patterns
+                    r'documentation.{0,20}(update|create|improve|generate|write|enhance)',
+                    r'docs.{0,15}(generation|creation|update|improvement|writing)',
+                    r'readme.{0,15}(file|creation|update|improvement|generation)',
+                    r'markdown.{0,15}(documentation|file|generation|formatting)',
+                    r'api.{0,15}(documentation|docs|reference|specification|guide)',
+                    
+                    # Technical Writing Patterns
+                    r'technical.{0,15}(writing|documentation|guide|manual|specification)',
+                    r'user.{0,15}(guide|manual|documentation|handbook)',
+                    r'developer.{0,15}(documentation|guide|reference|handbook)',
+                    r'installation.{0,15}(guide|instructions|documentation|manual)',
+                    r'setup.{0,15}(guide|documentation|instructions|manual)',
+                    
+                    # Content Management Patterns
+                    r'content.{0,15}(creation|management|documentation|writing)',
+                    r'knowledge.{0,15}(base|documentation|management|sharing)',
+                    r'information.{0,15}(architecture|documentation|management)',
+                    r'specification.{0,15}(documentation|writing|creation|update)',
+                    
+                    # Documentation Generation Patterns
+                    r'generate.{0,15}(documentation|docs|readme|guide|manual)',
+                    r'create.{0,15}(documentation|docs|readme|guide|manual)',
+                    r'write.{0,15}(documentation|docs|readme|guide|manual)',
+                    r'document.{0,15}(code|api|process|workflow|architecture)',
+                    
+                    # Documentation Types and Formats
+                    r'tutorial.{0,15}(creation|writing|documentation|guide)',
+                    r'develop.{0,15}(tutorial|guide|documentation|manual)',
+                    r'howto.{0,15}(guide|documentation|instruction|manual)',
+                    r'faq.{0,15}(documentation|creation|update|management|section)',
+                    r'wiki.{0,15}(documentation|content|management|creation)',
+                    r'handbook.{0,15}(creation|update|documentation|writing)',
+                    r'troubleshooting.{0,15}(guide|documentation|manual)',
+                    r'getting.?started.{0,15}(guide|documentation|tutorial)',
+                    r'beginners?.{0,15}(guide|tutorial|documentation|manual)',
+                    
+                    # Documentation Quality and Standards
+                    r'documentation.{0,15}(quality|standards|review|audit)',
+                    r'docs.{0,15}(quality|standards|consistency|validation)',
+                    r'content.{0,15}(quality|standards|review|validation)',
+                    r'writing.{0,15}(standards|quality|style|guidelines)',
+                    
+                    # Documentation Integration and Automation
+                    r'documentation.{0,15}(automation|integration|pipeline|workflow)',
+                    r'docs.{0,15}(automation|generation|pipeline|build)',
+                    r'automatic.{0,15}(documentation|docs|generation)',
+                    r'automate.{0,15}(documentation|docs|generation)',
+                    r'documentation.{0,15}(site|portal|platform|system)',
+                    r'integrate.{0,15}(documentation|docs).{0,15}(ci|cd|pipeline)',
+                    r'ci.?cd.{0,15}(documentation|docs)',
+                    r'pipeline.{0,15}(documentation|docs)',
+                    
+                    # Code Documentation Patterns
+                    r'code.{0,15}(documentation|commenting|annotation)',
+                    r'inline.{0,15}(documentation|comments|docs)',
+                    r'docstring.{0,15}(generation|creation|improvement)',
+                    r'comment.{0,15}(documentation|generation|improvement)',
+                    
+                    # Project Documentation Patterns
+                    r'project.{0,15}(documentation|docs|readme|guide)',
+                    r'repository.{0,15}(documentation|readme|wiki)',
+                    r'codebase.{0,15}(documentation|guide|reference)',
+                    r'architecture.{0,15}(documentation|guide|specification)',
+                    
+                    # Documentation Maintenance Patterns
+                    r'documentation.{0,15}(maintenance|update|synchronization)',
+                    r'docs.{0,15}(maintenance|sync|update|refresh)',
+                    r'outdated.{0,15}(documentation|docs|guide)',
+                    r'documentation.{0,15}(versioning|migration|upgrade)'
+                ],
+                intent_indicators=['document', 'write', 'create', 'generate', 'explain', 'describe', 'guide', 'instruct', 'specify', 'clarify', 'elaborate', 'detail'],
+                weight_multiplier=1.3,
+                description="Comprehensive documentation creation, enhancement, and technical writing expertise",
+                specialization_areas=['technical_writing', 'api_documentation', 'user_guides', 'readme_generation', 'markdown_formatting', 'content_management', 'documentation_automation', 'knowledge_management']
             )
         }
     
@@ -197,14 +353,65 @@ class EnhancedAgentSelector:
             'tested': 'test',
             'containers': 'container',
             'containerization': 'container',
+            'containerized': 'container',
             'deployed': 'deployment',
             'deploying': 'deployment',
+            'deploy': 'deployment',
             'securing': 'security',
             'secured': 'security',
             'optimizing': 'optimization',
             'optimized': 'optimization',
             'refactoring': 'refactor',
-            'refactored': 'refactor'
+            'refactored': 'refactor',
+            # Infrastructure-specific variations
+            'orchestrated': 'orchestration',
+            'orchestrating': 'orchestration',
+            'orchestrate': 'orchestration',
+            'scaled': 'scale',
+            'scaling': 'scale',
+            'provisioned': 'provision',
+            'provisioning': 'provision',
+            'automated': 'automation',
+            'automating': 'automation',
+            'monitoring': 'monitor',
+            'monitored': 'monitor',
+            'configured': 'configuration',
+            'configuring': 'configuration',
+            'k8s': 'kubernetes',
+            'kube': 'kubernetes',
+            'infra': 'infrastructure',
+            'devops': 'infrastructure',
+            'sre': 'infrastructure',
+            'microservices': 'service',
+            'micro-services': 'service',
+            'ci/cd': 'deployment',
+            'cicd': 'deployment',
+            # Documentation-specific variations
+            'document': 'documentation',
+            'documenting': 'documentation',
+            'documented': 'documentation',
+            'doc': 'docs',
+            'documents': 'documentation',
+            'writing': 'write',
+            'written': 'write',
+            'guides': 'guide',
+            'tutorials': 'tutorial',
+            'manuals': 'manual',
+            'specifications': 'specification',
+            'spec': 'specification',
+            'specs': 'specification',
+            'handbooks': 'handbook',
+            'references': 'reference',
+            'ref': 'reference',
+            'refs': 'reference',
+            'technical writing': 'technical',
+            'tech writing': 'technical',
+            'content creation': 'content',
+            'content management': 'content',
+            'knowledge base': 'knowledge',
+            'kb': 'knowledge',
+            'how-to': 'howto',
+            'how to': 'howto'
         }
         
         for variation, root in keyword_variations.items():
@@ -249,11 +456,34 @@ class EnhancedAgentSelector:
             if re.search(rf'\b{re.escape(intent)}\b', query_lower):
                 score += 1.0
         
-        # Specialization area matching
+        # Specialization area matching with variations
         for spec_area in agent_config.specialization_areas:
             spec_normalized = spec_area.replace('_', ' ')
             if spec_normalized in query_lower:
                 score += 1.5
+            
+            # Check for specialized area variations
+            spec_variations = {
+                'container_orchestration': ['orchestration', 'orchestrated', 'orchestrate'],
+                'cloud_native': ['cloud-native', 'cloud native', 'cloudnative'],
+                'infrastructure_as_code': ['infrastructure as code', 'iac', 'infra as code'],
+                'deployment_automation': ['deployment automation', 'automated deployment', 'deploy automation'],
+                'service_mesh': ['service mesh', 'servicemesh', 'mesh'],
+                'technical_writing': ['technical writing', 'tech writing', 'technical documentation'],
+                'api_documentation': ['api docs', 'api documentation', 'api reference', 'api guide'],
+                'user_guides': ['user guide', 'user manual', 'user documentation'],
+                'readme_generation': ['readme file', 'readme creation', 'readme generation'],
+                'markdown_formatting': ['markdown', 'md file', 'markdown formatting'],
+                'content_management': ['content management', 'content creation', 'cms'],
+                'documentation_automation': ['docs automation', 'doc generation', 'automated docs'],
+                'knowledge_management': ['knowledge base', 'kb', 'knowledge management']
+            }
+            
+            if spec_area in spec_variations:
+                for variation in spec_variations[spec_area]:
+                    if variation in query_lower:
+                        score += 1.5
+                        break
         
         return score * agent_config.weight_multiplier, matched_patterns
     
@@ -264,11 +494,17 @@ class EnhancedAgentSelector:
         
         # Check for keywords from different domains
         domain_keywords = {
-            'testing': ['test', 'pytest', 'mock', 'coverage'],
-            'infrastructure': ['docker', 'container', 'service', 'deployment'],
-            'security': ['security', 'vulnerability', 'credential', 'audit'],
-            'performance': ['performance', 'latency', 'optimization', 'bottleneck'],
-            'code_quality': ['refactor', 'quality', 'lint', 'format']
+            'testing': ['test', 'pytest', 'mock', 'coverage', 'fixture', 'async'],
+            'infrastructure': [
+                'docker', 'container', 'service', 'deployment', 'orchestration', 
+                'kubernetes', 'k8s', 'infrastructure', 'helm', 'terraform', 
+                'ansible', 'scaling', 'monitoring', 'networking', 'cluster',
+                'automation', 'provision', 'devops', 'sre', 'microservices'
+            ],
+            'security': ['security', 'vulnerability', 'credential', 'audit', 'compliance', 'authentication'],
+            'performance': ['performance', 'latency', 'optimization', 'bottleneck', 'resource', 'memory', 'cpu'],
+            'code_quality': ['refactor', 'quality', 'lint', 'format', 'architecture', 'variable', 'function'],
+            'documentation': ['documentation', 'docs', 'readme', 'markdown', 'md', 'api', 'guide', 'tutorial', 'manual', 'specification', 'wiki', 'handbook', 'knowledge', 'reference', 'howto', 'faq', 'technical', 'writing', 'content']
         }
         
         for domain, keywords in domain_keywords.items():
@@ -278,7 +514,7 @@ class EnhancedAgentSelector:
         return detected_domains
     
     def select_agent(self, query: str, context: Optional[Dict] = None) -> AgentMatchResult:
-        """Select the best agent for the given query with enhanced matching."""
+        """Select the best agent for the given query with enhanced cross-domain analysis."""
         start_time = time.perf_counter()
         
         # Handle empty or very short queries
@@ -291,6 +527,102 @@ class EnhancedAgentSelector:
                 reasoning="Query too short or empty, defaulting to intelligent-enhancer"
             )
         
+        # Get original agent selection first
+        original_result = self._select_agent_original(query, start_time)
+        
+        # Enhanced cross-domain analysis with learning integration if available
+        cross_domain_analysis = None
+        if self.cross_domain_coordinator:
+            try:
+                cross_domain_analysis = self.cross_domain_coordinator.analyze_cross_domain_integration(query)
+                
+                # Record the original selection for learning feedback
+                if cross_domain_analysis and cross_domain_analysis.agent_suggestions:
+                    # Auto-learn from high-confidence selections for infrastructure domain
+                    best_suggestion = cross_domain_analysis.agent_suggestions[0]
+                    if (best_suggestion[1] > 0.8 and 
+                        any(boundary.primary_domain.value == 'infrastructure' 
+                            for boundary in cross_domain_analysis.detected_boundaries)):
+                        self.cross_domain_coordinator.record_selection_feedback(
+                            query, best_suggestion[0], best_suggestion[1], user_feedback=None
+                        )
+                        
+            except Exception as e:
+                logger.warning(f"Cross-domain analysis failed: {e}")
+        
+        # Use cross-domain analysis if it provides better confidence or for infrastructure queries
+        use_cross_domain = False
+        if (cross_domain_analysis and 
+            cross_domain_analysis.agent_suggestions):
+            
+            best_agent_name, cross_domain_confidence = cross_domain_analysis.agent_suggestions[0]
+            
+            # Prioritize cross-domain for infrastructure queries or higher confidence
+            if (cross_domain_confidence > original_result.confidence_score or
+                (cross_domain_confidence > 0.7 and 
+                 any(boundary.primary_domain.value == 'infrastructure' 
+                     for boundary in cross_domain_analysis.detected_boundaries))):
+                use_cross_domain = True
+        
+        if use_cross_domain:
+            best_agent_name, cross_domain_confidence = cross_domain_analysis.agent_suggestions[0]
+            
+            # Get additional reasoning from cross-domain analysis
+            reasoning_parts = []
+            
+            if cross_domain_analysis.detected_boundaries:
+                boundary = cross_domain_analysis.detected_boundaries[0]
+                reasoning_parts.append(
+                    f"Cross-domain analysis: {boundary.primary_domain.value} domain with "
+                    f"{len(boundary.secondary_domains)} secondary domains"
+                )
+            
+            if cross_domain_analysis.potential_conflicts:
+                high_severity_conflicts = [c for c in cross_domain_analysis.potential_conflicts if c.severity >= 0.7]
+                if high_severity_conflicts:
+                    reasoning_parts.append(f"{len(high_severity_conflicts)} high-severity conflicts detected")
+            
+            if cross_domain_analysis.integration_complexity >= 0.7:
+                reasoning_parts.append("High integration complexity detected")
+            
+            reasoning = "; ".join(reasoning_parts) if reasoning_parts else "Cross-domain analysis selection"
+            
+            # Handle coordination recommendations
+            if 'meta-coordination' in cross_domain_analysis.recommended_coordination.lower():
+                best_agent_name = 'meta-coordinator'
+                cross_domain_confidence = min(1.0, cross_domain_confidence * 1.2)
+                reasoning += " - meta-coordination recommended"
+            elif 'parallel coordination' in cross_domain_analysis.recommended_coordination.lower():
+                # Check if analysis-gateway is suggested
+                analysis_gateway_suggestions = [s for s in cross_domain_analysis.agent_suggestions if s[0] == 'analysis-gateway']
+                if analysis_gateway_suggestions:
+                    best_agent_name = 'analysis-gateway'
+                    cross_domain_confidence = analysis_gateway_suggestions[0][1]
+                    reasoning += " - parallel coordination recommended"
+            
+            result = AgentMatchResult(
+                agent_name=best_agent_name,
+                confidence_score=min(1.0, cross_domain_confidence),
+                matched_patterns=[f"cross_domain_{boundary.primary_domain.value}" for boundary in cross_domain_analysis.detected_boundaries],
+                processing_time_ms=(time.perf_counter() - start_time) * 1000,
+                context_keywords=self.extract_keywords(query),
+                reasoning=reasoning
+            )
+        else:
+            # Use the original domain-specific result (already calculated)
+            result = original_result
+        
+        # Store in selection history for learning
+        self.selection_history.append((query, result))
+        
+        # Keep history to reasonable size
+        if len(self.selection_history) > 1000:
+            self.selection_history = self.selection_history[-500:]
+        
+        return result
+    
+    def _select_agent_original(self, query: str, start_time: float) -> AgentMatchResult:
+        """Original agent selection logic as fallback."""
         # Extract keywords for fast filtering
         keywords = self.extract_keywords(query)
         
@@ -323,8 +655,38 @@ class EnhancedAgentSelector:
         # Select best agent or fallback
         if agent_scores and agent_scores[0]['score'] > 0.5:
             best_agent = agent_scores[0]
-            confidence_score = min(1.0, best_agent['score'] / 4.0)  # Normalize to 0-1
-            reasoning = f"Selected based on {len(best_agent['matched_patterns'])} pattern matches"
+            # Improved confidence score calculation for better domain handling
+            base_confidence = best_agent['score'] / 4.5  # Better normalization for complex patterns
+            
+            # Boost confidence for infrastructure-engineer due to complex patterns
+            if best_agent['name'] == 'infrastructure-engineer':
+                if base_confidence > 0.4:  # Lower threshold for boost
+                    base_confidence *= 1.25  # 25% boost for infrastructure complexity
+                # Ensure minimum confidence for infrastructure matches
+                base_confidence = max(base_confidence, 0.5) if best_agent['score'] > 2.0 else base_confidence
+            
+            # Boost confidence for documentation-enhancer with strong patterns
+            elif best_agent['name'] == 'documentation-enhancer':
+                if base_confidence > 0.2:  # Lower threshold for documentation boost
+                    base_confidence *= 1.5  # 50% boost for documentation patterns
+                # Ensure high minimum confidence for documentation matches
+                if best_agent['score'] > 1.0:
+                    base_confidence = max(base_confidence, 0.75)  # Higher minimum confidence
+                elif best_agent['score'] > 0.5:
+                    base_confidence = max(base_confidence, 0.65)  # Medium minimum confidence
+            
+            # Boost confidence for security-enforcer with strong patterns
+            elif best_agent['name'] == 'security-enforcer':
+                if base_confidence > 0.2:  # Lower threshold for security boost
+                    base_confidence *= 1.4  # 40% boost for security patterns
+                # Ensure high minimum confidence for security matches
+                if best_agent['score'] > 1.0:
+                    base_confidence = max(base_confidence, 0.80)  # Higher minimum confidence
+                elif best_agent['score'] > 0.5:
+                    base_confidence = max(base_confidence, 0.70)  # Medium minimum confidence
+                
+            confidence_score = min(1.0, base_confidence)
+            reasoning = f"Pattern-based selection: {len(best_agent['matched_patterns'])} pattern matches"
         else:
             # Fallback logic
             multi_domains = self.detect_multi_domain_query(query)
@@ -347,7 +709,7 @@ class EnhancedAgentSelector:
         
         processing_time = (time.perf_counter() - start_time) * 1000
         
-        result = AgentMatchResult(
+        return AgentMatchResult(
             agent_name=best_agent['name'],
             confidence_score=confidence_score,
             matched_patterns=best_agent['matched_patterns'],
@@ -355,15 +717,6 @@ class EnhancedAgentSelector:
             context_keywords=keywords,
             reasoning=reasoning
         )
-        
-        # Store in selection history for learning
-        self.selection_history.append((query, result))
-        
-        # Keep history to reasonable size
-        if len(self.selection_history) > 1000:
-            self.selection_history = self.selection_history[-500:]
-        
-        return result
     
     def get_agent_suggestions(self, query: str, top_n: int = 3) -> List[AgentMatchResult]:
         """Get top N agent suggestions for a query."""
@@ -380,7 +733,23 @@ class EnhancedAgentSelector:
         for agent_name in candidate_agents:
             agent_config = self.agents[agent_name]
             score, matched_patterns = self.calculate_context_score(query, agent_config)
-            confidence_score = min(1.0, score / 4.0)
+            # Enhanced confidence calculation
+            base_confidence = score / 4.5  # Slightly adjusted normalization
+            if agent_name == 'infrastructure-engineer' and base_confidence > 0.4:
+                base_confidence *= 1.25  # Infrastructure boost
+            elif agent_name == 'documentation-enhancer' and base_confidence > 0.2:
+                base_confidence *= 1.5  # Documentation boost
+                if score > 1.0:
+                    base_confidence = max(base_confidence, 0.75)
+                elif score > 0.5:
+                    base_confidence = max(base_confidence, 0.65)
+            elif agent_name == 'security-enforcer' and base_confidence > 0.2:
+                base_confidence *= 1.4  # Security boost
+                if score > 1.0:
+                    base_confidence = max(base_confidence, 0.80)
+                elif score > 0.5:
+                    base_confidence = max(base_confidence, 0.70)
+            confidence_score = min(1.0, base_confidence)
             
             if confidence_score > 0.1:  # Filter out very low confidence
                 results.append(AgentMatchResult(
@@ -405,13 +774,84 @@ class EnhancedAgentSelector:
         avg_confidence = sum(result.confidence_score for _, result in self.selection_history) / len(self.selection_history)
         avg_processing_time = sum(result.processing_time_ms for _, result in self.selection_history) / len(self.selection_history)
         
-        return {
+        # Cross-domain analysis statistics
+        cross_domain_stats = {}
+        if self.cross_domain_coordinator:
+            try:
+                cross_domain_stats = self.cross_domain_coordinator.get_analysis_stats()
+            except Exception as e:
+                logger.warning(f"Failed to get cross-domain stats: {e}")
+        
+        base_stats = {
             'total_selections': len(self.selection_history),
             'agent_distribution': dict(agent_counts),
             'average_confidence': avg_confidence,
             'average_processing_time_ms': avg_processing_time,
             'most_selected_agent': agent_counts.most_common(1)[0] if agent_counts else None
         }
+        
+        if cross_domain_stats:
+            base_stats['cross_domain_analysis'] = cross_domain_stats
+            
+        # Add learning insights if available
+        if self.cross_domain_coordinator:
+            try:
+                learning_insights = self.cross_domain_coordinator.get_learning_insights()
+                if learning_insights:
+                    base_stats['learning_insights'] = learning_insights
+            except Exception as e:
+                logger.warning(f"Failed to get learning insights: {e}")
+        
+        return base_stats
+        
+    def record_feedback(self, query: str, selected_agent: str, confidence: float, 
+                       user_feedback: Optional[bool] = None, expected_agent: Optional[str] = None):
+        """Record user feedback for learning improvement."""
+        if self.cross_domain_coordinator:
+            try:
+                self.cross_domain_coordinator.record_selection_feedback(
+                    query, selected_agent, confidence, user_feedback, expected_agent
+                )
+            except Exception as e:
+                logger.warning(f"Failed to record feedback: {e}")
+    
+    def get_cross_domain_analysis(self, query: str) -> Optional[Dict]:
+        """Get detailed cross-domain analysis for a query."""
+        if not self.cross_domain_coordinator:
+            return None
+        
+        try:
+            analysis = self.cross_domain_coordinator.analyze_cross_domain_integration(query)
+            return {
+                'detected_boundaries': [
+                    {
+                        'primary_domain': boundary.primary_domain.value,
+                        'secondary_domains': [d.value for d in boundary.secondary_domains],
+                        'confidence': boundary.confidence,
+                        'complexity_score': boundary.complexity_score,
+                        'overlap_indicators': boundary.overlap_indicators
+                    }
+                    for boundary in analysis.detected_boundaries
+                ],
+                'potential_conflicts': [
+                    {
+                        'conflict_type': conflict.conflict_type.value,
+                        'involved_domains': [d.value for d in conflict.involved_domains],
+                        'severity': conflict.severity,
+                        'description': conflict.description,
+                        'resolution_strategies': conflict.resolution_strategies,
+                        'affected_agents': conflict.affected_agents
+                    }
+                    for conflict in analysis.potential_conflicts
+                ],
+                'recommended_coordination': analysis.recommended_coordination,
+                'agent_suggestions': analysis.agent_suggestions,
+                'integration_complexity': analysis.integration_complexity,
+                'processing_time_ms': analysis.processing_time_ms
+            }
+        except Exception as e:
+            logger.error(f"Cross-domain analysis failed: {e}")
+            return None
 
 
 # Global instance for easy access

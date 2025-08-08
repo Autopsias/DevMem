@@ -44,8 +44,7 @@ def demo_basic_pattern_matching():
 
 def demo_edge_cases():
     """Demonstrate handling of edge cases and variations."""
-    print("
-🔍 Edge Cases & Variations")
+    print("\n🔍 Edge Cases & Variations")
     print("-" * 40)
     
     selector = EnhancedAgentSelector()
@@ -77,8 +76,7 @@ def demo_edge_cases():
 
 def demo_natural_language_variations():
     """Demonstrate handling of natural language variations."""
-    print("
-🗺 Natural Language Variations")
+    print("\n🗺 Natural Language Variations")
     print("-" * 40)
     
     selector = EnhancedAgentSelector()
@@ -130,8 +128,7 @@ def demo_natural_language_variations():
 
 def demo_claude_code_integration():
     """Demonstrate integration with Claude Code framework patterns."""
-    print("
-🤖 Claude Code Framework Integration")
+    print("\n🤖 Claude Code Framework Integration")
     print("-" * 40)
     
     selector = EnhancedAgentSelector()
@@ -163,8 +160,7 @@ def demo_claude_code_integration():
 
 def demo_performance_characteristics():
     """Demonstrate performance characteristics."""
-    print("
-⏱️ Performance Characteristics")
+    print("\n⏱️ Performance Characteristics")
     print("-" * 40)
     
     selector = EnhancedAgentSelector()
@@ -226,8 +222,7 @@ def demo_performance_characteristics():
 
 def demo_multi_suggestions():
     """Demonstrate multiple agent suggestions."""
-    print("
-📈 Multiple Agent Suggestions")
+    print("\n📈 Multiple Agent Suggestions")
     print("-" * 40)
     
     selector = EnhancedAgentSelector()
@@ -259,8 +254,7 @@ def main():
         demo_performance_characteristics()
         demo_multi_suggestions()
         
-        print("
-" + "=" * 60)
+        print("\n" + "=" * 60)
         print("🎉 Enhanced Agent Selection Demo Complete!")
         print("=" * 60)
         print("\nKey Features Demonstrated:")

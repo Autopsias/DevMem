@@ -54,7 +54,7 @@ class TestDomainSpecificPatternGenerator:
             domain = pattern.domain_category
             domain_counts[domain] = domain_counts.get(domain, 0) + 1
         
-        expected_domains = ["testing", "infrastructure", "security", "performance", "code_quality"]
+        expected_domains = ["testing", "infrastructure", "security", "performance", "code_quality", "documentation"]
         assert set(domain_counts.keys()) == set(expected_domains)
         
     def test_complexity_level_variation(self):
@@ -252,8 +252,8 @@ class TestAgentSelectionTestFramework:
         # Generate smaller suite for testing
         patterns = framework.generate_comprehensive_test_suite(patterns_per_domain=4, edge_cases=3)
         
-        # Should have 5 domains * 4 patterns + 3 edge cases = 23 patterns
-        assert len(patterns) == 23
+        # Should have 6 domains * 4 patterns + 3 edge cases = 27 patterns
+        assert len(patterns) == 27
         
         # Check domain distribution
         domain_counts = {}
@@ -263,7 +263,7 @@ class TestAgentSelectionTestFramework:
         
         # Should have patterns from all domains plus edge cases
         # Edge cases may be categorized as individual domains, so check total coverage
-        assert len(domain_counts) >= 5  # At least all 5 primary domains
+        assert len(domain_counts) >= 6  # At least all 6 primary domains
         
     def test_run_comprehensive_validation(self):
         """Test comprehensive validation execution"""
@@ -459,7 +459,7 @@ class TestPerformanceAndScalability:
         
         # Should complete in reasonable time (adjust threshold as needed)
         assert execution_time < 120.0  # 2 minutes max
-        assert report.total_patterns_tested == 55  # 5*10 + 5
+        assert report.total_patterns_tested == 65  # 6*10 + 5
         
     def test_memory_usage_reasonable(self):
         """Test that memory usage remains reasonable"""
@@ -473,7 +473,7 @@ class TestPerformanceAndScalability:
         report = framework.run_comprehensive_validation(custom_patterns=test_patterns)
         
         # Basic check that report was generated successfully
-        assert report.total_patterns_tested == 28
+        assert report.total_patterns_tested == 33  # 6*5 + 3
         assert len(report.improvement_recommendations) > 0
 
 

@@ -116,7 +116,7 @@ def test_performance():
     ] * 20  # 100 total queries
     
     start_time = time.perf_counter()
-    results = [selector.select_agent(q) for q in queries]
+    _ = [selector.select_agent(q) for q in queries]
     total_time_ms = (time.perf_counter() - start_time) * 1000
     avg_time_ms = total_time_ms / len(queries)
     

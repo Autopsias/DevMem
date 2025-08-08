@@ -1,0 +1,382 @@
+{
+  "infrastructure_learning_validation": {
+    "baseline_accuracy": 93.75,
+    "post_training_accuracy": 93.75,
+    "accuracy_improvement": 0.0,
+    "target_accuracy": 75.0,
+    "target_met": true,
+    "improvement_percentage": 0.0
+  },
+  "performance_metrics": {
+    "baseline_response_time_ms": 0.5324297417246271,
+    "post_training_response_time_ms": 0.11082031051046215,
+    "response_time_change_ms": -0.42160943121416494,
+    "performance_maintained": true,
+    "target_response_time_ms": 200.0
+  },
+  "learning_effectiveness": {
+    "training_cycles": 3,
+    "patterns_learned": 70,
+    "learning_rate": 0.958904109589041,
+    "infrastructure_query_types": [
+      "container_orchestration",
+      "infrastructure_automation",
+      "monitoring_observability",
+      "scaling_performance"
+    ]
+  },
+  "detailed_analysis": {
+    "baseline_results": {
+      "accuracy": 93.75,
+      "correct_selections": 15,
+      "total_queries": 16,
+      "avg_response_time_ms": 0.5324297417246271,
+      "response_time_range": [
+        0.08104200242087245,
+        5.513417010661215
+      ],
+      "detailed_results": [
+        {
+          "query": "Docker container orchestration with Kubernetes cluster deployment",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.9,
+          "response_time_ms": 5.513417010661215,
+          "correct": true,
+          "reasoning": "Container orchestration requires infrastructure expertise"
+        },
+        {
+          "query": "Kubernetes pod networking issues in multi-node cluster",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.8,
+          "response_time_ms": 0.12866698671132326,
+          "correct": true,
+          "reasoning": "K8s networking needs infrastructure specialist"
+        },
+        {
+          "query": "Docker compose service scaling and load balancing configuration",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.8,
+          "response_time_ms": 0.3286669962108135,
+          "correct": true,
+          "reasoning": "Docker scaling requires infrastructure coordination"
+        },
+        {
+          "query": "Terraform infrastructure provisioning with Ansible automation",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.7200000000000001,
+          "response_time_ms": 0.13308296911418438,
+          "correct": true,
+          "reasoning": "IaC and automation are core infrastructure tasks"
+        },
+        {
+          "query": "Infrastructure as code deployment pipeline optimization",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.9,
+          "response_time_ms": 0.6108329980634153,
+          "correct": true,
+          "reasoning": "IaC pipeline optimization needs infrastructure expertise"
+        },
+        {
+          "query": "Service mesh configuration with Istio ingress controller",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.7200000000000001,
+          "response_time_ms": 0.09912502719089389,
+          "correct": true,
+          "reasoning": "Service mesh requires infrastructure networking knowledge"
+        },
+        {
+          "query": "Container networking and service discovery optimization",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.8,
+          "response_time_ms": 0.09758397936820984,
+          "correct": true,
+          "reasoning": "Container networking is infrastructure domain"
+        },
+        {
+          "query": "Prometheus monitoring setup for Kubernetes cluster",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.7200000000000001,
+          "response_time_ms": 0.10608299635350704,
+          "correct": true,
+          "reasoning": "Infrastructure monitoring setup requires infrastructure expertise"
+        },
+        {
+          "query": "Grafana dashboard configuration for infrastructure metrics",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.08687499212101102,
+          "correct": true,
+          "reasoning": "Infrastructure metrics dashboards need infrastructure context"
+        },
+        {
+          "query": "Kubernetes horizontal pod autoscaler configuration",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.8,
+          "response_time_ms": 0.08104200242087245,
+          "correct": true,
+          "reasoning": "K8s autoscaling is infrastructure management"
+        },
+        {
+          "query": "Container resource allocation and scaling optimization",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.09975000284612179,
+          "correct": true,
+          "reasoning": "Container resource management requires infrastructure skills"
+        },
+        {
+          "query": "Docker container security vulnerability scanning",
+          "expected": "security-enforcer",
+          "selected": "security-enforcer",
+          "confidence": 1.0,
+          "response_time_ms": 0.5267089582048357,
+          "correct": true,
+          "reasoning": "Security scanning should prioritize security agent"
+        },
+        {
+          "query": "Performance optimization of containerized applications",
+          "expected": "performance-optimizer",
+          "selected": "performance-optimizer",
+          "confidence": 1.0,
+          "response_time_ms": 0.1003340003080666,
+          "correct": true,
+          "reasoning": "Performance optimization should prioritize performance agent"
+        },
+        {
+          "query": "Testing Docker container integration workflows",
+          "expected": "test-specialist",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.9499999999464892,
+          "response_time_ms": 0.39091595681384206,
+          "correct": false,
+          "reasoning": "Testing workflows should prioritize test specialist"
+        },
+        {
+          "query": "Infrastructure deployment pipeline with automated testing",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.9499999999675762,
+          "response_time_ms": 0.11012499453499913,
+          "correct": true,
+          "reasoning": "Primary focus is infrastructure deployment"
+        },
+        {
+          "query": "Kubernetes cluster monitoring and performance analysis",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.10566599667072296,
+          "correct": true,
+          "reasoning": "Primary focus is K8s cluster management"
+        }
+      ]
+    },
+    "training_stats": {
+      "cycles_completed": 3,
+      "total_feedback_recorded": 48,
+      "successful_patterns_learned": 70,
+      "learning_insights": {
+        "total_successful_patterns": 70,
+        "total_failed_patterns": 3,
+        "learning_rate": 0.958904109589041,
+        "infrastructure_query_types": [
+          "container_orchestration",
+          "infrastructure_automation",
+          "monitoring_observability",
+          "scaling_performance"
+        ],
+        "pattern_weights_count": 6,
+        "average_pattern_weight": 0.8583333333333334
+      }
+    },
+    "post_training_results": {
+      "accuracy": 93.75,
+      "correct_selections": 15,
+      "total_queries": 16,
+      "avg_response_time_ms": 0.11082031051046215,
+      "response_time_range": [
+        0.06991700502112508,
+        0.20874995971098542
+      ],
+      "detailed_results": [
+        {
+          "query": "Docker container orchestration with Kubernetes cluster deployment",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.12854201486334205,
+          "correct": true,
+          "reasoning": "Container orchestration requires infrastructure expertise",
+          "learned_pattern": false
+        },
+        {
+          "query": "Kubernetes pod networking issues in multi-node cluster",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.09304203558713198,
+          "correct": true,
+          "reasoning": "K8s networking needs infrastructure specialist",
+          "learned_pattern": false
+        },
+        {
+          "query": "Docker compose service scaling and load balancing configuration",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.12579100439324975,
+          "correct": true,
+          "reasoning": "Docker scaling requires infrastructure coordination",
+          "learned_pattern": false
+        },
+        {
+          "query": "Terraform infrastructure provisioning with Ansible automation",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.09720795787870884,
+          "correct": true,
+          "reasoning": "IaC and automation are core infrastructure tasks",
+          "learned_pattern": true
+        },
+        {
+          "query": "Infrastructure as code deployment pipeline optimization",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.1187919988296926,
+          "correct": true,
+          "reasoning": "IaC pipeline optimization needs infrastructure expertise",
+          "learned_pattern": true
+        },
+        {
+          "query": "Service mesh configuration with Istio ingress controller",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.7200000000000001,
+          "response_time_ms": 0.07062498480081558,
+          "correct": true,
+          "reasoning": "Service mesh requires infrastructure networking knowledge",
+          "learned_pattern": false
+        },
+        {
+          "query": "Container networking and service discovery optimization",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.09791698539629579,
+          "correct": true,
+          "reasoning": "Container networking is infrastructure domain",
+          "learned_pattern": false
+        },
+        {
+          "query": "Prometheus monitoring setup for Kubernetes cluster",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 0.7200000000000001,
+          "response_time_ms": 0.0741670373827219,
+          "correct": true,
+          "reasoning": "Infrastructure monitoring setup requires infrastructure expertise",
+          "learned_pattern": false
+        },
+        {
+          "query": "Grafana dashboard configuration for infrastructure metrics",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.06991700502112508,
+          "correct": true,
+          "reasoning": "Infrastructure metrics dashboards need infrastructure context",
+          "learned_pattern": true
+        },
+        {
+          "query": "Kubernetes horizontal pod autoscaler configuration",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.08166697807610035,
+          "correct": true,
+          "reasoning": "K8s autoscaling is infrastructure management",
+          "learned_pattern": false
+        },
+        {
+          "query": "Container resource allocation and scaling optimization",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.08308299584314227,
+          "correct": true,
+          "reasoning": "Container resource management requires infrastructure skills",
+          "learned_pattern": false
+        },
+        {
+          "query": "Docker container security vulnerability scanning",
+          "expected": "security-enforcer",
+          "selected": "security-enforcer",
+          "confidence": 1.0,
+          "response_time_ms": 0.19645801512524486,
+          "correct": true,
+          "reasoning": "Security scanning should prioritize security agent",
+          "learned_pattern": false
+        },
+        {
+          "query": "Performance optimization of containerized applications",
+          "expected": "performance-optimizer",
+          "selected": "performance-optimizer",
+          "confidence": 1.0,
+          "response_time_ms": 0.08533400250598788,
+          "correct": true,
+          "reasoning": "Performance optimization should prioritize performance agent",
+          "learned_pattern": false
+        },
+        {
+          "query": "Testing Docker container integration workflows",
+          "expected": "test-specialist",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.13541599037125707,
+          "correct": false,
+          "reasoning": "Testing workflows should prioritize test specialist",
+          "learned_pattern": false
+        },
+        {
+          "query": "Infrastructure deployment pipeline with automated testing",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.20874995971098542,
+          "correct": true,
+          "reasoning": "Primary focus is infrastructure deployment",
+          "learned_pattern": true
+        },
+        {
+          "query": "Kubernetes cluster monitoring and performance analysis",
+          "expected": "infrastructure-engineer",
+          "selected": "infrastructure-engineer",
+          "confidence": 1.0,
+          "response_time_ms": 0.10641600238159299,
+          "correct": true,
+          "reasoning": "Primary focus is K8s cluster management",
+          "learned_pattern": false
+        }
+      ]
+    }
+  },
+  "success_criteria": {
+    "accuracy_target_75_percent": true,
+    "response_time_under_200ms": true,
+    "learning_system_functional": true,
+    "overall_success": true
+  }
+}

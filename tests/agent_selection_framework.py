@@ -85,10 +85,28 @@ class DomainSpecificPatternGenerator:
             "infrastructure": [
                 ("Docker container orchestration failing in Kubernetes", "infrastructure-engineer", ["infrastructure"], "sequential"),
                 ("CI/CD pipeline breaking with deployment issues", "infrastructure-engineer", ["infrastructure"], "sequential"),
+                ("Container network segmentation", "infrastructure-engineer", ["infrastructure"], "sequential"),
+                ("Service mesh traffic routing error", "infrastructure-engineer", ["infrastructure"], "sequential"),
+                ("Terraform state corruption issue", "infrastructure-engineer", ["infrastructure"], "sequential"),
+                ("Kubernetes node scaling problem", "infrastructure-engineer", ["infrastructure"], "sequential"),
+                ("Load balancer health check failure", "infrastructure-engineer", ["infrastructure"], "sequential"),
+                ("Infrastructure as Code validation", "infrastructure-engineer", ["infrastructure"], "sequential"),
+                ("Container registry authentication", "infrastructure-engineer", ["infrastructure"], "sequential"),
+                ("Service discovery DNS resolution", "infrastructure-engineer", ["infrastructure"], "sequential"),
             ],
             "security": [
                 ("SQL injection vulnerability found in authentication", "security-enforcer", ["security"], "sequential"),
                 ("OWASP compliance validation needed before release", "security-enforcer", ["security"], "sequential"),
+                ("Zero-day exploit detected in API", "security-enforcer", ["security"], "sequential"),
+                ("Security assessment for cloud deployment", "security-enforcer", ["security"], "sequential"),
+                ("GDPR compliance audit requirements", "security-enforcer", ["security"], "sequential"),
+                ("Container image vulnerability scan", "security-enforcer", ["security"], "sequential"),
+                ("Application firewall misconfiguration", "security-enforcer", ["security"], "sequential"),
+                ("Penetration testing findings review", "security-enforcer", ["security"], "sequential"),
+                ("Access control policy validation", "security-enforcer", ["security"], "sequential"),
+                ("Security threat modeling session", "security-enforcer", ["security"], "sequential"),
+                ("Cryptographic key rotation process", "security-enforcer", ["security"], "sequential"),
+                ("Network intrusion detection alert", "security-enforcer", ["security"], "sequential"),
             ],
             "performance": [
                 ("Application response time degrading under load", "performance-optimizer", ["performance"], "sequential"),
@@ -97,14 +115,26 @@ class DomainSpecificPatternGenerator:
             "code_quality": [
                 ("Code review reveals architectural inconsistencies", "intelligent-enhancer", ["code_quality"], "sequential"),
                 ("Refactoring needed to improve maintainability", "intelligent-enhancer", ["code_quality"], "sequential"),
+            ],
+            "documentation": [
+                ("API documentation needs update", "documentation-enhancer", ["documentation"], "sequential"),
+                ("Create user guide for new feature", "documentation-enhancer", ["documentation"], "sequential"),
+                ("Generate markdown docs from code", "documentation-enhancer", ["documentation"], "sequential"),
+                ("Technical writing for developer guide", "documentation-enhancer", ["documentation"], "sequential"),
+                ("Knowledge base article creation", "documentation-enhancer", ["documentation"], "sequential"),
+                ("Update installation documentation", "documentation-enhancer", ["documentation"], "sequential"),
+                ("Create troubleshooting guide", "documentation-enhancer", ["documentation"], "sequential"),
+                ("API specification documentation", "documentation-enhancer", ["documentation"], "sequential"),
+                ("Improve README documentation", "documentation-enhancer", ["documentation"], "sequential"),
+                ("Document code examples in markdown", "documentation-enhancer", ["documentation"], "sequential"),
             ]
         }
         
         self.complexity_variations = {
-            "basic": [],
-            "intermediate": [" with multiple service dependencies", " across different environments"],
-            "advanced": [" requiring cross-system coordination", " with complex failure scenarios"],
-            "edge_case": [" in unusual configuration", " with conflicting requirements"]
+            "basic": [" on single node", " in development environment", " with basic setup"],
+            "intermediate": [" with multiple service dependencies", " across different environments", " in production cluster", " with service mesh", " using helm charts"],
+            "advanced": [" requiring cross-system coordination", " with complex failure scenarios", " across multiple regions", " with high availability requirements", " involving multi-cloud setup"],
+            "edge_case": [" in unusual configuration", " with conflicting requirements", " during disaster recovery", " with legacy compatibility", " in restricted environment"]
         }
         
         self.pattern_type_modifiers = {
@@ -215,33 +245,117 @@ class MockEnhancedSystem:
             "performance": "performance-optimizer",
             "code": "intelligent-enhancer",
             "docker": "infrastructure-engineer",
+            "kubernetes": "infrastructure-engineer",
+            "k8s": "infrastructure-engineer",
+            "container": "infrastructure-engineer",
+            "terraform": "infrastructure-engineer",
+            "deployment": "infrastructure-engineer",
+            "service": "infrastructure-engineer",
+            "pipeline": "infrastructure-engineer",
+            "ci/cd": "infrastructure-engineer",
+            "vulnerability": "security-enforcer",
+            "security": "security-enforcer",
+            "exploit": "security-enforcer",
+            "breach": "security-enforcer",
+            "compliance": "security-enforcer",
+            "audit": "security-enforcer",
+            "threat": "security-enforcer",
+            "penetration": "security-enforcer",
+            "firewall": "security-enforcer",
+            "intrusion": "security-enforcer",
+            "cryptographic": "security-enforcer",
+            "gdpr": "security-enforcer",
+            "hipaa": "security-enforcer",
+            "owasp": "security-enforcer",
+            "documentation": "documentation-enhancer",
+            "docs": "documentation-enhancer",
+            "readme": "documentation-enhancer",
+            "markdown": "documentation-enhancer",
+            "api": "documentation-enhancer",
+            "guide": "documentation-enhancer",
+            "tutorial": "documentation-enhancer",
+            "manual": "documentation-enhancer",
+            "specification": "documentation-enhancer",
+            "wiki": "documentation-enhancer",
+            "handbook": "documentation-enhancer",
+            "knowledge": "documentation-enhancer",
+            "reference": "documentation-enhancer",
+            "howto": "documentation-enhancer",
+            "faq": "documentation-enhancer",
             "async": "test-specialist",
             "urgent": "meta-coordinator",
             "comprehensive": "analysis-gateway"
         }
     
     def select_agent(self, input_text: str, conversation_history: List[str] = None) -> Tuple[str, float, Dict[str, Any]]:
-        """Mock agent selection"""
+        """Enhanced agent selection with cross-domain support"""
         text_lower = input_text.lower()
         
+        # Initialize with default values
         selected_agent = "digdeep"
         confidence = 0.6
         domains = {}
+        all_matches = []
         
+        # Detect all matching patterns
         for pattern, agent in self.agent_patterns.items():
             if pattern in text_lower:
-                selected_agent = agent
-                confidence = 0.8 + random.random() * 0.2
-                domains[pattern] = confidence
-                break
+                pattern_confidence = 0.8 + random.random() * 0.2
+                domains[pattern] = pattern_confidence
+                all_matches.append({
+                    "pattern": pattern,
+                    "agent": agent,
+                    "confidence": pattern_confidence
+                })
         
-        coordination_pattern = "hierarchical" if "comprehensive" in text_lower or "urgent" in text_lower else "sequential"
+        # Cross-domain analysis
+        if len(all_matches) > 1:
+            # Sort matches by confidence
+            all_matches.sort(key=lambda x: x["confidence"], reverse=True)
+            
+            # Group by agent
+            agent_groups = {}
+            for match in all_matches:
+                if match["agent"] not in agent_groups:
+                    agent_groups[match["agent"]] = []
+                agent_groups[match["agent"]].append(match)
+            
+            # Select agent based on pattern groups
+            if len(agent_groups) > 1:
+                # Multiple agent types matched - complex scenario
+                coordination_pattern = "hierarchical"
+                if len(agent_groups) >= 3:
+                    selected_agent = "meta-coordinator"
+                    confidence = max(m["confidence"] for m in all_matches)
+                else:
+                    # Choose the agent with highest confidence sum
+                    agent_scores = {}
+                    for agent, matches in agent_groups.items():
+                        agent_scores[agent] = sum(m["confidence"] for m in matches)
+                    selected_agent = max(agent_scores.items(), key=lambda x: x[1])[0]
+                    confidence = agent_scores[selected_agent] / len(agent_groups[selected_agent])
+            else:
+                # Single agent type with multiple patterns
+                selected_agent = list(agent_groups.keys())[0]
+                coordination_pattern = "sequential"
+                confidence = max(m["confidence"] for m in all_matches)
+        else:
+            # Single pattern match
+            if all_matches:
+                selected_agent = all_matches[0]["agent"]
+                confidence = all_matches[0]["confidence"]
+            coordination_pattern = "sequential"
         
         return selected_agent, confidence, {
             "context_analysis": {
                 "domains": domains,
                 "coordination_pattern": coordination_pattern,
-                "confidence_score": confidence
+                "confidence_score": confidence,
+                "cross_domain_analysis": {
+                    "total_patterns_matched": len(all_matches),
+                    "unique_agents_matched": len(set(m["agent"] for m in all_matches)),
+                    "pattern_matches": all_matches
+                }
             },
             "explicit_match": {"confidence": confidence},
             "validation": {"issues": []}
@@ -383,7 +497,7 @@ class AgentSelectionTestFramework:
         """Generate comprehensive test suite covering all domains and edge cases"""
         patterns = []
         
-        domains = ["testing", "infrastructure", "security", "performance", "code_quality"]
+        domains = ["testing", "infrastructure", "security", "performance", "code_quality", "documentation"]
         for domain in domains:
             domain_patterns = self.domain_generator.generate_patterns(patterns_per_domain, domain)
             patterns.extend(domain_patterns)
