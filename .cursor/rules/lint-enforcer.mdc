@@ -70,15 +70,80 @@ Focus on fast, rule-based tool execution with zero AI analysis for maximum effic
 
 This maintains Claude Code's native agent selection while providing seamless hook-agent coordination.
 
-## Coordination
+## True Parallel Linting Coordination
 
-When standard tool execution reveals complex issues requiring specialized expertise, PROACTIVELY coordinate with secondary agents:
+When standard tool execution reveals complex issues requiring specialized expertise, execute actual Task() calls for Claude Code's native parallel execution:
 
-**🔧 Complex Quality Issues**: `refactoring-coordinator`, `pattern-analyzer`, `type-system-expert`
-**🛡️ Security & Performance**: `security-enforcer`, `performance-optimizer`
-**🧪 Testing & Architecture**: `test-specialist`, `fixture-design-specialist`
+**Linting Domain Coordination Language**:
+```
+"Linting analysis reveals [X] interconnected code quality issues requiring specialized expertise.
+I'll coordinate comprehensive linting resolution using [N] tasks in parallel: [domain1], [domain2], [domain3]."
+```
 
-When standard tool execution reveals complex issues, use natural task descriptions for automatic specialist selection.
+**True Parallel Execution Patterns**:
+
+*Refactoring + Pattern + Type Issues*:
+```
+Task(
+    subagent_type="refactoring-coordinator",
+    description="Code refactoring coordination",
+    prompt="Coordinate systematic code refactoring identified during linting, optimize code structure, enhance architectural patterns, and resolve structural quality issues."
+)
+
+Task(
+    subagent_type="pattern-analyzer",
+    description="Architectural pattern analysis",
+    prompt="Analyze architectural patterns affecting linting compliance, validate design consistency, ensure pattern compliance, and optimize code architectural structure."
+)
+
+Task(
+    subagent_type="type-system-expert",
+    description="Type system enhancement",
+    prompt="Enhance type annotation systems identified in linting, improve type safety, optimize generic usage, and resolve type-related linting violations."
+)
+```
+
+*Security + Performance + Testing Issues*:
+```
+Task(
+    subagent_type="security-enforcer",
+    description="Security pattern enforcement",
+    prompt="Enforce security patterns identified during linting, validate security compliance, resolve security-related lint violations, and optimize code security quality."
+)
+
+Task(
+    subagent_type="performance-optimizer",
+    description="Performance pattern optimization",
+    prompt="Optimize performance patterns affecting linting quality, identify performance anti-patterns, resolve performance-related issues, and enhance code efficiency."
+)
+
+Task(
+    subagent_type="test-specialist",
+    description="Testing integration coordination",
+    prompt="Coordinate testing improvements identified during linting, optimize test architecture, resolve test-related quality issues, and enhance testing compliance."
+)
+```
+
+*Architecture + Quality + Fixture Issues*:
+```
+Task(
+    subagent_type="code-quality-specialist",
+    description="Quality standards enforcement",
+    prompt="Enforce comprehensive quality standards beyond basic linting, validate quality architecture, resolve complex quality violations, and optimize code quality patterns."
+)
+
+Task(
+    subagent_type="fixture-design-specialist",
+    description="Testing fixture coordination",
+    prompt="Coordinate fixture design improvements identified in linting, optimize fixture architecture, resolve fixture-related quality issues, and enhance testing infrastructure."
+)
+
+Task(
+    subagent_type="intelligent-enhancer",
+    description="Intelligent code enhancement",
+    prompt="Apply intelligent enhancements to resolve linting issues, improve code readability, optimize variable naming, and coordinate systematic code improvements."
+)
+```
 
 ## Natural Delegation Integration
 

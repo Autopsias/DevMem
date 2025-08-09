@@ -67,15 +67,80 @@ tools: Read, Bash
 - Variable renaming → Manual IDE refactoring
 - Function splitting → See file splitting guidelines
 
-## Agent Coordination
+## True Parallel Token Coordination
 
-When token monitoring reveals multi-domain complexity, coordinate with:
+When token monitoring reveals complex multi-domain resource issues, execute actual Task() calls for Claude Code's native parallel execution:
 
-**Resource Management**: `performance-optimizer`, `resource-optimizer` for comprehensive resource optimization
-**Quality Control**: `intelligent-enhancer`, `lint-enforcer` for quality vs token balance
-**System Monitoring**: `agent-reviewer`, `environment-analyst` for system resource coordination
+**Token Domain Coordination Language**:
+```
+"Token analysis reveals [X] interconnected resource optimization issues requiring specialized expertise.
+I'll coordinate comprehensive token optimization using [N] tasks in parallel: [domain1], [domain2], [domain3]."
+```
 
-When token monitoring reveals complex resource coordination issues, use natural task descriptions for automatic specialist selection.
+**True Parallel Execution Patterns**:
+
+*Resource + Performance + Optimization Issues*:
+```
+Task(
+    subagent_type="performance-optimizer",
+    description="Performance resource optimization",
+    prompt="Optimize performance patterns affecting token usage, analyze resource allocation efficiency, identify performance bottlenecks, and enhance system performance for token conservation."
+)
+
+Task(
+    subagent_type="resource-optimizer",
+    description="Resource allocation optimization",
+    prompt="Optimize resource allocation strategies, analyze token-efficient resource usage patterns, resolve resource allocation conflicts, and enhance resource management for token optimization."
+)
+
+Task(
+    subagent_type="environment-analyst",
+    description="System resource analysis",
+    prompt="Analyze system resource utilization affecting token consumption, validate resource allocation patterns, optimize environment resource usage, and coordinate resource efficiency improvements."
+)
+```
+
+*Quality + Enhancement + Enforcement Issues*:
+```
+Task(
+    subagent_type="intelligent-enhancer",
+    description="Token-efficient enhancement analysis",
+    prompt="Analyze enhancement opportunities with token efficiency focus, optimize code improvements for minimal token usage, balance quality improvements with resource conservation, and coordinate intelligent token-aware enhancements."
+)
+
+Task(
+    subagent_type="lint-enforcer",
+    description="Token-efficient quality enforcement",
+    prompt="Enforce quality standards with token conservation focus, optimize linting strategies for resource efficiency, balance code quality with token usage, and coordinate token-aware quality enforcement."
+)
+
+Task(
+    subagent_type="code-quality-specialist",
+    description="Token-efficient quality analysis",
+    prompt="Analyze code quality with token optimization focus, validate quality patterns with resource efficiency, optimize quality improvements for minimal token usage, and coordinate token-aware quality strategies."
+)
+```
+
+*Monitoring + Review + Framework Issues*:
+```
+Task(
+    subagent_type="agent-reviewer",
+    description="Token-efficient agent analysis",
+    prompt="Analyze agent token usage patterns, optimize agent efficiency for resource conservation, validate agent performance with token focus, and coordinate token-aware agent optimization."
+)
+
+Task(
+    subagent_type="framework-coordinator",
+    description="Token-efficient framework analysis",
+    prompt="Analyze framework token usage patterns, optimize framework coordination for resource efficiency, validate framework resource allocation, and coordinate token-aware framework improvements."
+)
+
+Task(
+    subagent_type="meta-coordinator",
+    description="Token-efficient coordination analysis",
+    prompt="Analyze coordination patterns for token efficiency, optimize multi-agent coordination with resource focus, balance coordination effectiveness with token conservation, and coordinate token-aware orchestration strategies."
+)
+```
 
 ## Natural Delegation Integration
 

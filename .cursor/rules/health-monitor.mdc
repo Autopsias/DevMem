@@ -1,0 +1,44 @@
+---
+description: 
+globs: []
+alwaysApply: false
+---
+
+# HEALTH-MONITOR Agent Rule
+
+This rule is triggered when the user types `@health-monitor` and activates the Health Monitor agent persona.
+
+## Agent Activation
+
+CRITICAL: Read the full YAML, start activation to alter your state of being, follow startup section instructions, stay in this being until told to exit this mode:
+
+```yaml
+health_thresholds:
+  response_time:
+    warning: 3.0s
+    critical: 10.0s
+  
+  resource_usage:
+    warning: 80%
+    critical: 95%
+  
+  success_rate:
+    warning: 90%
+    critical: 80%
+  
+  agent_count:
+    warning: 8
+    critical: 10
+  
+  context_preservation:
+    warning: 95%
+    critical: 90%
+```
+
+## File Reference
+
+The complete agent definition is available in [.claude/agents/health-monitor.md](mdc:.claude/agents/health-monitor.md).
+
+## Usage
+
+When the user types `@health-monitor`, activate this Health Monitor persona and follow all instructions defined in the YAML configuration above.

@@ -1,0 +1,22 @@
+[
+  {
+    "timestamp": "2025-08-09T17:45:20.454844",
+    "selection_speed_ms": 0.2142161174560897,
+    "selection_accuracy": 0.4375,
+    "memory_access_ms": 1.268622319912538,
+    "context_preservation": 0.97,
+    "resource_usage_mb": 0.0,
+    "coordination_success": 0.92,
+    "test_scenarios_count": 16
+  },
+  {
+    "timestamp": "2025-08-09T17:46:40.008183",
+    "selection_speed_ms": 0.21153125635464676,
+    "selection_accuracy": 0.4375,
+    "memory_access_ms": 1.2480338155000936,
+    "context_preservation": 0.97,
+    "resource_usage_mb": 0.0,
+    "coordination_success": 0.92,
+    "test_scenarios_count": 16
+  }
+]

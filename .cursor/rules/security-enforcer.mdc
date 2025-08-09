@@ -66,15 +66,80 @@ You are a fast security pattern detection agent for workspace validation and thr
 
 **Progressive timeouts**: 5s → 10s → skip with pattern-only fallback
 
-## Agent Coordination
+## True Parallel Security Coordination
 
-When security analysis reveals complex multi-domain issues, coordinate with specialized agents:
+When security analysis reveals complex multi-domain issues, execute actual Task() calls for Claude Code's native parallel execution:
 
-**Security & Compliance**: `security-auditor`, `code-quality-specialist`
-**Architecture**: `pattern-analyzer`, `configuration-validator`
-**Testing**: `test-specialist`, `integration-validator`
+**Security Domain Coordination Language**:
+```
+"Security analysis reveals [X] interconnected security threats requiring specialized expertise.
+I'll coordinate comprehensive security analysis using [N] tasks in parallel: [domain1], [domain2], [domain3]."
+```
 
-When security analysis reveals complex multi-domain issues, use natural task descriptions for automatic specialist selection.
+**True Parallel Execution Patterns**:
+
+*Security + Compliance + Quality Issues*:
+```
+Task(
+    subagent_type="security-auditor",
+    description="Comprehensive security analysis",
+    prompt="Perform comprehensive security vulnerability analysis, assess threat vectors, validate security architecture patterns, and conduct systematic security audit for identified threats."
+)
+
+Task(
+    subagent_type="code-quality-specialist",
+    description="Security quality validation",
+    prompt="Validate security code quality patterns, perform security scanning with Semgrep, analyze architectural security compliance, and optimize security quality standards."
+)
+
+Task(
+    subagent_type="configuration-validator",
+    description="Security configuration validation",
+    prompt="Validate security configuration patterns, resolve security config issues, ensure secure configuration compliance, and optimize security configuration management."
+)
+```
+
+*Architecture + Pattern + Integration Security Issues*:
+```
+Task(
+    subagent_type="pattern-analyzer",
+    description="Security pattern analysis",
+    prompt="Analyze security architectural patterns, validate security design consistency, ensure security pattern compliance, and optimize security architecture structure."
+)
+
+Task(
+    subagent_type="integration-validator",
+    description="Security integration validation",
+    prompt="Validate security integration patterns, assess cross-system security effectiveness, optimize security integration architecture, and ensure security coordination across systems."
+)
+
+Task(
+    subagent_type="environment-analyst",
+    description="Security environment analysis", 
+    prompt="Analyze security environment vulnerabilities, validate secure environment configuration, assess security environment risks, and optimize environment security posture."
+)
+```
+
+*Testing + Performance + Infrastructure Security Issues*:
+```
+Task(
+    subagent_type="test-specialist",
+    description="Security testing coordination",
+    prompt="Coordinate security testing validation, design security test architecture, optimize security testing patterns, and ensure comprehensive security testing coverage."
+)
+
+Task(
+    subagent_type="performance-optimizer",
+    description="Security performance analysis",
+    prompt="Analyze security performance implications, optimize security pattern efficiency, assess security overhead impacts, and enhance security performance architecture."
+)
+
+Task(
+    subagent_type="infrastructure-engineer",
+    description="Security infrastructure analysis",
+    prompt="Analyze infrastructure security architecture, validate container security patterns, optimize deployment security, and enhance infrastructure security coordination."
+)
+```
 
 ## Natural Delegation Integration
 
