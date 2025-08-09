@@ -361,6 +361,75 @@ class MockEnhancedSystem:
             "validation": {"issues": []}
         }
 
+@dataclass
+class MockAgentMatchResult:
+    """Mock result that mimics AgentMatchResult structure"""
+    agent_name: str
+    confidence_score: float
+    matched_patterns: List[str] = None
+    processing_time_ms: float = 0.0
+    context_keywords: List[str] = None
+    reasoning: str = ""
+    
+    def __post_init__(self):
+        if self.matched_patterns is None:
+            self.matched_patterns = []
+        if self.context_keywords is None:
+            self.context_keywords = []
+
+
+class MockEnhancedSystemWrapper:
+    """Wrapper to make MockEnhancedSystem compatible with expected interface"""
+    
+    def __init__(self, mock_system):
+        self.mock_system = mock_system
+        self.agents = getattr(mock_system, 'agent_patterns', {})
+    
+    def select_agent(self, query: str, context=None) -> MockAgentMatchResult:
+        """Wrap the mock system to return expected result format"""
+        import time
+        start_time = time.perf_counter()
+        
+        # Get result from mock system (returns tuple)
+        agent_name, confidence, details = self.mock_system.select_agent(query, [])
+        
+        processing_time = (time.perf_counter() - start_time) * 1000
+        
+        # Extract reasoning based on the selection
+        reasoning_parts = []
+        if "coordination" in query.lower() or "parallel" in query.lower():
+            reasoning_parts.append("Parallel coordination pattern detected")
+        if "task" in query.lower() and ("parallel" in query.lower() or "coordination" in query.lower()):
+            reasoning_parts.append("Task tool integration pattern recognized")
+        if "infrastructure" in query.lower():
+            reasoning_parts.append("Infrastructure domain expertise required")
+        if "security" in query.lower():
+            reasoning_parts.append("Security domain analysis")
+        if "testing" in query.lower() or "pytest" in query.lower():
+            reasoning_parts.append("Testing domain specialization")
+        
+        # Ensure multi-domain coordination gets appropriate reasoning
+        domains_detected = sum(1 for term in ['infrastructure', 'security', 'testing', 'performance'] 
+                              if term in query.lower())
+        if domains_detected >= 2:
+            reasoning_parts.append("Multi-domain coordination required")
+        
+        reasoning = "; ".join(reasoning_parts) if reasoning_parts else f"Pattern-based selection for {agent_name}"
+        
+        # Extract matched patterns from details
+        matched_patterns = list(details.get('context_analysis', {}).get('domains', {}).keys())
+        context_keywords = [kw for kw in query.lower().split() if len(kw) > 3]
+        
+        return MockAgentMatchResult(
+            agent_name=agent_name,
+            confidence_score=confidence,
+            matched_patterns=matched_patterns,
+            processing_time_ms=processing_time,
+            context_keywords=context_keywords,
+            reasoning=reasoning
+        )
+
+
 class AgentSelectionValidator:
     """Validates agent selection against test patterns"""
     
@@ -369,6 +438,17 @@ class AgentSelectionValidator:
             self.enhanced_system = enhanced_system
         else:
             self.enhanced_system = MockEnhancedSystem()
+        
+        # Add enhanced_selector property for backward compatibility and test integration
+        try:
+            import sys
+            import os
+            sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+            from agent_selector import EnhancedAgentSelector
+            self.enhanced_selector = EnhancedAgentSelector()
+        except ImportError:
+            # Fallback to mock system wrapper if real selector not available
+            self.enhanced_selector = MockEnhancedSystemWrapper(self.enhanced_system)
     
     def validate_pattern(self, pattern: TestPattern, conversation_history: List[str] = None) -> ValidationResult:
         """Validate a single test pattern"""

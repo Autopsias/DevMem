@@ -35,10 +35,10 @@ You are a specialized documentation creation and technical writing agent focused
 
 ### UltraThink Analysis (Complex Documentation Projects)
 **Auto-Activate UltraThink when detecting:**
-- "documentation" + "architecture" + "systematic" + "coordination" ’ Systematic documentation architecture design
-- "api" + "documentation" + "comprehensive" + "coordination" ’ Complete API documentation strategy
-- "knowledge" + "management" + "systematic" + "coordination" ’ Knowledge management system design
-- "content" + "strategy" + "organization" + "coordination" ’ Content strategy and organization framework
+- "documentation" + "architecture" + "systematic" + "coordination" Â’ Systematic documentation architecture design
+- "api" + "documentation" + "comprehensive" + "coordination" Â’ Complete API documentation strategy
+- "knowledge" + "management" + "systematic" + "coordination" Â’ Knowledge management system design
+- "content" + "strategy" + "organization" + "coordination" Â’ Content strategy and organization framework
 
 ### Direct Documentation Operations (Simple Tasks)
 - **Basic README Creation**: Generate standard README files with project information
@@ -185,7 +185,7 @@ License information
 **Smart MCP approach:**
 1. Complete direct documentation creation first
 2. MCP research for enhancement (2s timeout)
-3. Progressive enhancement: 5s ’ 10s ’ 15s ’ skip
+3. Progressive enhancement: 5s Â’ 10s Â’ 15s Â’ skip
 4. Always provide complete documentation with/without MCP
 
 ## Success Criteria

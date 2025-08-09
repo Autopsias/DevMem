@@ -1,18 +1,32 @@
 #!/usr/bin/env python3
-"""
-Infrastructure Learning Demo
+"""Demo script to validate infrastructure task coordination learning improvements.
 
-Demonstrates the enhanced agent coordination accuracy for infrastructure tasks
-through learning from successful patterns. Focuses on improving the baseline
-38% coordination accuracy to 75%+ within acceptable performance bounds.
+This script demonstrates the enhanced learning capabilities and measures
+accuracy improvements for infrastructure task coordination.
 """
 
+import sys
+from pathlib import Path
 import time
+from typing import List, Tuple, Dict
+import tempfile
+
+# Add src to path
+sys.path.append(str(Path(__file__).parent / 'src'))
+
+from enhanced_cross_domain_coordinator import (
+    EnhancedCrossDomainCoordinator,
+    PatternLearningEngine,
+    DomainType
+)
 import json
 from pathlib import Path
 from typing import List, Dict, Tuple
-from src.agent_selector import get_agent_selector
-from src.enhanced_cross_domain_coordinator import get_cross_domain_coordinator
+# Import agent selector if available, otherwise create coordinator directly
+try:
+    from agent_selector import EnhancedAgentSelector
+except ImportError:
+    EnhancedAgentSelector = None
 
 def generate_infrastructure_test_queries() -> List[Tuple[str, str, str]]:
     """Generate infrastructure test queries with expected agents and reasoning."""
