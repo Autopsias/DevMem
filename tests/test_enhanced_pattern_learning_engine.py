@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Tests for Learning Enhanced Agent Selector.
+Tests for Enhanced Pattern Learning Engine.
 
-Basic tests to improve coverage for learning-enhanced agent selection functionality.
+Basic tests to improve coverage for pattern learning functionality.
 """
 
 import pytest
@@ -13,18 +13,18 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
 try:
-    import learning_enhanced_agent_selector  # noqa: F401
+    import enhanced_pattern_learning_engine  # noqa: F401
 
     MODULE_AVAILABLE = True
 except ImportError:
     MODULE_AVAILABLE = False
 
 
-class TestLearningEnhancedAgentSelector:
-    """Test learning enhanced agent selector functionality."""
+class TestEnhancedPatternLearningEngine:
+    """Test pattern learning engine functionality."""
 
     @pytest.mark.skipif(
-        not MODULE_AVAILABLE, reason="Learning enhanced agent selector not available"
+        not MODULE_AVAILABLE, reason="Pattern learning engine not available"
     )
     def test_module_import(self):
         """Test that module imports successfully."""
