@@ -1,0 +1,132 @@
+{
+  "total_patterns_tested": 135,
+  "overall_accuracy": 0.5481481481481482,
+  "domain_coverage_score": 0.46417310928262,
+  "pattern_type_performance": {
+    "explicit": {
+      "count": 36,
+      "accuracy_mean": 0.4972222222222222,
+      "response_time_mean": 0.058770179748535156,
+      "confidence_mean": 0.8719955120230799,
+      "pass_rate": 0.0
+    },
+    "contextual": {
+      "count": 24,
+      "accuracy_mean": 0.5604166666666667,
+      "response_time_mean": 0.0077088673909505205,
+      "confidence_mean": 0.8501484702808751,
+      "pass_rate": 0.0
+    },
+    "implicit": {
+      "count": 26,
+      "accuracy_mean": 0.5596153846153846,
+      "response_time_mean": 0.0066207005427433895,
+      "confidence_mean": 0.8527792911485738,
+      "pass_rate": 0.038461538461538464
+    },
+    "ambiguous": {
+      "count": 49,
+      "accuracy_mean": 0.573469387755102,
+      "response_time_mean": 0.006393510468152105,
+      "confidence_mean": 0.8009789504641572,
+      "pass_rate": 0.16326530612244897
+    }
+  },
+  "complexity_level_performance": {
+    "edge_case": {
+      "count": 40,
+      "accuracy_mean": 0.6475,
+      "pass_rate": 0.225,
+      "fail_rate": 0.2
+    },
+    "basic": {
+      "count": 29,
+      "accuracy_mean": 0.43275862068965515,
+      "pass_rate": 0.0,
+      "fail_rate": 0.4827586206896552
+    },
+    "advanced": {
+      "count": 35,
+      "accuracy_mean": 0.57,
+      "pass_rate": 0.0,
+      "fail_rate": 0.2571428571428571
+    },
+    "intermediate": {
+      "count": 31,
+      "accuracy_mean": 0.5032258064516129,
+      "pass_rate": 0.0,
+      "fail_rate": 0.3225806451612903
+    }
+  },
+  "cross_validation_metrics": {},
+  "edge_case_handling": {
+    "edge_case_count": 40,
+    "edge_case_accuracy": 0.6475,
+    "edge_case_pass_rate": 0.225,
+    "edge_case_confidence_mean": 0.7755166220560147,
+    "edge_case_response_time": 0.0055789947509765625
+  },
+  "performance_benchmarks": {
+    "avg_response_time_ms": 0.02063821863245081,
+    "min_response_time_ms": 0.0019073486328125,
+    "max_response_time_ms": 1.8701553344726562,
+    "avg_confidence": 0.8386343100902112,
+    "low_confidence_rate": 0.24444444444444444
+  },
+  "statistical_significance": {
+    "sample_size": 135,
+    "mean_accuracy": 0.5481481481481482,
+    "accuracy_std": 0.2782144163598027,
+    "confidence_interval_lower": 0.5012161745831879,
+    "confidence_interval_upper": 0.5950801217131084,
+    "margin_of_error": 0.04693197356496025,
+    "statistical_power": 1.0
+  },
+  "improvement_recommendations": [
+    "Overall accuracy (54.81%) is below 90% target. Focus on improving pattern matching algorithms.",
+    "Domain coverage score (0.46) indicates uneven performance across domains.",
+    "Pattern type 'explicit' shows low accuracy (49.72%).",
+    "Pattern type 'contextual' shows low accuracy (56.04%).",
+    "Pattern type 'implicit' shows low accuracy (55.96%).",
+    "Pattern type 'ambiguous' shows low accuracy (57.35%).",
+    "Edge case handling needs significant improvement."
+  ],
+  "detailed_breakdowns": {
+    "validation_results_summary": {
+      "total_results": 135,
+      "pass_count": 9,
+      "partial_count": 85,
+      "fail_count": 41,
+      "pass_rate": 0.06666666666666667,
+      "partial_rate": 0.6296296296296297,
+      "fail_rate": 0.3037037037037037
+    },
+    "domain_distribution": {
+      "infrastructure": 25,
+      "documentation": 20,
+      "code_quality": 20,
+      "testing": 22,
+      "performance": 20,
+      "security": 20,
+      "none": 8
+    },
+    "failure_analysis": {
+      "total_failures": 41,
+      "failure_rate": 0.3037037037037037,
+      "common_failure_reasons": {
+        "Agent selection does not match expected agent": 41,
+        "Domain overlap below minimum": 41,
+        "Confidence below threshold": 25
+      }
+    },
+    "confidence_distribution": {
+      "mean_confidence": 0.8386343100902112,
+      "min_confidence": 0.6,
+      "max_confidence": 0.9997819122351376,
+      "low_confidence_count": 33,
+      "high_confidence_count": 64
+    },
+    "total_execution_time": 0.005260944366455078
+  },
+  "validation_timestamp": 1754683276.8954382
+}
