@@ -815,7 +815,7 @@ class EnhancedBoundaryDetector:
                                   multi_domain_signals: Dict, coordination_strength: float) -> List[DomainType]:
         """Identify secondary domains with adaptive thresholds."""
         secondary_domains = []
-        primary_score = primary_data['total_score']
+        primary_data['total_score']
         
         # Calculate adaptive threshold for secondary domains
         secondary_threshold = 0.3  # Base threshold
@@ -2041,70 +2041,6 @@ class EnhancedCrossDomainCoordinator:
         """Legacy method - redirects to learning-enhanced version."""
         return self._generate_agent_suggestions_with_learning(boundaries, conflicts, None)
         
-    def record_selection_feedback(self, query: str, selected_agent: str, confidence: float,
-                                user_feedback: Optional[bool] = None, expected_agent: Optional[str] = None,
-                                task_success: Optional[bool] = None):
-        """Record feedback for learning improvement with enhanced success detection."""
-        # Enhanced feedback logic to improve learning accuracy
-        is_success = False
-        
-        if user_feedback is True:
-            is_success = True
-        elif user_feedback is False:
-            is_success = False
-        elif task_success is True:
-            is_success = True
-        elif confidence > 0.85:  # High confidence selections are likely successful
-            is_success = True
-        elif confidence > 0.6 and task_success is not False:
-            is_success = True  # Medium confidence with no explicit failure
-        
-        if is_success and self.pattern_learning_engine:
-            # Learn from success with task outcome consideration
-            effective_confidence = confidence
-            if task_success is True:
-                effective_confidence = min(1.0, confidence + 0.1)  # Boost for confirmed success
-            self.pattern_learning_engine.learn_from_success(query, selected_agent, effective_confidence, user_feedback)
-        elif (user_feedback is False or task_success is False) and self.pattern_learning_engine:
-            # Learn from failure with detailed reasons
-            reasons = []
-            if user_feedback is False:
-                reasons.append("User feedback indicated incorrect selection")
-            if task_success is False:
-                reasons.append("Task execution failed")
-            if expected_agent:
-                reasons.append(f"Expected agent was {expected_agent}")
-            
-            self.pattern_learning_engine.learn_from_failure(query, selected_agent, expected_agent or 'unknown', reasons)
-            
-    def get_learning_insights(self) -> Dict[str, any]:
-        """Get insights from the learning engine."""
-        if not self.pattern_learning_engine:
-            return {'error': 'Learning engine not available'}
-        
-        base_stats = self.pattern_learning_engine.get_learning_stats()
-        
-        # Add coordinator-specific insights
-        coordinator_stats = {
-            'analyses_with_infrastructure': len([a for a in self.analysis_history 
-                                               if any(b.primary_domain == DomainType.INFRASTRUCTURE 
-                                                     for b in a.detected_boundaries)]),
-            'infrastructure_learning_rate': 0.0
-        }
-        
-        # Calculate infrastructure-specific learning rate
-        total_infrastructure = coordinator_stats['analyses_with_infrastructure']
-        if total_infrastructure > 0:
-            coordinator_stats['infrastructure_learning_rate'] = (
-                base_stats['total_successful_patterns'] / total_infrastructure
-            )
-        
-        return {**base_stats, **coordinator_stats}
-    
-    def force_pattern_storage(self):
-        """Force storage of learned patterns to coordination hub."""
-        if self.pattern_learning_engine:
-            self.pattern_learning_engine.store_successful_patterns_to_hub()
     
     def _get_domain_agent(self, domain: DomainType) -> Tuple[str, float]:
         """Get the primary agent for a domain."""

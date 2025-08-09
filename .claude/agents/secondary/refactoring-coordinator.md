@@ -17,10 +17,10 @@ tools: Read, Edit, MultiEdit, Bash, Grep, Glob
 
 ### UltraThink Analysis (Complex Issues)
 **Auto-Activate UltraThink when detecting:**
-- "refactoring" + "cross-module" + "coordination" + "systematic" → Cross-module refactoring coordination
-- "architectural" + "migration" + "large-scale" + "coordination" → Large-scale architectural migration coordination
-- "code" + "transformation" + "systematic" + "coordination" → Systematic code transformation coordination
-- "dependency" + "restructuring" + "coordination" + "systematic" → Systematic dependency restructuring coordination
+- "refactoring" + "cross-module" + "systematic" + "coordination" → Cross-module refactoring coordination
+- "architectural" + "migration" + "large-scale" + "cross-system" → Cross-system architectural migration coordination
+- "code" + "transformation" + "multi-module" + "coordination" → Multi-module code transformation coordination
+- "dependency" + "restructuring" + "cross-domain" + "systematic" → Cross-domain dependency restructuring coordination
 
 ### Direct Refactoring Operations (Simple Issues)
 - **Single Module Refactoring**: Basic refactoring, pattern updates, local optimizations, simple migrations

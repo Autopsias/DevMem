@@ -254,7 +254,6 @@ class MockEnhancedSystem:
             "pipeline": "infrastructure-engineer",
             "ci/cd": "infrastructure-engineer",
             "vulnerability": "security-enforcer",
-            "security": "security-enforcer",
             "exploit": "security-enforcer",
             "breach": "security-enforcer",
             "compliance": "security-enforcer",

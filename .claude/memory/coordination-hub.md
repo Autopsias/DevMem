@@ -13,14 +13,68 @@
 ## Purpose
 Unified coordination intelligence consolidating all agent patterns, performance baselines, and coordination strategies into a streamlined 2-level hierarchy for optimal performance and maintainability.
 
-## 1. Parallel Execution Intelligence (Core System)
+## 1. Agent Routing Intelligence (Core System)
 
-### Primary Parallel Trigger Patterns
+### Standardized Domain Routing Criteria
+**Primary Agent Selection Patterns (Single Domain ≥90% confidence):**
+```
+# Testing Domain
+"test failures", "pytest issues", "async testing", "mock configuration" � test-specialist
+"coverage gaps", "testing strategy", "integration testing" � test-specialist
+
+# Security Domain  
+"security vulnerabilities", "security audit", "threat modeling" � security-enforcer
+"vulnerability scanning", "compliance validation" � security-auditor (secondary)
+
+# Infrastructure Domain
+"docker issues", "container orchestration", "infrastructure problems" � infrastructure-engineer
+"deployment issues", "environment configuration" � environment-analyst
+
+# Performance Domain
+"performance bottlenecks", "optimization analysis", "slow performance" � performance-optimizer
+"resource optimization", "scaling issues" � resource-optimizer (secondary)
+
+# Documentation Domain
+"api documentation", "technical writing", "user guides" � documentation-enhancer
+"README generation", "technical specifications" � documentation-enhancer
+```
+
+### Multi-Domain Coordination Patterns
 **Natural Language Patterns for Claude Code Native Execution:**
 ```
-"using X tasks in parallel" � Direct parallel execution (98% success)
-"coordinating [analysis] using N tasks in parallel" � Coordination-focused execution (96% success)  
-"analyzing [problem] using parallel assessment across X domains" � Domain-specific parallel (94% success)
+"using X tasks in parallel" � analysis-gateway � Direct parallel execution (98% success)
+"coordinating [analysis] using N tasks in parallel" � analysis-gateway � Coordination-focused execution (96% success)  
+"analyzing [problem] using parallel assessment across X domains" � analysis-gateway � Domain-specific parallel (94% success)
+```
+
+### Strategic Meta-Coordination Triggers
+**Complex System Patterns (5+ domains):**
+```
+"strategic coordination", "crisis response", "system-wide analysis" � meta-coordinator
+"complex system architecture", "cross-domain integration" � meta-coordinator
+"comprehensive system overhaul", "multi-domain crisis" � meta-coordinator
+```
+
+### Standardized Coordination Decision Matrix
+**Agent Selection Priority Framework:**
+1. **Single Domain Match (≥90% confidence)** � Direct primary agent routing
+2. **Multi-Domain Detection (2-4 domains)** � analysis-gateway coordination  
+3. **Strategic Complexity (5+ domains)** � meta-coordinator orchestration
+4. **Secondary Agent Needs** � Automatic secondary agent spawning based on domain requirements
+
+**Domain Boundary Clarity Rules:**
+- **Primary Agents**: Handle 80%+ of domain problems independently
+- **Secondary Agents**: Spawned for specialized sub-domain expertise
+- **Cross-Domain**: analysis-gateway for 2-4 domains, meta-coordinator for 5+
+- **Conflict Resolution**: Security > Stability > Performance > Convenience
+
+**Standardized Coordination ID Generation:**
+```python
+# Uniform coordination ID format for all agents
+def generate_coordination_id(agent_name, problem_domain):
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M")
+    domain_hash = hashlib.md5(f"{agent_name}_{problem_domain}".encode()).hexdigest()[:6].upper()
+    return f"COORD-{agent_name}-{timestamp}-{domain_hash}"
 ```
 
 ### Proven High-Value Coordination Flows
@@ -203,33 +257,30 @@ This streamlined coordination hub provides comprehensive agent intelligence thro
 - **coverage_analysis:coverage-optimizer**: coverage-optimizer (confidence: 0.94, keywords: coverage, pytest, analysis, learned: 2 days ago)
 - **code_quality:code-quality-specialist**: code-quality-specialist (confidence: 0.92, keywords: security, semgrep, quality, learned: 1 day ago)
 
-- **testing_patterns:test-specialist**: test-specialist (confidence: 1.00, keywords: pytest, test, failures, async, issues, learned: 2025-08-08)
-- **testing_patterns:test-specialist**: test-specialist (confidence: 0.75, keywords: pytest, test, failures, async, issues, learned: 2025-08-09)
+- **testing_patterns:test-specialist**: test-specialist (confidence: 0.92, keywords: pytest, test, failures, async, issues, learned: 2025-08-09)
 **Infrastructure & Container Patterns:**
 - **container_orchestration:infrastructure-engineer**: infrastructure-engineer (confidence: 0.98, keywords: docker, networking, container, learned: 1 day ago)
 - **container_optimization:docker-specialist**: docker-specialist (confidence: 0.95, keywords: dockerfile, optimization, build, learned: 2 days ago)
 - **environment_setup:environment-analyst**: environment-analyst (confidence: 0.93, keywords: environment, dependencies, configuration, learned: 1 day ago)
 
-- **container_patterns:infrastructure-engineer**: infrastructure-engineer (confidence: 0.90, keywords: docker, container, networking, problems, learned: 2025-08-08)
-- **container_patterns:infrastructure-engineer**: infrastructure-engineer (confidence: 0.75, keywords: docker, container, networking, configuration, problems, learned: 2025-08-09)
+- **container_patterns:infrastructure-engineer**: infrastructure-engineer (confidence: 0.87, keywords: docker, container, networking, configuration, problems, learned: 2025-08-09)
 **Performance & Optimization Patterns:**
 - **performance_analysis:performance-optimizer**: performance-optimizer (confidence: 0.91, keywords: performance, optimization, bottleneck, learned: 2 days ago)
 - **resource_allocation:resource-optimizer**: resource-optimizer (confidence: 0.90, keywords: resource, memory, cpu, allocation, learned: 3 days ago)
 
-- **performance_patterns:performance-optimizer**: performance-optimizer (confidence: 0.75, keywords: performance, optimization, bottleneck, analysis, learned: 2025-08-09)
+- **performance_patterns:performance-optimizer**: performance-optimizer (confidence: 0.89, keywords: performance, optimization, bottleneck, analysis, learned: 2025-08-09)
 **Documentation & Communication Patterns:**
 - **api_documentation:documentation-enhancer**: documentation-enhancer (confidence: 0.97, keywords: api, documentation, openapi, swagger, learned: 1 day ago)
 - **technical_writing:documentation-enhancer**: documentation-enhancer (confidence: 0.95, keywords: technical, writing, user, guide, learned: 2 days ago)
 
-- **documentation_patterns:documentation-enhancer**: documentation-enhancer (confidence: 0.75, keywords: generate, comprehensive, api, documentation, learned: 2025-08-09)
+- **documentation_patterns:documentation-enhancer**: documentation-enhancer (confidence: 0.94, keywords: generate, comprehensive, api, documentation, learned: 2025-08-09)
 ### Medium-Confidence Learned Patterns (70-89% Success Rate)
 
 **Security & Analysis Patterns:**
 - **security_audit:security-auditor**: security-auditor (confidence: 0.87, keywords: security, vulnerability, audit, learned: 2 days ago)
 - **dependency_security:security-enforcer**: security-enforcer (confidence: 0.84, keywords: dependency, vulnerability, security, learned: 3 days ago)
 
-- **security_patterns:security-enforcer**: security-enforcer (confidence: 1.00, keywords: security, vulnerability, scanning, learned: 2025-08-08)
-- **security_patterns:security-enforcer**: security-enforcer (confidence: 0.75, keywords: security, vulnerability, scanning, codebase, learned: 2025-08-09)
+- **security_patterns:security-enforcer**: security-enforcer (confidence: 0.91, keywords: security, vulnerability, scanning, codebase, learned: 2025-08-09)
 **CI/CD & Workflow Patterns:**
 - **github_actions:ci-specialist**: ci-specialist (confidence: 0.89, keywords: github, actions, workflow, ci, learned: 1 day ago)
 - **pipeline_optimization:workflow-optimizer**: workflow-optimizer (confidence: 0.82, keywords: pipeline, workflow, optimization, learned: 2 days ago)

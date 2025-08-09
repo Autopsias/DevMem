@@ -477,7 +477,7 @@ description: Testing specialist for pytest and async issues
         start_time = time.time()
         
         for _ in range(10):  # Run multiple suggestions
-            suggestion = system['engine'].get_enhanced_agent_suggestion("test query")
+            system['engine'].get_enhanced_agent_suggestion("test query")
         
         elapsed = time.time() - start_time
         avg_time = elapsed / 10

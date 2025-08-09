@@ -92,22 +92,76 @@ class PatternSuccessTracker:
     
     def get_contextual_recommendations(self, query: str) -> List[Tuple[str, str, float]]:
         """Get agent recommendations based on similar contexts."""
-        context_hash = self._generate_context_hash(query)
+        self._generate_context_hash(query)
         recommendations = []
         return recommendations
 
     def get_pattern_based_matches(self, query: str) -> List[Tuple[str, float, str]]:
-        """Get pattern-based agent matches for a query."""
+        """Get pattern-based agent matches for a query with enhanced Task tool recognition."""
         pattern_matches = []
         query_lower = query.lower()
         
-        # Handle Task tool patterns first
+        # Enhanced Task tool patterns with agent name detection
         task_pattern = re.search(r'(?:task|parallel tasks?).{0,30}(?:in parallel|coordinating|comprehensive analysis)', query_lower) or \
                       re.search(r'coordinating\s+(?:tasks?|comprehensive|parallel)(?:\s+\w+)*(?:\s+using\s+tasks?)?', query_lower) or \
                       re.search(r'parallel\s+(?:tasks?|analysis|assessment|evaluation)', query_lower)
                       
         if task_pattern:
-            return [('meta-coordinator', 0.9, 'Task tool coordination pattern')]            
+            # Check for explicit agent names in coordination patterns
+            agent_coordination_patterns = {
+                'analysis-gateway': r'analysis[_-]gateway\s+coordinating',
+                'test-specialist': r'test[_-]specialist\s+coordinating', 
+                'infrastructure-engineer': r'infrastructure[_-]engineer\s+coordinating',
+                'security-enforcer': r'security[_-]enforcer\s+coordinating',
+                'documentation-enhancer': r'documentation[_-]enhancer\s+coordinating',
+                'performance-optimizer': r'performance[_-]optimizer\s+coordinating'
+            }
+            
+            for agent_name, pattern in agent_coordination_patterns.items():
+                if re.search(pattern, query_lower):
+                    return [(agent_name, 0.95, f'Task coordination pattern with explicit agent: {agent_name}')]
+            
+            # Enhanced coordination context detection with numerical domain indicators
+            explicit_domains = len(re.findall(r'\b(?:security|testing|performance|infrastructure|documentation)\b', query_lower))
+            
+            # Check for numerical domain indicators ("5 domains", "3 domains", etc.)
+            numerical_domain_match = re.search(r'(\d+)\s+domains?', query_lower)
+            numerical_domains = int(numerical_domain_match.group(1)) if numerical_domain_match else 0
+            
+            # Use the higher count between explicit and numerical indicators
+            total_domain_indicators = max(explicit_domains, numerical_domains)
+            
+            # Strategic coordination keywords that indicate meta-coordination
+            strategic_keywords = ['strategic', 'crisis', 'comprehensive', 'complex']
+            has_strategic_context = any(keyword in query_lower for keyword in strategic_keywords)
+            
+            # Check for domain-specific coordination patterns
+            domain_specific_patterns = {
+                'testing': r'(?:async[_-]pattern[_-]fixer|testing|test[_-]specialist|fixture|mock).*(?:coordination|parallel)',
+                'infrastructure': r'(?:docker|kubernetes|infrastructure[_-]engineer|container).*(?:coordination|parallel)',
+                'security': r'(?:security[_-]enforcer|vulnerability|auth).*(?:coordination|parallel)',
+                'performance': r'(?:performance[_-]optimizer|optimization|bottleneck).*(?:coordination|parallel)'
+            }
+            
+            # Check for single-domain specialized coordination
+            for domain, pattern in domain_specific_patterns.items():
+                if re.search(pattern, query_lower) and total_domain_indicators <= 1:
+                    domain_agent_map = {
+                        'testing': 'test-specialist',
+                        'infrastructure': 'infrastructure-engineer', 
+                        'security': 'security-enforcer',
+                        'performance': 'performance-optimizer'
+                    }
+                    return [(domain_agent_map[domain], 0.85, f'Task tool {domain}-specific coordination pattern')]
+            
+            if total_domain_indicators >= 5 or (has_strategic_context and total_domain_indicators >= 3):
+                return [('meta-coordinator', 0.9, 'Task tool strategic multi-domain coordination pattern')]
+            elif total_domain_indicators >= 3 or 'comprehensive' in query_lower:
+                return [('meta-coordinator', 0.85, 'Task tool multi-domain coordination pattern')]
+            elif total_domain_indicators == 2 or 'analysis' in query_lower:
+                return [('analysis-gateway', 0.8, 'Task tool dual-domain analysis pattern')]
+            else:
+                return [('analysis-gateway', 0.75, 'Task tool general coordination pattern')]            
         
         # Handle analysis gateway patterns next since they are most specific
         if re.search(r'comprehensive analysis gateway coordination', query_lower) or \
@@ -136,13 +190,15 @@ class PatternSuccessTracker:
             if any(word in query_lower for word in words):
                 mentioned_domains.add(domain)
         
-        # Handle infrastructure patterns
-        if re.search(r'(docker|kubernetes).*(container|networking|service|scaling|deploy|infrastructure|configuration)', query_lower) or \
+        # Handle infrastructure patterns (more specific to avoid conflicts)
+        if re.search(r'(docker|kubernetes).*(container|networking|service|orchestration|deploy|infrastructure|configuration)', query_lower) or \
            re.search(r'(kubernetes|docker).{0,15}(container|ingress|orchestration|deployment)', query_lower) or \
            re.search(r'container.*(orchestration|networking|infrastructure)', query_lower) or \
-           re.search(r'infrastructure.*(scaling|performance|deployment)', query_lower):
-            pattern_matches.append(('infrastructure-engineer', 0.9, 'Infrastructure pattern match'))
-            return pattern_matches
+           re.search(r'infrastructure.*(deployment|orchestration|container)', query_lower):
+            # Avoid infrastructure match if it's clearly performance-focused
+            if not re.search(r'performance.*(bottleneck|optimization|scaling)(?!.*infrastructure)', query_lower):
+                pattern_matches.append(('infrastructure-engineer', 0.9, 'Infrastructure pattern match'))
+                return pattern_matches
         
         # Handle parallel/async test patterns
         if re.search(r'async.pattern.fixer.*parallel.*testing', query_lower) or \
@@ -1020,12 +1076,6 @@ class EnhancedAgentSelector:
                     keywords.append(domain)  # Add domain as keyword
         
         return list(set(keywords))  # Remove duplicates
-        
-        for variation, root in keyword_variations.items():
-            if variation in query_lower and root not in keywords:
-                keywords.append(root)
-        
-        return keywords
     
     def calculate_context_score(self, query: str, agent_config: AgentConfig) -> Tuple[float, List[str]]:
         """Calculate context-based similarity score with enhanced pattern matching."""
@@ -1633,26 +1683,37 @@ class EnhancedAgentSelector:
         score = best_agent['score']
         query_lower = query.lower()
         
-        # Detect Task tool coordination patterns
+        # Enhanced Task tool coordination pattern detection
         task_patterns = [
             "coordinating" in query_lower and "tasks" in query_lower and "parallel" in query_lower,
             "using" in query_lower and "tasks" in query_lower and "parallel" in query_lower,
             "analyzing" in query_lower and "parallel" in query_lower,
             "coordination" in query_lower and ("analysis" in query_lower or "assessment" in query_lower),
-            "comprehensive" in query_lower and "parallel" in query_lower
+            "comprehensive" in query_lower and "parallel" in query_lower,
+            "coordinating" in query_lower and "parallel" in query_lower  # Additional coordination pattern
         ]
         
-        # Check for multi-domain coordination patterns
+        # Enhanced multi-domain coordination detection
         domains_in_query = sum(1 for domain in ['security', 'testing', 'performance', 'infrastructure', 'documentation'] 
                               if domain in query_lower)
         
+        # Check for explicit agent coordination patterns
+        explicit_agent_coordination = any(agent_name in query_lower for agent_name in 
+                                        ['analysis-gateway', 'test-specialist', 'infrastructure-engineer', 
+                                         'security-enforcer', 'documentation-enhancer', 'performance-optimizer'])
+        
         if any(task_patterns):
-            if best_agent['name'] in ['analysis-gateway', 'meta-coordinator']:
-                reason = f"Task tool parallel coordination pattern detected (score: {score:.2f})"
+            if explicit_agent_coordination and best_agent['name'] != 'meta-coordinator':
+                reason = f"Task coordination with explicit agent selection: {best_agent['name']} (score: {score:.2f})"
                 if domains_in_query >= 2:
-                    reason += f" with {domains_in_query}-domain integration"
+                    reason += f" coordinating {domains_in_query} domains"
+            elif best_agent['name'] in ['analysis-gateway', 'meta-coordinator']:
+                coordination_type = 'multi-domain' if domains_in_query >= 3 else 'dual-domain' if domains_in_query == 2 else 'coordination'
+                reason = f"Task tool {coordination_type} parallel coordination pattern (score: {score:.2f})"
+                if domains_in_query >= 2:
+                    reason += f" integrating {domains_in_query} domains"
             else:
-                reason = f"Task coordination pattern recognized, specialized agent selected (score: {score:.2f})"
+                reason = f"Task coordination pattern, specialized agent selected: {best_agent['name']} (score: {score:.2f})"
         elif domains_in_query >= 2 and best_agent['name'] in ['analysis-gateway', 'meta-coordinator']:
             reason = f"Multi-domain coordination required ({domains_in_query} domains, score: {score:.2f})"
         elif pattern_count > 3:

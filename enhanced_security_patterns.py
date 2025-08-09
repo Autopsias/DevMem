@@ -233,7 +233,6 @@ class EnhancedSecurityPatternMatcher:
         # Pattern categorization for weighting
         tier_1_count = 20  # First 20 patterns are tier 1
         tier_2_count = 15  # Next 15 patterns are tier 2
-        tier_3_count = 10  # Next 10 patterns are tier 3
         
         for i, pattern in enumerate(self.config.context_patterns):
             compiled_pattern = re.compile(pattern, re.IGNORECASE)

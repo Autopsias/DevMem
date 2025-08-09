@@ -10,7 +10,6 @@ and agent coordination patterns.
 import subprocess
 import sys
 import time
-from pathlib import Path
 
 def run_test_suite(test_class, description):
     """Run a specific test suite and report results."""
@@ -46,7 +45,7 @@ def run_test_suite(test_class, description):
 
 def run_coordination_hub_validation():
     """Run coordination hub learning validation tests."""
-    print(f"\n🔄 Running Coordination Hub Learning Validation...")
+    print("\n🔄 Running Coordination Hub Learning Validation...")
     print("=" * 60)
     
     try:
@@ -57,19 +56,19 @@ def run_coordination_hub_validation():
         ], capture_output=True, text=True, timeout=60)
         
         if result.returncode == 0:
-            print(f"✅ Coordination Hub Learning Validation - ALL TESTS PASSED")
+            print("✅ Coordination Hub Learning Validation - ALL TESTS PASSED")
             lines = result.stdout.split('\n')
             passed_count = sum(1 for line in lines if " PASSED" in line)
             print(f"   📊 Tests passed: {passed_count}")
         else:
-            print(f"❌ Coordination Hub Learning Validation - SOME TESTS FAILED")
+            print("❌ Coordination Hub Learning Validation - SOME TESTS FAILED")
             print("Error output:")
             print(result.stdout[-500:])
             
         return result.returncode == 0
         
     except subprocess.TimeoutExpired:
-        print(f"⏱️  Coordination Hub Learning Validation - TIMEOUT (>60s)")
+        print("⏱️  Coordination Hub Learning Validation - TIMEOUT (>60s)")
         return False
     except Exception as e:
         print(f"⚠️ Coordination Hub Learning Validation - EXCEPTION: {e}")

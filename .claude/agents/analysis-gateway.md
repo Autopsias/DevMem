@@ -20,14 +20,15 @@ Analyze incoming technical problems and route to appropriate resolution path:
    - **Multi-Domain** (2-4 domains): Direct Task() call coordination  
    - **Strategic** (5+ domains): Meta-coordinator orchestration with synthesis
 
-2. **Domain Identification**
-   - Security concerns → security-enforcer
-   - Performance issues → performance-optimizer
-   - Testing problems → test-specialist
-   - Infrastructure issues → infrastructure-engineer
-   - Code quality → code-quality-specialist
-   - Multi-domain (2-4) → Direct Task() calls
-   - Strategic coordination (5+) → meta-coordinator
+2. **Standardized Domain Identification** (Following coordination-hub.md patterns)
+   - Testing Domain ("test failures", "pytest issues", "async testing") → test-specialist
+   - Security Domain ("security vulnerabilities", "security audit") → security-enforcer  
+   - Infrastructure Domain ("docker issues", "container orchestration") → infrastructure-engineer
+   - Performance Domain ("performance bottlenecks", "optimization analysis") → performance-optimizer
+   - Documentation Domain ("api documentation", "technical writing") → documentation-enhancer
+   - Code Quality Domain ("quality issues", "lint problems") → code-quality-specialist
+   - Multi-domain (2-4) → Direct Task() calls (98% success rate)
+   - Strategic coordination (5+) → meta-coordinator (94% success rate)
 
 ### Routing Decision Matrix
 
@@ -172,22 +173,31 @@ Routing to meta-coordinator for comprehensive crisis response coordination."
 
 ### Domain Count Detection Algorithm
 
-**Automatic Domain Identification**:
+**Standardized Domain Identification** (Aligned with coordination-hub.md):
 ```python
 def detect_domains(problem_description):
+    # Standardized domain patterns matching coordination-hub.md
     domain_patterns = {
-        'testing': ['test', 'testing', 'coverage', 'pytest', 'mock', 'fixture'],
-        'security': ['security', 'vulnerability', 'auth', 'permission', 'encryption'],
-        'performance': ['performance', 'slow', 'optimization', 'latency', 'throughput'],
-        'infrastructure': ['docker', 'container', 'deployment', 'infrastructure', 'scaling'],
-        'code_quality': ['quality', 'lint', 'refactor', 'code review', 'standards'],
-        'ci_cd': ['ci', 'cd', 'pipeline', 'github actions', 'deployment'],
-        'environment': ['environment', 'configuration', 'env', 'config', 'setup']
+        'testing': ['test failures', 'pytest issues', 'async testing', 'mock configuration', 
+                   'coverage gaps', 'testing strategy', 'integration testing'],
+        'security': ['security vulnerabilities', 'security audit', 'threat modeling',
+                    'vulnerability scanning', 'compliance validation'],
+        'infrastructure': ['docker issues', 'container orchestration', 'infrastructure problems',
+                          'deployment issues', 'environment configuration'],
+        'performance': ['performance bottlenecks', 'optimization analysis', 'slow performance',
+                       'resource optimization', 'scaling issues'],
+        'documentation': ['api documentation', 'technical writing', 'user guides',
+                         'README generation', 'technical specifications'],
+        'code_quality': ['quality issues', 'lint problems', 'refactor', 'code review', 'standards'],
+        'ci_cd': ['ci pipeline', 'cd deployment', 'github actions', 'workflow issues']
     }
     
     detected_domains = []
-    for domain, keywords in domain_patterns.items():
-        if any(keyword in problem_description.lower() for keyword in keywords):
+    problem_lower = problem_description.lower()
+    
+    # Use phrase matching for better accuracy
+    for domain, patterns in domain_patterns.items():
+        if any(pattern.lower() in problem_lower for pattern in patterns):
             detected_domains.append(domain)
     
     return detected_domains
@@ -230,15 +240,14 @@ def detect_domains(problem_description):
 
 ### Agent Mapping for Direct Coordination
 
-**Domain-to-Agent Mapping**:
-- **testing** → test-specialist
-- **security** → security-enforcer  
-- **performance** → performance-optimizer
-- **infrastructure** → infrastructure-engineer
-- **code_quality** → code-quality-specialist
-- **ci_cd** → ci-specialist
-- **environment** → environment-analyst
-- **docker** → docker-specialist
+**Standardized Domain-to-Agent Mapping** (coordination-hub.md compliant):
+- **testing** → test-specialist (primary, ≥90% confidence threshold)
+- **security** → security-enforcer (primary, ≥90% confidence threshold)  
+- **infrastructure** → infrastructure-engineer (primary, ≥90% confidence threshold)
+- **performance** → performance-optimizer (primary, ≥90% confidence threshold)
+- **documentation** → documentation-enhancer (primary, ≥90% confidence threshold)
+- **code_quality** → code-quality-specialist (primary, ≥90% confidence threshold)
+- **ci_cd** → ci-specialist (primary, ≥90% confidence threshold)
 
 ### Routing Decision Implementation
 

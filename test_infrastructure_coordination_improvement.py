@@ -13,7 +13,6 @@ import json
 from pathlib import Path
 from typing import List, Dict, Tuple
 from src.agent_selector import get_agent_selector
-from src.enhanced_cross_domain_coordinator import get_cross_domain_coordinator
 
 def generate_problematic_test_scenarios() -> List[Tuple[str, str, str, str]]:
     """Generate the specific test scenarios that were failing in validation reports."""

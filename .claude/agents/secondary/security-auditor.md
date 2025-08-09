@@ -17,10 +17,10 @@ tools: Read, Edit, MultiEdit, Bash, Grep, Glob
 
 ### UltraThink Analysis (Complex Issues)
 **Auto-Activate UltraThink when detecting:**
-- "security" + "architecture" + "validation" + "coordination" → Security architecture validation coordination
-- "threat" + "modeling" + "systematic" + "coordination" → Systematic threat modeling coordination
-- "compliance" + "validation" + "multi-standard" + "coordination" → Multi-standard compliance validation coordination
-- "security" + "assessment" + "comprehensive" + "coordination" → Comprehensive security assessment coordination
+- "security" + "architecture" + "cross-system" + "validation" → Cross-system security architecture validation coordination
+- "threat" + "modeling" + "multi-domain" + "systematic" → Multi-domain systematic threat modeling coordination
+- "compliance" + "validation" + "multi-standard" + "cross-framework" → Cross-framework multi-standard compliance validation coordination
+- "security" + "assessment" + "comprehensive" + "cross-domain" → Cross-domain comprehensive security assessment coordination
 
 ### Direct Security Operations (Simple Issues)
 - **Basic Analysis**: Vulnerability scanning, configuration issues, input validation, dependency CVEs

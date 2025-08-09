@@ -118,7 +118,7 @@ def compare_results(old_results: Dict[str, Tuple[bool, str]],
     old_passed = sum(1 for success, _ in old_results.values() if success)
     old_total = len(old_results)
     
-    print(f"\n📜 Original Validation Scripts:")
+    print("\n📜 Original Validation Scripts:")
     print(f"   Overall: {old_passed}/{old_total} scripts passed ({(old_passed/old_total):.1%})")
     
     for script_name, (success, output) in old_results.items():
@@ -127,11 +127,11 @@ def compare_results(old_results: Dict[str, Tuple[bool, str]],
     
     # New result summary
     new_success, new_summary = new_result
-    print(f"\n🆕 Integrated Validation Framework:")
+    print("\n🆕 Integrated Validation Framework:")
     print(f"   {'✅' if new_success else '❌'} {new_summary}")
     
     # Comparison assessment
-    print(f"\n🎯 Comparison Assessment:")
+    print("\n🎯 Comparison Assessment:")
     if new_success and old_passed == old_total:
         print("   🏆 Perfect migration: Both approaches successful")
     elif new_success and old_passed < old_total:
@@ -166,19 +166,19 @@ def create_backup_archive() -> Path:
     # Create archive manifest
     manifest_path = backup_dir / "archive_manifest.md"
     with open(manifest_path, 'w') as f:
-        f.write(f"# Validation Scripts Archive\n\n")
+        f.write("# Validation Scripts Archive\n\n")
         f.write(f"**Created:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
-        f.write(f"**Purpose:** Backup of individual validation scripts before consolidation\n\n")
-        f.write(f"## Archived Scripts\n\n")
+        f.write("**Purpose:** Backup of individual validation scripts before consolidation\n\n")
+        f.write("## Archived Scripts\n\n")
         
         for script in scripts:
             f.write(f"- `{script.name}` - {script.parent.name}/\n")
         
-        f.write(f"\n## Migration Notes\n\n")
-        f.write(f"These scripts were consolidated into the integrated validation framework:\n")
-        f.write(f"`tests/test_integrated_validation_framework.py`\n\n")
-        f.write(f"To run consolidated validations: `pytest tests/test_integrated_validation_framework.py`\n")
-        f.write(f"Or via CLI: `python tests/test_integrated_validation_framework.py`\n")
+        f.write("\n## Migration Notes\n\n")
+        f.write("These scripts were consolidated into the integrated validation framework:\n")
+        f.write("`tests/test_integrated_validation_framework.py`\n\n")
+        f.write("To run consolidated validations: `pytest tests/test_integrated_validation_framework.py`\n")
+        f.write("Or via CLI: `python tests/test_integrated_validation_framework.py`\n")
     
     return backup_dir
 
@@ -244,7 +244,7 @@ def cleanup_old_scripts(backup_dir: Path) -> None:
     """Clean up old validation scripts after successful migration."""
     scripts = find_validation_scripts()
     
-    print(f"\n🧹 Cleaning up old validation scripts...")
+    print("\n🧹 Cleaning up old validation scripts...")
     print(f"(Backup available at: {backup_dir})")
     
     removed_count = 0
@@ -309,7 +309,7 @@ def main() -> int:
             print("\n📋 Next Steps:")
             print("   - Use: `pytest tests/test_integrated_validation_framework.py`")
             print("   - Or: `python tests/test_integrated_validation_framework.py`")
-            print(f"   - Documentation: docs/validation_framework_migration.md")
+            print("   - Documentation: docs/validation_framework_migration.md")
             return 0
         else:
             print("\n📋 Migration prepared but old scripts preserved")

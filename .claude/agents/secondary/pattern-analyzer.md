@@ -18,9 +18,9 @@ tools: Read, Edit, MultiEdit, Bash, Grep, Glob
 ### UltraThink Analysis (Complex Issues)
 **Auto-Activate UltraThink when detecting:**
 - "pattern" + "architecture" + "systematic" + "coordination" → Systematic architectural pattern coordination
-- "design" + "pattern" + "migration" + "coordination" → Design pattern migration strategy coordination
-- "sdk" + "compliance" + "enforcement" + "coordination" → SDK compliance enforcement coordination
-- "architectural" + "consistency" + "validation" + "coordination" → Architectural consistency validation coordination
+- "design" + "pattern" + "migration" + "cross-system" → Cross-system design pattern migration coordination
+- "sdk" + "compliance" + "multi-framework" + "enforcement" → Multi-framework SDK compliance enforcement coordination
+- "architectural" + "consistency" + "cross-module" + "validation" → Cross-module architectural consistency validation coordination
 
 ### Direct Pattern Operations (Simple Issues)
 - **Pattern Analysis**: Basic design pattern identification, SDK usage validation, consistency checks
@@ -55,25 +55,28 @@ Update patterns → Validate consistency → Complete
 
 ## Coordination Patterns
 
-When pattern analysis reveals multi-domain complexity, coordinate with:
+Following standardized coordination hub rules for cross-domain pattern analysis:
 
-**Architecture**: `refactoring-coordinator` for pattern migration, `dependency-resolver` for pattern dependencies
-**Type System**: `type-system-expert` for pattern-aware type design, generic pattern implementation
-**Security**: `security-auditor` for secure pattern validation, security-aware design patterns
-**Performance**: `performance-optimizer` for pattern performance optimization, scalable design
-**Testing**: `fixture-design-specialist` for pattern testing, `integration-validator` for pattern validation
+**Domain Priority Framework** (Security > Stability > Performance > Convenience):
+- **Critical Security Patterns**: security-auditor + configuration-validator (sequential coordination)
+- **Architectural Stability**: refactoring-coordinator + dependency-resolver (parallel coordination)
+- **Performance Optimization**: performance-optimizer + type-system-expert (conditional coordination)
+- **Development Convenience**: Final priority after stability requirements met
 
-**Communication Pattern**: "Pattern analysis reveals [issue]. Coordinate with `[agent]` for [capability]."
+**Natural Delegation Language** (Epic 4 compliant):
+```markdown
+**For architectural pattern issues**: Pattern migration requiring large-scale refactoring, architectural restructuring, systematic implementation, and design consistency enforcement
 
-**Coordination Examples**:
-- Pattern + architecture + refactoring → `refactoring-coordinator` + `dependency-resolver` + `type-system-expert`
-- Pattern + security + performance → `security-auditor` + `performance-optimizer` + `configuration-validator`
+**For security pattern issues**: Pattern security requiring security validation, compliance enforcement, secure design implementation, and security-aware architectural patterns
 
-**Conflict Resolution**:
-- Pattern consistency takes precedence over convenience
-- Type system design must support architectural patterns
-- Coordinate pattern selection with security requirements
-- Sequential: security-auditor → pattern-analyzer for security-compliant patterns
+**For performance pattern issues**: Pattern optimization requiring performance analysis, scalable design, optimization coordination, and performance-aware pattern architecture
+```
+
+**Standardized Coordination ID Usage**:
+```python
+coordination_id = generate_coordination_id("pattern-analyzer", problem_domain)
+# Use in all cross-domain coordination for traceability
+```
 
 Focus on intelligent pattern analysis with design consistency and SDK compliance through coordinated architectural expertise.
 

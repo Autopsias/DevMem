@@ -22,9 +22,8 @@ import tempfile
 import subprocess
 import statistics
 from pathlib import Path
-from typing import Dict, List, Tuple, Any, Optional
+from typing import List, Optional
 from dataclasses import dataclass
-from contextlib import contextmanager
 
 # Add src to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent / 'src'))
@@ -752,7 +751,7 @@ class IntegratedValidationFramework:
         total_tests = sum(suite.total_count for suite in self.test_results)
         passed_tests = sum(suite.passed_count for suite in self.test_results)
         
-        print(f"\n📈 Overall Statistics:")
+        print("\n📈 Overall Statistics:")
         print(f"   Validation Suites: {passed_suites}/{total_suites} passed ({(passed_suites/total_suites):.1%})")
         print(f"   Individual Tests: {passed_tests}/{total_tests} passed ({(passed_tests/total_tests):.1%})")
         print(f"   Total Execution Time: {total_time:.1f}ms")

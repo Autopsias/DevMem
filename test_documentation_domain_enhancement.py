@@ -247,7 +247,7 @@ class TestDocumentationDomainEnhancement:
         for _ in range(10):
             for query in test_queries:
                 start_time = time.perf_counter()
-                result = documentation_selector.select_agent(query)
+                documentation_selector.select_agent(query)
                 end_time = time.perf_counter()
                 response_times.append((end_time - start_time) * 1000)  # Convert to ms
         

@@ -382,13 +382,13 @@ def demonstrate_performance_metrics():
     for query in performance_queries:
         # Cross-domain analysis timing
         start_time = time.perf_counter()
-        analysis = coordinator.analyze_cross_domain_integration(query)
+        coordinator.analyze_cross_domain_integration(query)
         cross_domain_time = (time.perf_counter() - start_time) * 1000
         cross_domain_times.append(cross_domain_time)
         
         # Agent selection timing
         start_time = time.perf_counter()
-        result = selector.select_agent(query)
+        selector.select_agent(query)
         agent_selection_time = (time.perf_counter() - start_time) * 1000
         agent_selection_times.append(agent_selection_time)
     
