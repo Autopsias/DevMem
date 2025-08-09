@@ -98,7 +98,7 @@ test-agent-matching:
 
 # Run tests with coverage
 test-coverage:
-	pytest tests/ --cov=src --cov-report=term-missing --cov-report=html
+	pytest tests/ --cov=. --cov-report=term-missing --cov-report=html --cov-fail-under=80
 
 # Code linting and formatting
 lint-ci:
@@ -111,6 +111,20 @@ pre-commit-staged:
 # Benchmark agent selection performance
 benchmark-agents:
 	python scripts/benchmark_agent_selection.py
+
+# Fast CI validation 
+test-ci-fast:
+	./scripts/ci-modular-runner.sh fast
+
+# Run specific test categories
+test-unit:
+	./scripts/ci-modular-runner.sh unit
+
+test-integration:
+	./scripts/ci-modular-runner.sh integration
+
+test-performance:
+	./scripts/ci-modular-runner.sh performance
 
 # === HELP & DOCUMENTATION ===
 
