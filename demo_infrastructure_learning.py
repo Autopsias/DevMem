@@ -9,24 +9,27 @@ import sys
 from pathlib import Path
 import time
 from typing import List, Tuple, Dict
-import tempfile
 
 # Add src to path
 sys.path.append(str(Path(__file__).parent / 'src'))
 
-from enhanced_cross_domain_coordinator import (
-    EnhancedCrossDomainCoordinator,
-    PatternLearningEngine,
-    DomainType
-)
 import json
 from pathlib import Path
-from typing import List, Dict, Tuple
 # Import agent selector if available, otherwise create coordinator directly
 try:
     from agent_selector import EnhancedAgentSelector
+    from src.agent_selector import get_agent_selector
+    from src.enhanced_cross_domain_coordinator import get_cross_domain_coordinator
 except ImportError:
     EnhancedAgentSelector = None
+    
+    def get_agent_selector():
+        """Fallback agent selector when imports fail."""
+        return None
+        
+    def get_cross_domain_coordinator():
+        """Fallback coordinator when imports fail."""
+        return None
 
 def generate_infrastructure_test_queries() -> List[Tuple[str, str, str]]:
     """Generate infrastructure test queries with expected agents and reasoning."""
@@ -125,7 +128,7 @@ def measure_baseline_accuracy() -> Dict:
     accuracy = (correct_selections / total_queries) * 100
     avg_response_time = sum(response_times) / len(response_times)
     
-    print(f"\n📊 Baseline Results:")
+    print("\n📊 Baseline Results:")
     print(f"   Accuracy: {accuracy:.1f}% ({correct_selections}/{total_queries})")
     print(f"   Avg Response Time: {avg_response_time:.2f}ms")
     print(f"   Response Time Range: {min(response_times):.2f}ms - {max(response_times):.2f}ms")
@@ -190,7 +193,7 @@ def train_learning_system(training_cycles: int = 3) -> Dict:
     training_stats['learning_insights'] = learning_insights
     training_stats['successful_patterns_learned'] = learning_insights.get('total_successful_patterns', 0)
     
-    print(f"\n📈 Training Complete:")
+    print("\n📈 Training Complete:")
     print(f"   Total Feedback: {training_stats['total_feedback_recorded']} patterns")
     print(f"   Successful Patterns: {training_stats['successful_patterns_learned']}")
     print(f"   Learning Rate: {learning_insights.get('learning_rate', 0):.2%}")
@@ -237,7 +240,7 @@ def measure_post_training_accuracy() -> Dict:
     accuracy = (correct_selections / total_queries) * 100
     avg_response_time = sum(response_times) / len(response_times)
     
-    print(f"\n🚀 Post-Training Results:")
+    print("\n🚀 Post-Training Results:")
     print(f"   Accuracy: {accuracy:.1f}% ({correct_selections}/{total_queries})")
     print(f"   Avg Response Time: {avg_response_time:.2f}ms")
     print(f"   Response Time Range: {min(response_times):.2f}ms - {max(response_times):.2f}ms")
@@ -320,24 +323,24 @@ def print_summary(report: Dict):
     performance = report['performance_metrics']
     success = report['success_criteria']
     
-    print(f"\n📈 ACCURACY IMPROVEMENT:")
+    print("\n📈 ACCURACY IMPROVEMENT:")
     print(f"   Baseline: {learning['baseline_accuracy']:.1f}%")
     print(f"   Post-Training: {learning['post_training_accuracy']:.1f}%")
     print(f"   Improvement: {learning['accuracy_improvement']:+.1f}% ({learning['improvement_percentage']:+.1f}% relative)")
     print(f"   Target (75%): {'✅ ACHIEVED' if learning['target_met'] else '❌ NOT MET'}")
     
-    print(f"\n⚡ PERFORMANCE METRICS:")
+    print("\n⚡ PERFORMANCE METRICS:")
     print(f"   Response Time: {performance['post_training_response_time_ms']:.2f}ms")
     print(f"   Change: {performance['response_time_change_ms']:+.2f}ms")
     print(f"   Target (<200ms): {'✅ ACHIEVED' if performance['performance_maintained'] else '❌ NOT MET'}")
     
-    print(f"\n🧠 LEARNING SYSTEM:")
+    print("\n🧠 LEARNING SYSTEM:")
     learning_eff = report['learning_effectiveness']
     print(f"   Patterns Learned: {learning_eff['patterns_learned']}")
     print(f"   Learning Rate: {learning_eff['learning_rate']:.1%}")
     print(f"   Query Types: {len(learning_eff['infrastructure_query_types'])}")
     
-    print(f"\n🏆 OVERALL SUCCESS:")
+    print("\n🏆 OVERALL SUCCESS:")
     for criterion, met in success.items():
         if criterion != 'overall_success':
             status = '✅' if met else '❌'

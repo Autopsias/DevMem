@@ -15,12 +15,12 @@ Purpose: Advanced cross-domain integration with enhanced boundary detection and 
 
 import re
 import time
-import json
 import os
 import uuid
 import random
-from typing import Dict, List, Tuple, Optional, Set, NamedTuple
-from dataclasses import dataclass, field, asdict
+import gc
+from typing import Dict, List, Tuple, Optional, Set
+from dataclasses import dataclass
 from enum import Enum
 from collections import defaultdict, Counter, deque
 from pathlib import Path
@@ -52,6 +52,28 @@ class SafetyThresholds:
     max_selection_time_ms: float = 40.0
     min_confidence_score: float = 0.45
     max_memory_usage_mb: float = 512.0
+
+class PerformanceGuard:
+    """Ensures operations stay within safety thresholds."""
+    
+    def __init__(self, thresholds: SafetyThresholds):
+        self.thresholds = thresholds
+        self.start_time: float = 0
+        self.peak_memory: float = 0
+        self.logger = logging.getLogger("performance_guard")
+    
+    def __enter__(self):
+        self.start_time = time.time()
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        duration_ms = (time.time() - self.start_time) * 1000
+        if duration_ms > self.thresholds.max_selection_time_ms:
+            self.logger.warning(
+                f"Performance threshold exceeded: {duration_ms:.2f}ms"
+            )
+            return False
+        return True
 
 class PatternStore:
     """Stores and manages coordination patterns."""
@@ -2492,7 +2514,8 @@ class EvolutionEngine:
             'final_success_rate': self.history[-1]['avg_success_rate'],
             'success_rate_improvement': self.history[-1]['avg_success_rate'] - self.history[0]['avg_success_rate'],
             'avg_generation_size': sum(gen['pattern_count'] for gen in self.history) / generations,
-            'best_success_rate': max(gen['max_success_rate'] for gen in self.history)
+            'best_success_rate': max(gen['max_success_rate'] for gen in self.history),
+            'avg_success_rate': sum(success_rates) / len(success_rates) if success_rates else 0
         }
 
 class MemoryArchitecture:

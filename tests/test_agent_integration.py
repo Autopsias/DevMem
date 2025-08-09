@@ -85,7 +85,8 @@ class TestAgentIntegration:
             "TruLens evaluation integration with testing pipeline": "test-specialist"
         }
         
-        for query, expected_agent in expected_agents.items():
+        for query in project_queries:
+            expected_agent = expected_agents[query]
             result = selector.select_agent(query)
             
             assert result.agent_name == expected_agent, \
@@ -110,7 +111,8 @@ class TestAgentIntegration:
             "gh workflow run ci-modular.yml configuration problems": "ci-specialist"
         }
         
-        for query, expected_agent in expected_domains.items():
+        for query in command_queries:
+            expected_agent = expected_domains[query]
             result = selector.select_agent(query)
             
             assert result.agent_name == expected_agent, \
@@ -183,7 +185,8 @@ class TestAgentIntegration:
             "Testing coordination requiring async pattern resolution and mock optimization": "test-specialist"
         }
         
-        for query, expected_agent in expected_agents.items():
+        for query in delegation_queries:
+            expected_agent = expected_agents[query]
             result = selector.select_agent(query)
             
             assert result.agent_name == expected_agent, \

@@ -9,7 +9,6 @@ This script validates the improvements to:
 """
 
 import sys
-import os
 from pathlib import Path
 
 # Add src to path for imports
@@ -18,9 +17,7 @@ sys.path.insert(0, str(Path(__file__).parent / 'src'))
 from agent_selector import EnhancedAgentSelector
 from enhanced_cross_domain_coordinator import (
     get_cross_domain_coordinator, 
-    analyze_cross_domain_query,
-    DomainType,
-    ConflictType
+    analyze_cross_domain_query
 )
 
 
@@ -126,7 +123,7 @@ def test_confidence_scoring():
         else:
             print("No boundaries detected")
         
-        print(f"Agent suggestions:")
+        print("Agent suggestions:")
         for agent, conf in analysis.agent_suggestions[:3]:
             print(f"  {agent}: {conf:.3f}")
     
@@ -158,7 +155,7 @@ def test_overlapping_domains():
         print(f"Coordination recommendation: {analysis.recommended_coordination}")
         
         if analysis.potential_conflicts:
-            print(f"Detected conflicts:")
+            print("Detected conflicts:")
             for conflict in analysis.potential_conflicts:
                 print(f"  {conflict.conflict_type.value}: {conflict.severity:.3f}")
                 print(f"    Domains: {[d.value for d in conflict.involved_domains]}")
@@ -166,7 +163,7 @@ def test_overlapping_domains():
                 if conflict.resolution_strategies:
                     print(f"      - {conflict.resolution_strategies[0]}")
         
-        print(f"Agent suggestions for conflict resolution:")
+        print("Agent suggestions for conflict resolution:")
         for agent, conf in analysis.agent_suggestions[:4]:
             print(f"  {agent}: {conf:.3f}")
     
@@ -203,7 +200,7 @@ def test_learning_system():
     
     # Get learning insights
     learning_insights = coordinator.get_learning_insights()
-    print(f"\nLearning insights:")
+    print("\nLearning insights:")
     print(f"  Total successful patterns: {learning_insights.get('total_successful_patterns', 0)}")
     print(f"  Learning rate: {learning_insights.get('learning_rate', 0.0):.1%}")
     print(f"  Cross-domain learning effectiveness: {learning_insights.get('cross_domain_learning_effectiveness', 0.0):.3f}")
@@ -238,7 +235,7 @@ def main():
             print(f"✗ {test.__name__} failed: {e}")
             results.append(False)
     
-    print(f"\n=== Summary ===")
+    print("\n=== Summary ===")
     passed = sum(results)
     total = len(results)
     print(f"Tests passed: {passed}/{total}")

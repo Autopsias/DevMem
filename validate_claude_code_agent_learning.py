@@ -14,7 +14,7 @@ from pathlib import Path
 
 def run_test_suite(test_class, description):
     """Run a specific test suite and report results."""
-    print(f"\n>� Running {description}...")
+    print(f"\n🔄 Running {description}...")
     print("=" * 60)
     
     try:
@@ -25,28 +25,28 @@ def run_test_suite(test_class, description):
         ], capture_output=True, text=True, timeout=120)
         
         if result.returncode == 0:
-            print(f" {description} - ALL TESTS PASSED")
+            print(f"✅ {description} - ALL TESTS PASSED")
             # Count passed tests
             lines = result.stdout.split('\n')
             passed_count = sum(1 for line in lines if " PASSED" in line)
-            print(f"   =� Tests passed: {passed_count}")
+            print(f"   📊 Tests passed: {passed_count}")
         else:
-            print(f"L {description} - SOME TESTS FAILED")
+            print(f"❌ {description} - SOME TESTS FAILED")
             print("Error output:")
             print(result.stdout[-500:])  # Show last 500 chars
             
         return result.returncode == 0
         
     except subprocess.TimeoutExpired:
-        print(f"�  {description} - TIMEOUT (>120s)")
+        print(f"⏱️  {description} - TIMEOUT (>120s)")
         return False
     except Exception as e:
-        print(f"=� {description} - EXCEPTION: {e}")
+        print(f"⚠️ {description} - EXCEPTION: {e}")
         return False
 
 def run_coordination_hub_validation():
     """Run coordination hub learning validation tests."""
-    print(f"\n>� Running Coordination Hub Learning Validation...")
+    print(f"\n🔄 Running Coordination Hub Learning Validation...")
     print("=" * 60)
     
     try:
@@ -57,27 +57,27 @@ def run_coordination_hub_validation():
         ], capture_output=True, text=True, timeout=60)
         
         if result.returncode == 0:
-            print(f" Coordination Hub Learning Validation - ALL TESTS PASSED")
+            print(f"✅ Coordination Hub Learning Validation - ALL TESTS PASSED")
             lines = result.stdout.split('\n')
             passed_count = sum(1 for line in lines if " PASSED" in line)
-            print(f"   =� Tests passed: {passed_count}")
+            print(f"   📊 Tests passed: {passed_count}")
         else:
-            print(f"L Coordination Hub Learning Validation - SOME TESTS FAILED")
+            print(f"❌ Coordination Hub Learning Validation - SOME TESTS FAILED")
             print("Error output:")
             print(result.stdout[-500:])
             
         return result.returncode == 0
         
     except subprocess.TimeoutExpired:
-        print(f"�  Coordination Hub Learning Validation - TIMEOUT (>60s)")
+        print(f"⏱️  Coordination Hub Learning Validation - TIMEOUT (>60s)")
         return False
     except Exception as e:
-        print(f"=� Coordination Hub Learning Validation - EXCEPTION: {e}")
+        print(f"⚠️ Coordination Hub Learning Validation - EXCEPTION: {e}")
         return False
 
 def main():
     """Main validation workflow."""
-    print("=� Claude Code Agent Learning Comprehensive Validation")
+    print("🚀 Claude Code Agent Learning Comprehensive Validation")
     print("=" * 70)
     print("Testing actual Claude Code agent learning capabilities...")
     
@@ -107,28 +107,28 @@ def main():
     total_count = len(results)
     
     print("\n" + "=" * 70)
-    print("<� VALIDATION SUMMARY")
+    print("📋 VALIDATION SUMMARY")
     print("=" * 70)
     
     for test_name, passed in results.items():
-        status = " PASSED" if passed else "L FAILED"
+        status = "✅ PASSED" if passed else "❌ FAILED"
         print(f"{status} {test_name}")
     
-    print(f"\n=� Overall Results: {passed_count}/{total_count} test suites passed")
-    print(f"�  Total validation time: {total_time:.1f}s")
+    print(f"\n📊 Overall Results: {passed_count}/{total_count} test suites passed")
+    print(f"⏱️  Total validation time: {total_time:.1f}s")
     
     if passed_count == total_count:
-        print("\n<� ALL VALIDATIONS PASSED!")
+        print("\n📋 ALL VALIDATIONS PASSED!")
         print("Claude Code agent learning capabilities are functioning correctly.")
         print("\nKey Capabilities Validated:")
-        print("" Task() tool parallel coordination pattern recognition")
-        print("" Infrastructure learning patterns from coordination-hub.md (295 patterns)")
-        print("" Agent directory integration with 21 loaded agents")
-        print("" Memory system performance (<100ms response times)")
-        print("" Agent coordination and delegation workflows")
+        print("✓ Task() tool parallel coordination pattern recognition")
+        print("✓ Infrastructure learning patterns from coordination-hub.md (295 patterns)")
+        print("✓ Agent directory integration with 21 loaded agents")
+        print("✓ Memory system performance (<100ms response times)")
+        print("✓ Agent coordination and delegation workflows")
         return 0
     else:
-        print(f"\n�  {total_count - passed_count} validation(s) failed.")
+        print(f"\n❌  {total_count - passed_count} validation(s) failed.")
         print("Some Claude Code agent learning capabilities may need attention.")
         return 1
 

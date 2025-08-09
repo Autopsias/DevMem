@@ -10,7 +10,6 @@ and report generation.
 import pytest
 import time
 import json
-from pathlib import Path
 import sys
 import os
 sys.path.insert(0, os.path.dirname(__file__))
@@ -601,7 +600,6 @@ class TestCoordinationHubLearningValidation:
         """Test integration with .claude/agents/ directory structure"""
         import sys
         import os
-        from pathlib import Path
         sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
         from agent_selector import EnhancedAgentSelector
         

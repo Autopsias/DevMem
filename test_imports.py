@@ -8,7 +8,7 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
 try:
-    from agent_selector import EnhancedAgentSelector, select_best_agent, AgentMatchResult
+    from agent_selector import EnhancedAgentSelector, select_best_agent
     print("✓ Successfully imported EnhancedAgentSelector")
     print("✓ Successfully imported select_best_agent")
     print("✓ Successfully imported AgentMatchResult")

@@ -10,7 +10,7 @@ import pytest
 import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
-from agent_selector import EnhancedAgentSelector, AgentMatchResult
+from agent_selector import EnhancedAgentSelector
 from typing import List, Tuple
 
 
@@ -162,7 +162,7 @@ class TestInfrastructureDomainEnhancement:
         avg_confidence = sum(confidence_scores) / len(confidence_scores)
         avg_processing_time = sum(processing_times) / len(processing_times)
         
-        print(f"\nInfrastructure Domain Results:")
+        print("\nInfrastructure Domain Results:")
         print(f"Accuracy: {accuracy:.1%} ({correct_selections}/{total_cases})")
         print(f"Average confidence: {avg_confidence:.2f}")
         print(f"Average processing time: {avg_processing_time:.1f}ms")
@@ -297,7 +297,7 @@ class TestInfrastructureDomainEnhancement:
         avg_processing_time = sum(processing_times) / len(processing_times)
         max_processing_time = max(processing_times)
         
-        print(f"\nPerformance Results:")
+        print("\nPerformance Results:")
         print(f"Average processing time: {avg_processing_time:.2f}ms")
         print(f"Maximum processing time: {max_processing_time:.2f}ms")
         print(f"Total queries processed: {len(test_queries)}")
@@ -337,7 +337,7 @@ class TestInfrastructureDomainEnhancement:
         comprehensive_accuracy = infrastructure_count / len(comprehensive_scenarios)
         high_confidence_rate = high_confidence_count / len(comprehensive_scenarios)
         
-        print(f"\nComprehensive Infrastructure Results:")
+        print("\nComprehensive Infrastructure Results:")
         print(f"Infrastructure selection accuracy: {comprehensive_accuracy:.1%}")
         print(f"High confidence rate (≥0.80): {high_confidence_rate:.1%}")
         

@@ -16,7 +16,6 @@ Test Categories:
 import pytest
 import time
 import statistics
-from typing import Dict, List, Tuple, Any
 from enhanced_security_patterns import EnhancedSecurityPatternMatcher
 
 class TestSecurityDomainEnhancement:
@@ -482,7 +481,6 @@ def test_integration_with_agent_selector():
 
 if __name__ == "__main__":
     # Run comprehensive validation when script is executed directly
-    import sys
     
     matcher = EnhancedSecurityPatternMatcher()
     
@@ -491,7 +489,7 @@ if __name__ == "__main__":
     
     # Test configuration
     config = matcher.get_enhanced_agent_config()
-    print(f"Enhanced Configuration:")
+    print("Enhanced Configuration:")
     print(f"  Primary Keywords: {len(config['primary_keywords'])} (baseline: 6)")
     print(f"  Context Patterns: {len(config['context_patterns'])} (baseline: 7)")
     print(f"  Intent Indicators: {len(config['intent_indicators'])} (baseline: 7)")

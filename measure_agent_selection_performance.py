@@ -14,14 +14,11 @@ import argparse
 import json
 import time
 import statistics
-from typing import Dict, List, Tuple, Any
+from typing import Dict, List, Any
 from dataclasses import dataclass, asdict
-from pathlib import Path
 import logging
 from enhanced_pattern_recognition import (
-    EnhancedPatternRecognitionSystem, 
-    SuccessMetrics,
-    PatternConfidence
+    EnhancedPatternRecognitionSystem
 )
 
 # Configure logging
@@ -518,14 +515,14 @@ class AgentSelectionBenchmark:
         print("ENHANCED PATTERN RECOGNITION SYSTEM - PERFORMANCE REPORT")
         print("=" * 80)
         
-        print(f"\nOVERALL PERFORMANCE:")
+        print("\nOVERALL PERFORMANCE:")
         print(f"  Total Tests: {report.total_tests}")
         print(f"  Accuracy Rate: {report.accuracy_rate:.2%} (Target: 99.2%)")
         print(f"  Avg Response Time: {report.avg_response_time:.3f}s (Target: <0.7s)")
         print(f"  Avg Confidence: {report.avg_confidence:.3f}")
         print(f"  Context Preservation: {report.context_preservation_rate:.2%} (Target: 99.5%)")
         
-        print(f"\nDIFFICULTY BREAKDOWN:")
+        print("\nDIFFICULTY BREAKDOWN:")
         for difficulty, metrics in report.difficulty_breakdown.items():
             print(f"  {difficulty.upper()}:")
             print(f"    Tests: {metrics['count']}")
@@ -533,7 +530,7 @@ class AgentSelectionBenchmark:
             print(f"    Avg Response Time: {metrics['avg_response_time']:.3f}s")
             print(f"    Context Preservation: {metrics['context_preservation']:.2%}")
         
-        print(f"\nAGENT PERFORMANCE:")
+        print("\nAGENT PERFORMANCE:")
         for agent, metrics in report.agent_performance.items():
             print(f"  {agent}:")
             print(f"    Selections: {metrics['selections']}")
@@ -541,18 +538,18 @@ class AgentSelectionBenchmark:
             print(f"    Avg Response Time: {metrics['avg_response_time']:.3f}s")
             print(f"    Avg Confidence: {metrics['avg_confidence']:.3f}")
         
-        print(f"\nPATTERN EFFECTIVENESS:")
+        print("\nPATTERN EFFECTIVENESS:")
         for pattern_type, effectiveness in report.pattern_effectiveness.items():
             print(f"  {pattern_type.replace('_', ' ').title()}: {effectiveness:.2%}")
         
         print(f"\nEDGE CASE HANDLING: {report.edge_case_handling:.2%}")
         
-        print(f"\nRECOMMENDATIONS:")
+        print("\nRECOMMENDATIONS:")
         for i, rec in enumerate(report.recommendations, 1):
             print(f"  {i}. {rec}")
         
         # Performance assessment
-        print(f"\n" + "=" * 80)
+        print("\n" + "=" * 80)
         print("PERFORMANCE ASSESSMENT:")
         
         targets_met = 0
@@ -634,7 +631,7 @@ def main():
         test_case = benchmark.test_cases[0]  # Use first test case
         result = benchmark.run_single_test(test_case)
         
-        print(f"\nSingle Test Result:")
+        print("\nSingle Test Result:")
         print(f"  Input: {test_case.input_text}")
         print(f"  Expected Agent: {test_case.expected_agent}")
         print(f"  Selected Agent: {result.selected_agent}")

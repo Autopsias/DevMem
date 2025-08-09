@@ -232,7 +232,7 @@ def demo_learning_enhanced_selection():
     accuracy = correct_selections / len(test_cases)
     avg_time = total_time / len(test_cases)
     
-    print(f"📊 Final Results:")
+    print("📊 Final Results:")
     print(f"  • Accuracy: {accuracy:.1%} ({correct_selections}/{len(test_cases)})")
     print(f"  • Average selection time: {avg_time*1000:.1f}ms")
     print(f"  • Target achieved: {'✅ Yes' if accuracy >= 0.45 else '❌ No'} (target: 45%+)")
@@ -274,14 +274,14 @@ def demo_performance_comparison():
     avg_learning_time = sum(learning_times) / len(learning_times)
     learning_usage_rate = learning_accuracy / len(test_queries)
     
-    print(f"  📊 Learning-Enhanced Selection:")
+    print("  📊 Learning-Enhanced Selection:")
     print(f"    • Average time: {avg_learning_time:.1f}ms")
     print(f"    • Learning usage rate: {learning_usage_rate:.1%}")
     print(f"    • Performance target: {'✅ Met' if avg_learning_time < 200 else '❌ Missed'} (<200ms)")
     
     # Get system stats
     stats = learning_selector.get_selection_stats()
-    print(f"\n📈 System Statistics:")
+    print("\n📈 System Statistics:")
     print(f"  • Total selections: {stats['total_selections']}")
     print(f"  • Learning enhanced: {stats['learning_enhanced_selections']}")
     print(f"  • Average confidence boost: {stats['avg_confidence_improvement']:.3f}")

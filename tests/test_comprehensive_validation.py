@@ -11,14 +11,14 @@ import time
 import statistics
 import json
 import logging
-from typing import Dict, List, Tuple, Any, Optional
+from typing import Dict, List, Tuple, Any
 from pathlib import Path
 import sys
 import os
 
 # Setup imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
-from src.agent_selector import EnhancedAgentSelector, AgentMatchResult
+from src.agent_selector import EnhancedAgentSelector
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -260,13 +260,13 @@ class ComprehensiveValidationSuite:
         accuracy_results = results.get('accuracy_results', {})
         overall_metrics = accuracy_results.get('overall_metrics', {})
         
-        print(f"\nOVERALL PERFORMANCE:")
-        print(f"  Target Accuracy: 85%")
+        print("\nOVERALL PERFORMANCE:")
+        print("  Target Accuracy: 85%")
         print(f"  Achieved Accuracy: {overall_metrics.get('overall_accuracy', 0):.2%}")
         print(f"  Total Tests: {overall_metrics.get('total_tests', 0)}")
         print(f"  Meets Target: {'YES' if overall_metrics.get('meets_target', False) else 'NO'}")
         
-        print(f"\nDOMAIN PERFORMANCE:")
+        print("\nDOMAIN PERFORMANCE:")
         domain_accuracies = accuracy_results.get('domain_accuracy', {})
         for domain, metrics in domain_accuracies.items():
             accuracy = metrics.get('accuracy', 0)
@@ -277,15 +277,15 @@ class ComprehensiveValidationSuite:
         
         perf_results = results.get('performance_results', {})
         single_query = perf_results.get('single_query_performance', {})
-        print(f"\nPERFORMANCE:")
+        print("\nPERFORMANCE:")
         print(f"  Average Response: {single_query.get('avg_response_time_ms', 0):.2f}ms")
         
-        print(f"\nRECOMMENDATIONS:")
+        print("\nRECOMMENDATIONS:")
         for i, rec in enumerate(results.get('recommendations', []), 1):
             print(f"  {i}. {rec}")
         
         final = results.get('final_assessment', {})
-        print(f"\nFINAL ASSESSMENT:")
+        print("\nFINAL ASSESSMENT:")
         print(f"  Meets 85% Target: {'YES' if final.get('meets_85_percent_target', False) else 'NO'}")
         
         print("=" * 70)

@@ -10,7 +10,7 @@ This module provides advanced agent selection capabilities with:
 
 import re
 import time
-from typing import Dict, List, Tuple, Optional, Set
+from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass, field
 from collections import defaultdict, Counter
 import logging
@@ -530,7 +530,6 @@ class EnhancedAgentSelector:
     def _load_agents_from_directory(self) -> Dict[str, AgentConfig]:
         """Load agent configurations from .claude/agents/ directory."""
         from pathlib import Path
-        import re
         
         agents = {}
         agents_path = Path(self.agents_dir)

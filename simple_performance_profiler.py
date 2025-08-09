@@ -8,13 +8,11 @@ Analyzes response times, patterns, and identifies optimization opportunities.
 
 import time
 import gc
-import sys
 import tracemalloc
 from typing import Dict, List, Tuple, Any
 from dataclasses import dataclass
 import json
 import statistics
-from pathlib import Path
 
 # Import the agent selector to profile
 try:
@@ -393,7 +391,7 @@ class SimplePerformanceProfiler:
         print("AGENT SELECTION SYSTEM - PERFORMANCE ANALYSIS REPORT")
         print("=" * 100)
         
-        print(f"\n🚀 EXECUTION PERFORMANCE:")
+        print("\n🚀 EXECUTION PERFORMANCE:")
         print(f"  Total Operations: {summary.total_operations:,}")
         print(f"  Average Time: {summary.avg_execution_time:.2f}ms (Target: <25ms)")
         print(f"  Minimum Time: {summary.min_execution_time:.2f}ms")
@@ -402,13 +400,13 @@ class SimplePerformanceProfiler:
         print(f"  99th Percentile: {summary.percentile_99_time:.2f}ms")
         print(f"  Throughput: {summary.throughput_ops_per_sec:.1f} ops/second")
         
-        print(f"\n📊 AGENT SELECTION DISTRIBUTION:")
+        print("\n📊 AGENT SELECTION DISTRIBUTION:")
         total_ops = sum(summary.agent_distribution.values())
         for agent, count in sorted(summary.agent_distribution.items(), key=lambda x: x[1], reverse=True):
             percentage = (count / total_ops) * 100
             print(f"  {agent}: {count:,} ({percentage:.1f}%)")
         
-        print(f"\n🔍 QUERY TYPE PERFORMANCE:")
+        print("\n🔍 QUERY TYPE PERFORMANCE:")
         for query_type, metrics in summary.query_type_performance.items():
             print(f"  {query_type.upper()}:")
             print(f"    Count: {metrics['count']:,}")
@@ -416,32 +414,32 @@ class SimplePerformanceProfiler:
             print(f"    Range: {metrics['min_time']:.2f}ms - {metrics['max_time']:.2f}ms")
             print(f"    Median: {metrics['median_time']:.2f}ms")
         
-        print(f"\n💾 MEMORY ANALYSIS:")
+        print("\n💾 MEMORY ANALYSIS:")
         print(f"  Memory Growth: {summary.memory_analysis['total_memory_growth_mb']:.2f}MB")
-        print(f"  Top Memory Consumers:")
+        print("  Top Memory Consumers:")
         for consumer in summary.memory_analysis['top_memory_consumers'][:3]:
             print(f"    {consumer['location']}: {consumer['size_diff_bytes']} bytes")
         
-        print(f"\n⚠️ PERFORMANCE BOTTLENECKS:")
+        print("\n⚠️ PERFORMANCE BOTTLENECKS:")
         if summary.bottlenecks:
             for i, bottleneck in enumerate(summary.bottlenecks, 1):
                 print(f"  {i}. {bottleneck}")
         else:
             print("  No significant bottlenecks detected")
         
-        print(f"\n💡 OPTIMIZATION OPPORTUNITIES:")
+        print("\n💡 OPTIMIZATION OPPORTUNITIES:")
         if summary.optimization_opportunities:
             for i, opportunity in enumerate(summary.optimization_opportunities, 1):
                 print(f"  {i}. {opportunity}")
         else:
             print("  No major optimization opportunities identified")
         
-        print(f"\n🎯 ACTIONABLE RECOMMENDATIONS:")
+        print("\n🎯 ACTIONABLE RECOMMENDATIONS:")
         for i, recommendation in enumerate(summary.recommendations, 1):
             print(f"  {i}. {recommendation}")
         
         # Performance scoring
-        print(f"\n" + "=" * 100)
+        print("\n" + "=" * 100)
         print("PERFORMANCE ASSESSMENT:")
         
         score = 0

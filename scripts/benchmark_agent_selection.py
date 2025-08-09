@@ -3,7 +3,7 @@
 
 import time
 import statistics
-from typing import List, Dict, Tuple
+from typing import List, Dict
 from dataclasses import dataclass
 import sys
 import os
@@ -207,20 +207,20 @@ class AgentSelectionBenchmark:
             time_change = (enhanced.avg_processing_time_ms - current.avg_processing_time_ms) / current.avg_processing_time_ms * 100
             confidence_improvement = (enhanced.avg_confidence - current.avg_confidence) / current.avg_confidence * 100
             
-            print(f"\nIMPROVEMENT ANALYSIS:")
+            print("\nIMPROVEMENT ANALYSIS:")
             print(f"  Accuracy:          {accuracy_improvement:+.1f}%")
             print(f"  Confidence:        {confidence_improvement:+.1f}%")
             print(f"  Processing Time:   {time_change:+.1f}%")
             
             # Determine overall result
             if accuracy_improvement > 15 and confidence_improvement > 10:
-                print(f"  Overall Result:    🎉 SIGNIFICANT IMPROVEMENT")
+                print("  Overall Result:    🎉 SIGNIFICANT IMPROVEMENT")
             elif accuracy_improvement > 5 and confidence_improvement > 5:
-                print(f"  Overall Result:    ✅ IMPROVEMENT")
+                print("  Overall Result:    ✅ IMPROVEMENT")
             elif accuracy_improvement > 0:
-                print(f"  Overall Result:    📈 MINOR IMPROVEMENT")
+                print("  Overall Result:    📈 MINOR IMPROVEMENT")
             else:
-                print(f"  Overall Result:    ⚠️  NO SIGNIFICANT IMPROVEMENT")
+                print("  Overall Result:    ⚠️  NO SIGNIFICANT IMPROVEMENT")
     
     def run_load_test_comparison(self):
         """Run and compare load test performance."""
@@ -229,13 +229,13 @@ class AgentSelectionBenchmark:
         current_load = self.run_load_test(self.current_matcher, 1000)
         enhanced_load = self.run_load_test(self.enhanced_selector, 1000)
         
-        print(f"\nLOAD TEST RESULTS (1000 queries):")
-        print(f"Current Matcher:")
+        print("\nLOAD TEST RESULTS (1000 queries):")
+        print("Current Matcher:")
         print(f"  Total Time:        {current_load['total_time_ms']:.1f}ms")
         print(f"  Avg per Query:     {current_load['avg_time_per_query_ms']:.2f}ms")
         print(f"  Queries/Second:    {current_load['queries_per_second']:.1f}")
         
-        print(f"\nEnhanced Selector:")
+        print("\nEnhanced Selector:")
         print(f"  Total Time:        {enhanced_load['total_time_ms']:.1f}ms")
         print(f"  Avg per Query:     {enhanced_load['avg_time_per_query_ms']:.2f}ms")
         print(f"  Queries/Second:    {enhanced_load['queries_per_second']:.1f}")

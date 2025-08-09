@@ -15,7 +15,6 @@ Validates that all acceptance criteria have been met:
 
 import sys
 from pathlib import Path
-import importlib.util
 
 
 def validate_acceptance_criteria():
@@ -158,7 +157,7 @@ def validate_acceptance_criteria():
         secondary_agents = list(secondary_dir.glob("*.md")) if secondary_dir.exists() else []
         total_agents = len(primary_agents) + len(secondary_agents)
         
-        print(f"\n🤖 Agent Ecosystem Validation:")
+        print("\n🤖 Agent Ecosystem Validation:")
         print(f"✅ Primary agents: {len(primary_agents)}")
         print(f"✅ Secondary agents: {len(secondary_agents)}")
         print(f"✅ Total agents: {total_agents}")

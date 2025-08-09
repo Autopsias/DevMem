@@ -5,7 +5,7 @@ compliance with recommended practices.
 """
 
 import logging
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List
 from dataclasses import dataclass
 
 logger = logging.getLogger(__name__)
@@ -246,7 +246,7 @@ class AnthropicGuidelinesValidator:
         else:
             report += "No common issues identified.\n"
         
-        report += f"\n## Recommendations\n"
+        report += "\n## Recommendations\n"
         if validation_results['compliance_rate'] < 0.8:
             report += "- Focus on improving agent-keyword matching accuracy\n"
             report += "- Increase pattern confidence thresholds to >= 0.7\n"

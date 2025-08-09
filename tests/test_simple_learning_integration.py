@@ -6,11 +6,8 @@ success pattern recording, and Anthropic guidelines compliance.
 
 import pytest
 import sys
-import os
-import tempfile
 import time
 from pathlib import Path
-from unittest.mock import Mock, patch
 
 # Add src to path for imports
 sys.path.append(str(Path(__file__).parent.parent / 'src'))

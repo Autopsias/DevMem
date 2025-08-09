@@ -3,7 +3,6 @@
 
 import sys
 import os
-from typing import List, Tuple
 
 # Add src to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
@@ -220,7 +219,7 @@ def record_pattern_in_coordination_hub(pattern_type: str, query: str, agent: str
                     print(f"   ✓ Pattern recorded in coordination-hub.md: {pattern_key}")
                     return True
         
-        print(f"   ⚠ Could not find Infrastructure Learning Patterns section")
+        print("   ⚠ Could not find Infrastructure Learning Patterns section")
         return False
         
     except Exception as e:
@@ -254,17 +253,17 @@ def demo_learning_enhancement():
         # Simulate positive feedback for infrastructure-engineer selections
         if result.agent_name == 'infrastructure-engineer':
             selector.record_feedback(query, result.agent_name, result.confidence_score, user_feedback=True)
-            print(f"      ✓ Positive feedback recorded - boosting pattern weight")
+            print("      ✓ Positive feedback recorded - boosting pattern weight")
             
             # Record successful pattern in coordination-hub.md
-            pattern_type = f"container_orchestration" if "orchestration" in query.lower() else "infrastructure_automation"
+            pattern_type = "container_orchestration" if "orchestration" in query.lower() else "infrastructure_automation"
             record_pattern_in_coordination_hub(pattern_type, query, result.agent_name, result.confidence_score, True)
             successful_patterns += 1
         else:
             # Record feedback for missed infrastructure patterns
             selector.record_feedback(query, result.agent_name, result.confidence_score, 
                                    user_feedback=False, expected_agent='infrastructure-engineer')
-            print(f"      ⚠ Negative feedback recorded - expected infrastructure-engineer")
+            print("      ⚠ Negative feedback recorded - expected infrastructure-engineer")
             
             # Still record the pattern for learning purposes
             pattern_type = "infrastructure_missed"
@@ -312,8 +311,8 @@ def demo_learning_enhancement():
         print(f"   🚀 Learning improvement: {improvement:.1f}% confidence increase!")
     
     # Show memory file integration
-    print(f"\n📝 Pattern learning recorded in .claude/memory/coordination-hub.md")
-    print(f"   Infrastructure learning patterns automatically updated for future reference")
+    print("\n📝 Pattern learning recorded in .claude/memory/coordination-hub.md")
+    print("   Infrastructure learning patterns automatically updated for future reference")
 
 def demo_performance_characteristics():
     """Demonstrate performance characteristics."""
@@ -341,7 +340,7 @@ def demo_performance_characteristics():
     min_time = min(times)
     max_time = max(times)
     
-    print(f"Single Query Performance (10 runs):")
+    print("Single Query Performance (10 runs):")
     print(f"   Average: {avg_time:.2f}ms")
     print(f"   Range: {min_time:.2f}ms - {max_time:.2f}ms")
     print(f"   Result: {result.agent_name} ({result.confidence_score:.2f})")
@@ -366,10 +365,19 @@ def demo_performance_characteristics():
     print(f"   Average per query: {total_time / len(queries):.2f}ms")
     print(f"   Throughput: {len(queries) / (total_time / 1000):.0f} queries/second")
     
+    # Show result distribution
+    agent_counts = {}
+    avg_confidence = sum(r.confidence_score for r in results) / len(results)
+    for result in results:
+        agent_counts[result.agent_name] = agent_counts.get(result.agent_name, 0) + 1
+    
+    print(f"   Average confidence: {avg_confidence:.3f}")
+    print(f"   Agent distribution: {dict(sorted(agent_counts.items()))}")
+    
     # Show selection statistics
     stats = selector.get_selection_stats()
     if stats:
-        print(f"\nSelection Statistics:")
+        print("\nSelection Statistics:")
         print(f"   Total selections: {stats['total_selections']}")
         print(f"   Average confidence: {stats['average_confidence']:.2f}")
         print(f"   Average processing time: {stats['average_processing_time_ms']:.2f}ms")
@@ -395,7 +403,7 @@ def demo_multi_suggestions():
         suggestions = selector.get_agent_suggestions(query, top_n=4)
         
         print(f"Query: '{query}'")
-        print(f"   Top suggestions:")
+        print("   Top suggestions:")
         for i, suggestion in enumerate(suggestions, 1):
             confidence_bar = "█" * int(suggestion.confidence_score * 10)
             print(f"      {i}. {suggestion.agent_name:<20} {confidence_bar:<10} ({suggestion.confidence_score:.2f})")

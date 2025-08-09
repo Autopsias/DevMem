@@ -13,7 +13,6 @@ import json
 import time
 from typing import Dict, List, Any, Optional
 from dataclasses import dataclass, asdict
-from pathlib import Path
 
 # Import analysis modules
 try:
@@ -532,7 +531,7 @@ class ComprehensivePerformanceAnalyzer:
         print("=" * 140)
         
         # Executive Summary
-        print(f"\n📊 EXECUTIVE SUMMARY")
+        print("\n📊 EXECUTIVE SUMMARY")
         print(f"  Overall Performance Score: {report.overall_performance_score:.1f}/100")
         print(f"  System Status: {report.system_status}")
         print(f"  Analysis Date: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(report.analysis_timestamp))}")
@@ -547,12 +546,12 @@ class ComprehensivePerformanceAnalyzer:
         }
         print(f"  {status_indicators.get(report.system_status, 'Unknown status')}")
         
-        print(f"\n🔍 KEY FINDINGS:")
+        print("\n🔍 KEY FINDINGS:")
         for i, finding in enumerate(report.key_findings, 1):
             print(f"  {i}. {finding}")
         
         # Performance Metrics
-        print(f"\n📊 PERFORMANCE METRICS COMPARISON:")
+        print("\n📊 PERFORMANCE METRICS COMPARISON:")
         print(f"  {'Metric':<30} {'Current':<15} {'Target':<15} {'Status':<15}")
         print(f"  {'-' * 30} {'-' * 15} {'-' * 15} {'-' * 15}")
         
@@ -566,7 +565,7 @@ class ComprehensivePerformanceAnalyzer:
             print(f"  {metric:<30} {str(current_val):<15} {str(target_val):<15} {status:<15}")
         
         # Performance Issues
-        print(f"\n⚠️  PERFORMANCE ISSUES IDENTIFIED:")
+        print("\n⚠️  PERFORMANCE ISSUES IDENTIFIED:")
         if report.performance_issues:
             for i, issue in enumerate(report.performance_issues, 1):
                 severity_indicators = {
@@ -581,7 +580,7 @@ class ComprehensivePerformanceAnalyzer:
                 print(f"      Category: {issue.category.title()}")
                 print(f"      Current: {issue.current_metric} | Target: {issue.target_metric}")
                 print(f"      Impact Score: {issue.impact_score}/10 | Effort: {issue.optimization_effort}")
-                print(f"      Top Recommendations:")
+                print("      Top Recommendations:")
                 for rec in issue.recommendations[:2]:
                     print(f"        • {rec}")
                 print()
@@ -589,7 +588,7 @@ class ComprehensivePerformanceAnalyzer:
             print("  ✅ No significant performance issues detected")
         
         # Optimization Opportunities
-        print(f"💡 OPTIMIZATION OPPORTUNITIES:")
+        print("💡 OPTIMIZATION OPPORTUNITIES:")
         if report.optimization_opportunities:
             for i, opp in enumerate(report.optimization_opportunities, 1):
                 impact_indicators = {
@@ -603,7 +602,7 @@ class ComprehensivePerformanceAnalyzer:
                 print(f"      {opp.description}")
                 print(f"      Impact: {opp.impact_potential} | Effort: {opp.implementation_effort} | Risk: {opp.risk_level}")
                 print(f"      Expected Improvement: {opp.expected_improvement}")
-                print(f"      Key Approaches:")
+                print("      Key Approaches:")
                 for approach in opp.technical_approach[:2]:
                     print(f"        • {approach}")
                 print()
@@ -611,23 +610,23 @@ class ComprehensivePerformanceAnalyzer:
             print("  ✅ System is well-optimized - no major opportunities identified")
         
         # Implementation Roadmap
-        print(f"🛣️  IMPLEMENTATION ROADMAP:")
+        print("🛣️  IMPLEMENTATION ROADMAP:")
         
-        print(f"  IMMEDIATE ACTIONS (This Week):")
+        print("  IMMEDIATE ACTIONS (This Week):")
         if report.immediate_actions:
             for action in report.immediate_actions:
                 print(f"    • {action}")
         else:
             print("    ✅ No immediate actions required")
         
-        print(f"\n  SHORT-TERM OPTIMIZATIONS (Next 1-2 Months):")
+        print("\n  SHORT-TERM OPTIMIZATIONS (Next 1-2 Months):")
         if report.short_term_optimizations:
             for optimization in report.short_term_optimizations:
                 print(f"    • {optimization}")
         else:
             print("    ✅ No short-term optimizations identified")
         
-        print(f"\n  LONG-TERM IMPROVEMENTS (Next 3-6 Months):")
+        print("\n  LONG-TERM IMPROVEMENTS (Next 3-6 Months):")
         if report.long_term_improvements:
             for improvement in report.long_term_improvements:
                 print(f"    • {improvement}")
@@ -635,20 +634,20 @@ class ComprehensivePerformanceAnalyzer:
             print("    ✅ System architecture is solid for long-term")
         
         # Performance Targets
-        print(f"\n🎯 PERFORMANCE TARGETS:")
-        print(f"  • Response Time: <25ms average, <100ms 95th percentile")
-        print(f"  • Throughput: >500 operations per second")
-        print(f"  • Memory Efficiency: <5MB growth per batch")
-        print(f"  • Consistency: <2x variance between min/max response times")
-        print(f"  • Reliability: >99.5% successful agent selections")
+        print("\n🎯 PERFORMANCE TARGETS:")
+        print("  • Response Time: <25ms average, <100ms 95th percentile")
+        print("  • Throughput: >500 operations per second")
+        print("  • Memory Efficiency: <5MB growth per batch")
+        print("  • Consistency: <2x variance between min/max response times")
+        print("  • Reliability: >99.5% successful agent selections")
         
         # Next Steps
-        print(f"\n📝 RECOMMENDED NEXT STEPS:")
-        print(f"  1. Address immediate performance issues identified above")
-        print(f"  2. Implement top 2-3 optimization opportunities")
-        print(f"  3. Set up continuous performance monitoring")
-        print(f"  4. Create performance regression testing suite")
-        print(f"  5. Schedule regular performance reviews (monthly)")
+        print("\n📝 RECOMMENDED NEXT STEPS:")
+        print("  1. Address immediate performance issues identified above")
+        print("  2. Implement top 2-3 optimization opportunities")
+        print("  3. Set up continuous performance monitoring")
+        print("  4. Create performance regression testing suite")
+        print("  5. Schedule regular performance reviews (monthly)")
         
         print("=" * 140)
     

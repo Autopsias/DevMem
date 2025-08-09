@@ -44,9 +44,9 @@ def test_learning_enhancement():
                                user_feedback=is_correct, expected_agent=expected_agent)
         
         if is_correct:
-            print(f'      ✅ Correct - reinforcing pattern')
+            print('      ✅ Correct - reinforcing pattern')
         else:
-            print(f'      ❌ Incorrect - learning from mistake')
+            print('      ❌ Incorrect - learning from mistake')
         print()
     
     # Calculate baseline accuracy
@@ -57,7 +57,7 @@ def test_learning_enhancement():
     print(f'📈 Baseline Accuracy: {baseline_accuracy:.1%} ({correct_baseline}/{len(test_patterns)})')
     
     # Second pass - after learning
-    print(f'\n🔄 Re-testing patterns after learning feedback:')
+    print('\n🔄 Re-testing patterns after learning feedback:')
     
     improved_results = []
     for i, (query, expected_agent) in enumerate(test_patterns, 1):
@@ -75,9 +75,9 @@ def test_learning_enhancement():
             improvement = ((result.confidence_score - baseline_conf) / baseline_conf) * 100
             print(f'      🚀 Improved confidence by {improvement:.1f}%')
         elif result.agent_name != baseline_agent and result.agent_name == expected_agent:
-            print(f'      🎯 Corrected agent selection')
+            print('      🎯 Corrected agent selection')
         else:
-            print(f'      ⚡ Consistent selection')
+            print('      ⚡ Consistent selection')
         print()
     
     # Calculate improved accuracy
@@ -85,7 +85,7 @@ def test_learning_enhancement():
                           if actual == expected)
     improved_accuracy = correct_improved / len(test_patterns)
     
-    print(f'📊 Learning Results:')
+    print('📊 Learning Results:')
     print(f'   Baseline Accuracy: {baseline_accuracy:.1%}')
     print(f'   Improved Accuracy: {improved_accuracy:.1%}')
     
@@ -93,35 +93,35 @@ def test_learning_enhancement():
         learning_gain = improved_accuracy - baseline_accuracy
         print(f'   Learning Gain: +{learning_gain:.1%} 🚀')
     elif improved_accuracy == baseline_accuracy:
-        print(f'   Learning Gain: No change (maintained accuracy)')
+        print('   Learning Gain: No change (maintained accuracy)')
     else:
         print(f'   Learning Gain: {improved_accuracy - baseline_accuracy:.1%}')
     
     # Show learning insights
     insights = selector.get_learning_insights()
     if insights:
-        print(f'\n🧠 Learning System Status:')
+        print('\n🧠 Learning System Status:')
         print(f'   Patterns Tracked: {insights.get("total_patterns_tracked", 0)}')
         print(f'   Active Pattern Weights: {insights.get("active_pattern_weights", 0)}')
         print(f'   Context Patterns Learned: {insights.get("context_patterns_learned", 0)}')
         
         domain_momentum = insights.get('domain_momentum', {})
         if domain_momentum:
-            print(f'   Domain Momentum:')
+            print('   Domain Momentum:')
             for domain, momentum in domain_momentum.items():
                 print(f'      {domain}: {momentum:.2f}')
         
         if 'top_performing_patterns' in insights:
-            print(f'   Top Performing Patterns:')
+            print('   Top Performing Patterns:')
             for pattern, weight in insights['top_performing_patterns'][:3]:
                 print(f'      {pattern}: {weight:.3f}')
     
-    print(f'\n✅ Learning Enhancement Test Complete!')
-    print(f'   The Claude Code agent framework successfully demonstrated:')
-    print(f'   • Pattern-based learning from user feedback')
-    print(f'   • Confidence score improvements over time')
-    print(f'   • Domain momentum tracking')
-    print(f'   • Adaptive pattern weighting')
+    print('\n✅ Learning Enhancement Test Complete!')
+    print('   The Claude Code agent framework successfully demonstrated:')
+    print('   • Pattern-based learning from user feedback')
+    print('   • Confidence score improvements over time')
+    print('   • Domain momentum tracking')
+    print('   • Adaptive pattern weighting')
     
     return baseline_accuracy, improved_accuracy
 
@@ -170,12 +170,12 @@ if __name__ == '__main__':
         # Test coordination hub integration
         hub_exists = test_coordination_hub_integration()
         
-        print(f'\n' + '=' * 70)
-        print(f'🎯 SUMMARY')
-        print(f'=' * 70)
+        print('\n' + '=' * 70)
+        print('🎯 SUMMARY')
+        print('=' * 70)
         print(f'Learning Enhancement: {"PASSED" if improved >= baseline else "NEEDS IMPROVEMENT"}')
         print(f'Coordination Hub: {"INTEGRATED" if hub_exists else "NOT FOUND"}')
-        print(f'Overall Framework Status: READY FOR PRODUCTION ✅')
+        print('Overall Framework Status: READY FOR PRODUCTION ✅')
         
     except Exception as e:
         print(f'❌ Test failed: {e}')

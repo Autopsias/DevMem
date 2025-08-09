@@ -83,7 +83,7 @@ def test_basic_functionality():
         return False
     
     accuracy = success_count / len(test_cases)
-    print(f"\nTest Results:")
+    print("\nTest Results:")
     print(f"  Accuracy: {accuracy:.1%} ({success_count}/{len(test_cases)})")
     print(f"  Overall: {'PASS' if accuracy >= 0.8 else 'FAIL'}")
     

@@ -117,9 +117,9 @@ def validate_hooks_section(hooks_config: Dict[str, Any]) -> List[str]:
                     try:
                         timeout = int(sub_hook["timeout"])
                         if not (1 <= timeout <= 300):
-                            errors.append(f"Hook timeout must be between 1 and 300 seconds")
+                            errors.append("Hook timeout must be between 1 and 300 seconds")
                     except (ValueError, TypeError):
-                        errors.append(f"Hook timeout must be a valid integer")
+                        errors.append("Hook timeout must be a valid integer")
     
     return errors
 

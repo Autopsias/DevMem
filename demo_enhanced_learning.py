@@ -16,9 +16,7 @@ Usage:
 
 import sys
 import time
-import json
 from pathlib import Path
-from typing import Dict, List, Any
 
 # Add src directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent / 'src'))
@@ -243,7 +241,7 @@ def generate_summary_report(basic_results, enhanced_results):
     avg_confidence = sum(r['confidence'] for r in basic_results) / len(basic_results)
     avg_processing = sum(r['processing_time'] for r in basic_results) / len(basic_results)
     
-    print(f"\n🎢 Overall Performance:")
+    print("\n🎢 Overall Performance:")
     print(f"   • Queries Processed: {len(basic_results)}")
     print(f"   • Average Confidence: {avg_confidence:.3f}")
     print(f"   • Average Processing Time: {avg_processing:.1f}ms")
@@ -254,18 +252,18 @@ def generate_summary_report(basic_results, enhanced_results):
         agent = result['agent']
         agent_counts[agent] = agent_counts.get(agent, 0) + 1
     
-    print(f"\n🤖 Agent Selection Distribution:")
+    print("\n🤖 Agent Selection Distribution:")
     for agent, count in sorted(agent_counts.items(), key=lambda x: x[1], reverse=True):
         percentage = (count / len(basic_results)) * 100
         print(f"   • {agent}: {count} selections ({percentage:.1f}%)")
     
     # Key improvements
-    print(f"\n✨ Key Learning Enhancements:")
-    print(f"   ✓ Pattern Success Tracking - Learns from successful selections")
-    print(f"   ✓ Context Enrichment - Builds domain momentum over time")
-    print(f"   ✓ Adaptive Learning - Improves based on user feedback")
-    print(f"   ✓ Performance Maintained - No significant performance impact")
-    print(f"   ✓ Backward Compatible - Works with existing validation framework")
+    print("\n✨ Key Learning Enhancements:")
+    print("   ✓ Pattern Success Tracking - Learns from successful selections")
+    print("   ✓ Context Enrichment - Builds domain momentum over time")
+    print("   ✓ Adaptive Learning - Improves based on user feedback")
+    print("   ✓ Performance Maintained - No significant performance impact")
+    print("   ✓ Backward Compatible - Works with existing validation framework")
 
 
 def main():
@@ -312,7 +310,7 @@ def main():
         
     except Exception as e:
         print(f"\n❌ Error during demonstration: {e}")
-        print(f"\n🔍 This may indicate missing components or integration issues.")
+        print("\n🔍 This may indicate missing components or integration issues.")
         print(f"\nError details: {type(e).__name__}: {str(e)}")
         return False
     

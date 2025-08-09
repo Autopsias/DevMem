@@ -7,7 +7,6 @@ including pattern success tracking, context enrichment, and adaptive learning ca
 """
 
 import sys
-import os
 import pytest
 import time
 from pathlib import Path

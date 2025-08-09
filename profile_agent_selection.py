@@ -21,8 +21,6 @@ from typing import Dict, List, Tuple, Any
 from dataclasses import dataclass
 import json
 import statistics
-import sys
-from pathlib import Path
 
 # Import the agent selector to profile
 try:
@@ -415,7 +413,7 @@ class AgentSelectionProfiler:
         print("AGENT SELECTION SYSTEM - COMPREHENSIVE PERFORMANCE PROFILE")
         print("=" * 100)
         
-        print(f"\nEXECUTION PERFORMANCE:")
+        print("\nEXECUTION PERFORMANCE:")
         print(f"  Total Operations: {results.total_operations:,}")
         print(f"  Average Execution Time: {results.avg_execution_time:.2f}ms (Target: <30ms)")
         print(f"  Minimum Execution Time: {results.min_execution_time:.2f}ms")
@@ -423,40 +421,40 @@ class AgentSelectionProfiler:
         print(f"  95th Percentile Time: {results.percentile_95_time:.2f}ms (Target: <100ms)")
         print(f"  Throughput: {results.throughput_ops_per_sec:.1f} ops/second")
         
-        print(f"\nRESOURCE UTILIZATION:")
+        print("\nRESOURCE UTILIZATION:")
         print(f"  Average Memory Usage: {results.avg_memory_usage:.2f}MB")
         print(f"  Peak Memory Usage: {results.peak_memory_usage:.2f}MB")
         print(f"  Average CPU Usage: {results.avg_cpu_usage:.2f}%")
         
-        print(f"\nAGENT SELECTION DISTRIBUTION:")
+        print("\nAGENT SELECTION DISTRIBUTION:")
         total_selections = sum(results.agent_distribution.values())
         for agent, count in sorted(results.agent_distribution.items(), key=lambda x: x[1], reverse=True):
             percentage = (count / total_selections) * 100
             print(f"  {agent}: {count:,} selections ({percentage:.1f}%)")
         
-        print(f"\nINPUT SIZE ANALYSIS:")
+        print("\nINPUT SIZE ANALYSIS:")
         print(f"  Small Inputs (<50 chars): {results.input_size_analysis['small_avg']:.2f}ms avg")
         print(f"  Medium Inputs (50-150 chars): {results.input_size_analysis['medium_avg']:.2f}ms avg")
         print(f"  Large Inputs (>150 chars): {results.input_size_analysis['large_avg']:.2f}ms avg")
         
-        print(f"\nBOTTLENECK ANALYSIS:")
+        print("\nBOTTLENECK ANALYSIS:")
         print(f"  Slow Operations Rate: {results.bottleneck_analysis['slow_operation_rate']:.2%} (>50ms)")
         print(f"  Memory Pressure Rate: {results.bottleneck_analysis['memory_pressure_rate']:.2%} (>5MB)")
         print(f"  CPU Pressure Rate: {results.bottleneck_analysis['cpu_pressure_rate']:.2%} (>10%)")
         print(f"  Performance Variance: {results.bottleneck_analysis['performance_variance']:.2f}ms")
         print(f"  Outlier Operations: {results.bottleneck_analysis['outlier_count']} (>100ms)")
         
-        print(f"\nCRITICAL PATH INSIGHTS:")
+        print("\nCRITICAL PATH INSIGHTS:")
         memory_insights = results.critical_path_analysis['memory_insights']
         print(f"  Average Memory Growth: {memory_insights['avg_memory_growth']:.2f}MB per batch")
         print(f"  Peak Memory Growth: {memory_insights['peak_memory_growth']:.2f}MB per batch")
         
-        print(f"\nOPTIMIZATION RECOMMENDATIONS:")
+        print("\nOPTIMIZATION RECOMMENDATIONS:")
         for i, recommendation in enumerate(results.recommendations, 1):
             print(f"  {i}. {recommendation}")
         
         # Performance Assessment
-        print(f"\n" + "=" * 100)
+        print("\n" + "=" * 100)
         print("PERFORMANCE ASSESSMENT:")
         
         targets_met = 0

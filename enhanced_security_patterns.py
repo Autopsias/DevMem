@@ -18,7 +18,7 @@ Implementation Strategy:
 """
 
 import re
-from typing import Dict, List, Tuple, Any
+from typing import Dict, List, Any
 from dataclasses import dataclass
 
 @dataclass
@@ -559,13 +559,13 @@ if __name__ == "__main__":
     print("Running Enhanced Security Pattern Validation...")
     results = run_enhanced_security_validation()
     
-    print(f"\nValidation Results:")
+    print("\nValidation Results:")
     print(f"Overall Accuracy: {results['overall_accuracy']:.2%}")
     print(f"Total Tests: {results['total_tests']}")
     print(f"Passed: {results['passed_tests']}")
     print(f"Failed: {results['failed_tests']}")
     
-    print(f"\nAccuracy by Category:")
+    print("\nAccuracy by Category:")
     for category, metrics in results["accuracy_by_category"].items():
         print(f"  {category}: {metrics['accuracy']:.2%} ({metrics['passed']}/{metrics['total']})")
     
@@ -573,7 +573,7 @@ if __name__ == "__main__":
     matcher = EnhancedSecurityPatternMatcher()
     config = matcher.get_enhanced_agent_config()
     
-    print(f"\nEnhanced Configuration Summary:")
+    print("\nEnhanced Configuration Summary:")
     print(f"Primary Keywords: {len(config['primary_keywords'])} (+{len(config['primary_keywords'])-6} from baseline)")
     print(f"Context Patterns: {len(config['context_patterns'])} (+{len(config['context_patterns'])-7} from baseline)")
     print(f"Intent Indicators: {len(config['intent_indicators'])} (+{len(config['intent_indicators'])-7} from baseline)")

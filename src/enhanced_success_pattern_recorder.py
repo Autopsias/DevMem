@@ -8,7 +8,7 @@ import re
 import os
 import logging
 from typing import Dict, List, Optional
-from datetime import datetime, timezone
+from datetime import datetime
 
 logger = logging.getLogger(__name__)
 

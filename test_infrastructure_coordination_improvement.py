@@ -11,7 +11,7 @@ Target: Improve 38.3% benchmark accuracy to 75%+ while maintaining <200ms respon
 import time
 import json
 from pathlib import Path
-from typing import List, Dict, Tuple, Optional
+from typing import List, Dict, Tuple
 from src.agent_selector import get_agent_selector
 from src.enhanced_cross_domain_coordinator import get_cross_domain_coordinator
 
@@ -140,7 +140,7 @@ def run_targeted_accuracy_test() -> Dict:
     high_priority_accuracy = (correct_high_priority / total_high_priority) * 100 if total_high_priority > 0 else 0
     avg_response_time = sum(response_times) / len(response_times)
     
-    print(f"\n📊 Targeted Test Results:")
+    print("\n📊 Targeted Test Results:")
     print(f"   Overall Accuracy: {overall_accuracy:.1f}% ({correct_overall}/{total_scenarios})")
     print(f"   High Priority Accuracy: {high_priority_accuracy:.1f}% ({correct_high_priority}/{total_high_priority})")
     print(f"   Avg Response Time: {avg_response_time:.2f}ms")
@@ -193,7 +193,7 @@ def analyze_failure_patterns(results: Dict) -> Dict:
         else:
             failure_patterns['cross_domain_confusion'].append(failure)
     
-    print(f"\n📈 Failure Pattern Analysis:")
+    print("\n📈 Failure Pattern Analysis:")
     for pattern_name, pattern_failures in failure_patterns.items():
         if pattern_failures:
             print(f"   {pattern_name.replace('_', ' ').title()}: {len(pattern_failures)} cases")
@@ -214,7 +214,6 @@ def simulate_learning_improvement(initial_results: Dict, learning_cycles: int = 
     print(f"\n=== Simulating Learning Improvement ({learning_cycles} cycles) ===")
     
     agent_selector = get_agent_selector()
-    coordinator = get_cross_domain_coordinator()
     
     failed_scenarios = [r for r in initial_results['detailed_results'] if not r['correct']]
     
@@ -275,7 +274,7 @@ def simulate_learning_improvement(initial_results: Dict, learning_cycles: int = 
     
     improvement_rate = (improved_count / len(failed_scenarios)) * 100 if failed_scenarios else 0
     
-    print(f"\n📈 Learning Results:")
+    print("\n📈 Learning Results:")
     print(f"   Scenarios Improved: {improved_count}/{len(failed_scenarios)} ({improvement_rate:.1f}%)")
     
     # Calculate new overall accuracy
@@ -392,19 +391,19 @@ def print_improvement_summary(report: Dict):
     learning = report['learning_effectiveness']
     success = report['success_criteria']
     
-    print(f"\n📈 COORDINATION ACCURACY:")
+    print("\n📈 COORDINATION ACCURACY:")
     print(f"   Initial: {improvement['initial_accuracy']:.1f}%")
     print(f"   Final: {improvement['final_accuracy']:.1f}%")
     print(f"   Improvement: {improvement['accuracy_improvement']:+.1f}%")
     print(f"   High Priority: {improvement['high_priority_accuracy']:.1f}%")
     print(f"   Target (75%): {'✅ ACHIEVED' if improvement['target_met'] else '❌ NOT MET'}")
     
-    print(f"\n⚡ PERFORMANCE METRICS:")
+    print("\n⚡ PERFORMANCE METRICS:")
     print(f"   Response Time: {performance['avg_response_time_ms']:.2f}ms")
     print(f"   Range: {performance['response_time_range'][0]:.2f}ms - {performance['response_time_range'][1]:.2f}ms")
     print(f"   Target (<200ms): {'✅ ACHIEVED' if performance['performance_target_met'] else '❌ NOT MET'}")
     
-    print(f"\n🧠 LEARNING SYSTEM:")
+    print("\n🧠 LEARNING SYSTEM:")
     if learning['scenarios_improved'] > 0:
         print(f"   Scenarios Improved: {learning['scenarios_improved']}/{learning['total_failed_scenarios']}")
         print(f"   Improvement Rate: {learning['improvement_rate']:.1f}%")
@@ -412,7 +411,7 @@ def print_improvement_summary(report: Dict):
     else:
         print("   No failed scenarios to learn from - system already optimal!")
     
-    print(f"\n🏆 SUCCESS CRITERIA:")
+    print("\n🏆 SUCCESS CRITERIA:")
     for criterion, met in success.items():
         if criterion != 'overall_success':
             status = '✅' if met else '❌'
@@ -422,7 +421,7 @@ def print_improvement_summary(report: Dict):
     overall_status = '🎉 SUCCESS' if success['overall_success'] else '⚠️ PARTIAL SUCCESS'
     print(f"\n   🎯 {overall_status}")
     
-    print(f"\n📈 RECOMMENDATIONS:")
+    print("\n📈 RECOMMENDATIONS:")
     for rec in report['recommendations']:
         print(f"   • {rec}")
     

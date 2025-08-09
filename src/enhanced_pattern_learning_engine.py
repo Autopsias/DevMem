@@ -6,13 +6,9 @@ success pattern recording for improved agent selection accuracy.
 
 import re
 import os
-import time
-import json
 import logging
 from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass
-from pathlib import Path
-from datetime import datetime
 
 # Import the base PatternLearningEngine
 try:

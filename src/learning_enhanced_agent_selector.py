@@ -172,7 +172,7 @@ class LearningEnhancedAgentSelector:
                 if learning_boost > 0:
                     reasoning += f", boosted by {learning_boost:.3f} due to specialization"
                 if validation_result and not validation_result.is_compliant:
-                    reasoning += f", reduced due to compliance issues"
+                    reasoning += ", reduced due to compliance issues"
                 reasoning += ")"
                 
                 return AgentSelectionResult(

@@ -16,8 +16,7 @@ Test Categories:
 import pytest
 import time
 import statistics
-from typing import Dict, List, Tuple, Any
-from src.agent_selector import EnhancedAgentSelector, AgentMatchResult
+from src.agent_selector import EnhancedAgentSelector
 
 class TestDocumentationDomainEnhancement:
     """Comprehensive test suite for documentation domain enhancement"""
@@ -256,7 +255,7 @@ class TestDocumentationDomainEnhancement:
         max_response_time = max(response_times)
         p95_response_time = statistics.quantiles(response_times, n=20)[18]  # 95th percentile
         
-        print(f"Documentation Enhancement Performance:")
+        print("Documentation Enhancement Performance:")
         print(f"  Average Response Time: {avg_response_time:.2f}ms")
         print(f"  Maximum Response Time: {max_response_time:.2f}ms")
         print(f"  95th Percentile: {p95_response_time:.2f}ms")

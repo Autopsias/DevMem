@@ -7,8 +7,7 @@ improvements for cross-domain agent coordination.
 import pytest
 import sys
 from pathlib import Path
-from unittest.mock import Mock, patch
-import tempfile
+from unittest.mock import patch
 
 # Add src to path for imports
 sys.path.append(str(Path(__file__).parent.parent / 'src'))
@@ -21,7 +20,6 @@ from enhanced_cross_domain_coordinator import (
     DomainType,
     ConflictType,
     DomainBoundary,
-    ConflictDetection,
     CrossDomainAnalysis
 )
 from agent_selector import EnhancedAgentSelector

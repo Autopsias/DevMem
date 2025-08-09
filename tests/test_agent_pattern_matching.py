@@ -2,7 +2,7 @@
 
 import pytest
 import time
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple
 from dataclasses import dataclass, field
 import re
 from collections import defaultdict
@@ -437,7 +437,7 @@ class TestAgentPatternMatching:
         current_accuracy_pct = current_accuracy / total_tests
         enhanced_accuracy_pct = enhanced_accuracy / total_tests
         
-        print(f"\nPerformance Comparison:")
+        print("\nPerformance Comparison:")
         print(f"Current: {current_accuracy_pct:.2%} accuracy, {current_avg_time:.2f}ms avg time")
         print(f"Enhanced: {enhanced_accuracy_pct:.2%} accuracy, {enhanced_avg_time:.2f}ms avg time")
         

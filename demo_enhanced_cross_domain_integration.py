@@ -10,9 +10,7 @@ Purpose: Cross-domain integration pattern analysis and specialized boundary dete
 
 import sys
 import time
-import re
 from pathlib import Path
-from typing import List, Dict, Any
 
 # Add src to path
 sys.path.append(str(Path(__file__).parent / 'src'))

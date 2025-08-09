@@ -12,12 +12,8 @@ Deep analysis of performance bottlenecks focusing on:
 import time
 import cProfile
 import pstats
-import io
-import sys
-from typing import Dict, List, Tuple, Any, Optional
+from typing import Dict, List, Tuple, Any
 from dataclasses import dataclass
-from pathlib import Path
-from collections import defaultdict
 
 # Import agent selector
 try:
@@ -412,13 +408,13 @@ class CriticalPathAnalyzer:
         print("CRITICAL PATH ANALYSIS - AGENT SELECTION SYSTEM")
         print("=" * 120)
         
-        print(f"\n📊 EXECUTION OVERVIEW:")
+        print("\n📊 EXECUTION OVERVIEW:")
         print(f"  Total Execution Time: {result.total_execution_time:.6f} seconds")
         print(f"  Total Function Calls: {result.total_function_calls:,}")
         print(f"  Average Time Per Call: {result.total_execution_time/result.total_function_calls:.9f} seconds")
         print(f"  Performance Score: {result.performance_score:.1f}/100")
         
-        print(f"\n🔥 TOP TIME CONSUMERS:")
+        print("\n🔥 TOP TIME CONSUMERS:")
         for i, func in enumerate(result.top_time_consumers, 1):
             print(f"  {i:2d}. {func.name}")
             print(f"      Location: {func.filename}:{func.line_number}")
@@ -426,7 +422,7 @@ class CriticalPathAnalyzer:
             print(f"      Calls: {func.call_count:,} | Time/Call: {func.time_per_call:.9f}s")
             print()
         
-        print(f"🛤️  CRITICAL EXECUTION PATHS:")
+        print("🛤️  CRITICAL EXECUTION PATHS:")
         for i, path in enumerate(result.critical_paths, 1):
             print(f"  {i}. {path.path_name}")
             print(f"     Total Time: {path.total_time:.6f}s")
@@ -435,12 +431,12 @@ class CriticalPathAnalyzer:
             print(f"     Optimization Potential: {path.optimization_potential:.6f}s")
             
             if path.bottleneck_functions:
-                print(f"     Top Bottlenecks:")
+                print("     Top Bottlenecks:")
                 for bottleneck in path.bottleneck_functions[:3]:
                     print(f"       - {bottleneck.name}: {bottleneck.total_time:.6f}s")
             print()
         
-        print(f"🎯 OPTIMIZATION HOTSPOTS:")
+        print("🎯 OPTIMIZATION HOTSPOTS:")
         for i, hotspot in enumerate(result.optimization_hotspots, 1):
             print(f"  {i:2d}. {hotspot['type']}: {hotspot['function']}")
             print(f"      Location: {hotspot['location']}")
@@ -449,12 +445,12 @@ class CriticalPathAnalyzer:
             print(f"      Action: {hotspot['recommendation']}")
             print()
         
-        print(f"📝 OPTIMIZATION RECOMMENDATIONS:")
+        print("📝 OPTIMIZATION RECOMMENDATIONS:")
         for i, rec in enumerate(result.recommendations, 1):
             print(f"  {i:2d}. {rec}")
         
         # Performance assessment
-        print(f"\n" + "=" * 120)
+        print("\n" + "=" * 120)
         print("PERFORMANCE ASSESSMENT:")
         
         if result.performance_score >= 90:
@@ -467,7 +463,7 @@ class CriticalPathAnalyzer:
             print("  🚨 POOR: Performance needs significant optimization")
         
         # Key insights
-        print(f"\nKEY INSIGHTS:")
+        print("\nKEY INSIGHTS:")
         top_func = result.top_time_consumers[0] if result.top_time_consumers else None
         if top_func and top_func.percentage_of_total > 20:
             print(f"  • Single function dominance: {top_func.name} consumes {top_func.percentage_of_total:.1f}% of execution time")

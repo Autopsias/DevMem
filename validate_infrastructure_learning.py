@@ -12,15 +12,14 @@ import sys
 from pathlib import Path
 import time
 import tempfile
-from typing import Dict, Tuple, List
+from typing import Dict
 
 # Add src to path
 sys.path.append(str(Path(__file__).parent / 'src'))
 
 from enhanced_cross_domain_coordinator import (
     EnhancedCrossDomainCoordinator,
-    PatternLearningEngine,
-    DomainType
+    PatternLearningEngine
 )
 
 
@@ -179,11 +178,11 @@ def run_infrastructure_learning_validation() -> Dict[str, float]:
     print(f"Baseline Accuracy: {baseline_accuracy:.1f}%")
     print(f"Learning Accuracy: {learning_accuracy:.1f}%")
     print(f"Accuracy Improvement: {accuracy_improvement:+.1f}%")
-    print(f"")
+    print("")
     print(f"Baseline Avg Time: {baseline_avg_time:.2f}ms")
     print(f"Learning Avg Time: {learning_avg_time:.2f}ms")
     print(f"Time Change: {time_change:+.2f}ms")
-    print(f"")
+    print("")
     print(f"Patterns Learned: {patterns_learned}")
     print(f"Learning Engine Active: {insights.get('total_successful_patterns', 0) > 0}")
     
@@ -192,7 +191,7 @@ def run_infrastructure_learning_validation() -> Dict[str, float]:
     performance_ok = learning_avg_time < 200.0  # Performance target
     learning_working = insights.get('total_successful_patterns', 0) > 0
     
-    print(f"\n🎯 ASSESSMENT:")
+    print("\n🎯 ASSESSMENT:")
     print(f"  {'✅' if target_met else '❌'} Accuracy Target (>38%): {learning_accuracy:.1f}%")
     print(f"  {'✅' if performance_ok else '❌'} Performance Target (<200ms): {learning_avg_time:.2f}ms")
     print(f"  {'✅' if learning_working else '❌'} Learning System Working: {learning_working}")

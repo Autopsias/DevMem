@@ -16,7 +16,7 @@ import statistics
 import json
 import logging
 import random
-from typing import Dict, List, Tuple, Any, Optional
+from typing import Dict, List, Tuple, Any
 from dataclasses import dataclass, asdict
 from pathlib import Path
 from collections import defaultdict, Counter
@@ -551,10 +551,10 @@ class AgentSelectionValidator:
         
         min_domain_overlap = pattern.validation_criteria.get("domain_overlap_min", 0.8)
         if accuracy_metrics.get("domain_accuracy", 0.0) < min_domain_overlap:
-            failure_reasons.append(f"Domain overlap below minimum")
+            failure_reasons.append("Domain overlap below minimum")
         
         if confidence < pattern.confidence_threshold:
-            failure_reasons.append(f"Confidence below threshold")
+            failure_reasons.append("Confidence below threshold")
         
         if not failure_reasons:
             return "pass", []
@@ -806,7 +806,7 @@ class AgentSelectionTestFramework:
                 recommendations.append(f"Pattern type '{pattern_type}' shows low accuracy ({metrics['accuracy_mean']:.2%}).")
         
         if edge_case_handling.get("edge_case_pass_rate", 0) < 0.60:
-            recommendations.append(f"Edge case handling needs significant improvement.")
+            recommendations.append("Edge case handling needs significant improvement.")
         
         if performance_benchmarks["avg_response_time_ms"] > 1000:
             recommendations.append(f"Average response time ({performance_benchmarks['avg_response_time_ms']:.0f}ms) exceeds 1s target.")
@@ -886,26 +886,26 @@ class AgentSelectionTestFramework:
         print("COMPREHENSIVE AGENT SELECTION VALIDATION REPORT")
         print("=" * 80)
         
-        print(f"\nOVERALL PERFORMANCE:")
+        print("\nOVERALL PERFORMANCE:")
         print(f"  Total Patterns Tested: {report.total_patterns_tested}")
         print(f"  Overall Accuracy: {report.overall_accuracy:.2%}")
         print(f"  Domain Coverage Score: {report.domain_coverage_score:.2f}")
         
-        print(f"\nPATTERN TYPE PERFORMANCE:")
+        print("\nPATTERN TYPE PERFORMANCE:")
         for pattern_type, metrics in report.pattern_type_performance.items():
             print(f"  {pattern_type.upper()}:")
             print(f"    Count: {metrics['count']}")
             print(f"    Accuracy: {metrics['accuracy_mean']:.2%}")
             print(f"    Pass Rate: {metrics['pass_rate']:.2%}")
         
-        print(f"\nCOMPLEXITY LEVEL PERFORMANCE:")
+        print("\nCOMPLEXITY LEVEL PERFORMANCE:")
         for complexity, metrics in report.complexity_level_performance.items():
             print(f"  {complexity.upper()}:")
             print(f"    Count: {metrics['count']}")
             print(f"    Accuracy: {metrics['accuracy_mean']:.2%}")
             print(f"    Pass Rate: {metrics['pass_rate']:.2%}")
         
-        print(f"\nEDGE CASE HANDLING:")
+        print("\nEDGE CASE HANDLING:")
         for metric, value in report.edge_case_handling.items():
             if isinstance(value, float):
                 if 'rate' in metric or 'accuracy' in metric:
@@ -915,7 +915,7 @@ class AgentSelectionTestFramework:
             else:
                 print(f"  {metric.replace('_', ' ').title()}: {value}")
         
-        print(f"\nIMPROVEMENT RECOMMENDATIONS:")
+        print("\nIMPROVEMENT RECOMMENDATIONS:")
         for i, recommendation in enumerate(report.improvement_recommendations, 1):
             print(f"  {i}. {recommendation}")
         

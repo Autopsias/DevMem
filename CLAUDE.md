@@ -52,24 +52,28 @@ The Claude Code Framework provides intelligent agent coordination following Anth
 - **Sequential Intelligence**: Multi-step problems trigger coordinated agent workflows
 - **Memory Patterns**: @import references for consistent coordination patterns
 
-### Agent Learning Testing Implementation
+### Integrated Validation Framework
 
-Comprehensive test suite for validating Claude Code agent learning capabilities:
+Unified validation system that consolidates all Claude Code agent testing:
 
 ```bash
-# Run core agent learning validation
+# Run all validation suites (recommended)
+python validate.py
+
+# Run specific validation suite
+python validate.py --suite learning    # Agent learning validation
+python validate.py --suite agents      # Agent framework structure validation  
+python validate.py --suite config      # Configuration validation
+
+# List available validation suites
+python validate.py --list
+
+# Run via pytest (alternative)
+pytest tests/test_integrated_validation_framework.py -v
+
+# Legacy individual test suites (still available)
 pytest tests/test_claude_code_agent_learning.py -v
-
-# Run specific test categories
-pytest tests/test_claude_code_agent_learning.py::TestTaskToolIntegration -v
-pytest tests/test_claude_code_agent_learning.py::TestLearningPatternValidation -v
-pytest tests/test_claude_code_agent_learning.py::TestMemorySystemPerformance -v
-
-# Run enhanced agent selection validation  
 pytest tests/test_agent_selection_validation.py::TestCoordinationHubLearningValidation -v
-
-# Run complete validation suite
-pytest tests/test_claude_code_agent_learning.py tests/test_agent_selection_validation.py -v
 ```
 
 #### Key Test Validations

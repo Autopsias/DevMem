@@ -1,76 +1,76 @@
 {
-  "total_tests": 63,
+  "total_tests": 210,
   "accuracy_rate": 0.3833333333333333,
-  "avg_response_time": 5.778433784605965e-05,
+  "avg_response_time": 5.722613561721075e-05,
   "avg_confidence": 0.2,
   "context_preservation_rate": 0.8896825396825396,
   "difficulty_breakdown": {
     "easy": {
-      "count": 15,
+      "count": 50,
       "accuracy": 0.6,
-      "avg_response_time": 9.845097859700521e-05,
+      "avg_response_time": 6.473064422607422e-05,
       "context_preservation": 0.96
     },
     "medium": {
-      "count": 21,
+      "count": 70,
       "accuracy": 0.34285714285714286,
-      "avg_response_time": 4.526547023228237e-05,
+      "avg_response_time": 4.7475951058524e-05,
       "context_preservation": 0.9285714285714285
     },
     "hard": {
-      "count": 15,
+      "count": 50,
       "accuracy": 0.27999999999999997,
-      "avg_response_time": 4.897117614746094e-05,
+      "avg_response_time": 7.4005126953125e-05,
       "context_preservation": 0.8566666666666667
     },
     "edge_case": {
-      "count": 12,
+      "count": 40,
       "accuracy": 0.3125,
-      "avg_response_time": 3.987550735473633e-05,
+      "avg_response_time": 4.393458366394043e-05,
       "context_preservation": 0.775
     }
   },
   "agent_performance": {
-    "code-quality-specialist": {
-      "selections": 3,
+    "security-auditor": {
+      "selections": 10,
       "accuracy": 0.5,
-      "avg_response_time": 0.00031638145446777344,
+      "avg_response_time": 0.00014433860778808593,
       "avg_confidence": 0.0
     },
     "test-specialist": {
-      "selections": 3,
+      "selections": 10,
       "accuracy": 0.8,
-      "avg_response_time": 5.157788594563802e-05,
+      "avg_response_time": 4.892349243164062e-05,
       "avg_confidence": 0.6400000000000001
     },
     "meta-coordinator": {
-      "selections": 6,
+      "selections": 20,
       "accuracy": 0.5249999999999999,
-      "avg_response_time": 4.760424296061198e-05,
+      "avg_response_time": 5.025863647460938e-05,
       "avg_confidence": 0.9
     },
     "security-enforcer": {
-      "selections": 3,
+      "selections": 10,
       "accuracy": 0.8,
-      "avg_response_time": 4.402796427408854e-05,
+      "avg_response_time": 4.6324729919433596e-05,
       "avg_confidence": 0.6400000000000001
     },
     "digdeep": {
-      "selections": 30,
+      "selections": 100,
       "accuracy": 0.27999999999999997,
-      "avg_response_time": 4.2827924092610675e-05,
+      "avg_response_time": 4.556179046630859e-05,
       "avg_confidence": 0.0
     },
     "analysis-gateway": {
-      "selections": 6,
+      "selections": 20,
       "accuracy": 0.3,
-      "avg_response_time": 5.547205607096354e-05,
+      "avg_response_time": 6.029605865478516e-05,
       "avg_confidence": 0.5599999999999999
     },
     "docker-specialist": {
-      "selections": 12,
+      "selections": 40,
       "accuracy": 0.375,
-      "avg_response_time": 4.1762987772623696e-05,
+      "avg_response_time": 7.135868072509766e-05,
       "avg_confidence": 0.0
     }
   },
