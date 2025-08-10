@@ -1,0 +1,90 @@
+name: Production Deployment
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment (staging or production)'
+        required: true
+        default: 'staging'
+
+env:
+  STAGING_URL: https://api-staging.example.com
+  PRODUCTION_URL: https://api.example.com
+
+jobs:
+  validate:
+    name: Validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run validation suite
+        run: python validate.py --suite production
+      - name: Run load testing
+        run: python validate.py --suite load --requests 5000
+      - name: Run security validation
+        run: python validate.py --suite security --comprehensive
+
+  staging-deploy:
+    name: Staging Deployment
+    needs: validate
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+      url: ${{ env.STAGING_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure environment
+        run: |
+          echo "Setting up staging environment"
+          ./deploy/configure_environment.sh staging
+      - name: Deploy to staging
+        run: |
+          echo "Deploying to staging environment"
+          ./deploy/deploy.sh staging
+      - name: Run health checks
+        run: |
+          ./deploy/health_check.sh staging
+          python validate.py --suite deployment --environment staging
+
+  production-approval:
+    name: Production Approval
+    needs: staging-deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: production-approval
+    steps:
+      - name: Approval check
+        run: echo "Production deployment approved"
+
+  production-deploy:
+    name: Production Deployment
+    needs: production-approval
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ env.PRODUCTION_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure environment
+        run: |
+          echo "Setting up production environment"
+          ./deploy/configure_environment.sh production
+      - name: Deploy to production
+        run: |
+          echo "Deploying to production environment"
+          ./deploy/deploy.sh production
+      - name: Run health checks
+        run: |
+          ./deploy/health_check.sh production
+          python validate.py --suite deployment --environment production

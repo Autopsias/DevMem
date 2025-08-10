@@ -18,5 +18,15 @@
     "resource_usage_mb": 0.0,
     "coordination_success": 0.92,
     "test_scenarios_count": 16
+  },
+  {
+    "timestamp": "2025-08-10T00:40:32.619583",
+    "selection_speed_ms": 0.1784272535587661,
+    "selection_accuracy": 0.4375,
+    "memory_access_ms": 1.2562058109324425,
+    "context_preservation": 0.97,
+    "resource_usage_mb": 0.0,
+    "coordination_success": 0.92,
+    "test_scenarios_count": 16
   }
 ]

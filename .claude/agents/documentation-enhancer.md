@@ -1,6 +1,6 @@
 ---
 name: documentation-enhancer
-description: Comprehensive documentation creation and enhancement specialist. Use for "create docs", "API documentation", "README generation", "technical writing", "user guides", "markdown formatting", "documentation automation", and all documentation-related tasks.
+description: Use PROACTIVELY for comprehensive documentation creation and enhancement. Use for "create docs", "API documentation", "README generation", "technical writing", "user guides", "markdown formatting", "documentation automation", and all documentation-related tasks.
 tools: Edit, MultiEdit, Read, mcp__exa__web_search_exa, mcp__perplexity-ask__perplexity_ask
 ---
 

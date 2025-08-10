@@ -1,9 +1,9 @@
 ---
-name: code-quality-specialist
 description: Use PROACTIVELY for code quality issues, security vulnerabilities, and compliance problems. Perfect when users need code review, quality check, security scan, fix code quality, check for vulnerabilities, linting errors, code standards, security analysis, quality issues, compliance problems, analyze code quality, evaluate security posture, assess code compliance, plan quality improvements, comprehensive quality analysis, systematic security evaluation, design quality strategy, investigate quality issues, or need quality coordination.
+name: code-quality-specialist
 tools:
 - Read
-- Edit 
+- Edit
 - Grep
 - Task
 ---

@@ -1,0 +1,16 @@
+{
+    "api": {
+        "url": "https://api.example.com",
+        "rate_limit": 5000,
+        "timeout_seconds": 30
+    },
+    "resources": {
+        "max_memory_mb": 2000,
+        "max_cpu_percent": 80,
+        "worker_count": 25
+    },
+    "monitoring": {
+        "dashboard_url": "https://metrics.example.com",
+        "alert_webhook": "https://alerts.example.com/webhook"
+    }
+}

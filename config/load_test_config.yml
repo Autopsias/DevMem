@@ -1,0 +1,91 @@
+load_test_profiles:
+  development:
+    requests_per_hour: 100
+    max_concurrent: 5
+    test_duration_seconds: 10
+    memory_limit_mb: 512
+    cpu_limit_percent: 50
+    
+  staging:
+    requests_per_hour: 1000
+    max_concurrent: 15
+    test_duration_seconds: 60
+    memory_limit_mb: 1024
+    cpu_limit_percent: 60
+    
+  production:
+    requests_per_hour: 5000
+    max_concurrent: 25
+    test_duration_seconds: 300
+    memory_limit_mb: 2048
+    cpu_limit_percent: 70
+    
+performance_targets:
+  response_time:
+    average_ms: 30
+    p50_ms: 25
+    p95_ms: 50
+    p99_ms: 100
+    max_ms: 200
+    
+  success_rate:
+    minimum_percent: 99.5
+    target_percent: 99.9
+    
+  resource_usage:
+    max_memory_mb: 2048
+    max_cpu_percent: 70
+    max_file_handles: 1000
+    max_threads: 100
+    
+test_scenarios:
+  sustained_load:
+    description: "Sustained high-volume load test"
+    duration_minutes: 60
+    ramp_up_seconds: 30
+    requests_per_hour: 5000
+    pattern_distribution:
+      sequential: 40
+      parallel: 40
+      meta: 20
+      
+  burst_load:
+    description: "Burst load handling test"
+    normal_rps: 50
+    burst_rps: 500
+    burst_duration_seconds: 10
+    recovery_time_seconds: 30
+    
+  concurrent_execution:
+    description: "Maximum concurrent execution test"
+    concurrent_patterns: 25
+    pattern_complexity: high
+    execution_timeout_seconds: 5
+    
+  memory_stress:
+    description: "Memory usage under stress"
+    pattern_size_kb: 100
+    total_patterns: 1000
+    concurrent_processing: 25
+    
+  cpu_stress:
+    description: "CPU usage under stress"
+    computational_complexity: high
+    parallel_workers: 25
+    test_duration_seconds: 60
+    
+monitoring:
+  metrics_collection_interval_ms: 100
+  metrics_aggregation_window_seconds: 10
+  alert_thresholds:
+    response_time_p95_ms: 50
+    error_rate_percent: 0.5
+    memory_usage_mb: 1800
+    cpu_usage_percent: 75
+    
+reporting:
+  output_format: json
+  include_percentiles: [50, 75, 90, 95, 99]
+  include_time_series: true
+  graph_generation: true
+  summary_report: true

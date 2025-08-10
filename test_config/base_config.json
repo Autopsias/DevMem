@@ -1,0 +1,28 @@
+{
+    "service": {
+        "name": "pattern-service",
+        "version": "1.0.0",
+        "log_level": "INFO",
+        "metrics_enabled": true,
+        "monitoring": {
+            "enabled": true,
+            "interval": 60,
+            "retention_days": 30
+        },
+        "cache": {
+            "enabled": true,
+            "max_size": 1000,
+            "ttl_seconds": 3600
+        }
+    },
+    "validation": {
+        "batch_size": 25,
+        "timeout_seconds": 30,
+        "retry_count": 3
+    },
+    "security": {
+        "tls_enabled": true,
+        "min_tls_version": "1.2",
+        "cert_rotation_days": 90
+    }
+}

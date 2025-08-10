@@ -1,0 +1,35 @@
+api:
+  url: https://api-staging.example.com
+  rate_limit: 1000
+  timeout_seconds: 30
+
+patterns:
+  batch_size: 25
+  max_concurrent: 10
+  cache_size: 1000
+  validation_timeout: 30
+
+resources:
+  max_memory_mb: 1500
+  max_cpu_percent: 70
+  worker_count: 10
+
+monitoring:
+  metrics_interval: 60
+  retention_days: 7
+  dashboard_url: https://metrics-staging.example.com
+  alert_webhook: https://alerts-staging.example.com/webhook
+
+security:
+  tls_enabled: true
+  min_tls_version: "1.2"
+  cert_rotation_days: 90
+  access_control:
+    enabled: true
+    role_based: true
+    mfa_required: false
+
+compliance:
+  audit_logging: true
+  data_retention_days: 30
+  privacy_filters: true

@@ -1,6 +1,6 @@
 ---
 name: synthesis-coordinator
-description: Use to consolidate findings from parallel agent execution into unified solutions. Specialized in multi-agent result integration, conflict resolution, and comprehensive solution development. Coordinates results from 4+ parallel agents into actionable implementation plans.
+description: Use PROACTIVELY to consolidate findings from parallel agent execution into unified solutions. Specialized in multi-agent result integration, conflict resolution, and comprehensive solution development. Coordinates results from 4+ parallel agents into actionable implementation plans.
 tools: Read, Edit, MultiEdit, Task
 ---
 

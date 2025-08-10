@@ -1,0 +1,35 @@
+api:
+  url: https://api.example.com
+  rate_limit: 5000
+  timeout_seconds: 30
+
+patterns:
+  batch_size: 50
+  max_concurrent: 25
+  cache_size: 5000
+  validation_timeout: 30
+
+resources:
+  max_memory_mb: 4000
+  max_cpu_percent: 80
+  worker_count: 25
+
+monitoring:
+  metrics_interval: 30
+  retention_days: 90
+  dashboard_url: https://metrics.example.com
+  alert_webhook: https://alerts.example.com/webhook
+
+security:
+  tls_enabled: true
+  min_tls_version: "1.2"
+  cert_rotation_days: 90
+  access_control:
+    enabled: true
+    role_based: true
+    mfa_required: true
+
+compliance:
+  audit_logging: true
+  data_retention_days: 90
+  privacy_filters: true
